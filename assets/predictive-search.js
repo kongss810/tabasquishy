@@ -15,6 +15,10 @@ class PredictiveSearch {
     this.setupEventListeners();
   }
 
+  getResultsRenderTarget() {
+    return this.resultsContainer || this.predictiveSearchResults;
+  }
+
   setupEventListeners() {
     this.form.addEventListener('submit', this.onFormSubmit.bind(this));
 
@@ -51,8 +55,9 @@ class PredictiveSearch {
 
     if (!searchTerm.length) {
       this.predictiveSearchResults.classList.remove('active', 'loading');
-      if (this.resultsContainer) {
-        this.resultsContainer.innerHTML = '';
+      const resultsRenderTarget = this.getResultsRenderTarget();
+      if (resultsRenderTarget) {
+        resultsRenderTarget.innerHTML = '';
       }
       return;
     }
@@ -104,8 +109,9 @@ class PredictiveSearch {
   }
 
   renderSearchResults(resultsMarkup) {
-    if (this.resultsContainer) {
-      this.resultsContainer.innerHTML = resultsMarkup;
+    const resultsRenderTarget = this.getResultsRenderTarget();
+    if (resultsRenderTarget) {
+      resultsRenderTarget.innerHTML = resultsMarkup;
     }
 
     let _this = this,
