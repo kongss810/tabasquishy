@@ -261,9 +261,6 @@
   .ml-6 {
     margin-left: calc(var(--spacing) * 6);
   }
-  .ml-\[6px\] {
-    margin-left: 6px;
-  }
   .ml-auto {
     margin-left: auto;
   }
@@ -588,9 +585,6 @@
   .list-none {
     list-style-type: none;
   }
-  .grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -809,9 +803,6 @@
   .bg-\[linear-gradient\(90deg\,\#ED8E25_0\%\,\#E40078_100\%\)\] {
     background-image: linear-gradient(90deg,#ED8E25 0%,#E40078 100%);
   }
-  .bg-\[linear-gradient\(90deg\,\#EE8F25_0\%\,\#E40078_100\%\)\] {
-    background-image: linear-gradient(90deg,#EE8F25 0%,#E40078 100%);
-  }
   .bg-\[url\(\'https\:\/\/cdn\.shopify\.com\/s\/files\/1\/0606\/0690\/6412\/files\/Vector_6\.png\?v\=1779418964\'\)\] {
     background-image: url('https://cdn.shopify.com/s/files/1/0606/0690/6412/files/Vector_6.png?v=1779418964');
   }
@@ -863,9 +854,6 @@
   .px-\[0\] {
     padding-inline: 0;
   }
-  .px-\[6px\] {
-    padding-inline: 6px;
-  }
   .px-\[12px\] {
     padding-inline: 12px;
   }
@@ -907,9 +895,6 @@
   }
   .py-\[12px\] {
     padding-block: 12px;
-  }
-  .py-\[13px\] {
-    padding-block: 13px;
   }
   .py-\[14\.5px\] {
     padding-block: 14.5px;
@@ -990,9 +975,6 @@
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
-  .text-\[10px\] {
-    font-size: 10px;
-  }
   .text-\[14px\] {
     font-size: 14px;
   }
@@ -1004,9 +986,6 @@
   }
   .text-\[20px\] {
     font-size: 20px;
-  }
-  .text-\[22px\] {
-    font-size: 22px;
   }
   .text-\[24px\] {
     font-size: 24px;
@@ -1109,10 +1088,6 @@
     --tw-tracking: -0.2px;
     letter-spacing: -0.2px;
   }
-  .tracking-\[-0\.3px\] {
-    --tw-tracking: -0.3px;
-    letter-spacing: -0.3px;
-  }
   .tracking-\[-0\.24px\] {
     --tw-tracking: -0.24px;
     letter-spacing: -0.24px;
@@ -1124,10 +1099,6 @@
   .tracking-\[-0\.48px\] {
     --tw-tracking: -0.48px;
     letter-spacing: -0.48px;
-  }
-  .tracking-\[-0\.66px\] {
-    --tw-tracking: -0.66px;
-    letter-spacing: -0.66px;
   }
   .tracking-\[-1\%\] {
     --tw-tracking: -1%;

@@ -162,6 +162,24 @@
     max-height: 611px;
     background-color: #fff;
 }
+.side-panel-content--has-tabs .predictive-search-loading {
+    display: none;
+}
+.side-panel-content--has-tabs.loading .predictive-search-loading {
+    display: block;
+    min-height: 611px;
+    position: relative;
+}
+.side-panel-content--has-tabs.loading .predictive-search-loading .container {
+    min-height: 611px;
+    position: relative;
+}
+.side-panel-content--has-tabs.loading .predictive-search-loading .loading-overlay {
+    display: block;
+}
+.side-panel-content--has-tabs.loading .predictive-search-results {
+    display: none;
+}
 .predictive_searchBox_left,
 .predictive_searchBox_rightBottom {
     overflow: auto;

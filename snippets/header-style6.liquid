@@ -102,7 +102,16 @@
                     </form>
                 </div>
                 {%- if settings.predictive_search_enabled -%}
-                    <div class='side-panel-content side-panel-content--has-tabs'></div>
+                    <div class='side-panel-content side-panel-content--has-tabs'>
+                        <div class='predictive_search_box predictive-search-loading'>
+                            <div class='container'>
+                                <span class='loading-overlay'>
+                                    {%- render 'svg-icons' with 'thb-loading' -%}
+                                </span>
+                            </div>
+                        </div>
+                        <div class='predictive-search-results'></div>
+                    </div>
                 {%- endif -%}
                 <div class='side-panel-content--block'>
                     <div class='predictive_search_box'>

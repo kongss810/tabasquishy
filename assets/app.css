@@ -3798,13 +3798,13 @@ h6,
         top: calc(var(--header-height, 0px));
         width: 100%;
         height: calc(100vh - (var(--header-height, 0px))) !important;
-        overflow-y: auto;
+        overflow: hidden;
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
         z-index: 9999;
     }
 
     /* 没有搜索结果时隐藏 */
-    .header-native-search .side-panel-content--has-tabs:empty {
+    .header-native-search .side-panel-content--has-tabs:not(.active) {
         display: none !important;
     }
     .side-panel-content--has-tabs.active {

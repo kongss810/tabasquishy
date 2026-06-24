@@ -10,6 +10,7 @@ class PredictiveSearch {
     this.input = this.container.querySelector('input[type="search"]');
     this.defaultTab = this.container.querySelector('.side-panel-content--initial');
     this.predictiveSearchResults = this.container.querySelector('.side-panel-content--has-tabs');
+    this.resultsContainer = this.predictiveSearchResults?.querySelector('.predictive-search-results');
 
     this.setupEventListeners();
   }
@@ -49,7 +50,10 @@ class PredictiveSearch {
     const searchTerm = this.getQuery();
 
     if (!searchTerm.length) {
-      this.predictiveSearchResults.classList.remove('active');
+      this.predictiveSearchResults.classList.remove('active', 'loading');
+      if (this.resultsContainer) {
+        this.resultsContainer.innerHTML = '';
+      }
       return;
     }
     this.predictiveSearchResults.classList.add('active');
@@ -79,7 +83,6 @@ class PredictiveSearch {
 
     fetch(`${theme.routes.predictive_search_url}?q=${encodeURIComponent(searchTerm)}&${encodeURIComponent('resources[type]')}=product,article,query&${encodeURIComponent('resources[limit]')}=10&section_id=predictive-search`)
       .then((response) => {
-        this.predictiveSearchResults.classList.remove('loading');
         if (!response.ok) {
           var error = new Error(response.status);
           throw error;
@@ -94,15 +97,21 @@ class PredictiveSearch {
       })
       .catch((error) => {
         throw error;
+      })
+      .finally(() => {
+        this.predictiveSearchResults.classList.remove('loading');
       });
   }
 
   renderSearchResults(resultsMarkup) {
-    this.predictiveSearchResults.innerHTML = resultsMarkup;
+    if (this.resultsContainer) {
+      this.resultsContainer.innerHTML = resultsMarkup;
+    }
 
     let _this = this,
       submitButton = this.container.querySelector('#search-results-submit');
 
+    if (!submitButton) return;
 
     submitButton.addEventListener('click', () => {
       _this.form.submit();

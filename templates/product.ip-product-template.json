@@ -94,8 +94,6 @@
         "offer_g6zFTE": {
           "type": "offer",
           "settings": {
-            "metaobject_namespace": "custom",
-            "metaobject_key": "product_offer",
             "offer_style": "coupon",
             "background_image": "shopify://shop_images/Group_2147241497.png",
             "background_color": "",
@@ -123,8 +121,6 @@
         "offer_GABRd7": {
           "type": "offer",
           "settings": {
-            "metaobject_namespace": "custom",
-            "metaobject_key": "product_offer",
             "offer_style": "countdown",
             "background_image": "shopify://shop_images/Frame_2147241591.png",
             "background_color": "",

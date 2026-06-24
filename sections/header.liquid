@@ -159,6 +159,15 @@
             } 
 
             function handleScroll() {
+                if (document.body.classList.contains('search-overlay-open')) {
+                    [headerAll, announcementAll].forEach((el) => {
+                        if (el) el.style.transform = 'translateY(0)';
+                    });
+                    lastScrollY = window.scrollY;
+                    ticking = false;
+                    return;
+                }
+
                 const currentScrollY = window.scrollY;
                 const scrollingUp = currentScrollY < lastScrollY;
                 const headerHeight = getHeaderHeight();
@@ -225,7 +234,11 @@
                 input.value = '';
 
                 if (results) {
-                    results.innerHTML = '';
+                    const resultsContainer = results.querySelector('.predictive-search-results');
+                    if (resultsContainer) {
+                        resultsContainer.innerHTML = '';
+                    }
+                    results.classList.remove('loading', 'active');
                 }
 
                 input.focus();
@@ -401,6 +414,7 @@
             document.body.style.paddingRight = '';
         };
         const syncScroll = () => {
+            document.body.classList.toggle('search-overlay-open', isAnyOpen());
             if (isAnyOpen()) {
                 lockScroll();
             } else {
@@ -410,9 +424,20 @@
         const scrollObserver = new MutationObserver(syncScroll);
         overlays.forEach((el) => scrollObserver.observe(el, { attributes: true, attributeFilter: ['class'] }));
 
+        const searchRoot = document.querySelector('.header-native-search');
+        const isSearchContent = (target) => {
+            if (!target) return false;
+            return !!(
+                target.closest('.predictive_searchBox') ||
+                target.closest('.predictive_search_box') ||
+                target.closest('.predictive-search-results') ||
+                target.closest('.predictive-search-loading')
+            );
+        };
+
         // 关闭：两层一起收起并释放滚动锁定
         const closeBox = () => {
-            overlays.forEach((el) => el.classList.remove('active'));
+            overlays.forEach((el) => el.classList.remove('active', 'loading'));
             input.blur();
             syncScroll();
         };
@@ -427,7 +452,18 @@
         // 根据输入内容切换显示层：有内容→结果层(has-tabs)，无内容→推荐层(block)
         const updateLayers = () => {
             const hasText = input.value.trim().length > 0;
-            if (results) results.classList.toggle('active', hasText);
+            if (results) {
+                results.classList.toggle('active', hasText);
+                if (hasText) {
+                    results.classList.add('loading');
+                } else {
+                    results.classList.remove('loading');
+                    const resultsContainer = results.querySelector('.predictive-search-results');
+                    if (resultsContainer) {
+                        resultsContainer.innerHTML = '';
+                    }
+                }
+            }
             block.classList.toggle('active', !hasText);
         };
 
@@ -449,7 +485,7 @@
             });
         }
 
-        // ✅ 打开：input focus，按内容显示对应层；已有内容则触发搜索
+        // 打开：input focus，按内容显示对应层；已有内容则触发搜索
         input.addEventListener('focus', () => {
             // 打开前刷新 --header-height，避免未滚动时取到过早/过期的高度导致弹窗顶部错位
             window.dispatchEvent(new Event('scroll'));
@@ -459,32 +495,27 @@
             }
         });
 
-        // ✅ 失去焦点：关闭弹窗(点击内容区已 preventDefault 保持焦点，不会误关)
-        input.addEventListener('blur', () => {
-            closeBox();
-        });
-
         overlays.forEach((el) => {
-            // ✅ 点击内容区(.predictive_searchBox)：保持 input 焦点、不关闭
+            // 点击弹窗内容区：保持 input 焦点，避免点加购/链接时 blur 误关
             el.addEventListener('mousedown', (e) => {
-                if (e.target.closest('.predictive_searchBox')) {
+                if (e.target === input || e.target.closest('.predictive_search_clear')) return;
+                if (isSearchContent(e.target)) {
                     e.preventDefault();
                 }
             });
-            // ✅ 点击弹窗内容区以外的剩余遮罩部分：关闭
+            // 点击遮罩空白区域：关闭
             el.addEventListener('click', (e) => {
-                if (!e.target.closest('.predictive_searchBox')) {
+                if (!isSearchContent(e.target)) {
                     closeBox();
                 }
             });
         });
 
-        // ✅ 点击整个弹窗外部：关闭
-        document.addEventListener('click', (e) => {
-            const isInside = header.contains(e.target) || overlays.some((el) => el.contains(e.target));
-            if (!isInside) {
-                closeBox();
-            }
+        // 点击搜索区域外部：关闭
+        document.addEventListener('mousedown', (e) => {
+            if (!isAnyOpen()) return;
+            if (searchRoot && searchRoot.contains(e.target)) return;
+            closeBox();
         });
 
         // ✅ ESC 关闭
