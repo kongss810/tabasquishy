@@ -1,0 +1,27 @@
+<li class='mega-menu-promotionList flex-1'>
+    <div class='mega-menu-promotion max-[1440px]:flex max-[1440px]:items-center  max-[1440px]:gap-[20px]'>
+        <div class='mega-menu-promotion--image relative overflow-hidden rounded-[15px] max-[1440px]:w-[50%]'>
+            <img
+                src='{{ promotion_image | img_url:'1000x'}}'
+                width='100%'
+                height='auto'
+            >
+            {%- if promotion_button != blank -%}
+                <a
+                    href='{{ promotion_link }}'
+                    class='megaMenu_promotion_button megaMenu_promotion_button !absolute right-0 bottom-[32px] left-0 !mx-auto !flex h-[43px] w-max items-center justify-center rounded-[100px] bg-[#FCD454] px-[0] px-[48px] text-[16px] leading-[150%] font-[500] text-[#333]'
+                >
+                    {{ promotion_button }}
+                </a>
+            {%- endif -%}
+        </div>
+        <div class='mega-menu-promotion--content max-[1440px]:mt-0 max-[1440px]:w-[50%]'>
+            {%- if promotion_heading -%}
+                <div class='mega-menu-promotion--title text-[24px] leading-[120%] font-[600] tracking-[-0.24px]'>{{ promotion_heading }}</div>
+            {%- endif -%}
+            {%- if promotion_content -%}
+                <div class='mega-menu-promotion--text mt-[12px] text-[16px] leading-[150%]'>{{ promotion_content }}</div>
+            {%- endif -%}
+        </div>
+    </div>
+</li>

@@ -1,0 +1,378 @@
+{%- render 'section-spacing', section: section -%}
+<link
+    rel='stylesheet'
+    href='{{ 'swiper.css' | asset_url }}'
+>
+<script src='{{ 'swiper.js' | asset_url }}'></script>
+
+<style>
+    .product-certified-container p {
+        margin: 0;
+    }
+
+    .product-certified-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 52px;
+    }
+
+    .product-certified-svg {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .product-certified-svg-container {
+        padding: 0 34px;
+        border-right: 1px dashed rgba(26, 26, 26, 0.4);
+    }
+
+    .product-certified-svg-container:first-child {
+        padding-left: 0;
+    }
+
+    .product-certified-svg-container:last-child {
+        border: unset;
+    }
+
+    .product-certified-header {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 24px;
+        align-self: stretch;
+    }
+
+    .product-certified-header-title {
+        margin: 0;
+    }
+
+    .product-certified-header-title p {
+        color: #1a1a1a;
+        font-size: 64px;
+        line-height: 120%; /* 76.8px */
+        font-weight: 600;
+    }
+
+    .product-certified-header-description p {
+        color: #333;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%; /* 24px */
+    }
+    .product-certified-header-description strong {
+        font-weight: 700;
+    }
+
+    .product-certified-cards {
+        display: flex;
+        align-items: flex-end;
+        gap: 120px;
+        align-self: stretch;
+        width: 100%;
+        position: relative;
+    }
+
+    .product-certified-container .swiper-father {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .product-certified-container .swiper {
+        width: 100%;
+        overflow: visible;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .product_certifiedAll {
+            padding: unset;
+        }
+        .product-certified-container .swiper {
+            overflow: unset;
+        }
+        .product-certified-container {
+            gap: 32px;
+        }
+
+        .product-certified-svg-container:first-child {
+            padding: 0 20px;
+        }
+
+        .product-certified-svg {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .product-certified-svg-container {
+            padding: 0 20px;
+        }
+        .product-certified-header {
+            gap: 16px;
+            padding: 0 16px;
+        }
+        .product-certified-header-title p {
+            font-size: 32px;
+        }
+
+        .product-certified-header-description p {
+            font-size: 14px;
+        }
+
+        .product-certified-header-description {
+            text-align: center;
+        }
+
+        .product-certified-header {
+            text-align: center;
+        }
+
+        .product-certified-header-title {
+            width: 100%;
+        }
+
+        .product-certified-container .swiper-slide {
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transform-origin: center center;
+        }
+
+        .product-certified-container .swiper-slide {
+            transform: scale(0.64);
+        }
+
+        .product-certified-container .swiper-slide-active {
+            transform: scale(1);
+        }
+
+        .product-certified-svg-container img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+</style>
+
+<div class='product_certifiedAll container'>
+    <div class='product-certified-container'>
+        <div class='product-certified-svg'>
+            {% for block in section.blocks %}
+                {% if block.type == 'svg_item' %}
+                    <div class='product-certified-svg-container'>
+                        {% if block.settings.svg != blank %}
+                            {% render 'section-img', img: block.settings.svg, width: 64 %}
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class='product-certified-header'>
+            {% if section.settings.title != blank %}
+                <h2 class='product-certified-header-title'>{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.description != blank %}
+                <div class='product-certified-header-description'>{{ section.settings.description }}</div>
+            {% endif %}
+        </div>
+        <!-- 卡片轮播区域（带进度条和按钮） -->
+        {% assign image_blocks = section.blocks | where: 'type', 'img_item' %}
+        {% if image_blocks.size > 0 %}
+            <div class='product-certified-cards'>
+                <div class='swiper-father'>
+                    <div class='swiper'>
+                        <div
+                            class='swiper-wrapper'
+                            aria-live='polite'
+                        >
+                            {% for block in image_blocks %}
+                                {% if block.settings.image != blank %}
+                                    <div class='swiper-slide'>
+                                        <div class='product-certified-card img_hover'>
+                                            {% render 'section-img', img: block.settings.image, width: 453, class: 'hover_img' %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class='swiper-buttons sm:mt-[52px mt-[32px] hidden items-center justify-between gap-[20px] sm:!flex'>
+                        <div class='swiper_buttons_left'>
+                            <div class='swiper-pagination'></div>
+                        </div>
+                        <div class='swiper_buttons_right'>
+                            <div class='swiper-button-prev'>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='11'
+                                    height='23'
+                                    viewBox='0 0 11 23'
+                                    fill='none'
+                                >
+                                    <path d="M9.67364 2.32616L0.999802 11L9.67364 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class='swiper-button-next'>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='11'
+                                    height='23'
+                                    viewBox='0 0 11 23'
+                                    fill='none'
+                                >
+                                    <path d="M1.05973 2.32616L9.73358 11L1.05973 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sectionId = 'shopify-section-{{ section.id }}';
+        let productSwiper = null;
+
+        function initSwiper() {
+            const isMobile = window.innerWidth < 1024;
+            const swiperConfig = {
+                navigation: {
+                    nextEl: `#${sectionId} .swiper-button-next`,
+                    prevEl: `#${sectionId} .swiper-button-prev`,
+                },
+                pagination: {
+                    el: `#${sectionId} .swiper-pagination`,
+                    type: 'progressbar',
+                    clickable: false,
+                },
+                speed: 400,
+                touchRatio: 1,
+                autoHeight: false,
+                watchOverflow: true,
+                loop: isMobile, // 移动端 true，PC 端 false
+                breakpoints: {
+                    300: {
+                        slidesPerView: 2,
+                        spaceBetween: 0,
+                        centeredSlides: true,
+                    },
+                    700: {
+                        slidesPerView: 2,
+                        spaceBetween: 26,
+                        centeredSlides: true,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 120,
+                        centeredSlides: false, // PC 端不居中
+                    },
+                },
+            };
+
+            // 如果已有实例则销毁（完全删除，避免事件残留）
+            if (productSwiper) {
+                productSwiper.destroy(true, true);
+                productSwiper = null;
+            }
+
+            const swiperContainer = document.querySelector(`#${sectionId} .swiper`);
+            if (!swiperContainer || swiperContainer.querySelectorAll('.swiper-slide').length === 0) {
+                return;
+            }
+            productSwiper = new Swiper(`#${sectionId} .swiper`, swiperConfig);
+        }
+
+        // 初始化
+        initSwiper();
+
+        // 窗口大小改变时重新初始化（防抖处理）
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                initSwiper();
+            }, 150);
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "product certified",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "svg_item",
+            "name": "svg item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "svg",
+                    "label": "svg"
+                }
+            ]
+        },
+        {
+            "type": "img_item",
+            "name": "img item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "product certified"
+        }
+    ]
+}
+{% endschema %}

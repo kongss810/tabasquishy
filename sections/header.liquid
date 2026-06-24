@@ -1,0 +1,824 @@
+{%- liquid
+    assign style = section.settings.style
+    assign sticky_header = section.settings.sticky_header
+    assign transparent_header = false
+    assign logo_height_range = section.settings.logo_height_range
+    assign logo_height_range_mobile = section.settings.logo_height_range_mobile
+    assign header_shadow = section.settings.header_shadow
+
+    if template == 'index'
+        assign transparent_header = section.settings.transparent_header
+    endif
+-%}
+{{ 'header.css' | asset_url | stylesheet_tag }}
+<theme-header
+    id='header'
+    class='header {{ style }} {{ header_shadow }} transparent--{{ transparent_header }} {% if sticky_header %}header-sticky--active{%- endif -%}'
+>
+    <div class='header--inner container py-[20px]'>
+        {%- case style -%}
+            {%- when 'style1' -%}
+                {% render 'header-style1', blocks: section.blocks, header_settings: section.settings %}
+            {%- when 'style2' -%}
+                {% render 'header-style2', blocks: section.blocks, header_settings: section.settings %}
+            {%- when 'style3' -%}
+                {% render 'header-style3', blocks: section.blocks, header_settings: section.settings %}
+            {%- when 'style4' -%}
+                {% render 'header-style4', blocks: section.blocks, header_settings: section.settings %}
+            {%- when 'style5' -%}
+                {% render 'header-style5', blocks: section.blocks, header_settings: section.settings %}
+            {%- when 'style6' -%}
+                {% render 'header-style6', blocks: section.blocks, header_settings: section.settings %}
+        {%- endcase -%}
+    </div>
+    {%- style -%}
+        :root {
+        	--logo-height: {{ logo_height_range | append: 'px' }};
+        	--logo-height-mobile: {{ logo_height_range_mobile | append: 'px' }};
+        }
+        {% unless sticky_header %}
+        .header-section {
+        	position: static !important;
+        }
+        {%- endunless -%}
+    {%- endstyle -%}
+</theme-header>
+{{- 'header.js' | asset_url | script_tag -}}
+
+<script type='application/ld+json'>
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": {{ shop.name | json }},
+      {% if section.settings.logo %}
+        "logo": {{ section.settings.logo | image_url: width: section.settings.logo.width | prepend: "https:" | json }},
+      {% endif %}
+      "sameAs": [
+        {{ settings.social_twitter_link | json }},
+        {{ settings.social_facebook_link | json }},
+        {{ settings.social_pinterest_link | json }},
+        {{ settings.social_instagram_link | json }},
+        {{ settings.social_tiktok_link | json }},
+        {{ settings.social_youtube_link | json }},
+        {{ settings.social_vimeo_link | json }},
+        {{ settings.social_linkedin_link | json }},
+        {{ settings.social_wechat_link | json }}
+      ],
+      "url": {{ shop.url | append: page.url | json }}
+    }
+</script>
+
+{%- if request.page_type == 'collection' -%}
+    <script type='application/ld+json'>
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": {{ collection.title | json }},
+          "description": {{ collection.description | strip_html | json }},
+          "url": {{ shop.url | append: collection.url | json }}
+        }
+    </script>
+    {% if collection.metafields.custom.faq %}
+        {% assign faqs = collection.metafields.custom.faq.value %}
+
+        {% if faqs != blank %}
+            <script type='application/ld+json'>
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  "mainEntity": [
+                    {% for item in faqs %}
+                    {
+                      "@type": "Question",
+                      "name": {{ item.Q | strip_html | json }},
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": {{ item.A | strip_html | json }}
+                      }
+                    }{% unless forloop.last %},{% endunless %}
+                    {% endfor %}
+                  ]
+                }
+            </script>
+        {% endif %}
+    {% endif %}
+{% endif %}
+{%- if request.page_type == 'index' -%}
+    {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
+    <script type='application/ld+json'>
+        {
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "name": {{ shop.name | json }},
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {{ potential_action_target | json }},
+            "query-input": "required name=search_term_string"
+          },
+          "url": {{ request.origin | append: page.url | json }}
+        }
+    </script>
+{%- endif -%}
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        {%- assign slide_to_hide_page = settings.slide_to_hide_page -%}
+        {%- assign suffixList = slide_to_hide_page | split: ',' -%}
+        {%- assign should_hide = false -%}
+        {%- for suffix in suffixList -%}
+            {%- assign trimmed = suffix | strip -%}
+            {%- if request.page_type == trimmed or template.suffix == trimmed -%}
+                {%- assign should_hide = true -%}
+            {%- endif -%}
+        {%- endfor -%}
+        {% if settings.slide_to_hide_header and should_hide == false %}
+            // 滑动隐藏 header
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+            let tabsOriginTop = null; // 缓存 tabs 原始位置
+
+            const headerAll = document.querySelector('.header-section');
+            const announcementAll = document.querySelector('.announcement-bar-section');
+            const tabsEl = document.querySelector('.productMediaKit_tabs');
+    
+            function initStyles() {
+                [headerAll, announcementAll].forEach((el) => {
+                    if (!el) return;
+                    el.style.transition = 'transform 0.3s ease';
+                });
+
+                if (tabsEl) {
+                    tabsEl.style.transition = 'top 0.3s ease';
+                    // 初始化时记录 tabs 距离页面顶部的原始距离
+                    tabsOriginTop = tabsEl.getBoundingClientRect().top + window.scrollY;
+                }
+            }
+
+            function getHeaderHeight() {
+                return (headerAll ? headerAll.offsetHeight : 0) + (announcementAll ? announcementAll.offsetHeight : 0);
+            } 
+
+            function handleScroll() {
+                const currentScrollY = window.scrollY;
+                const scrollingUp = currentScrollY < lastScrollY;
+                const headerHeight = getHeaderHeight();
+                
+                // 滚动距离未超过 headerHeight，不执行
+                if (currentScrollY <= headerHeight) {
+                    [headerAll, announcementAll].forEach((el) => {
+                        if (el) el.style.transform = 'translateY(0)';
+                    });
+                    if (tabsEl) tabsEl.style.top = `${headerHeight}px`;
+                    lastScrollY = currentScrollY;
+                    ticking = false;
+                    return;
+                }
+
+                if (scrollingUp) {
+                    [headerAll, announcementAll].forEach((el) => {
+                        if (el) el.style.transform = 'translateY(0)';
+                    });
+                    if (tabsEl) tabsEl.style.top = `${headerHeight}px`;
+                } else {
+                    [headerAll, announcementAll].forEach((el) => {
+                        if (el) el.style.transform = `translateY(-${headerHeight}px)`;
+                    });
+
+                    if (tabsEl && tabsOriginTop !== null && currentScrollY >= tabsOriginTop - headerHeight) {
+                        tabsEl.style.top = '0px';
+                    }
+                }
+
+                lastScrollY = currentScrollY;
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    requestAnimationFrame(handleScroll);
+                    ticking = true;
+                }
+            });
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initStyles);
+            } else {
+                initStyles();
+            }
+        {% endif %}
+
+        const searchWrap = document.querySelector('.header-native-search');
+        if (!searchWrap) return;
+
+        const input = searchWrap.querySelector('#side-panel-search-input');
+        const closeBtn = searchWrap.querySelector('.side-panel-close');
+        const results = searchWrap.querySelector('.side-panel-content--has-tabs');
+
+        if (!input || !closeBtn) return;
+
+        closeBtn.addEventListener(
+            'click',
+            function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                input.value = '';
+
+                if (results) {
+                    results.innerHTML = '';
+                }
+
+                input.focus();
+            },
+            true,
+        );
+
+
+    });
+
+    /* -------- 导航与内容联动 -------- */
+    document.querySelectorAll('.menu_itemLink').forEach(menuItem => {
+        const cards = menuItem.querySelectorAll('.mega-menu-promotionList');
+        if (!cards.length) return;
+
+        const defaultCards = Array.from(cards).map(card => {
+            const img = card.querySelector('.mega-menu-promotion--image img');
+            const title = card.querySelector('.mega-menu-promotion--title');
+            const text = card.querySelector('.mega-menu-promotion--text');
+            const link = card.querySelector('.megaMenu_promotion_button');
+
+            return {
+                img: img ? img.src : '',
+                title: title ? title.textContent : '',
+                text: text ? text.textContent : '',
+                link: link ? link.href : '',
+            };
+        });
+
+        const fillCards = (items) => {
+            cards.forEach((card, index) => {
+                const img = card.querySelector('.mega-menu-promotion--image img');
+                const title = card.querySelector('.mega-menu-promotion--title');
+                const text = card.querySelector('.mega-menu-promotion--text');
+                const link = card.querySelector('.megaMenu_promotion_button');
+                const defaultCard = defaultCards[index] || {};
+                const data = items[index] || null;
+                const imageSrc = data && data.image ? (typeof data.image === 'string' ? data.image : (data.image.url || data.image.src || '')) : '';
+                const linkHref = data && (data.link || data.url) ? (data.link || data.url) : '';
+
+                if (img) {
+                    img.src = imageSrc || defaultCard.img || img.src;
+                }
+                if (title) {
+                    title.textContent = data && data.title != null ? data.title : defaultCard.title;
+                }
+                if (text) {
+                    text.textContent = data && data.text != null ? data.text : defaultCard.text;
+                }
+                if (link) {
+                    link.href = linkHref || defaultCard.link || link.href;
+                }
+            });
+        };
+
+        const resetToFirst = () => {
+            const firstLi = menuItem.querySelector('.mega-menu-columns__sub-menu .mega_columns_subTitle');
+            if (!firstLi) return;
+
+            if (firstLi.dataset.items) {
+                let items = [];
+                try {
+                    const parsed = JSON.parse(firstLi.dataset.items);
+                    items = Array.isArray(parsed) ? parsed : Object.values(parsed);
+                } catch (e) {}
+                fillCards(items);
+            } else if (firstLi.dataset.image || firstLi.dataset.title) {
+                fillCards([{
+                    image: firstLi.dataset.image || '',
+                    title: firstLi.dataset.title || '',
+                    text: firstLi.dataset.text || '',
+                    link: firstLi.dataset.link || '',
+                }]);
+            } else {
+                fillCards([]);
+            }
+        };
+
+        menuItem.querySelectorAll('.mega-menu-columns__sub-menu li').forEach(li => {
+            li.addEventListener('mouseenter', function() {
+                if (this.dataset.items) {
+                    let items = [];
+                    try {
+                        const parsed = JSON.parse(this.dataset.items);
+                        items = Array.isArray(parsed) ? parsed : Object.values(parsed);
+                    } catch (error) {
+                        fillCards([]);
+                        return;
+                    }
+                    fillCards(items);
+                    return;
+                }
+
+                if (this.dataset.image || this.dataset.title) {
+                    fillCards([{
+                        image: this.dataset.image || '',
+                        title: this.dataset.title || '',
+                        text: this.dataset.text || '',
+                        link: this.dataset.link || '',
+                    }]);
+                    return;
+                }
+
+                fillCards([]);
+            });
+        });
+
+        menuItem.addEventListener('mouseleave', function() {
+            resetToFirst();
+        });
+
+        // 初始化：展示第一个 mega_columns_subTitle 的数据
+        resetToFirst();
+    });
+
+    // 搜索框点击切换
+    document.querySelectorAll('.predictive_rightTopLeft_item').forEach(item => {
+        item.addEventListener('click', function () {
+
+            const wrapper = this.closest('.predictive_searchBox_right');
+            if (!wrapper) return;
+
+            // tabs
+            const items = wrapper.querySelectorAll('.predictive_rightTopLeft_item');
+            const index = Array.from(items).indexOf(this);
+
+            items.forEach(el => el.classList.remove('active'));
+            this.classList.add('active');
+
+            // panels
+            const boxes = wrapper.querySelectorAll('.predictive_searchBox_collectionBox');
+            boxes.forEach(el => el.classList.remove('active'));
+ 
+            if (boxes[index]) {
+            boxes[index].classList.add('active');
+            }
+
+            // ✅ update "View all" link
+            const viewAllLink = wrapper.querySelector('.predictive_rightTopRight');
+
+            if (viewAllLink) {
+            const url = this.dataset.collection;
+
+            if (url) {
+                viewAllLink.setAttribute('href', url);
+            }
+            }
+
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const header = document.querySelector('.side-panel-header');
+        const block = document.querySelector('.side-panel-content--block');
+        const results = document.querySelector('.side-panel-content--has-tabs');
+        const input = header?.querySelector('input');
+
+        if (!header || !block || !input) return;
+
+        // 两个弹层：静态推荐(block) 和 搜索结果(results)，任一打开都视为弹窗开启
+        const overlays = [block, results].filter(Boolean);
+        const isAnyOpen = () => overlays.some((el) => el.classList.contains('active'));
+
+        // 滚动锁定 + 预留滚动条宽度，防止打开搜索弹窗时页面抖动
+        const lockScroll = () => {
+            const sbw = window.innerWidth - document.documentElement.clientWidth;
+            if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
+            document.body.style.overflow = 'hidden';
+        };
+        const unlockScroll = () => {
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        };
+        const syncScroll = () => {
+            if (isAnyOpen()) {
+                lockScroll();
+            } else {
+                unlockScroll();
+            }
+        };
+        const scrollObserver = new MutationObserver(syncScroll);
+        overlays.forEach((el) => scrollObserver.observe(el, { attributes: true, attributeFilter: ['class'] }));
+
+        // 关闭：两层一起收起并释放滚动锁定
+        const closeBox = () => {
+            overlays.forEach((el) => el.classList.remove('active'));
+            input.blur();
+            syncScroll();
+        };
+
+        // 一键清除按钮：输入有内容时显示，点击清空并重置结果
+        const clearBtn = header.querySelector('.predictive_search_clear');
+        const toggleClear = () => {
+            if (clearBtn) {
+                clearBtn.style.display = input.value.trim().length ? 'flex' : 'none';
+            }
+        };
+        // 根据输入内容切换显示层：有内容→结果层(has-tabs)，无内容→推荐层(block)
+        const updateLayers = () => {
+            const hasText = input.value.trim().length > 0;
+            if (results) results.classList.toggle('active', hasText);
+            block.classList.toggle('active', !hasText);
+        };
+
+        input.addEventListener('input', () => {
+            toggleClear();
+            updateLayers();
+        });
+        toggleClear();
+
+        if (clearBtn) {
+            // 点清除按钮时不让输入框失焦(否则会先触发关闭)
+            clearBtn.addEventListener('mousedown', (e) => e.preventDefault());
+            clearBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                input.value = '';
+                toggleClear();
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+                input.focus();
+            });
+        }
+
+        // ✅ 打开：input focus，按内容显示对应层；已有内容则触发搜索
+        input.addEventListener('focus', () => {
+            // 打开前刷新 --header-height，避免未滚动时取到过早/过期的高度导致弹窗顶部错位
+            window.dispatchEvent(new Event('scroll'));
+            updateLayers();
+            if (input.value.trim().length) {
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        });
+
+        // ✅ 失去焦点：关闭弹窗(点击内容区已 preventDefault 保持焦点，不会误关)
+        input.addEventListener('blur', () => {
+            closeBox();
+        });
+
+        overlays.forEach((el) => {
+            // ✅ 点击内容区(.predictive_searchBox)：保持 input 焦点、不关闭
+            el.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.predictive_searchBox')) {
+                    e.preventDefault();
+                }
+            });
+            // ✅ 点击弹窗内容区以外的剩余遮罩部分：关闭
+            el.addEventListener('click', (e) => {
+                if (!e.target.closest('.predictive_searchBox')) {
+                    closeBox();
+                }
+            });
+        });
+
+        // ✅ 点击整个弹窗外部：关闭
+        document.addEventListener('click', (e) => {
+            const isInside = header.contains(e.target) || overlays.some((el) => el.contains(e.target));
+            if (!isInside) {
+                closeBox();
+            }
+        });
+
+        // ✅ ESC 关闭
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeBox();
+            }
+        });
+
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Header",
+    "class": "header-section css-layout",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "sticky_header",
+            "label": "Enable sticky header",
+            "default": true
+        },
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo image",
+            "info": "400 x 68 px .png recommended."
+        },
+        {
+            "type": "range",
+            "id": "logo_height_range",
+            "min": 20,
+            "max": 120,
+            "step": 1,
+            "unit": "px",
+            "label": "Logo height",
+            "default": 30
+        },
+        {
+            "type": "range",
+            "id": "logo_height_range_mobile",
+            "min": 20,
+            "max": 80,
+            "step": 1,
+            "unit": "px",
+            "label": "Mobile logo height",
+            "default": 30
+        },
+        {
+            "type": "select",
+            "id": "style",
+            "label": "Desktop logo position",
+            "default": "style5",
+            "options": [
+                { "value": "style1", "label": "Logo left, menu center" },
+                { "value": "style2", "label": "Logo left, menu left" },
+                { "value": "style3", "label": "Logo center, menu left" },
+                { "value": "style4", "label": "Logo center, menu below" },
+                { "value": "style5", "label": "Logo left, menu below" },
+                { "value": "style6", "label": "Logo left, menu below, search center" }
+            ],
+            "info": "Position is always center for mobile."
+        },
+        {
+            "type": "select",
+            "id": "header_shadow",
+            "label": "Sticky header shadow",
+            "default": "header--shadow-small",
+            "options": [
+                { "value": "header--shadow-none", "label": "None" },
+                { "value": "header--shadow-small", "label": "Small" },
+                { "value": "header--shadow-medium", "label": "Medium" },
+                { "value": "header--shadow-large", "label": "Large" }
+            ]
+        },
+        {
+            "type": "link_list",
+            "id": "menu",
+            "default": "main-menu",
+            "label": "Menu",
+            "info": "Learn how to set up [mega menus](https://documentation.fuelthemes.net/kb/how-do-i-set-up-mega-menus-for-reformation-theme/)."
+        },
+        {
+            "type": "header",
+            "content": "Transparent header"
+        },
+        {
+            "type": "checkbox",
+            "id": "transparent_header",
+            "label": "Enable on homepage",
+            "default": true,
+            "info": "Ensure that you have a Slideshow, Video background, Image with text overlay section as the first section on your homepage."
+        },
+        {
+            "type": "image_picker",
+            "id": "logo_light",
+            "label": "Logo image",
+            "info": "Displayed when transparent header is enabled. Uses the dimensions set on your main logo."
+        },
+        {
+            "type": "header",
+            "content": "Mobile menu"
+        },
+        {
+            "type": "link_list",
+            "id": "mobile_secondary_menu",
+            "label": "Secondary menu",
+            "info": "Secondary menu is shown under the main menu."
+        },
+        {
+            "type": "checkbox",
+            "id": "show_social_links",
+            "label": "Show social links",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_language_switcher",
+            "label": "Enable language switcher",
+            "default": false,
+            "info": "To add a language, go to your [language settings](/admin/settings/languages)."
+        },
+        {
+            "type": "checkbox",
+            "id": "show_currency_switcher",
+            "label": "Enable currency switcher",
+            "default": true,
+            "info": "To add a country/region, go to your [payment settings](/admin/settings/payments)."
+        }
+    ],
+    "blocks": [
+        {
+            "type": "megamenu",
+            "name": "Mega menu",
+            "limit": 10,
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "position",
+                    "label": "Link position in main menu",
+                    "default": "1",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "Item 1"
+                        },
+                        {
+                            "value": "2",
+                            "label": "Item 2"
+                        },
+                        {
+                            "value": "3",
+                            "label": "Item 3"
+                        },
+                        {
+                            "value": "4",
+                            "label": "Item 4"
+                        },
+                        {
+                            "value": "5",
+                            "label": "Item 5"
+                        },
+                        {
+                            "value": "6",
+                            "label": "Item 6"
+                        },
+                        {
+                            "value": "7",
+                            "label": "Item 7"
+                        },
+                        {
+                            "value": "8",
+                            "label": "Item 8"
+                        },
+                        {
+                            "value": "9",
+                            "label": "Item 9"
+                        },
+                        {
+                            "value": "10",
+                            "label": "Item 10"
+                        }
+                    ]
+                },
+                {
+                    "type": "image_picker",
+                    "id": "special_icon",
+                    "label": "special icon"
+                },
+                {
+                    "type": "header",
+                    "content": "Promotion 1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "promo_1_image",
+                    "label": "Image",
+                    "info": "360 x 420 px .jpg recommended."
+                },
+                {
+                    "type": "text",
+                    "id": "promo_1_heading",
+                    "default": "Promotion heading",
+                    "label": "Heading"
+                },
+                {
+                    "type": "textarea",
+                    "id": "promo_1_content",
+                    "label": "Promotion content"
+                },
+                {
+                    "type": "text",
+                    "id": "promo_1_button",
+                    "label": "Promotion button text"
+                },
+                {
+                    "type": "url",
+                    "id": "promo_1_link",
+                    "label": "Promotion link"
+                },
+                {
+                    "type": "header",
+                    "content": "Promotion 2"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "promo_2_image",
+                    "label": "Image",
+                    "info": "360 x 420 px .jpg recommended."
+                },
+                {
+                    "type": "text",
+                    "id": "promo_2_heading",
+                    "default": "Promotion heading",
+                    "label": "Heading"
+                },
+                {
+                    "type": "textarea",
+                    "id": "promo_2_content",
+                    "label": "Promotion content"
+                },
+                {
+                    "type": "text",
+                    "id": "promo_2_button",
+                    "label": "Promotion button text"
+                },
+                {
+                    "type": "url",
+                    "id": "promo_2_link",
+                    "label": "Promotion link"
+                }
+            ]
+        },
+        {
+            "type": "menu_badge",
+            "name": "Menu badge",
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "badge_position",
+                    "label": "Badge position in main menu",
+                    "default": "1",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "Item 1"
+                        },
+                        {
+                            "value": "2",
+                            "label": "Item 2"
+                        },
+                        {
+                            "value": "3",
+                            "label": "Item 3"
+                        },
+                        {
+                            "value": "4",
+                            "label": "Item 4"
+                        },
+                        {
+                            "value": "5",
+                            "label": "Item 5"
+                        },
+                        {
+                            "value": "6",
+                            "label": "Item 6"
+                        },
+                        {
+                            "value": "7",
+                            "label": "Item 7"
+                        },
+                        {
+                            "value": "8",
+                            "label": "Item 8"
+                        },
+                        {
+                            "value": "9",
+                            "label": "Item 9"
+                        },
+                        {
+                            "value": "10",
+                            "label": "Item 10"
+                        }
+                    ]
+                },
+                {
+                    "type": "image_picker",
+                    "id": "special_icon",
+                    "label": "special icon"
+                },
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Text"
+                },
+                {
+                    "type": "header",
+                    "content": "Colors"
+                },
+                {
+                    "type": "color",
+                    "id": "color_bg",
+                    "label": "Background",
+                    "default": "#D3ECE2"
+                },
+                {
+                    "type": "color",
+                    "id": "color_text",
+                    "label": "Text",
+                    "default": "#272422"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

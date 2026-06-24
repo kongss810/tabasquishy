@@ -1,0 +1,835 @@
+{%- liquid
+    assign article_show_sharing = section.settings.article_show_sharing
+-%}
+{{ 'article.css' | asset_url | stylesheet_tag }}
+
+<div class='blog-post-detail--wrapper section-spacing-bottom'>
+    <article
+        class='blog-post-detail'
+        id='main-article'
+    >
+        {% for block in section.blocks %}
+            {% if block.type == '@app' %}
+                <div class='page-content-width'>
+                    {% render block %}
+                </div>
+            {% endif %}
+            {% if block.type == 'title' %}
+                {%- liquid
+                    assign has_image = false
+                    if article.image
+                        assign has_image = true
+                    endif
+
+                    assign article_card_border = settings.article_card_border
+
+                    assign tag_bgc = article.metafields.custom.tag_background
+                    assign bg_color = tag_bgc | default: 'var(--solid-button-background)'
+                    assign text_color = 'var(--solid-button-label)'
+                    if tag_bgc != blank
+                        assign text_color = '#FFFFFF'
+                    endif
+
+                    assign minutes = article.metafields.custom.minutes
+                -%}
+
+                <div
+                    class='post-title-wrapper relative flex post-title-wrapper--has-img-{{- has_image }}'
+                    id='post-title-wrapper'
+                    {{ block.shopify_attributes }}
+                >
+                    <div
+                        class='post_topLeft w-[50%]'
+                        style='{% if section.settings.left_bg_img %}background-image: url({{section.settings.left_bg_img |  image_url: width: 1280 }}); background-size: cover; background-position: center; background-repeat: no-repeat; {% endif %}'
+                    ></div>
+                    {%- if article.image -%}
+                        <div class='featured-image post_topRight w-[50%] sm:max-h-[470px]'>
+                            {%- render 'responsive-image', image: article.image, sizes: '345x300,640x550,1280x1100' -%}
+                        </div>
+                    {%- endif -%}
+
+                    <div class='absolute top-0 right-0 left-0 container h-full w-full'>
+                        <div
+                            class='post_topLeft_content flex h-full w-[50%] flex-col justify-center'
+                        >
+                            {% if section.settings.article_show_date or section.settings.article_show_author %}
+                                <div class='post-meta-wrapper grid h-max gap-[24px] pr-[40px]'>
+                                    {% if article.tags.size > 0 %}
+                                        <div
+                                            class='post-tag w-max rounded-[100px] px-[20px] py-[8px] text-center text-[16px] leading-[120%] font-[500]'
+                                            style='background: {{ bg_color }}; color: {{ text_color }};'
+                                        >
+                                            {{ article.tags.first }}
+                                        </div>
+                                    {% endif %}
+                                    <h1 class='entry-title h2 mb-0 text-[48px] leading-[1.2] font-[600]'>{{ article.title }}</h1>
+                                    {% if section.settings.article_show_date != blank or section.settings.article_show_author != blank or minutes != blank %}
+                                        <div class='flex items-center gap-[25px]'>
+                                            {%- if section.settings.article_show_date -%}
+                                                <div class='flex gap-[9px] leading-[120%] font-[500]'>
+                                                    <svg
+                                                        xmlns='http://www.w3.org/2000/svg'
+                                                        width='18'
+                                                        height='18'
+                                                        viewBox='0 0 18 18'
+                                                        fill='none'
+                                                    >
+                                                        <path d="M13.7368 1.42105H15.3957C16.8347 1.42105 18 2.58726 18 4.02845V15.3924C18 16.8326 16.8343 18 15.3957 18H2.60432C1.16526 18 0 16.8338 0 15.3926V4.02868C0 2.58845 1.16574 1.42105 2.60432 1.42105H4.26316V0.710527C4.26316 0.522083 4.33802 0.341358 4.47127 0.208108C4.60452 0.0748589 4.78524 0 4.97368 0C5.16213 0 5.34285 0.0748589 5.4761 0.208108C5.60935 0.341358 5.68421 0.522083 5.68421 0.710527V1.42105H12.3158V0.710527C12.3158 0.522083 12.3906 0.341358 12.5239 0.208108C12.6571 0.0748589 12.8379 0 13.0263 0C13.2148 0 13.3955 0.0748589 13.5287 0.208108C13.662 0.341358 13.7368 0.522083 13.7368 0.710527V1.42105ZM13.7368 2.84211V3.55263C13.7368 3.74108 13.662 3.9218 13.5287 4.05505C13.3955 4.1883 13.2148 4.26316 13.0263 4.26316C12.8379 4.26316 12.6571 4.1883 12.5239 4.05505C12.3906 3.9218 12.3158 3.74108 12.3158 3.55263V2.84211H5.68421V3.55263C5.68421 3.74108 5.60935 3.9218 5.4761 4.05505C5.34285 4.1883 5.16213 4.26316 4.97368 4.26316C4.78524 4.26316 4.60452 4.1883 4.47127 4.05505C4.33802 3.9218 4.26316 3.74108 4.26316 3.55263V2.84211H2.60432C2.44872 2.84229 2.29469 2.87313 2.15101 2.93285C2.00733 2.99257 1.87683 3.08001 1.76695 3.19018C1.65707 3.30034 1.56997 3.43108 1.51062 3.57491C1.45127 3.71874 1.42084 3.87285 1.42105 4.02845V15.3924C1.42065 15.548 1.45095 15.7022 1.51023 15.8462C1.56951 15.9901 1.6566 16.1209 1.76652 16.2311C1.87643 16.3414 2.00701 16.4288 2.15077 16.4885C2.29453 16.5482 2.44866 16.5789 2.60432 16.5789H15.3957C15.5513 16.5788 15.7053 16.5479 15.849 16.4882C15.9927 16.4285 16.1232 16.341 16.233 16.2309C16.3429 16.1207 16.43 15.99 16.4894 15.8461C16.5487 15.7023 16.5792 15.5482 16.5789 15.3926V4.02868C16.5794 3.87303 16.549 3.71882 16.4898 3.57489C16.4305 3.43096 16.3434 3.30014 16.2335 3.18992C16.1236 3.07969 15.993 2.99224 15.8492 2.93256C15.7055 2.87287 15.5513 2.84214 15.3957 2.84211H13.7368ZM13.5 7.81579C13.6884 7.81579 13.8692 7.89065 14.0024 8.0239C14.1357 8.15715 14.2105 8.33787 14.2105 8.52632C14.2105 8.71476 14.1357 8.89548 14.0024 9.02873C13.8692 9.16198 13.6884 9.23684 13.5 9.23684H4.5C4.31156 9.23684 4.13083 9.16198 3.99758 9.02873C3.86433 8.89548 3.78947 8.71476 3.78947 8.52632C3.78947 8.33787 3.86433 8.15715 3.99758 8.0239C4.13083 7.89065 4.31156 7.81579 4.5 7.81579H13.5ZM10.6579 11.3684C10.8463 11.3684 11.0271 11.4433 11.1603 11.5765C11.2936 11.7098 11.3684 11.8905 11.3684 12.0789C11.3684 12.2674 11.2936 12.4481 11.1603 12.5814C11.0271 12.7146 10.8463 12.7895 10.6579 12.7895H4.5C4.31156 12.7895 4.13083 12.7146 3.99758 12.5814C3.86433 12.4481 3.78947 12.2674 3.78947 12.0789C3.78947 11.8905 3.86433 11.7098 3.99758 11.5765C4.13083 11.4433 4.31156 11.3684 4.5 11.3684H10.6579Z" fill="#333333"/>
+                                                    </svg>
+                                                    {{- article.published_at | time_tag: '%b %d, %Y' -}}
+                                                </div>
+                                            {%- endif -%}
+
+                                            {%- if section.settings.article_show_author -%}
+                                                <aside class='post-author leading-[120%] font-[500]'>{{- article.author -}}</aside>
+                                            {% endif %}
+
+                                            {% if minutes != blank %}
+                                                <div class='post-minutes flex items-center gap-[9px] leading-[120%] font-[500]'>
+                                                    <svg
+                                                        xmlns='http://www.w3.org/2000/svg'
+                                                        width='18'
+                                                        height='18'
+                                                        viewBox='0 0 18 18'
+                                                        fill='none'
+                                                    >
+                                                        <path d="M9 0C4.02991 0 0 4.02991 0 9C0 13.9701 4.02991 18 9 18C13.9701 18 18 13.9701 18 9C18 4.02991 13.9701 0 9 0ZM9 16.8007C4.69888 16.8007 1.19933 13.3011 1.19933 9C1.19933 4.69888 4.69888 1.20134 9 1.20134C13.3011 1.20134 16.8007 4.70089 16.8007 9.00201C16.8007 13.3031 13.3011 16.8007 9 16.8007ZM12.6 8.40134H9.60067V4.80134C9.60067 4.46987 9.33147 4.20067 9 4.20067C8.66853 4.20067 8.39933 4.46987 8.39933 4.80134V8.40134H7.79866C7.46719 8.40134 7.19799 8.67054 7.19799 9.00201C7.19799 9.33348 7.46719 9.60268 7.79866 9.60268H8.39933V10.802C8.39933 11.1335 8.66853 11.4027 9 11.4027C9.33147 11.4027 9.60067 11.1335 9.60067 10.802V9.60067H12.6C12.9315 9.60067 13.2007 9.33147 13.2007 9C13.2007 8.66853 12.9315 8.40134 12.6 8.40134Z" fill="#333333"/>
+                                                    </svg>
+                                                    <span>{{ minutes }}</span>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                </div>
+            {% endif %}
+            {% if block.type == 'content' %}
+                <div
+                    class='post-content container'
+                    {{ block.shopify_attributes }}
+                >
+                    <div class='mx-auto flex gap-[60px]'>
+                        {% if section.settings.left_content %}
+                            <div class='post-content-left sticky top-[40px] h-max max-w-[346px] min-w-[346px]'>
+                                {% if block.settings.table_of_contents_title != blank %}
+                                    <h4 class='my_body_text post-tableOfContents_title'>
+                                        {{ block.settings.table_of_contents_title }}
+                                    </h4>
+                                {% endif %}
+                                {% if block.settings.table_of_contents != blank %}
+                                    <div class='post-tableOfContents_content'>
+                                        {{ block.settings.table_of_contents }}
+                                    </div>
+                                {% endif %}
+                                {% if block.settings.show_recommend != blank %}
+                                    <div class='page-header--line'></div>
+
+                                    <div class='recommend-container'>
+                                        {% if article.metafields.custom.recommend_product != blank %}
+                                            {% if block.settings.recommend_title != blank %}
+                                                <h4 class='my_body_text recommend-title h2 main-blog-slide-titles'>{{ block.settings.recommend_title }}</h4>
+                                            {% endif %}
+                                            <div
+                                                class='recommend-cards'
+                                            >
+                                                {% for product in article.metafields.custom.recommend_product.value %}
+                                                    <div
+                                                        class='product-card-wrap'
+                                                        data-product-id='{{ product.id }}'
+                                                        data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+                                                        data-product-price='{{ product.selected_or_first_available_variant.price }}'
+                                                        data-product-image='{{ product.featured_image | img_url: "400x400" }}'
+                                                        data-product-title='{{ product.title | escape }}'
+                                                    >
+                                                        {%- render 'product-card-new2', product_card_product: product -%}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        {%- else -%}
+                                            {% if block.settings.product_list != blank %}
+                                                {% if block.settings.recommend_title != blank %}
+                                                    <h4 class='my_body_text recommend-title h2 main-blog-slide-titles'>{{ block.settings.recommend_title }}</h4>
+                                                {% endif %}
+                                                <div
+                                                    class='recommend-cards'
+                                                >
+                                                    {% for product in block.settings.product_list %}
+                                                        <div
+                                                            class='product-card-wrap'
+                                                            data-product-id='{{ product.id }}'
+                                                            data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+                                                            data-product-price='{{ product.selected_or_first_available_variant.price }}'
+                                                            data-product-image='{{ product.featured_image | img_url: "400x400" }}'
+                                                            data-product-title='{{ product.title | escape }}'
+                                                        >
+                                                            {%- render 'product-card-new2', product_card_product: product -%}
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                {% if block.settings.show_activity != blank %}
+                                    <div class='page-header--line'></div>
+
+                                    <div class='activity-container'>
+                                        {% if block.settings.activity_title != blank %}
+                                            <h4 class='my_body_text activity-title h2 main-blog-slide-titles'>{{ block.settings.activity_title }}</h4>
+                                        {% endif %}
+
+                                        {% if article.metafields.custom.activity_img.value != blank %}
+                                            {%- assign item = article.metafields.custom.activity_img.value -%}
+                                            {% if item.link != blank %}
+                                                <a
+                                                    href='{{ item.link }}'
+                                                    class='activity-content block overflow-hidden rounded-[15px]'
+                                                >
+                                                    <img
+                                                        src='{{ item.img }}'
+                                                        alt='{{ article.title }}'
+                                                        loading='lazy'
+                                                        width='100%'
+                                                        height='auto'
+                                                    >
+                                                </a>
+                                            {%- else -%}
+                                                <div
+                                                    class='activity-content block overflow-hidden rounded-[15px]'
+                                                >
+                                                    <img
+                                                        src='{{ item.img }}'
+                                                        alt='{{ article.title }}'
+                                                        loading='lazy'
+                                                        width='100%'
+                                                        height='auto'
+                                                    >
+                                                </div>
+                                            {% endif %}
+                                        {%- else -%}
+                                            {% if block.settings.activity_img != blank %}
+                                                {% if block.settings.activity_url != blank %}
+                                                    <a
+                                                        href='{{ block.settings.activity_url }}'
+                                                        class='activity-content block overflow-hidden rounded-[15px]'
+                                                    >
+                                                        {% render 'section-img', img: block.settings.activity_img, width: 750, loading: 'lazy', class: '' %}
+                                                    </a>
+                                                {%- else -%}
+                                                    <div
+                                                        class='activity-content block overflow-hidden rounded-[15px]'
+                                                    >
+                                                        {% render 'section-img', img: block.settings.activity_img, width: 750, loading: 'lazy', class: '' %}
+                                                    </div>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        <div class='post-content-right flex-1'>
+                            <div class='post-content-main'>
+                                {{ article.content }}
+                            </div>
+                            <div class='post-content-bottom page-header--line my-[52px]'></div>
+
+                            {% if article_show_sharing %}
+                                {%- liquid
+                                    assign _permalink_share = product.url | default: ['url'] | default: page.url
+                                    assign _permalink_share2 = shop.url | append: _permalink_share
+                                    assign perLinkURL = permalink_share | default: _permalink_share2
+                                    unless share_title
+                                        assign share_title = product.title | default: article.title | default: page.title | default: shop.name
+                                    endunless
+                                    assign perTitle = share_title | url_param_escape
+                                    unless share_image
+                                        assign share_image = product.featured_image | default: article.image | default: settings.share_image | default: page_image | default: settings.logo
+                                    endunless
+                                    assign perImage = share_image | image_url: width: 1024, height: 1024
+                                -%}
+
+                                <div class='sectionShareShare_box'>
+                                    <div class='sectionShare_shareTitle text-[16px] leading-[150%] font-[400] '>
+                                        {{ 'blogs.article.share' | t }}
+                                    </div>
+
+                                    <div
+                                        class='sectionShare_shareList'
+                                        role='list'
+                                    >
+                                        {%- if section.settings.share_facebook -%}
+                                            <li class='social-share__item'>
+                                                <a
+                                                    class='facebook'
+                                                    href='https://www.facebook.com/sharer/sharer.php?u={{ perLinkURL }}'
+
+                                                    data-no-instant
+                                                    rel='noopener noreferrer nofollow'
+                                                    target='_blank'
+                                                >
+                                                    <svg
+                                                        width='{{ width | default: 20 }}'
+                                                        height='{{ height | default: 14 }}'
+                                                        aria-hidden='true'
+                                                        focusable='false'
+                                                        role='presentation'
+                                                        xmlns='http://www.w3.org/2000/svg'
+                                                        viewBox='0 0 320 512'
+                                                        class='icon icon-facebook'
+                                                        fill='currentColor'
+                                                    >
+                                                        <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        {%- endif -%}
+                                        {%- if section.settings.share_twitter -%}
+                                            <li class='social-share__item'>
+                                                <a
+                                                    class='twitter'
+                                                    href='http://twitter.com/share?text={{ perTitle }}&amp;url={{ perLinkURL }}'
+
+                                                    data-no-instant
+                                                    rel='noopener noreferrer nofollow'
+                                                    target='_blank'
+                                                >
+                                                    <svg
+                                                        width='{{ width | default: 20 }}'
+                                                        height='{{ height | default: 14 }}'
+                                                        aria-hidden='true'
+                                                        focusable='false'
+                                                        role='presentation'
+                                                        class='icon icon-twitter'
+                                                        fill='currentColor'
+                                                        viewBox='0 0 35 35'
+                                                    >
+                                                        <path d="M20.3306 15.2794L31.4059 3H28.7809L19.1669 13.6616L11.4844 3H2.625L14.2406 19.124L2.625 32H5.25L15.4044 20.7397L23.5178 32H32.3772L20.3306 15.2794ZM16.7366 19.2649L15.5597 17.6595L6.195 4.885H10.2266L17.7822 15.1945L18.9591 16.7999L28.7831 30.202H24.7516L16.7366 19.2649Z"></path>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        {%- endif -%}
+                                        {%- if perImage != blank -%}
+                                            {%- if section.settings.share_pinterest -%}
+                                                <li class='social-share__item'>
+                                                    <a
+                                                        class='pinterest'
+                                                        href='http://pinterest.com/pin/create/button/?url={{ perLinkURL }}&amp;media=http:{{perImage}}&amp;description={{ perTitle }}'
+
+                                                        data-no-instant
+                                                        rel='noopener noreferrer nofollow'
+                                                        target='_blank'
+                                                    >
+                                                        <svg
+                                                            width='{{ width | default: 20 }}'
+                                                            height='{{ height | default: 14 }}'
+                                                            aria-hidden='true'
+                                                            focusable='false'
+                                                            role='presentation'
+                                                            fill='currentColor'
+                                                            class='icon icon-pinterest'
+                                                            viewBox='0 0 17 18'
+                                                        >
+                                                            <path d="M8.48.58a8.42 8.42 0 015.9 2.45 8.42 8.42 0 011.33 10.08 8.28 8.28 0 01-7.23 4.16 8.5 8.5 0 01-2.37-.32c.42-.68.7-1.29.85-1.8l.59-2.29c.14.28.41.52.8.73.4.2.8.31 1.24.31.87 0 1.65-.25 2.34-.75a4.87 4.87 0 001.6-2.05 7.3 7.3 0 00.56-2.93c0-1.3-.5-2.41-1.49-3.36a5.27 5.27 0 00-3.8-1.43c-.93 0-1.8.16-2.58.48A5.23 5.23 0 002.85 8.6c0 .75.14 1.41.43 1.98.28.56.7.96 1.27 1.2.1.04.19.04.26 0 .07-.03.12-.1.15-.2l.18-.68c.05-.15.02-.3-.11-.45a2.35 2.35 0 01-.57-1.63A3.96 3.96 0 018.6 4.8c1.09 0 1.94.3 2.54.89.61.6.92 1.37.92 2.32 0 .8-.11 1.54-.33 2.21a3.97 3.97 0 01-.93 1.62c-.4.4-.87.6-1.4.6-.43 0-.78-.15-1.06-.47-.27-.32-.36-.7-.26-1.13a111.14 111.14 0 01.47-1.6l.18-.73c.06-.26.09-.47.09-.65 0-.36-.1-.66-.28-.89-.2-.23-.47-.35-.83-.35-.45 0-.83.2-1.13.62-.3.41-.46.93-.46 1.56a4.1 4.1 0 00.18 1.15l.06.15c-.6 2.58-.95 4.1-1.08 4.54-.12.55-.16 1.2-.13 1.94a8.4 8.4 0 01-5-7.65c0-2.3.81-4.28 2.44-5.9A8.04 8.04 0 018.48.57z">
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            {%- endif -%}
+                                            {%- if section.settings.share_tumblr -%}
+                                                <li class='social-share__item'>
+                                                    <a
+                                                        class='tumblr'
+                                                        href='//tumblr.com/widgets/share/tool?canonicalUrl={{ perLinkURL }}'
+
+                                                        data-no-instant
+                                                        rel='noopener noreferrer nofollow'
+                                                        data-content='http:{{perImage}}'
+                                                        target='_blank'
+                                                    >
+                                                        <svg
+                                                            width='{{ width | default: 20 }}'
+                                                            height='{{ height | default: 14 }}'
+                                                            aria-hidden='true'
+                                                            focusable='false'
+                                                            role='presentation'
+                                                            fill='currentColor'
+                                                            class='icon icon-tumblr'
+                                                            viewBox='0 0 91 161'
+                                                        >
+                                                            <path fill-rule="evenodd" d="M64 160.3c-24 0-42-12.3-42-41.8V71.3H.3V45.7c24-6.2 34-26.9 35.2-44.7h24.9v40.5h29v29.8h-29v41.1c0 12.3 6.2 16.6 16.1 16.6h14v31.3H64">
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            {%- endif -%}
+                                        {%- endif -%}
+                                        {%- if section.settings.share_telegram -%}
+                                            <li class='social-share__item'>
+                                                <a
+                                                    class='telegram'
+                                                    href='https://telegram.me/share/url?url={{ perLinkURL }}'
+
+                                                    data-no-instant
+                                                    rel='nofollow'
+                                                    target='_blank'
+                                                >
+                                                    <svg
+                                                        width='{{ width | default: 20 }}'
+                                                        height='{{ height | default: 14 }}'
+                                                        class='icon icon-telegram'
+                                                        role='presentation'
+                                                        viewBox='0 0 496 512'
+                                                        fill='currentColor'
+                                                    >
+                                                        <path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"></path>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        {%- endif -%}
+                                        {%- if section.settings.share_email -%}
+                                            <li class='social-share__item'>
+                                                <a
+                                                    class='email'
+                                                    href='mailto:?subject={{ perTitle }}&amp;body={{ perLinkURL }}'
+
+                                                    data-no-instant
+                                                    rel='noopener noreferrer nofollow'
+                                                    target='_blank'
+                                                >
+                                                    <svg
+                                                        width='{{ width | default: 20 }}'
+                                                        height='{{ height | default: 14 }}'
+                                                        xmlns='http://www.w3.org/2000/svg'
+                                                        viewBox='0 0 24 24'
+                                                        aria-hidden='true'
+                                                        focusable='false'
+                                                        fill='currentColor'
+                                                        role='presentation'
+                                                        class='icon icon-mail'
+                                                    >
+                                                        <path d="M 1 3 L 1 5 L 1 18 L 3 18 L 3 5 L 19 5 L 19 3 L 3 3 L 1 3 z M 5 7 L 5 7.1777344 L 14 12.875 L 23 7.125 L 23 7 L 5 7 z M 23 9.2832031 L 14 15 L 5 9.4160156 L 5 21 L 14 21 L 14 17 L 17 17 L 17 14 L 23 14 L 23 9.2832031 z M 19 16 L 19 19 L 16 19 L 16 21 L 19 21 L 19 24 L 21 24 L 21 21 L 24 21 L 24 19 L 21 19 L 21 16 L 19 16 z"/>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        {%- endif -%}
+                                        {%- if section.settings.share_whatsapp -%}
+                                            <li class='social-share__item'>
+                                                <a
+                                                    class='whatsapp'
+                                                    href='https://wa.me/?text={{ perTitle }}&#x20;{{ perLinkURL }}'
+                                                    title='whatsapp'
+                                                    data-no-instant
+                                                    rel='nofollow'
+                                                    target='_blank'
+                                                >
+                                                    <svg
+                                                        width='{{ width | default: 20 }}'
+                                                        height='{{ height | default: 14 }}'
+                                                        xmlns='http://www.w3.org/2000/svg'
+                                                        xmlns:xlink='http://www.w3.org/1999/xlink'
+                                                        version='1.1'
+                                                        fill='currentColor'
+                                                        viewBox='0 0 256 256'
+                                                        xml:space='preserve'
+                                                    >
+                                                        <defs></defs><g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"><path d="M 76.735 13.079 C 68.315 4.649 57.117 0.005 45.187 0 C 20.605 0 0.599 20.005 0.589 44.594 c -0.003 7.86 2.05 15.532 5.953 22.296 L 0.215 90 l 23.642 -6.202 c 6.514 3.553 13.848 5.426 21.312 5.428 h 0.018 c 0.001 0 -0.001 0 0 0 c 24.579 0 44.587 -20.007 44.597 -44.597 C 89.789 32.713 85.155 21.509 76.735 13.079 z M 27.076 46.217 c -0.557 -0.744 -4.55 -6.042 -4.55 -11.527 c 0 -5.485 2.879 -8.181 3.9 -9.296 c 1.021 -1.115 2.229 -1.394 2.972 -1.394 s 1.487 0.007 2.136 0.039 c 0.684 0.035 1.603 -0.26 2.507 1.913 c 0.929 2.231 3.157 7.717 3.436 8.274 c 0.279 0.558 0.464 1.208 0.093 1.952 c -0.371 0.743 -0.557 1.208 -1.114 1.859 c -0.557 0.651 -1.17 1.453 -1.672 1.952 c -0.558 0.556 -1.139 1.159 -0.489 2.274 c 0.65 1.116 2.886 4.765 6.199 7.72 c 4.256 3.797 7.847 4.973 8.961 5.531 c 1.114 0.558 1.764 0.465 2.414 -0.279 c 0.65 -0.744 2.786 -3.254 3.529 -4.369 c 0.743 -1.115 1.486 -0.929 2.507 -0.558 c 1.022 0.372 6.5 3.068 7.614 3.625 c 1.114 0.558 1.857 0.837 2.136 1.302 c 0.279 0.465 0.279 2.696 -0.65 5.299 c -0.929 2.603 -5.381 4.979 -7.522 5.298 c -1.92 0.287 -4.349 0.407 -7.019 -0.442 c -1.618 -0.513 -3.694 -1.199 -6.353 -2.347 C 34.934 58.216 27.634 46.961 27.076 46.217 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: evenodd; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/></g>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        {%- endif -%}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {%- if section.settings.next_article -%}
+                                <div class='prev_next_box mt-[52px] grid grid-cols-2 gap-[30px]'>
+                                    <!-- 上一篇 -->
+                                    {% if blog.previous_article %}
+                                        <a
+                                            href='{{ blog.previous_article.url }}'
+                                            class='article_nav_item article_nav_item_prev img_hover max-w-[372px]'
+                                        >
+                                            <div class='article_nav_itemBox flex items-center gap-[20px]'>
+                                                {% if blog.previous_article.image != blank %}
+                                                    <div class='article_nav_itemImg w-[160px] min-w-[160px] overflow-hidden rounded-[15px]'>
+                                                        <img
+                                                            src='{{blog.previous_article.image | img_url:'200x' }}'
+                                                            alt='{{blog.previous_article.image.alt}}'
+                                                            class='hover_img w-full'
+                                                        >
+                                                    </div>
+                                                {% endif %}
+                                                <div class='article_nav_itemText'>
+                                                    <div class='article_nav_itemTextTop flex items-center gap-[21px] text-[#1a1a1a]'>
+                                                        <svg
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                            width='7'
+                                                            height='12'
+                                                            viewBox='0 0 7 12'
+                                                            fill='none'
+                                                        >
+                                                            <path d="M6.35209 0.0119886C6.26878 0.0110302 6.18618 0.0265341 6.1096 0.0575027C6.03302 0.0884724 5.96416 0.134221 5.90744 0.191808L0.190563 5.58641C-0.0635209 5.82617 -0.0635209 6.1978 0.190563 6.43756L5.90744 11.8202C6.16152 12.0599 6.55535 12.0599 6.80944 11.8202C7.06352 11.5804 7.06352 11.2088 6.80944 10.969L1.5372 6.00599L6.80944 1.03097C7.06352 0.791209 7.06352 0.419581 6.80944 0.179821C6.6824 0.0599413 6.51724 0 6.36479 0L6.35209 0.0119886Z" fill="#1A1A1A"/>
+                                                        </svg>
+
+                                                        {{ 'pagination.previous_text' | t }}
+                                                    </div>
+                                                    <div class='article_nav_itemTitle mt-[14px] line-clamp-3 text-[20px] leading-[120%] font-[500]'>
+                                                        {{ blog.previous_article.title }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                    <!-- 下一篇 -->
+                                    {% if blog.next_article %}
+                                        <a
+                                            href='{{ blog.next_article.url }}'
+                                            class='article_nav_item article_nav_item_next img_hover ml-auto max-w-[372px] overflow-hidden rounded-[15px]'
+                                        >
+                                            <div class='article_nav_itemBox flex items-center gap-[20px]'>
+                                                <div class='article_nav_itemText'>
+                                                    <div class='article_nav_itemTextTop flex items-center justify-end gap-[21px] text-[#1a1a1a]'>
+                                                        {{ 'pagination.next_text' | t }}
+
+                                                        <svg
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                            width='7'
+                                                            height='12'
+                                                            viewBox='0 0 7 12'
+                                                            fill='none'
+                                                        >
+                                                            <path d="M0.647913 0.0119886C0.731222 0.0110302 0.813821 0.0265341 0.890399 0.0575027C0.966978 0.0884724 1.03584 0.134221 1.09256 0.191808L6.80944 5.58641C7.06352 5.82617 7.06352 6.1978 6.80944 6.43756L1.09256 11.8202C0.838476 12.0599 0.444646 12.0599 0.190563 11.8202C-0.0635204 11.5804 -0.0635204 11.2088 0.190563 10.969L5.4628 6.00599L0.190563 1.03097C-0.0635204 0.791209 -0.0635204 0.419581 0.190563 0.179821C0.317605 0.0599413 0.482759 0 0.635209 0L0.647913 0.0119886Z" fill="#1A1A1A"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class='article_nav_itemTitle mt-[14px] line-clamp-3 text-right text-[20px] leading-[120%] font-[500]'>
+                                                        {{ blog.next_article.title }}
+                                                    </div>
+                                                </div>
+                                                {% if blog.next_article.image != blank %}
+                                                    <div class='article_nav_itemImg w-[160px] min-w-[160px] overflow-hidden rounded-[15px]'>
+                                                        <img
+                                                            src='{{blog.next_article.image | img_url:'200x' }}'
+                                                            alt='{{blog.next_article.image.alt}}'
+                                                            class='hover_img w-full'
+                                                        >
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {%- endif -%}
+                            {% if blog.comments_enabled? %}
+                                {{ 'comments.css' | asset_url | stylesheet_tag }}
+                                <div class='container'>
+                                    <div class='small-12 columns'>
+                                        <div class='comments-wrapper page-content-width'>
+                                            {% if article.comments_count > 0 %}
+                                                <div
+                                                    class='comments-container page-content-width'
+                                                    id='comments'
+                                                >
+                                                    <h5 class='comments-title'>
+                                                        {{ 'blogs.article.comments_html' | t: count: article.comments_count, title: article.title }}
+                                                    </h5>
+                                                    <ul class='commentlist'>
+                                                        {% paginate article.comments by 5 %}
+                                                            {% for comment in article.comments %}
+                                                                <li class='comment'>
+                                                                    <img
+                                                                        data-src='https://www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}?s=200'
+                                                                        class='avatar lazyload'
+                                                                        alt='{{ comment.author | escape }}'
+                                                                        width='100'
+                                                                        height='100'
+                                                                    >
+                                                                    <div class='comment-body'>
+                                                                        <div class='comment-author'>
+                                                                            <cite class='fn'>{{ comment.author }}</cite>
+                                                                        </div>
+                                                                        <div class='comment-text'>
+                                                                            {{ comment.content }}
+                                                                        </div>
+                                                                        <a
+                                                                            href='{{ comment.url }}'
+                                                                            class='comment-meta'
+                                                                        >
+                                                                            {{ comment.created_at | date: '%B %d, %Y' }}
+                                                                        </a>
+                                                                    </div>
+                                                                </li>
+                                                            {% endfor %}
+                                                            {% if paginate.pages > 1 %}
+                                                                {{ paginate | default_pagination }}
+                                                            {% endif %}
+                                                        {% endpaginate %}
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                            <div class='respond-container page-content-width'>
+                                                <div class='comment-respond'>
+                                                    {% form 'new_comment', article %}
+                                                        {%- liquid
+                                                            assign post_message = 'blogs.article.success'
+                                                            if blog.moderated? and comment.status == 'unapproved'
+                                                                assign post_message = 'blogs.article.success_moderated'
+                                                            endif
+                                                        -%}
+                                                        <div class='comment-reply-title--container'>
+                                                            <h5
+                                                                id='reply-title'
+                                                                class='comment-reply-title'
+                                                            >
+                                                                {{ 'blogs.article.comment_form_title' | t }}
+                                                            </h5>
+                                                            <p class='comment-notes'>{{ 'blogs.article.comment_form_note' | t }}.</p>
+                                                        </div>
+                                                        {% if form.errors %}
+                                                            <div class='form-notification error'>
+                                                                {% render 'svg-icons' with 'thb-error' %}
+                                                                {{ form.errors | default_errors }}
+                                                            </div>
+                                                        {%- elsif form.posted_successfully? -%}
+                                                            <div class='form-notification success'>
+                                                                {% render 'svg-icons' with 'thb-success' %}
+                                                                {{ post_message | t }}
+                                                            </div>
+                                                        {%- endif -%}
+                                                        <div class='comment-form-fields'>
+                                                            <div class='field'>
+                                                                <textarea
+                                                                    name='comment[body]'
+                                                                    class='full {% if form.errors contains 'body' %}invalid{% endif %}'
+                                                                    id='CommentBody'
+                                                                    placeholder='{{ 'blogs.article.message' | t }}'
+                                                                >{{ form.body }}</textarea>
+                                                                <label>{{ 'blogs.article.message' | t }}</label>
+                                                            </div>
+                                                            <div class='field'>
+                                                                <input
+                                                                    type='text'
+                                                                    class='full {% if form.errors contains 'author' %}invalid{% endif %}'
+                                                                    name='comment[author]'
+                                                                    id='CommentAuthor'
+                                                                    value='{{ form.author }}'
+                                                                    autocapitalize='words'
+                                                                    placeholder='{{ 'blogs.article.name' | t }}'
+                                                                >
+                                                                <label>{{ 'blogs.article.name' | t }}</label>
+                                                            </div>
+                                                            <div class='field'>
+                                                                <input
+                                                                    type='email'
+                                                                    class='full {% if form.errors contains 'email' %}invalid{% endif %}'
+                                                                    name='comment[email]'
+                                                                    id='CommentEmail'
+                                                                    value='{{ form.email }}'
+                                                                    autocorrect='off'
+                                                                    autocapitalize='off'
+                                                                    placeholder='{{ 'blogs.article.email' | t }}'
+                                                                >
+                                                                <label>{{ 'blogs.article.email' | t }}</label>
+                                                            </div>
+                                                        </div>
+                                                        <input
+                                                            class='button'
+                                                            type='submit'
+                                                            value='{{ 'blogs.article.post' | t | escape }}'
+                                                        >
+                                                    {% endform %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class='blog-post-detail--end'></div>
+    </article>
+    {%- liquid
+        assign current_found = false
+        assign done = false
+
+        for a in blog.articles
+            if current_found and done == false
+                assign next_article = a
+                assign done = true
+            endif
+            unless done
+                if a.id == article.id
+                    assign current_found = true
+                endif
+            endunless
+        endfor
+    -%}
+</div>
+{% schema %}
+{
+    "name": "Blog post",
+    "class": "article-section css-layout",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "left_bg_img",
+            "label": "Left Background Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "article_show_date",
+            "label": "Show date",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "article_show_author",
+            "label": "Show author",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "left_content",
+            "label": "left content",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "article_show_sharing",
+            "label": "Show sharing buttons",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "share_facebook",
+            "label": "Share on Facebook",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "share_twitter",
+            "label": "Tweet on Twiter",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "share_pinterest",
+            "label": "Pin on pinterest",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "share_tumblr",
+            "label": "Share on Tumblr",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "share_telegram",
+            "label": "Share on Telegram",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "share_email",
+            "label": "Share on Email",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "share_whatsapp",
+            "label": "snary sn whatsapp",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "next_article",
+            "label": "Show Next Article",
+            "default": true
+        },
+        {
+            "type": "paragraph",
+            "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+        },
+        {
+            "type": "paragraph",
+            "content": "A store title and description are included with the preview image. [Learn more](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+        }
+    ],
+    "blocks": [
+        {
+            "type": "@app"
+        },
+        {
+            "type": "title",
+            "name": "Title",
+            "limit": 1
+        },
+
+        {
+            "type": "content",
+            "name": "Content",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "table_of_contents_title",
+                    "label": "Table of Contents Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "table_of_contents",
+                    "label": "Table of contents"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_recommend",
+                    "label": "Show Recommend",
+                    "default": true
+                },
+                {
+                    "type": "text",
+                    "id": "recommend_title",
+                    "label": "Recommend Title"
+                },
+                {
+                    "type": "product_list",
+                    "id": "product_list",
+                    "label": "Product List"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_activity",
+                    "label": "Show Activity",
+                    "default": true
+                },
+                {
+                    "type": "text",
+                    "id": "activity_title",
+                    "label": "Activity Title"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "activity_img",
+                    "label": "activity Image"
+                },
+                {
+                    "type": "url",
+                    "id": "activity_url",
+                    "label": "Activity Url"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

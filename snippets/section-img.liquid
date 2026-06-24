@@ -1,0 +1,29 @@
+{%- liquid
+    assign image = img
+    assign mobile_image = img_mobile | default: img
+
+    assign pc_width = width | default: 2580
+    assign m_width = mobile_width | default: 768
+
+    assign img_alt = alt | default: image.alt | escape
+    assign img_loading = loading | default: 'lazy'
+
+    assign custom_class = class | default: ''
+-%}
+
+<picture class='my_picture {{ custom_class }}'>
+    {%- if mobile_image != blank -%}
+        <source
+            media='(max-width: 768px)'
+            srcset='{{ mobile_image | image_url: width: m_width }}'
+        >
+    {%- endif -%}
+
+    <img
+        loading='{{ img_loading }}'
+        src='{{ image | image_url: width: pc_width }}'
+        alt='{{ img_alt }}'
+        width='{{ image.width }}'
+        height='{{ image.height }}'
+    >
+</picture>

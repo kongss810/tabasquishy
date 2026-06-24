@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1652268757b7c53383": {
+      "type": "contact-form",
+      "blocks": {
+        "text_gcbfpi": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147241556.svg",
+            "heading": "Email Us",
+            "text": "<p>service@tabasquishy.com</p>"
+          }
+        },
+        "text_rJn9P3": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147241483.svg",
+            "heading": "Tel+",
+            "text": "<p>+1 234-567-890</p>"
+          }
+        },
+        "text_HxmJnq": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147241483_1.svg",
+            "heading": "Address",
+            "text": "<p>11th Floor, Building 1, Hongyuan Innovation Building,Yangpu District, Shanghai, China</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_gcbfpi",
+        "text_rJn9P3",
+        "text_HxmJnq"
+      ],
+      "settings": {
+        "title": "<p>Hi, My Lovely Friends! </p>",
+        "description": "<p>Contact me any time using the contact form below, or email me at: service@tabasquishy.com</p>",
+        "form_title": "Send Us A Message",
+        "social_title": "Follow Us",
+        "show_social": true,
+        "show_phone_number": true,
+        "highlighted_text": "none",
+        "Desktop_paddingTop": 80,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 80,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "1652268757b7c53383"
+  ]
+}

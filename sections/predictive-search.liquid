@@ -1,0 +1,84 @@
+{%- if predictive_search.performed -%}
+    {%- liquid
+        assign predictive_search_products = predictive_search.resources.products
+        assign predictive_search_articles = predictive_search.resources.articles
+        assign predictive_search_queries = predictive_search.resources.queries
+        assign predictive_search_terms_label = predictive_search.terms | escape
+    -%}
+
+    <div class='predictive_search_box'>
+        <div class='container'>
+            <scroll-shadow>
+                <div class='predictive_searchBox flex gap-[60px] pt-[36px] pb-[40px]'>
+                    {%- if predictive_search_queries.size != 0 -%}
+                        <div class='predictive_searchBox_left w-[34%] max-w-[517px]'>
+                            <div class='predictive_searchBox_leftBox'>
+                                <div class='predictive_searchBox_leftTitle mb-[16px] border-b border-[rgba(26,26,26,0.20)] pb-[16px] text-[18px] leading-[120%] font-[500]'>
+                                    {{ 'general.trending_searches' | t }}
+                                </div>
+                                <div class='predictive_searchBox_leftText grid h-max gap-[16px]'>
+                                    {%- for query in predictive_search_queries -%}
+                                        <a
+                                            href='{{ query.url }}'
+                                            class='predictive_search__itemBox predictive-search__item link link--text flex w-max items-center gap-[8px] text-[16px] leading-[150%]'
+                                            tabindex='-1'
+                                        >
+                                            <span>{{ query.styled_text }}</span>
+
+                                            <svg
+                                                xmlns='http://www.w3.org/2000/svg'
+                                                width='18'
+                                                height='18'
+                                                viewBox='0 0 18 18'
+                                                fill='none'
+                                            >
+                                                <path d="M13.5 7.75C13.5 4.40602 10.9789 1.67511 7.80859 1.50781L7.5 1.5C4.18629 1.5 1.5 4.29822 1.5 7.75C1.5 11.094 4.0211 13.8249 7.19141 13.9922L7.5 14C10.7103 14 13.3316 11.3738 13.4922 8.07129L13.5 7.75ZM15 7.75C15 9.45449 14.4609 11.0451 13.543 12.3369L17.041 15.9805L15.959 17.0195L12.5557 13.4736C11.2305 14.7272 9.46402 15.5 7.5 15.5C3.30074 15.5 0 11.9719 0 7.75C0 3.52809 3.30074 0 7.5 0C11.6993 2.67093e-07 15 3.52809 15 7.75Z" fill="#ED8E24"/>
+                                            </svg>
+                                        </a>
+                                    {%- endfor -%}
+                                </div>
+                            </div>
+                        </div>
+                    {%- endif -%}
+
+                    <div class='predictive_searchBox_right flex-1'>
+                        {% if predictive_search_products.size != 0 %}
+                            <div class='predictive_searchBox_rightTop flex items-center justify-between pr-[16px]'>
+                                <div class='text-[18px] leading-[120%] font-[500]'>
+                                    {{ 'general.search_products' | t }}
+                                </div>
+                                <a
+                                    href='{{ routes.search_url }}'
+                                    class='text-[14px] leading-[150%] underline'
+                                >
+                                    {{ 'general.view_all_results' | t }}
+                                </a>
+                            </div>
+                            <div class='predictive_searchBox_rightBottom row-[40px] mt-[16px] grid grid-cols-4  {% if predictive_search_queries.size == 0 %} grid-cols-5 {% endif %} gap-[24px]'>
+                                {%- for predictive_product in predictive_search_products limit: 8 -%}
+                                    <div class='predictive_searchBox_rightBox'>
+                                        {% render 'product-card-new2', product_card_product: predictive_product, predictive_search: predictive_search %}
+                                    </div>
+                                {%- endfor -%}
+                            </div>
+                        {% else %}
+                            <a
+                                href='{{ routes.search_url }}?q={{ predictive_search.terms | url_encode }}'
+                                class='predictive_searchBox_empty flex w-full items-center bg-[#F5F5F5] px-6 py-13 text-[16px] leading-[150%] text-[#1A1A1A]'
+                                tabindex='-1'
+                            >
+                                {{ 'sections.header.search_for_terms' | t: terms: predictive_search_terms_label }}
+                                <span class='ml-6' aria-hidden='true'>→</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </scroll-shadow>
+            {% comment %}
+                <span class='loading-overlay'>
+                    {%- render 'svg-icons' with 'thb-loading' -%}
+                </span>
+            {% endcomment %}
+        </div>
+    </div>
+{%- endif -%}

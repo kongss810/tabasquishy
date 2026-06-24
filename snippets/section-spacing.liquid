@@ -1,0 +1,21 @@
+<style>
+    #shopify-section-{{section.id}}{
+        margin-top: {{section.settings.Desktop_top}}px;
+        margin-bottom: {{section.settings.Desktop_bottom}}px;
+
+        padding-top:{{section.settings.Desktop_paddingTop}}px;
+        padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+
+        /* background-color: {{ section.settings.bg_color }};
+        color: {{ section.settings.text_color }} */
+    }
+    @media(max-width:999px) {
+      #shopify-section-{{section.id}} {
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+    }
+</style>

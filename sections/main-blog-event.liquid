@@ -1,0 +1,345 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .main-blog-event-container p {
+        margin: 0;
+        line-height: 100%;
+    }
+
+    {%- if section.settings.bg_img !=blank -%}
+         #shopify-section-{{section.id}} .main-blog-event-card {
+            background-position-x: 388px;
+            background-repeat: no-repeat;
+            background-image: url('{{section.settings.bg_img | image_url: width: 1920 }}');
+        }
+
+    {%- endif -%}
+
+    .main-blog-event-card {
+        align-items: center;
+        border-radius: 15px;
+        overflow: hidden;
+        background: #fff8e3;
+        display: flex;
+        justify-content: space-between;
+    }
+    .main-blog-event-container .my_picture {
+        height: 100%;
+    }
+    .main-blog-event-content {
+        width: 59.375%;
+        padding: 87px 0;
+        padding-left: 52px;
+    }
+
+    .main-blog-event-img {
+        width: 40.625%;
+    }
+
+    .main-blog-event-container .my_picture img {
+        border-radius: 0 15px 15px 0;
+    }
+
+    .main-blog-event-tag {
+        display: flex;
+        margin-bottom: 12px;
+    }
+
+    .main-blog-event-tag p {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 100%;
+        background: var(--Linear, linear-gradient(90deg, #ED8E25 0%, #e40078 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .main-blog-event-title {
+        color: #1a1a1a;
+        font-size: 52px;
+        font-weight: 600;
+        line-height: 120%; /* 62.4px */
+        margin-bottom: 52px;
+    }
+
+    .main-blog-event-button button {
+        display: flex;
+        height: 48px;
+        padding: 12px 48px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 999px;
+        background: var(--solid-button-background);
+        color: var(--solid-button-label);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 150%; /* 24px */
+    }
+
+    .main-blog-event-texts {
+        width: 91.09%;
+    }
+
+    /* modals 遮罩层样式 */
+    .main-blog-event-container .modals {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* modals 打开状态 */
+    .main-blog-event-container .modals[open] {
+        display: flex;
+    }
+    /* 动画 */
+    @keyframes modalsFadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* modals 头部 */
+    .main-blog-event-container .modals__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+        height: 43px;
+    }
+
+    .main-blog-event-container .modals__header h3 {
+        margin: 0;
+        color: #1a1a1a;
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    /* 关闭按钮 */
+    .main-blog-event-container .modals__header button {
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .main-blog-event-container .modals[open] {
+        display: flex;
+    }
+
+    .main-blog-event-container .modals__container {
+        background: var(--solid-button-background);
+        color: var(--solid-button-label);
+        border-radius: 25px;
+        overflow: hidden;
+        max-width: 750px;
+        display: flex;
+        width: 50%;
+        min-width: 500px;
+        padding: 48px;
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+        overflow: auto;
+        animation: modalsFadeIn 0.3s ease;
+    }
+</style>
+
+<div class='main-blog-event-container'>
+    <div class='container'>
+        <div class='main-blog-event-card'>
+            <div class='main-blog-event-content'>
+                <div class='main-blog-event-texts'>
+                    {% if section.settings.block_tag != blank %}
+                        <div class='main-blog-event-tag'>{{ section.settings.block_tag }}</div>
+                    {% endif %}
+                    {% if section.settings.block_title != blank %}
+                        <h2 class='mb-[52px] text-[52px] leading-[120%]'>{{ section.settings.block_title }}</h2>
+                    {% endif %}
+                </div>
+                <div class='main-blog-event-button'>
+                    {% if section.settings.button_text != blank %}
+                        <button data-modals-open='event-modals'>{{ section.settings.button_text }}</button>
+                        <div
+                            id='event-modals'
+                            class='modals'
+                        >
+                            <div class='modals__container'>
+                                <div class='modals__header'>
+                                    <h3>{{ section.settings.modals_title }}</h3>
+                                    <button data-modals-close>
+                                        <svg
+                                            width='43'
+                                            height='43'
+                                            viewBox='0 0 43 43'
+                                            fill='none'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <rect x="0.5" y="0.5" width="42" height="42" rx="21" stroke="#333333"/>
+                                            <path d="M16.2295 28.5L15.5 27.7705L21.2705 22L15.5 16.2295L16.2295 15.5L22 21.2705L27.7705 15.5L28.5 16.2295L22.7295 22L28.5 27.7705L27.7705 28.5L22 22.7295L16.2295 28.5Z" fill="#333333"/>
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <div class='modals__bodys'>
+                                    {% for block in section.blocks %}
+                                        {% render block %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class='main-blog-event-img img_hover'>
+                {% render 'section-img', img: section.settings.image, loading: 'lazy', width: 650, class: 'hover_img' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modals = document.getElementById('event-modals');
+        const openBtn = document.querySelector('[data-modals-open="event-modals"]');
+        const closeBtn = document.querySelector('[data-modals-close]');
+
+        if (openBtn && modals) {
+            // 打开 modals
+            openBtn.addEventListener('click', function () {
+                modals.setAttribute('open', '');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // 关闭 modals
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function () {
+                    modals.removeAttribute('open');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // 点击遮罩层关闭
+            modals.addEventListener('click', function (e) {
+                if (e.target === modals) {
+                    modals.removeAttribute('open');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // ESC 键关闭
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modals.hasAttribute('open')) {
+                    modals.removeAttribute('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+    });
+</script>
+
+{% schema %}
+{
+    "name": "blog event",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "bg_img",
+            "label": "Background Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "richtext",
+            "id": "block_tag",
+            "label": "Tag"
+        },
+        {
+            "type": "richtext",
+            "id": "block_title",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text"
+        },
+        {
+            "type": "header",
+            "content": "modals Settings"
+        },
+        {
+            "type": "text",
+            "id": "modals_title",
+            "label": "modals Title",
+            "default": "Event Details"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "@app"
+        }
+    ],
+    "presets": [
+        {
+            "name": "blog event"
+        }
+    ]
+}
+{% endschema %}

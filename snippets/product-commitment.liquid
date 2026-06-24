@@ -1,0 +1,165 @@
+{%- liquid
+    assign modal_id = 'ProductCommitmentModal-' | append: block.id
+-%}
+
+<div
+    class='product-commitment'
+    {{ block.shopify_attributes }}
+>
+    <div
+        class='product-commitment__card'
+        style='--commitment-card-color: {{ block.settings.tree_card_text_color }};{% if block.settings.tree_card_image != blank %} --commitment-card-bg: url({{ block.settings.tree_card_image | image_url: width: 620 }});{% endif %}'
+    >
+        <span class='product-commitment__card-content'>
+            <span class='product-commitment__card-header'>
+                <span class='product-commitment__card-title'>{{ block.settings.tree_title }}</span>
+            </span>
+            <span class='product-commitment__card-text'>{{ block.settings.tree_card_text }}</span>
+        </span>
+        <button
+            class='product-commitment__card-help'
+            type='button'
+            aria-label='{{ block.settings.tree_title | escape }} details'
+            data-commitment-modal-target='#{{ modal_id }}'
+            data-commitment-tab='tree'
+        >
+            <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+            >
+                <g opacity="0.5">
+                  <path d="M12 1.93945C14.6681 1.93945 17.2276 2.99913 19.1143 4.88574C21.0007 6.77225 22.0604 9.33113 22.0605 11.999C22.0605 13.3201 21.8005 14.6291 21.2949 15.8496C20.7894 17.0701 20.0484 18.1792 19.1143 19.1133C18.1802 20.0474 17.071 20.7884 15.8506 21.2939C14.6301 21.7995 13.3211 22.0596 12 22.0596C10.679 22.0595 9.37079 21.7995 8.15039 21.2939C6.92993 20.7884 5.82083 20.0474 4.88672 19.1133C3.95263 18.1792 3.21161 17.07 2.70605 15.8496C2.20049 14.6291 1.94043 13.3201 1.94043 11.999C1.94054 9.3311 3.0002 6.77226 4.88672 4.88574C6.77323 2.99923 9.33208 1.93957 12 1.93945Z" stroke="#009242"/>
+                  <path d="M12.7583 14.7622V14.6302C12.7583 13.8996 13.1173 13.2209 13.7116 12.8254C14.9341 12.0118 15.5994 11.0551 15.5994 9.95207C15.5994 7.90199 13.9881 6.24023 11.9994 6.24023C10.0108 6.24023 8.39941 7.90199 8.39941 9.95207C8.39941 10.3836 8.73781 10.7345 9.15829 10.7345C9.57637 10.7345 9.91669 10.386 9.91669 9.95207C9.91669 8.76455 10.8498 7.80263 12.0018 7.80263C13.1538 7.80263 14.0865 8.76455 14.0865 9.95207C14.0865 10.4378 13.725 10.9586 12.8932 11.5121C11.8669 12.1956 11.2453 13.3697 11.2453 14.6302V14.7622C11.2453 15.1937 11.5833 15.5446 12.0018 15.5446C12.4175 15.5426 12.7559 15.1937 12.7583 14.7622ZM11.1594 17.383C11.1594 17.8572 11.5367 18.2402 11.9994 18.2402C12.4641 18.2402 12.8394 17.8553 12.8394 17.3834C12.8394 16.9092 12.4641 16.5262 11.9994 16.5242C11.5348 16.5242 11.1594 16.9087 11.1594 17.383Z" fill="#009242"/>
+                </g>
+            </svg>
+        </button>
+    </div>
+
+    <div
+        class='product-commitment__card'
+        style='--commitment-card-color: {{ block.settings.ocean_card_text_color }};{% if block.settings.ocean_card_image != blank %} --commitment-card-bg: url({{ block.settings.ocean_card_image | image_url: width: 620 }});{% endif %}'
+    >
+        <span class='product-commitment__card-content'>
+            <span class='product-commitment__card-header'>
+                <span class='product-commitment__card-title'>{{ block.settings.ocean_title }}</span>
+            </span>
+            <span class='product-commitment__card-text'>{{ block.settings.ocean_card_text }}</span>
+        </span>
+        <button
+            class='product-commitment__card-help'
+            type='button'
+            aria-label='{{ block.settings.ocean_title | escape }} details'
+            data-commitment-modal-target='#{{ modal_id }}'
+            data-commitment-tab='ocean'
+        >
+            <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='20'
+                height='20'
+                viewBox='0 0 20 20'
+                fill='none'
+            >
+                <g opacity="0.5">
+                  <path d="M10 1.69922C12.2012 1.69922 14.3126 2.57345 15.8691 4.12988C17.4256 5.68639 18.2998 7.7978 18.2998 9.99902C18.2998 11.089 18.0851 12.1688 17.668 13.1758C17.2509 14.1826 16.6398 15.0975 15.8691 15.8682C15.0985 16.6388 14.1836 17.2499 13.1768 17.667C12.1698 18.0841 11.09 18.2988 10 18.2988C8.91013 18.2988 7.83113 18.0841 6.82422 17.667C5.81722 17.2499 4.90159 16.6389 4.13086 15.8682C3.36029 15.0975 2.74911 14.1826 2.33203 13.1758C1.91492 12.1688 1.7002 11.089 1.7002 9.99902C1.70025 7.7978 2.57435 5.68639 4.13086 4.12988C5.68737 2.57338 7.79877 1.69927 10 1.69922Z" stroke="#00A0E9" stroke-opacity="0.5"/>
+                  <path d="M10.6324 12.3008V12.1908C10.6324 11.582 10.9316 11.0164 11.4268 10.6868C12.4456 10.0088 13 9.21162 13 8.29242C13 6.58402 11.6572 5.19922 10 5.19922C8.3428 5.19922 7 6.58402 7 8.29242C7 8.65202 7.282 8.94442 7.6324 8.94442C7.9808 8.94442 8.2644 8.65402 8.2644 8.29242C8.2644 7.30282 9.042 6.50122 10.002 6.50122C10.962 6.50122 11.7392 7.30282 11.7392 8.29242C11.7392 8.69722 11.438 9.13122 10.7448 9.59242C9.8896 10.162 9.3716 11.1404 9.3716 12.1908V12.3008C9.3716 12.6604 9.6532 12.9528 10.002 12.9528C10.3484 12.9512 10.6304 12.6604 10.6324 12.3008ZM9.3 14.4848C9.3 14.88 9.6144 15.1992 10 15.1992C10.3872 15.1992 10.7 14.8784 10.7 14.4852C10.7 14.09 10.3872 13.7708 10 13.7692C9.6128 13.7692 9.3 14.0896 9.3 14.4848Z" fill="#00A0E9" fill-opacity="0.5"/>
+                </g>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<modal-dialog
+    id='{{ modal_id }}'
+    class='product-popup-modal product-commitment-modal'
+>
+    <div
+        role='dialog'
+        aria-label='{{ block.settings.modal_title | escape }}'
+        aria-modal='true'
+        class='product-popup-modal__content product-commitment-modal__content'
+        tabindex='-1'
+    >
+        <div class='product-popup-modal__content-header product-commitment-modal__header'>
+            <h3>{{ block.settings.modal_title }}</h3>
+            <button
+                id='ModalClose-{{ block.id }}'
+                type='button'
+                class='product-popup-modal__toggle product-commitment-modal__close'
+                aria-label='{{ 'accessibility.close' | t }}'
+            >
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='48'
+                    height='48'
+                    viewBox='0 0 48 48'
+                    fill='none'
+                >
+                    <mask id="mask0_2769_6035" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+                      <rect width="48" height="48" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_2769_6035)">
+                      <path d="M13.257 14.5295L22.7272 23.9997L13.257 33.4699L15.5298 35.7427L25 26.2725L34.4702 35.7427L36.743 33.4699L27.2728 23.9997L36.743 14.5295L34.4702 12.2567L25 21.7268L15.5298 12.2567L13.257 14.5295Z" fill="black"/>
+                    </g>
+                </svg>
+            </button>
+        </div>
+
+        <div class='product-commitment-modal__body'>
+            <input
+                class='product-commitment-modal__input'
+                type='radio'
+                name='commitment-tabs-{{ block.id }}'
+                id='CommitmentTree-{{ block.id }}'
+                value='tree'
+                checked
+            >
+            <input
+                class='product-commitment-modal__input'
+                type='radio'
+                name='commitment-tabs-{{ block.id }}'
+                id='CommitmentOcean-{{ block.id }}'
+                value='ocean'
+            >
+
+            <div
+                class='product-commitment-modal__tabs'
+                role='tablist'
+                aria-label='{{ block.settings.modal_title | escape }}'
+            >
+                <label
+                    class='product-commitment-modal__tab product-commitment-modal__tab--tree'
+                    for='CommitmentTree-{{ block.id }}'
+                >
+                    {{ block.settings.tree_title }}
+                </label>
+                <label
+                    class='product-commitment-modal__tab product-commitment-modal__tab--ocean'
+                    for='CommitmentOcean-{{ block.id }}'
+                >
+                    {{ block.settings.ocean_title }}
+                </label>
+            </div>
+
+            <div class='product-commitment-modal__panel product-commitment-modal__panel--tree'>
+                <div class='product-commitment-modal__text rte'>
+                    {{ block.settings.tree_content }}
+                </div>
+                {%- if block.settings.tree_modal_image != blank -%}
+                    {{ block.settings.tree_modal_image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'product-commitment-modal__image' }}
+                {%- endif -%}
+            </div>
+
+            <div class='product-commitment-modal__panel product-commitment-modal__panel--ocean'>
+                <div class='product-commitment-modal__text rte'>
+                    {{ block.settings.ocean_content }}
+                </div>
+                {%- if block.settings.ocean_modal_image != blank -%}
+                    {{ block.settings.ocean_modal_image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'product-commitment-modal__image' }}
+                {%- endif -%}
+            </div>
+        </div>
+    </div>
+</modal-dialog>

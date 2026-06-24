@@ -1,0 +1,130 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    @media (max-width: 1023px) {
+    }
+
+    @media (min-width: 1024px) {
+    }
+</style>
+
+<div class='page-banner-all relative'>
+    {% if template.name == 'collection' %}
+        {% if section.settings.img != blank %}
+            {% render 'section-img', img: section.settings.img, width: 1920, mobile_width: 750 %}
+        {% endif %}
+    {%- else -%}
+        {% render 'section-img', img: section.settings.img, img_mobile: section.settings.img_mobile, width: 1920, mobile_width: 750 %}
+    {% endif %}
+    <div class='{% if section.settings.img == blank %} collection_empty py-[112px] {% else %} absolute top-[0px] right-0 left-[0px] {% endif %} page-banner-info mx-auto flex h-full w-full max-w-[952px] flex-col items-center justify-center text-center'>
+        {% if section.settings.title != blank %}
+            <h2
+                style='color: {{ section.settings.title_color }}'
+                class='header-title hide_p text-center leading-[113%] font-[600] tracking-[-1.28px] sm:text-[48px] sm:leading-[120%] lg:text-[64px]'
+            >
+                {{ section.settings.title }}
+            </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+            <div
+                style='color: {{ section.settings.text_color }}'
+                class='header-text hide_p mt-[24px] text-center text-[16px] leading-[113%] font-[400] sm:text-[16px] sm:leading-[150%] '
+            >
+                {{ section.settings.text }}
+            </div>
+        {% endif %}
+
+        {% if section.settings.btn_text != blank %}
+            <a
+                href='{{ section.settings.btn_link }}'
+                class='button page-banner-btn text-text mt-[24px] flex h-[48px] min-h-[48px] items-center rounded-[999px] bg-[#FCD454] px-[48px] text-center text-[28px] leading-[113%] font-[500] tracking-[0] sm:text-[16px] sm:leading-[120%]'
+            >
+                {{ section.settings.btn_text }}
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "page-banner",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "img"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "btn_link",
+            "label": "Button Link"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Color",
+            "default": "#1A1A1A"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#333333"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "page-banner"
+        }
+    ]
+}
+{% endschema %}

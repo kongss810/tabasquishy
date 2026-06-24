@@ -1,0 +1,136 @@
+{%- liquid
+    assign read_more = 'blogs.article.read_more' | t
+    assign ratio = 1
+    assign article_content_alignment = settings.article_content_alignment
+    assign info_spacing = true
+    assign article_card_border = settings.article_card_border
+    assign article_card_shadow = settings.article_card_shadow
+    assign article_card_shadow_class = 'has-shadow--' | append: article_card_shadow
+
+    case image_ratio
+        when 'adapt'
+            assign image_sizes = '320x0,640x0'
+            if article.image
+                assign ratio = article.image.aspect_ratio
+            endif
+        when 'square'
+            assign image_sizes = '320x320,640x640'
+            assign ratio = 1
+        when 'landscape'
+            assign image_sizes = '320x200,640x400'
+            assign ratio = 1.6
+        when 'portrait'
+            assign image_sizes = '320x400,640x800'
+            assign ratio = 0.8
+    endcase
+
+    assign color_body_bg = settings.color_body_bg | downcase
+    assign color_article_card_bg = settings.color_article_card_bg | downcase
+
+    if color_body_bg == color_article_card_bg or color_article_card_bg == 'transparent' or color_article_card_bg == 'rgba(0,0,0,0)'
+        unless article_card_border
+            assign info_spacing = false
+        endunless
+        if article_card_shadow
+            assign info_spacing = true
+        endif
+    endif
+-%}
+{%- if article -%}
+    <div class='css-layout blog-post text-{{ article_content_alignment }} blog-post--content-spacing-{{ info_spacing }} blog-post--border-{{ article_card_border }} {{ article_card_shadow_class }}'>
+        <figure class='featured-image'>
+            <div
+                class='aspect-ratio'
+                style='--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;'
+            >
+                <a
+                    href='{{ article.url }}'
+                    class='featured-image-link block'
+                    title='{{ article.title | escape }}'
+                >
+                    {%- if article.image -%}
+                        {%- render 'responsive-image', image: article.image, sizes: image_sizes -%}
+                    {%- endif -%}
+                </a>
+            </div>
+        </figure>
+        <div class='blog-post-info'>
+            {% if show_date %}
+                <div class='blog-post-data-container mb-[20px] flex items-center gap-[9px]'>
+                    <svg
+                        width='17'
+                        height='16'
+                        viewBox='0 0 17 16'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                    >
+                        <path d="M10.5285 9.98288H12.1685V11.6749H10.5285V9.98288ZM7.32216 9.98288H8.96222V11.6749H7.32216V9.98288ZM4.11584 9.98288H5.7559V11.6749H4.11584V9.98288ZM10.5285 6.42969H12.1685V8.12168H10.5285V6.42969ZM7.32216 6.42969H8.96222V8.12168H7.32216V6.42969ZM4.11584 6.42969H5.7559V8.12168H4.11584V6.42969Z" fill="#1A1A1A" fill-opacity="0.4"/>
+                        <path d="M12.9483 0.769858H12.1282V0H10.4882V0.769858H8.96293V0H7.32287V0.769858H5.74021V0H4.10015V0.769858H3.28012C2.41018 0.769858 1.57587 1.12638 0.960725 1.76101C0.345583 2.39563 0 3.25636 0 4.15385V12.4362C0 13.3337 0.345583 14.1944 0.960725 14.829C1.57587 15.4636 2.41018 15.8202 3.28012 15.8202H12.9483C13.379 15.8202 13.8056 15.7326 14.2035 15.5626C14.6015 15.3925 14.9631 15.1432 15.2677 14.829C15.5723 14.5148 15.8139 14.1417 15.9787 13.7312C16.1435 13.3206 16.2284 12.8806 16.2284 12.4362V4.15385C16.2284 3.70946 16.1435 3.26942 15.9787 2.85885C15.8139 2.44829 15.5723 2.07524 15.2677 1.76101C14.9631 1.44677 14.6015 1.19751 14.2035 1.02745C13.8056 0.857388 13.379 0.769858 12.9483 0.769858ZM14.5883 12.4362C14.5883 12.8849 14.4155 13.3153 14.108 13.6326C13.8004 13.9499 13.3832 14.1282 12.9483 14.1282H3.28012C2.84515 14.1282 2.42799 13.9499 2.12042 13.6326C1.81285 13.3153 1.64006 12.8849 1.64006 12.4362V4.15385V4.06079H14.5801V4.15385L14.5883 12.4362Z" fill="#1A1A1A" fill-opacity="0.4"/>
+                    </svg>
+
+                    <aside class='post-meta mb-[0px]'>
+                        {{ article.published_at | date: '%B %d %Y' }}
+                    </aside>
+                </div>
+            {% endif %}
+            <a
+                href='{{ article.url }}'
+                class='post-title'
+                title='{{ article.title | escape }}'
+            >
+                {{ article.title }}
+            </a>
+            {% if show_excerpt %}
+                <div class='post-excerpt'>
+                    <p>{{ article.excerpt_or_content | strip_html | truncatewords: 20 }}</p>
+                </div>
+            {% endif %}
+
+            {% if show_read_more %}
+                {% render 'text-button', url: article.url, title: read_more, class: 'read-more' %}
+            {% endif %}
+        </div>
+    </div>
+{%- else -%}
+    <div class='blog-post text-{{ article_content_alignment }} blog-post--content-spacing-{{ info_spacing }} blog-post--border-{{ article_card_border }} {{ article_card_shadow_class }}'>
+        <figure class='featured-image'>
+            <div
+                class='aspect-ratio'
+                style='--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;'
+            >
+                <a
+                    href='{{ article.url }}'
+                    class='featured-image-link'
+                    title='{{ article.title | escape }}'
+                >
+                    <div class='thb-placeholder'>
+                        {{ 'image' | placeholder_svg_tag }}
+                    </div>
+                </a>
+            </div>
+        </figure>
+        <div class='blog-post-info'>
+            {% if show_date %}
+                <aside class='post-meta mb-[0px]'>
+                    {{ 'today' | date: '%B %d %Y' }}
+                </aside>
+            {% endif %}
+            <h5>
+                <a
+                    role='link'
+                    aria-disabled='true'
+                >
+                    {{ 'sections.featured_blog.onboarding_title' | t }}
+                </a>
+            </h5>
+            {% if show_excerpt %}
+                <div class='post-excerpt'>
+                    <p>{{ 'sections.featured_blog.onboarding_content' | t }}</p>
+                </div>
+            {% endif %}
+            {% if show_read_more %}
+                {% render 'text-button', url: article.url, title: read_more, class: 'read-more', disabled: true %}
+            {% endif %}
+        </div>
+    </div>
+{%- endif -%}

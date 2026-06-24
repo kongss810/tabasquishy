@@ -1,0 +1,171 @@
+<div class='thb-header-mobile-left'>
+    {% render 'header-mobile-toggle', header_settings: header_settings, blocks: blocks %}
+</div>
+{% if header_settings.logo %}
+    <a
+        class='logolink'
+        href='{{ routes.root_url }}'
+    >
+        <img
+            src='{{ header_settings.logo | image_url }}'
+            class='logoimg'
+            alt='{{ header_settings.logo.alt | default: shop.name | escape }}'
+            width='{{ header_settings.logo.width }}'
+            height='{{ header_settings.logo.height }}'
+        >
+        {%- liquid
+            if header_settings.logo_light != blank
+                assign light_logo = header_settings.logo_light
+            else
+                assign light_logo = header_settings.logo
+            endif
+        -%}
+        <img
+            src='{{ light_logo | image_url }}'
+            class='logoimg logoimg--light'
+            alt='{{ header_settings.logo.alt | default: shop.name | escape }}'
+            width='{{ header_settings.logo.width }}'
+            height='{{ section.settings.logo.height }}'
+        >
+    </a>
+{% else %}
+    <a
+        class='logolink text-logo'
+        href='{{ routes.root_url }}'
+    >
+        {{ shop.name }}
+    </a>
+{% endif %}
+{% comment %}
+    <div class="thb-header-desktop-left">
+    	<div class="thb-secondary-area">
+    		<a class="thb-secondary-area-item thb-quick-search" href="{{ routes.search_url }}" title="{{ 'sections.header.search' | t }}">{%- render 'svg-icons' with 'search' -%}</a>
+    	</div>
+    </div>
+{% endcomment %}
+<div class='thb-header-desktop-left css-layout'>
+    <div class='header-native-search'>
+        <div
+            class='side-panel search-drawer'
+            tabindex='-1'
+            id='Search-Drawer'
+        >
+            <div class='side-panel-inner'>
+                <div class='side-panel-header'>
+                    <form
+                        role='search'
+                        method='get'
+                        class='searchform'
+                        action='{{ routes.search_url }}'
+                    >
+                        <fieldset>
+                            <input
+                                id='side-panel-search-input'
+                                type='search'
+                                class='search-field'
+                                placeholder='{{ 'general.search' | t }}'
+                                value='{{ search.terms | replace: '*', '' }}'
+                                name='q'
+                                autocomplete='off'
+                            >
+                            <button
+                                type='button'
+                                class='predictive_search_clear'
+                                aria-label='Clear search'
+                                style='right: 56px; display: none;'
+                            >
+                                <svg
+                                    width='18'
+                                    height='18'
+                                    viewBox='0 0 24 24'
+                                    fill='none'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                >
+                                    <path d="M6 6L18 18M18 6L6 18" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            <button>
+                                <svg
+                                    t='1779853196527'
+                                    class='icon'
+                                    viewBox='0 0 1024 1024'
+                                    version='1.1'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    p-id='6688'
+                                    width='auto'
+                                    height='auto'
+                                >
+                                    <path d="M997.767 959.774l-237.908-236.1A426.064 426.064 0 1 0 453.2 853.937 428.777 428.777 0 0 0 691.11 781.57L930.827 1024zM116.693 426.968A336.509 336.509 0 1 1 453.2 763.477a337.413 337.413 0 0 1-336.508-336.509z" fill="#333333" p-id="6689"></path>
+                                </svg>
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+                {%- if settings.predictive_search_enabled -%}
+                    <div class='side-panel-content side-panel-content--has-tabs'></div>
+                {%- endif -%}
+                <div class='side-panel-content--block'>
+                    <div class='predictive_search_box'>
+                        <div class='container'>
+                            <div class='predictive_searchBox flex gap-[60px] pt-[36px] pb-[40px]'>
+                                <div class='predictive_searchBox_left w-[34%] max-w-[517px]'>
+                                    {%- if settings.search_menu != blank -%}
+                                        <div class='predictive_searchBox_leftTitle mb-[16px] border-b border-[rgba(26,26,26,0.20)] pb-[16px] text-[18px] leading-[120%] font-[500]'>
+                                            {{ 'general.trending_searches' | t }}
+                                        </div>
+                                        <div class='predictive_searchBox_leftText flex flex-wrap gap-[24px]'>
+                                            {%- for link in settings.search_menu.links -%}
+                                                <a
+                                                    href='{{ link.url }}'
+                                                    title='{{ link.title | escape }}'
+                                                    class='flex w-max items-center gap-[8px] text-[16px] leading-[150%]'
+                                                >
+                                                    {{ link.title }}
+                                                </a>
+                                            {%- endfor -%}
+                                        </div>
+                                    {%- endif -%}
+                                </div>
+                                {%- if settings.search_product_collection != blank -%}
+                                    <div class='predictive_searchBox_right flex-1'>
+                                        <div class='predictive_searchBox_rightTop flex items-center justify-between gap-[20px] pr-[16px]'>
+                                            <div class='predictive_rightTopLeft flex gap-[24px] pb-[16px]'>
+                                                {% for collection in settings.search_product_collection2 %}
+                                                    <div
+                                                        class='predictive_rightTopLeft_item {% if forloop.first %}  active{% endif %} text-[18px] leading-[150%] text-[rgba(26,26,26,0.40)]'
+                                                        data-collection='{{collection.url}}'
+                                                    >
+                                                        {{ collection.title }}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            <a
+                                                href='{{ settings.search_product_collection2[0].url }}'
+                                                class='predictive_rightTopRight text-[14px] leading-[150%] underline'
+                                            >
+                                                {{ 'general.view_all_collection' | t }}
+                                            </a>
+                                        </div>
+                                        <div class='predictive_searchBox_rightBottom'>
+                                            {% for collection in settings.search_product_collection2 %}
+                                                <div class='predictive_searchBox_collectionBox row-[40px] grid-cols-4 gap-[24px] {% if forloop.first %}  active{% endif %}'>
+                                                    {%- for product in collection.products limit: settings.search_product_collection_limit -%}
+                                                        <div class='predictive_searchBox_rightBox'>
+                                                            {% render 'product-card-new2', product_card_product: product %}
+                                                        </div>
+                                                    {%- endfor -%}
+                                                </div>
+                                            {%- endfor -%}
+                                        </div>
+                                    </div>
+                                {%- endif -%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% render 'header-secondary-area', header_settings: header_settings %}
+{% render 'header-full-menu', menu: header_settings.menu, blocks: blocks %}

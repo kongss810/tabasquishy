@@ -1,0 +1,163 @@
+{%- render 'section-spacing', section: section -%}
+{%- liquid
+    assign b = section.settings
+    assign pc_w = b.pc_aspect_ratio_w
+    assign pc_h = b.pc_aspect_ratio_h
+    assign h5_w = b.h5_aspect_ratio_w
+    assign h5_h = b.h5_aspect_ratio_h
+
+    assign pc_ratio = ''
+    assign h5_ratio = ''
+
+    if pc_w != blank and pc_h != blank
+        assign pc_ratio = pc_w | append: '/' | append: pc_h
+    endif
+
+    if h5_w != blank and h5_h != blank
+        assign h5_ratio = h5_w | append: '/' | append: h5_h
+    endif
+-%}
+
+<div
+    style='
+        {% if pc_ratio != blank %}--media-aspect-pc: {{ pc_ratio }};{% endif %}
+        {% if h5_ratio != blank %}--media-aspect-h5: {{ h5_ratio }};{% endif %}
+    '
+    class='
+        relative w-full overflow-hidden
+        {% if h5_ratio != blank %}aspect-(--media-aspect-h5){% endif %}
+        {% if pc_ratio != blank %}md:aspect-(--media-aspect-pc){% endif %}
+    '
+>
+    {% render 'media-element',
+        class: 'w-full h-full',
+        media_class: 'w-full h-full object-cover',
+        media_type: section.settings.media_type,
+        pc_image: section.settings.pc_image,
+        h5_image: section.settings.h5_image,
+        pc_video: section.settings.pc_video,
+        h5_video: section.settings.h5_video,
+        video_url: section.settings.video_url
+    %}
+</div>
+{% schema %}
+{
+    "name": "test liquid",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Media Settings"
+        },
+        {
+            "type": "select",
+            "id": "media_type",
+            "label": "Media Type",
+            "options": [
+                {
+                    "value": "image",
+                    "label": "Image"
+                },
+                {
+                    "value": "video",
+                    "label": "Shopify Video"
+                },
+                {
+                    "value": "video_url",
+                    "label": "External Video URL"
+                }
+            ],
+            "default": "image"
+        },
+        {
+            "type": "image_picker",
+            "id": "pc_image",
+            "label": "PC Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "h5_image",
+            "label": "Mobile Image"
+        },
+        {
+            "type": "video",
+            "id": "pc_video",
+            "label": "PC Shopify Video"
+        },
+        {
+            "type": "video",
+            "id": "h5_video",
+            "label": "Mobile Shopify Video(Optional)"
+        },
+        {
+            "type": "video_url",
+            "id": "video_url",
+            "label": "Platform Video URL (YouTube/Vimeo)",
+            "accept": ["youtube", "vimeo"],
+            "default": "https://www.youtube.com/watch?v=NpEaa2P7qZI"
+        },
+        {
+            "type": "header",
+            "content": "Section Aspect Ratio"
+        },
+        {
+            "type": "number",
+            "id": "pc_aspect_ratio_w",
+            "label": "PC Ratio Width"
+        },
+        {
+            "type": "number",
+            "id": "pc_aspect_ratio_h",
+            "label": "PC Ratio Height"
+        },
+        {
+            "type": "number",
+            "id": "h5_aspect_ratio_w",
+            "label": "Mobile Ratio Width"
+        },
+        {
+            "type": "number",
+            "id": "h5_aspect_ratio_h",
+            "label": "Mobile Ratio Height"
+        }
+    ],
+
+    "presets": [
+        {
+            "name": "test"
+        }
+    ]
+}
+{% endschema %}

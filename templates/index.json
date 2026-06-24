@@ -1,0 +1,884 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "carousel_banner_GNLFyB": {
+      "type": "carousel-banner",
+      "blocks": {
+        "content_item_ENefdf": {
+          "type": "content_item",
+          "settings": {
+            "overlay_opacity": 30,
+            "title_color": "#ffffff",
+            "content_color": "#ffffff",
+            "button_color": "#ffffff",
+            "button_text_color": "#333333",
+            "desktop_layout": "left",
+            "mobile_layout": "middle",
+            "video": "shopify://files/videos/TABASQUISHY TabaSquishy.mp4",
+            "subheading": "<a href=\"/collections/tabasquishy-sports-balls\" title=\"BALL SQUISHY SQUAD – BALL-SHAPED CUTIES\">New Release</a>",
+            "title": "<p>Bling Bling Dreamland</p>",
+            "content": "<p>Shimmering Transparent Squishy Series</p>",
+            "button": "SHOP NOW",
+            "link": ""
+          }
+        },
+        "content_item_Xhyjn8": {
+          "type": "content_item",
+          "settings": {
+            "overlay_opacity": 0,
+            "title_color": "",
+            "content_color": "",
+            "button_color": "",
+            "button_text_color": "",
+            "desktop_layout": "center",
+            "mobile_layout": "middle",
+            "img": "shopify://shop_images/banner_1.png",
+            "subheading": "",
+            "title": "",
+            "content": "",
+            "button": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_item_ENefdf",
+        "content_item_Xhyjn8"
+      ],
+      "name": "Carousel Assets Banner",
+      "settings": {
+        "enable_autoplay": false,
+        "autoplay_delay": 4000,
+        "img": "shopify://shop_images/Frame_122.svg",
+        "enable_animation": true
+      }
+    },
+    "index_collection_list_nzWxt8": {
+      "type": "index-collection-list",
+      "blocks": {
+        "item_UpQdYR": {
+          "type": "item",
+          "settings": {
+            "tab": "Mini Animals",
+            "collection": "mini-squishies-by-tabasquishy™"
+          }
+        },
+        "item_7PrGGC": {
+          "type": "item",
+          "settings": {
+            "tab": "Woolen",
+            "collection": "blind-bag-squeeze-toy-collection-🎁"
+          }
+        },
+        "item_bathFf": {
+          "type": "item",
+          "settings": {
+            "tab": "Transparent Starry Sky",
+            "collection": "childrens-day-squishy-toys"
+          }
+        }
+      },
+      "block_order": [
+        "item_UpQdYR",
+        "item_7PrGGC",
+        "item_bathFf"
+      ],
+      "name": "Index Collection",
+      "settings": {
+        "title": "<p>Viral Favorites</p>",
+        "highlighted_text": "none",
+        "text": "The joy of slow, bouncy texture is hidden within the intertwining of the yarn.",
+        "text_color": "#333333",
+        "product_limit": 10,
+        "Desktop_paddingTop": 100,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_featured_series_hi9qUp": {
+      "type": "index-featured-series",
+      "blocks": {
+        "collection_item_QNCEXn": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "childrens-day-squishy-toys",
+            "display_image": "shopify://shop_images/Rectangle_19770.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_GwznYw": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Rectangle_19769.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_fVLrN7": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "childrens-day-squishy-toys",
+            "display_image": "shopify://shop_images/Rectangle_19753_7c82b175-7869-4696-b523-ef96ccc0d69c.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_QNCEXn",
+        "collection_item_GwznYw",
+        "collection_item_fVLrN7"
+      ],
+      "name": "Featured Series",
+      "settings": {
+        "title": "<p>Featured Series</p>",
+        "highlighted_text": "none",
+        "description": "The joy of slow, bouncy texture is hidden within the intertwining of the yarn.",
+        "view_text": "VIEW ALL COLEECTIONS",
+        "all_collection_url": "shopify://collections",
+        "button_text": "LEARN MORE",
+        "description_text_color": "#333333",
+        "Desktop_paddingTop": 140,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_original_series_WXDQaD": {
+      "type": "index-original-series",
+      "blocks": {
+        "item_p9Ypm6": {
+          "type": "item",
+          "settings": {
+            "tab": "MOODI",
+            "text": "<p>All MOODIs live within you. They argue, play, shine, complain, and hide – but never leave. Each emotion has its place, and every MOODI belongs to you.</p>",
+            "img": "shopify://shop_images/Group_2147241493.png",
+            "collection": "dumpling-drop-by-tabasquishy"
+          }
+        },
+        "item_9N3VPc": {
+          "type": "item",
+          "settings": {
+            "tab": "Mini Animals",
+            "text": "<p>All MOODIs live within you. They argue, play, shine, complain, and hide – but never leave. Each emotion has its place, and every MOODI belongs to you.</p>",
+            "img": "shopify://shop_images/Group_2147241493.png",
+            "collection": "tabasquishy-sports-balls"
+          }
+        },
+        "item_qp37kj": {
+          "type": "item",
+          "settings": {
+            "tab": "Unicorn Cosmetics",
+            "text": "<p>All MOODIs live within you. They argue, play, shine, complain, and hide – but never leave. Each emotion has its place, and every MOODI belongs to you.</p>",
+            "img": "shopify://shop_images/Group_2147241493.png",
+            "collection": "blind-bag-squeeze-toy-collection-🎁"
+          }
+        },
+        "item_pU9fHX": {
+          "type": "item",
+          "settings": {
+            "tab": "Transparent Starry Sky",
+            "text": "<p>All MOODIs live within you. They argue, play, shine, complain, and hide – but never leave. Each emotion has its place, and every MOODI belongs to you.</p>",
+            "img": "shopify://shop_images/Group_2147241493.png",
+            "collection": "childrens-day-squishy-toys"
+          }
+        }
+      },
+      "block_order": [
+        "item_p9Ypm6",
+        "item_9N3VPc",
+        "item_qp37kj",
+        "item_pU9fHX"
+      ],
+      "name": "Index Original Series",
+      "settings": {
+        "title": "<p>Original <em>IP Series</em></p>",
+        "highlighted_text": "scribble",
+        "product_limit": 4,
+        "button": "EXPLORE THE COLLECTION",
+        "bg_color": "linear-gradient(180deg, rgba(228, 228, 228, 0.2) 0.07%, rgba(255, 255, 255, 0.2) 58.09%)",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_scroll_text_Ln7PCe": {
+      "type": "index-scroll-text",
+      "blocks": {
+        "text_item_798hGE": {
+          "type": "text_item",
+          "settings": {
+            "img": "shopify://shop_images/manicure_3461937_1.svg",
+            "text": "Non-toxic certification"
+          }
+        },
+        "text_item_APUCG8": {
+          "type": "text_item",
+          "settings": {
+            "img": "shopify://shop_images/planet-earth_1598238_1.svg",
+            "text": "Sustainable Materials"
+          }
+        },
+        "text_item_NBWqnT": {
+          "type": "text_item",
+          "settings": {
+            "img": "shopify://shop_images/glue_1492992_1.svg",
+            "text": "100% HANDCRAFTED"
+          }
+        }
+      },
+      "block_order": [
+        "text_item_798hGE",
+        "text_item_APUCG8",
+        "text_item_NBWqnT"
+      ],
+      "name": "index-scroll-text",
+      "settings": {
+        "time_pc": 20,
+        "time_mobile": 8,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_sale_time_TxpFBd": {
+      "type": "index-sale-time",
+      "name": "index-sale-time",
+      "settings": {
+        "img": "shopify://shop_images/Rectangle_19786.png",
+        "title": "<p>Get The 4th One Free</p>",
+        "text": "<p>The joy of slow, bouncy texture is hidden within the intertwining of the yarn. Each piece offers a soft, cloud-like experience.</p>",
+        "countdown": "2026-07-01T13:38:59",
+        "bottom_text": "<p>Save extra on our sale collection <strong>*Runs until 14:00pm PST</strong></p>",
+        "btn_text": "LEARN MORE",
+        "btn_link": "#",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_product_bundle_qEMyxm": {
+      "type": "index-product-bundle",
+      "blocks": {
+        "item_Dnk8Uj": {
+          "type": "item",
+          "settings": {
+            "tab": "MOODI",
+            "collection": "moodi-feelings-have-shapes"
+          }
+        },
+        "item_kcWQQn": {
+          "type": "item",
+          "settings": {
+            "tab": "Mini Animals",
+            "collection": "mini-squishies-by-tabasquishy™"
+          }
+        },
+        "item_KGdCTR": {
+          "type": "item",
+          "settings": {
+            "tab": "Unicorn Cosmetics",
+            "collection": "dumpling-drop-by-tabasquishy"
+          }
+        },
+        "item_BP4TWX": {
+          "type": "item",
+          "settings": {
+            "tab": "Transparent Starry Sky",
+            "collection": "childrens-day-squishy-toys"
+          }
+        }
+      },
+      "block_order": [
+        "item_Dnk8Uj",
+        "item_kcWQQn",
+        "item_KGdCTR",
+        "item_BP4TWX"
+      ],
+      "name": "index-product-bundle",
+      "settings": {
+        "title": "<p>Get The 4th <em>One Free</em></p>",
+        "text": "The joy of slow, bouncy texture is hidden within the intertwining of the yarn. Each piece offers a soft, cloud-like experience.",
+        "img": "shopify://shop_images/Group_2147241492_1.png",
+        "badge_animation_duration": 1.8,
+        "note_text": "*Can’t combine with other discounts",
+        "highlighted_text": "scribble",
+        "product_limit": 9,
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_taba_family_UHEYNN": {
+      "type": "index-taba-family",
+      "blocks": {
+        "item_pFVDQi": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19761_ba736270-023f-4681-a90f-e71ecf71b48a.png",
+            "title": "KUAZI1",
+            "text": "<p>1KRAZI is full of energy and never stops.Jumping around and laughing non-stop.Happiness often comes with a touch of madness, and that's KRAZI.</p>",
+            "btn_text": "LEARN MORE",
+            "btn_link": "#"
+          }
+        },
+        "item_JdmztF": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19762.png",
+            "title": "KUAZI2",
+            "text": "<p>2KRAZI is full of energy and never stops.Jumping around and laughing non-stop.Happiness often comes with a touch of madness, and that's KRAZI.</p>",
+            "btn_text": "LEARN MORE",
+            "btn_link": "#"
+          }
+        },
+        "item_LpAAit": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19764.png",
+            "title": "KUAZI3",
+            "text": "<p>KRAZI is full of energy and never stops.Jumping around and laughing non-stop.Happiness often comes with a touch of madness, and that's KRAZI.</p>",
+            "btn_text": "LEARN MORE",
+            "btn_link": "#"
+          }
+        },
+        "item_ey8a6F": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19768.png",
+            "title": "KUAZI5",
+            "text": "<p>KRAZI is full of energy and never stops.Jumping around and laughing non-stop.Happiness often comes with a touch of madness, and that's KRAZI.</p>",
+            "btn_text": "LEARN MORE",
+            "btn_link": "#"
+          }
+        },
+        "item_Vmr7Ab": {
+          "type": "item",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19763.png",
+            "title": "KUAZI4",
+            "text": "<p>KRAZI is full of energy and never stops.Jumping around and laughing non-stop.Happiness often comes with a touch of madness, and that's KRAZI.</p>",
+            "btn_text": "LEARN MORE",
+            "btn_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "item_pFVDQi",
+        "item_JdmztF",
+        "item_LpAAit",
+        "item_ey8a6F",
+        "item_Vmr7Ab"
+      ],
+      "name": "index-taba-family",
+      "settings": {
+        "title": "<p>“ Hi, Meet The Taba Family ! \"</p>",
+        "text": "<p>The joy of slow, bouncy texture is hidden within the intertwining of the yarn. Each piece offers a soft, cloud-like experience.</p>",
+        "highlighted_text": "none",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_positive_reviews_Mcfzid": {
+      "type": "index-positive-reviews",
+      "blocks": {
+        "block_item_y3QLYY": {
+          "type": "block-item",
+          "settings": {
+            "pc_image": "shopify://shop_images/image_67_5.png",
+            "video": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-6.MOV",
+            "product": "2-purple-double-stars"
+          }
+        },
+        "block_item_rcdVtM": {
+          "type": "block-item",
+          "settings": {
+            "pc_image": "shopify://shop_images/image_67_5.png",
+            "video": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-4.MOV",
+            "product": "100g-black-bling-paw-taba-squishy"
+          }
+        },
+        "block_item_Lwak3Y": {
+          "type": "block-item",
+          "settings": {
+            "pc_image": "shopify://shop_images/image_67_5.png",
+            "video": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-5.MOV",
+            "product": "100g-black-bling-paw-taba-squishy-1"
+          }
+        },
+        "block_item_UepACN": {
+          "type": "block-item",
+          "settings": {
+            "pc_image": "shopify://shop_images/image_67_5.png",
+            "video": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-4.MOV",
+            "product": "100g-black-purple-paw-taba-squishy"
+          }
+        }
+      },
+      "block_order": [
+        "block_item_y3QLYY",
+        "block_item_rcdVtM",
+        "block_item_Lwak3Y",
+        "block_item_UepACN"
+      ],
+      "name": "index-positive-reviews",
+      "settings": {
+        "title": "<p>Over <strong>1000+</strong> Positive Reviews</p>",
+        "star_img": "shopify://shop_images/Container.svg",
+        "number_reviews": "5000+",
+        "highlighted_text": "none",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_comment_rate_3jdTqw": {
+      "type": "index-comment-rate",
+      "blocks": {
+        "product_item_aCpwDB": {
+          "type": "product_item",
+          "settings": {
+            "product": "2-purple-double-stars",
+            "image": "shopify://shop_images/Frame_1249188384_fbd0bf3b-d0c0-45e9-8457-829544e36491.png",
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "block_title": "<p>This is so cute</p>",
+            "block_text": "<p>“Super cute and my daughter is OBSESSED with it!! She takes it everywhere and has a little spot for it to sleep next to her at night. Definitely need to get some more of these!”</p>",
+            "block_rate_title": "<p>White Yorkshire Terrier</p>",
+            "block_rate_confirm": "<p>Verify Customer</p>",
+            "block_bg": "shopify://shop_images/Frame_1249187356.png",
+            "bg_color": "#fffbee",
+            "rating": "shopify://shop_images/Container_2f3f6a7b-444e-429d-89f1-8f091134e106.svg"
+          }
+        },
+        "product_item_jkDEYc": {
+          "type": "product_item",
+          "settings": {
+            "product": "100g-black-bling-paw-taba-squishy",
+            "image": "shopify://shop_images/Frame_1249188385.png",
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "block_title": "<p>This is so cute</p>",
+            "block_text": "<p>“Super cute and my daughter is OBSESSED with it!! She takes it everywhere and has a little spot for it to sleep next to her at night. Definitely need to get some more of these!”</p>",
+            "block_rate_title": "<p>White Yorkshire Terrier</p>",
+            "block_rate_confirm": "<p>Verify Customer</p>",
+            "block_bg": "shopify://shop_images/Frame_1249187356.png",
+            "bg_color": "#fffbee",
+            "rating": "shopify://shop_images/Container_2f3f6a7b-444e-429d-89f1-8f091134e106.svg"
+          }
+        },
+        "product_item_6yXbei": {
+          "type": "product_item",
+          "settings": {
+            "product": "2-purple-double-stars",
+            "image": "shopify://shop_images/Frame_1249188384_fbd0bf3b-d0c0-45e9-8457-829544e36491.png",
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "block_title": "<p>This is so cute</p>",
+            "block_text": "<p>“Super cute and my daughter is OBSESSED with it!! She takes it everywhere and has a little spot for it to sleep next to her at night. Definitely need to get some more of these!”</p>",
+            "block_rate_title": "<p>White Yorkshire Terrier</p>",
+            "block_rate_confirm": "<p>Verify Customer</p>",
+            "block_bg": "shopify://shop_images/Frame_1249187356.png",
+            "bg_color": "#fffbee",
+            "rating": "shopify://shop_images/Container_2f3f6a7b-444e-429d-89f1-8f091134e106.svg"
+          }
+        },
+        "product_item_KQceFV": {
+          "type": "product_item",
+          "settings": {
+            "product": "100g-black-bling-paw-taba-squishy",
+            "image": "shopify://shop_images/Frame_1249188385.png",
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "block_title": "<p>This is so cute</p>",
+            "block_text": "<p>“Super cute and my daughter is OBSESSED with it!! She takes it everywhere and has a little spot for it to sleep next to her at night. Definitely need to get some more of these!”</p>",
+            "block_rate_title": "<p>White Yorkshire Terrier</p>",
+            "block_rate_confirm": "<p>Verify Customer</p>",
+            "block_bg": "shopify://shop_images/Frame_1249187356.png",
+            "bg_color": "#fffbee",
+            "rating": "shopify://shop_images/Container_2f3f6a7b-444e-429d-89f1-8f091134e106.svg"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_aCpwDB",
+        "product_item_jkDEYc",
+        "product_item_6yXbei",
+        "product_item_KQceFV"
+      ],
+      "name": "Index Comment Rate",
+      "settings": {
+        "title": "",
+        "highlighted_text": "none",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "our_story_xcBNcQ": {
+      "type": "our-story",
+      "blocks": {
+        "product_item_RXhjWf": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_19820_1.png",
+            "block_tag": "<p>Our Story</p>",
+            "link": "shopify://pages/about-us",
+            "block_title": "<p>Giving Back With Purpose</p>",
+            "block_text": "<p>At TABASQUISHY®, some of our most meaningful stories come from people with ADHD who’ve found calm and focus through our toys. We’re not doctors—but your voices have inspired us to give back, supporting ADHD communities through thoughtful donations and partnerships.</p>"
+          }
+        },
+        "product_item_MDjhG7": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/Component_55.png",
+            "block_tag": "<p>Our Story</p>",
+            "link": "",
+            "block_title": "<p>Giving Back With Purpose</p>",
+            "block_text": "<p>At TABASQUISHY®, some of our most meaningful stories come from people with ADHD who’ve found calm and focus through our toys. We’re not doctors—but your voices have inspired us to give back, supporting ADHD communities through thoughtful donations and partnerships2.</p>"
+          }
+        },
+        "product_item_iyAB8m": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_19820_1.png",
+            "block_tag": "<p>Our Story</p>",
+            "link": "",
+            "block_title": "<p>Giving Back With Purpose</p>",
+            "block_text": "<p>At TABASQUISHY®, some of our most meaningful stories come from people with ADHD who’ve found calm and focus through our toys. We’re not doctors—but your voices have inspired us to give back, supporting ADHD communities through thoughtful donations and partnerships3.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_RXhjWf",
+        "product_item_MDjhG7",
+        "product_item_iyAB8m"
+      ],
+      "name": "our story",
+      "settings": {
+        "bg_img": "shopify://shop_images/Frame_2147241795.png",
+        "block_bg": "shopify://shop_images/222.gif",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "why_choose_us_HiF4RK": {
+      "type": "why-choose-us",
+      "blocks": {
+        "card_3bnVnV": {
+          "type": "card",
+          "settings": {
+            "cover_image": "shopify://shop_images/Frame_1249188358.png",
+            "card_color": "#e20079",
+            "block_title": "<p>Free Delivery Over $59</p>",
+            "block_text": "<p>Free Shipping on $59+ Orders. Shipping policy varies by country. See Shipping Policy for details.</p>"
+          }
+        },
+        "card_ibVPnc": {
+          "type": "card",
+          "settings": {
+            "cover_image": "shopify://shop_images/Frame_1249188365.png",
+            "card_color": "#18a0e6",
+            "block_title": "<p>Made With Care</p>",
+            "block_text": "<p>Our products are handcrafted using high-quality food-grade silicone materials.</p>"
+          }
+        },
+        "card_eibrmi": {
+          "type": "card",
+          "settings": {
+            "cover_image": "shopify://shop_images/Frame_1249188360.png",
+            "card_color": "#7d318c",
+            "block_title": "<p>Returns Within 30 Days</p>",
+            "block_text": "<p>You may request a return within 30 calendar days of delivery.</p>"
+          }
+        },
+        "card_tD8PPn": {
+          "type": "card",
+          "settings": {
+            "cover_image": "shopify://shop_images/Frame_1249188361.png",
+            "card_color": "#0f8e3b",
+            "block_title": "<p>Safe & Kid-Friendly</p>",
+            "block_text": "<p>Madewith safe materials and verified by third-party testing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_3bnVnV",
+        "card_ibVPnc",
+        "card_eibrmi",
+        "card_tD8PPn"
+      ],
+      "name": "why choose us",
+      "settings": {
+        "title": "<p>Why Choose Us?</p>",
+        "description": "<p>Crafted by hand, defined by quality, and delivered with care. Purely safe materials paired with a seamless service experience.</p>",
+        "bg_color": "#fcd454",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 80,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 80
+      }
+    },
+    "index_gameplay_LyWQHi": {
+      "type": "index-gameplay",
+      "name": "Index Gameplay",
+      "settings": {
+        "first_pc_image": "shopify://shop_images/Frame_1249187327.png",
+        "first_pc_video": "shopify://files/videos/tabasquishy-pink- beauty-16-9-v.mp4",
+        "first_title": "How to Squish Properly.",
+        "first_description": "Zero toxins, eco-friendly materials, and scents that soothe.",
+        "first_button": "MORE ABOUT US",
+        "first_button_url": "",
+        "first_bg_color": "#ccecfb",
+        "first_bg": "shopify://shop_images/Frame_2147241587.png",
+        "second_title": "Beyond the Squeeze",
+        "second_description": "Zero toxins, eco-friendly materials, and scents that soothe.",
+        "second_button": "VIEW MORE",
+        "second_button_url": "",
+        "second_bg_color": "#c5e6d1",
+        "second_bg": "shopify://shop_images/Frame_2147241588.png",
+        "second_pc_image": "shopify://shop_images/Frame_1249187327.png",
+        "second_pc_video": "shopify://files/videos/tabasquishy-childrens-day-v.mp4",
+        "Desktop_paddingTop": 140,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_design_show_7zi8XJ": {
+      "type": "index-design-show",
+      "blocks": {
+        "top_img_UYc6EF": {
+          "type": "top_img",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19744.png",
+            "link": "#"
+          }
+        },
+        "top_img_mpyRjt": {
+          "type": "top_img",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19741.png",
+            "link": "#"
+          }
+        },
+        "top_img_78GTzk": {
+          "type": "top_img",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19742.png",
+            "video": "shopify://files/videos/tabasquishy-Dumpling-v-1-1.mp4",
+            "link": ""
+          }
+        },
+        "top_img_Pnfgwb": {
+          "type": "top_img",
+          "settings": {
+            "img": "shopify://shop_images/Rectangle_19745.png",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "top_img_UYc6EF",
+        "top_img_mpyRjt",
+        "top_img_78GTzk",
+        "top_img_Pnfgwb"
+      ],
+      "disabled": true,
+      "name": "index-design-show",
+      "settings": {
+        "title": "<p>Creator Hub For <em>Designers</em></p>",
+        "text": "<p>Collection of original designs</p>",
+        "time_pc": 10,
+        "time_mobile": 8,
+        "highlighted_text": "scribble",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "media_grid_aNAzmr": {
+      "type": "media-grid",
+      "blocks": {
+        "media_WULA6w": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_hamster_19201080.jpg",
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 4,
+            "row": 1,
+            "subheading": "",
+            "heading": "TABASQUISHY® VIDEO CHALLENGE 🎬",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "shopify://pages/tabasquishy-star2025",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_YX7Ayy": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0520.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_7nFyUM": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0610.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-2.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_P8iVAV": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0987.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-5.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_MGhLWY": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0762.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-6.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_WULA6w",
+        "media_YX7Ayy",
+        "media_7nFyUM",
+        "media_P8iVAV",
+        "media_MGhLWY"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 150,
+        "column_spacing": "small",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "Desktop_top": 160,
+        "Mobile_top": 0,
+        "Desktop_bottom": 140,
+        "Mobile_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "carousel_banner_GNLFyB",
+    "index_collection_list_nzWxt8",
+    "index_featured_series_hi9qUp",
+    "index_original_series_WXDQaD",
+    "index_scroll_text_Ln7PCe",
+    "index_sale_time_TxpFBd",
+    "index_product_bundle_qEMyxm",
+    "index_taba_family_UHEYNN",
+    "index_positive_reviews_Mcfzid",
+    "index_comment_rate_3jdTqw",
+    "our_story_xcBNcQ",
+    "why_choose_us_HiF4RK",
+    "index_gameplay_LyWQHi",
+    "index_design_show_7zi8XJ",
+    "media_grid_aNAzmr"
+  ]
+}

@@ -1,0 +1,149 @@
+{%- render 'section-spacing', section: section -%}
+
+<div class='ip-also-like-container container'>
+    <product-recommendations
+        class='ip-also-like-product-recommendations'
+        data-url='{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}'
+    >
+        {% if recommendations.performed and recommendations.products_count > 0 %}
+            {% if section.settings.title != blank %}
+                {%- if section.settings.highlighted_text == 'none' -%}
+                    <h2 class='header-title text-title hide_p mb-[32px] text-center text-[28px] leading-[113%] font-[600] tracking-[0] sm:mb-[52px] sm:text-left sm:text-[64px] sm:leading-[120%]'>
+                        {{ section.settings.title }}
+                    </h2>
+                {% else %}
+                    {%- render 'highlighted-text',
+                        class: 'header-title mb-[32px] sm:mb-[52px] text-center sm:text-left text-title hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                        content: section.settings.title,
+                        style: section.settings.highlighted_text,
+                        scribble: 'sketch-underline',
+                        gradient: with_gradient
+                    -%}
+                {% endif %}
+            {% endif %}
+            <div class='ip-also-like-products'>
+                <div class='swiper-father'>
+                    <div class='recommendationsSwiper swiper'>
+                        <div class='swiper-wrapper'>
+                            {% for recommendation in recommendations.products limit: section.settings.product_limit %}
+                                <div class='swiper-slide'>
+                                    {% render 'product-card-new', product_card_product: recommendation %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class='swiper-buttons mt-[32px] flex items-center justify-between gap-[20px] sm:mt-[52px]'>
+                            <div class='swiper_buttons_left'>
+                                <div class='swiper-pagination'></div>
+                            </div>
+                            <div class='swiper_buttons_right hidden'>
+                                <div class='swiper-button-prev'>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='11'
+                                        height='23'
+                                        viewBox='0 0 11 23'
+                                        fill='none'
+                                    >
+                                        <path d="M9.67364 2.32616L0.999802 11L9.67364 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class='swiper-button-next'>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='11'
+                                        height='23'
+                                        viewBox='0 0 11 23'
+                                        fill='none'
+                                    >
+                                        <path d="M1.05973 2.32616L9.73358 11L1.05973 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </product-recommendations>
+</div>
+
+{% schema %}
+{
+    "name": "Product recommendations",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "range",
+            "id": "product_limit",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "label": "Product Limit",
+            "default": 10
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "title"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product recommendations"
+        }
+    ]
+}
+{% endschema %}

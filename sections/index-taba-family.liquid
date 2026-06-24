@@ -1,0 +1,571 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .section_Index5All svg rect {
+        fill: #fff;
+    }
+    @media (min-width: 1024px) {
+        .section_Index5All  {
+            overflow: hidden;
+        }
+        .carousel {
+            position: relative;
+            perspective: 1500px;
+            overflow: visible;
+        }
+
+        .Index5Cards {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            height: 465px;
+        }
+
+        .Index5Card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 450px;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            transform-style: preserve-3d;
+            transition: transform 0.45s ease, opacity 0.45s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .Index5Card.off {
+            transform: translate(-50%, -50%) scale(0.01);
+            opacity: 0;
+        }
+
+        .Index5Card.pos0 {
+            transform: translate(calc(-140% - 225px), -22%) rotate(-24deg) scale(0.60);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .Index5Card.pos1 {
+            transform: translate(calc(-104% - 133px), -41%) rotate(-12deg) scale(0.88);
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .Index5Card.pos2 {
+            transform: translate(-50%, -52%) rotate(0deg);
+            opacity: 1;
+            z-index: 3;
+        }
+
+        .Index5Card.pos3 {
+            transform: translate(calc(4% + 133px), -41%) rotate(12deg) scale(0.88);
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .Index5Card.pos4 {
+            transform: translate(calc(38% + 225px), -22%) rotate(24deg) scale(0.60);
+            opacity: 1;
+            z-index: 1;
+        }
+        .Index5Cards_bottomBox:first-child {
+            position: relative;
+        }
+        .Index5Cards_bottomBox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 486px;
+            margin: 0 auto;
+        }
+        .Index5Cards_bottomBox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn-pagination {
+            display: none;
+        }
+    }
+    @media (max-width: 1023px) {
+        .section_Index5All  {
+            overflow: hidden;
+        }
+        .carousel {
+            position: relative;
+            perspective: 1500px;
+            overflow: visible;
+            mask-image: linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 5%, hsl(0 0% 0% / 1) 95%, hsl(0 0% 0% / 0));
+        }
+
+        .Index5Cards {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            height: 300px;
+        }
+        .Index5Card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 197px;
+            height: 218px;
+            background-size: cover;
+            background-position: center;
+            transform-style: preserve-3d;
+            transition: transform 0.45s ease, opacity 0.45s ease;
+            opacity: 0;
+            {% comment %} pointer-events: none; {% endcomment %}
+        }
+
+        .Index5Card.off {
+            transform: translate(-50%, -50%) scale(0.01);
+            opacity: 0;
+        }
+
+        .Index5Card.pos0 {
+            transform: translate(calc(-212% - 110px), -18%) rotate(-17deg);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .Index5Card.pos1 {
+            transform: translate(calc(-120% - 78px), -43%) rotate(-12deg);
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .Index5Card.pos2 {
+            transform: translate(-50%, -52%) rotate(0deg);
+            opacity: 1;
+            z-index: 3;
+
+        }
+
+        .Index5Card.pos3 {
+            transform: translate(calc(21% + 78px), -43%) rotate(10deg);
+            opacity: 1;
+            z-index: 2;
+
+        }
+
+        .Index5Card.pos4 {
+            transform: translate(calc(112% + 110px), -18%) rotate(17deg);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .section_Index5_img {
+            position: absolute;
+            bottom: 3px;
+            height: 250px;
+            z-index: 2;
+        }
+        .Index5Cards_bottomBox:first-child {
+            position: relative;
+        }
+        .Index5Cards_bottomBox {
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .Index5Cards_bottomBox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .Index5Cards_bottom {
+            max-width: 706px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .Index5Cards_bottomList {
+            position: relative;
+            display: flex;
+            margin-top: 20px;
+            min-height: 100px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section_Index5All .left-btn, .section_Index5All .right-btn  {
+            display: none ;
+        }
+        .section_Index5All .left-btn .section_button2, .section_Index5All .right-btn .section_button2{
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--f_color3);
+        }
+        .section_Index2Right .left-btn svg, .section_Index2Right .right-btn svg {
+            height: 17px;
+            width: auto;
+        }
+        .section_Index2Left .left-btn svg, .section_Index2Left .right-btn svg {
+            height: auto;
+            width: 17px;
+        }
+        .section_Index5All .left-btn:hover .section_button2, .section_Index5All .right-btn:hover .section_button2{
+            background-color: #ffffff33;
+        }
+        .section_Index5All .left-btn {
+            position: absolute;
+            top: calc(50% - 20px);
+            left: 0;
+        }
+        .section_Index5All .right-btn {
+            position: absolute;
+            top: calc(50% - 20px);
+            right: 0;
+        }
+        .section_Index5Box.active  .section_button1{
+            display: none !important;
+        }
+        .section_Index5Box.active .section_Index5_imgIcon {
+            display: block;
+        }
+        .section_Index5Box {
+            /* --blur-radius: 10px;
+            --x-offset: 4px;
+            --y-offset: 4px;
+            --color: rgba(0, 0, 0, 0.25);
+            filter: drop-shadow(var(--x-offset) var(--y-offset) var(--blur-radius) var(--color)); */
+        }
+        .section_Index5Box.active .corner-tl,.section_Index5Box.active .corner-br  {
+            background-color: var(--t_color2);
+        }
+        .section_Index5_imgIcon {
+            display: none;
+            position: absolute;
+            right: -24px;
+            top: -32px;
+            width: 60px;
+            z-index: 2;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+
+        .section_Index5All .btn-pagination{
+            position: unset;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .section_Index5All .swiper-pagination-bullet{
+            opacity: 1;
+            border-radius: 10px;
+        }
+
+        .section_Index5All .swiper-pagination-bullet {
+            opacity: 1;
+            position: relative;
+            margin: 0 3px !important;
+            width: 8px;
+            height: 2px !important;
+            overflow: hidden;
+            transition: all .3s;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 2px;
+        }
+
+        .section_Index5All .swiper-pagination-bullet.swiper-pagination-bullet-active{
+            width: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+
+    }
+</style>
+
+<div class='section_Index5All'>
+    <div class='container'>
+        {%- if section.settings.title != blank -%}
+            {%- if section.settings.highlighted_text == 'none' -%}
+                <h2 class='header-title text-title hide_p text-center text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
+                    {{ section.settings.title }}
+                </h2>
+            {% else %}
+                {%- render 'highlighted-text',
+                    class: 'header-title text-title text-center hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                    content: section.settings.title,
+                    style: section.settings.highlighted_text,
+                    scribble: 'sketch-underline',
+                    gradient: with_gradient
+                -%}
+            {% endif %}
+        {%- endif -%}
+        <div class='header-text hide_p text-text mt-[20px] text-center text-[28px] leading-[113%] font-[400] tracking-[0] sm:text-[16px] sm:leading-[150%]'>
+            {{ section.settings.text }}
+        </div>
+
+        <div class='section_Index5_box mt-[72px]'>
+            <div class='carousel'>
+                <div
+                    class='Index5Cards'
+                    id='Index5Cards'
+                >
+                    {% for block in section.blocks %}
+                        <div class='Index5Card section_Index5Box overflow-hidden rounded-[15px] {% if forloop.first %} active {% endif %}'>
+                            <div class='section_Index5_img'>
+                                {% render 'section-img', img: block.settings.img %}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class='my-swiper-button swiper-button-prev left-btn absolute top-[calc(85%-48px)] left-[0px] !z-3'>
+                        {%- render 'icon' with 'swiper-prev' -%}
+                    </div>
+                    <div class='my-swiper-button swiper-button-next right-btn absolute top-[calc(85%-48px)] right-[0px] !z-3'>
+                        {%- render 'icon' with 'swiper-next' -%}
+                    </div>
+                </div>
+
+                <div class='Index5Cards_bottom'>
+                    <div class='Index5Cards_bottomList relative mt-[80px] flex min-h-[180px] items-center justify-center'>
+                        {% for block in section.blocks %}
+                            <div class='Index5Cards_bottomBox {% if forloop.first %} active {% endif %}'>
+                                <div class='Index5Cards_bottomTitle text-title text-center text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[36px] sm:leading-[100%]'>
+                                    {{ block.settings.title }}
+                                </div>
+                                <div class='Index5Cards_bottomText hide_p text-text mt-[20px] text-center text-[28px] leading-[113%] font-[400] tracking-[0] sm:text-[16px] sm:leading-[150%]'>
+                                    {{ block.settings.text }}
+                                </div>
+                                {% if block.settings.btn_text != blank %}
+                                    <a
+                                        href='{{ block.settings.btn_link }}'
+                                        class='button Index5Cards_bottomBtn text-text mt-[32px] rounded-[999px] bg-[#FCD454] px-[48px] py-[14.5px] text-center text-[28px] leading-[113%] font-[500] tracking-[0] uppercase sm:text-[16px] sm:leading-[120%]'
+                                    >
+                                        {{ block.settings.btn_text }}
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if section.blocks.size > 1 %}
+                        <div class='bth btn-pagination'>
+                            {% for block in section.blocks %}
+                                <span
+                                    class='swiper-pagination-bullet {% if forloop.first %}swiper-pagination-bullet-active{% endif %}'
+                                    data-index='{{ forloop.index0 }}'
+                                ></span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const $Index5Cards = $('.Index5Card');
+      const $Index5CardsBottomBox = $('.Index5Cards_bottomBox');
+      const $Index5CardsTabBox = $('.section_Index5Box');
+      const $Index5Wrapper = $('#Index5Cards');
+      const $paginationBullets = $('.btn-pagination .swiper-pagination-bullet');
+
+      let centerIndex = 0;
+
+      function updateIndex5Cards() {
+        const total = $Index5Cards.length;
+
+        // 更新 bottom / tab
+        $Index5CardsBottomBox.eq(centerIndex).addClass('active').siblings().removeClass('active');
+        $Index5CardsTabBox.eq(centerIndex).addClass('active').siblings().removeClass('active');
+
+        // 更新 cards
+        $Index5Cards.removeClass('pos0 pos1 pos2 pos3 pos4').addClass('off');
+        for (let i = -2; i <= 2; i++) {
+          const index = (centerIndex + i + total) % total;
+          $Index5Cards
+            .eq(index)
+            .removeClass('off')
+            .addClass('pos' + (i + 2));
+        }
+
+        // 更新分页点
+        $paginationBullets.removeClass('swiper-pagination-bullet-active');
+        $paginationBullets.eq(centerIndex).addClass('swiper-pagination-bullet-active');
+      }
+
+      updateIndex5Cards();
+
+      /* ---------- button ---------- */
+      $('.left-btn').on('click', function () {
+        centerIndex = (centerIndex - 1 + $Index5Cards.length) % $Index5Cards.length;
+        updateIndex5Cards();
+      });
+
+      $('.right-btn').on('click', function () {
+        centerIndex = (centerIndex + 1) % $Index5Cards.length;
+        updateIndex5Cards();
+      });
+
+      /* ---------- drag / swipe ---------- */
+      let startX = 0;
+      let dragging = false;
+
+      function start(e) {
+        dragging = true;
+        startX = e.touches ? e.touches[0].clientX : e.clientX;
+      }
+
+      function end(e) {
+        if (!dragging) return;
+        dragging = false;
+
+        const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+        const diff = endX - startX;
+        if (Math.abs(diff) < 50) return;
+
+        centerIndex =
+          diff < 0
+            ? (centerIndex + 1) % $Index5Cards.length
+            : (centerIndex - 1 + $Index5Cards.length) % $Index5Cards.length;
+
+        updateIndex5Cards();
+      }
+
+      $Index5Wrapper.on('mousedown touchstart', function (e) {
+        if (e.type === 'touchstart') e.preventDefault();
+        start(e);
+      });
+      $(window).on('mouseup touchend touchcancel', end);
+
+      /* ---------- pagination bullet click ---------- */
+      {% comment %} $paginationBullets.on('click', function () {
+        const index = parseInt($(this).data('index'));
+        centerIndex = index;
+        updateIndex5Cards();
+      }); {% endcomment %}
+    });
+</script>
+{% schema %}
+{
+    "name": "index-taba-family",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "item",
+            "name": "item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "img"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Text"
+                },
+                {
+                    "type": "text",
+                    "id": "btn_text",
+                    "label": "Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "btn_link",
+                    "label": "Button Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "index-taba-family"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,859 @@
+{% doc %}
+  @prompt
+    Create a responsive campaign timeline section for Shopify.
+    
+    Content:
+    
+    - Apr 29: VIP 22% OFF coupon released
+    
+    - Apr 30: Mid-Year Surprise Drop begins
+    
+    - May 7: VIP 25% OFF coupon released
+    
+    - May 20: Campaign ends
+    
+    Design:
+    
+    - Desktop: horizontal timeline.
+    
+    - Mobile: vertical stacked timeline.
+    
+    - Use rounded cards, clear dates, short descriptions, and playful visual details.
+    
+    - Include customizable timeline items in the schema.
+    
+    - Must match theme container width and work perfectly on mobile., 竖着的时间轴, 鼠标悬浮在卡片上时这个时间轴节点的小圆点能一起展示动效。动效的3D效果更明显一些。, 小圆点的效果过了，稍微简单一点。
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-vertical-timeline-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: {{ block.settings.section_padding_mobile }}px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-vertical-timeline__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-vertical-timeline__heading-{{ ai_gen_id }} {
+    text-align: {{ block.settings.heading_alignment }};
+    margin-bottom: 40px;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size_mobile }}px;
+  }
+
+  .ai-vertical-timeline__items-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.item_gap_mobile }}px;
+    position: relative;
+  }
+
+  .ai-vertical-timeline__item-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.connector_gap }}px;
+    position: relative;
+  }
+
+  .ai-vertical-timeline__connector-{{ ai_gen_id }} {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
+  .ai-vertical-timeline__dot-{{ ai_gen_id }} {
+    width: {{ block.settings.dot_size }}px;
+    height: {{ block.settings.dot_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.dot_color }};
+    border: {{ block.settings.dot_border_width }}px solid {{ block.settings.dot_border_color }};
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(63, 114, 229, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .ai-vertical-timeline__line-{{ ai_gen_id }} {
+    width: {{ block.settings.line_width }}px;
+    flex-grow: 1;
+    background-color: {{ block.settings.line_color }};
+    margin-top: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .ai-vertical-timeline__item-{{ ai_gen_id }}:last-child .ai-vertical-timeline__line-{{ ai_gen_id }} {
+    display: none;
+  }
+
+  .ai-vertical-timeline__card-{{ ai_gen_id }} {
+    flex-grow: 1;
+    background-color: {{ block.settings.card_background }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: {{ block.settings.card_padding_mobile }}px;
+    {% if block.settings.card_shadow %}
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    {% endif %}
+    {% if block.settings.card_border %}
+      border: 1px solid {{ block.settings.card_border_color }};
+    {% endif %}
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .ai-vertical-timeline__card-{{ ai_gen_id }}:hover {
+    {% if block.settings.card_shadow %}
+      box-shadow: 0 8px 24px rgba(63, 114, 229, 0.15);
+    {% endif %}
+    transform: translateX(8px);
+  }
+
+  .ai-vertical-timeline__item-{{ ai_gen_id }}:hover .ai-vertical-timeline__dot-{{ ai_gen_id }} {
+    transform: scale(1.2);
+    box-shadow: 0 4px 16px rgba(63, 114, 229, 0.4);
+  }
+
+  .ai-vertical-timeline__item-{{ ai_gen_id }}:hover .ai-vertical-timeline__line-{{ ai_gen_id }} {
+    background-color: {{ block.settings.dot_color }};
+  }
+
+  .ai-vertical-timeline__date-{{ ai_gen_id }} {
+    font-size: {{ block.settings.date_size_mobile }}px;
+    font-weight: 700;
+    color: {{ block.settings.date_color }};
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+
+  .ai-vertical-timeline__card-{{ ai_gen_id }}:hover .ai-vertical-timeline__date-{{ ai_gen_id }} {
+    transform: translateX(4px);
+  }
+
+  .ai-vertical-timeline__title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size_mobile }}px;
+    font-weight: 600;
+    color: {{ block.settings.title_color }};
+    margin-bottom: 6px;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+  }
+
+  .ai-vertical-timeline__card-{{ ai_gen_id }}:hover .ai-vertical-timeline__title-{{ ai_gen_id }} {
+    transform: translateX(4px);
+  }
+
+  .ai-vertical-timeline__description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size_mobile }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.6;
+    transition: all 0.3s ease;
+  }
+
+  .ai-vertical-timeline__card-{{ ai_gen_id }}:hover .ai-vertical-timeline__description-{{ ai_gen_id }} {
+    transform: translateX(4px);
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-vertical-timeline-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding_desktop }}px 40px;
+    }
+
+    .ai-vertical-timeline__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_desktop }}px;
+      margin-bottom: 60px;
+    }
+
+    .ai-vertical-timeline__items-{{ ai_gen_id }} {
+      gap: {{ block.settings.item_gap_desktop }}px;
+    }
+
+    .ai-vertical-timeline__card-{{ ai_gen_id }} {
+      padding: {{ block.settings.card_padding_desktop }}px;
+    }
+
+    .ai-vertical-timeline__card-{{ ai_gen_id }}:hover {
+      transform: translateX(12px);
+    }
+
+    .ai-vertical-timeline__date-{{ ai_gen_id }} {
+      font-size: {{ block.settings.date_size_desktop }}px;
+    }
+
+    .ai-vertical-timeline__title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size_desktop }}px;
+    }
+
+    .ai-vertical-timeline__description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.description_size_desktop }}px;
+    }
+  }
+{% endstyle %}
+
+<vertical-timeline-{{ ai_gen_id }} class="ai-vertical-timeline-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-vertical-timeline__container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-vertical-timeline__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ai-vertical-timeline__items-{{ ai_gen_id }}">
+      {% if block.settings.item_1_enabled %}
+        <div class="ai-vertical-timeline__item-{{ ai_gen_id }}">
+          <div class="ai-vertical-timeline__connector-{{ ai_gen_id }}">
+            <div class="ai-vertical-timeline__dot-{{ ai_gen_id }}"></div>
+            <div class="ai-vertical-timeline__line-{{ ai_gen_id }}"></div>
+          </div>
+          <div class="ai-vertical-timeline__card-{{ ai_gen_id }}">
+            {% if block.settings.item_1_date != blank %}
+              <div class="ai-vertical-timeline__date-{{ ai_gen_id }}">{{ block.settings.item_1_date }}</div>
+            {% endif %}
+            {% if block.settings.item_1_title != blank %}
+              <div class="ai-vertical-timeline__title-{{ ai_gen_id }}">{{ block.settings.item_1_title }}</div>
+            {% endif %}
+            {% if block.settings.item_1_description != blank %}
+              <div class="ai-vertical-timeline__description-{{ ai_gen_id }}">{{ block.settings.item_1_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.item_2_enabled %}
+        <div class="ai-vertical-timeline__item-{{ ai_gen_id }}">
+          <div class="ai-vertical-timeline__connector-{{ ai_gen_id }}">
+            <div class="ai-vertical-timeline__dot-{{ ai_gen_id }}"></div>
+            <div class="ai-vertical-timeline__line-{{ ai_gen_id }}"></div>
+          </div>
+          <div class="ai-vertical-timeline__card-{{ ai_gen_id }}">
+            {% if block.settings.item_2_date != blank %}
+              <div class="ai-vertical-timeline__date-{{ ai_gen_id }}">{{ block.settings.item_2_date }}</div>
+            {% endif %}
+            {% if block.settings.item_2_title != blank %}
+              <div class="ai-vertical-timeline__title-{{ ai_gen_id }}">{{ block.settings.item_2_title }}</div>
+            {% endif %}
+            {% if block.settings.item_2_description != blank %}
+              <div class="ai-vertical-timeline__description-{{ ai_gen_id }}">{{ block.settings.item_2_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.item_3_enabled %}
+        <div class="ai-vertical-timeline__item-{{ ai_gen_id }}">
+          <div class="ai-vertical-timeline__connector-{{ ai_gen_id }}">
+            <div class="ai-vertical-timeline__dot-{{ ai_gen_id }}"></div>
+            <div class="ai-vertical-timeline__line-{{ ai_gen_id }}"></div>
+          </div>
+          <div class="ai-vertical-timeline__card-{{ ai_gen_id }}">
+            {% if block.settings.item_3_date != blank %}
+              <div class="ai-vertical-timeline__date-{{ ai_gen_id }}">{{ block.settings.item_3_date }}</div>
+            {% endif %}
+            {% if block.settings.item_3_title != blank %}
+              <div class="ai-vertical-timeline__title-{{ ai_gen_id }}">{{ block.settings.item_3_title }}</div>
+            {% endif %}
+            {% if block.settings.item_3_description != blank %}
+              <div class="ai-vertical-timeline__description-{{ ai_gen_id }}">{{ block.settings.item_3_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.item_4_enabled %}
+        <div class="ai-vertical-timeline__item-{{ ai_gen_id }}">
+          <div class="ai-vertical-timeline__connector-{{ ai_gen_id }}">
+            <div class="ai-vertical-timeline__dot-{{ ai_gen_id }}"></div>
+            <div class="ai-vertical-timeline__line-{{ ai_gen_id }}"></div>
+          </div>
+          <div class="ai-vertical-timeline__card-{{ ai_gen_id }}">
+            {% if block.settings.item_4_date != blank %}
+              <div class="ai-vertical-timeline__date-{{ ai_gen_id }}">{{ block.settings.item_4_date }}</div>
+            {% endif %}
+            {% if block.settings.item_4_title != blank %}
+              <div class="ai-vertical-timeline__title-{{ ai_gen_id }}">{{ block.settings.item_4_title }}</div>
+            {% endif %}
+            {% if block.settings.item_4_description != blank %}
+              <div class="ai-vertical-timeline__description-{{ ai_gen_id }}">{{ block.settings.item_4_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.item_5_enabled %}
+        <div class="ai-vertical-timeline__item-{{ ai_gen_id }}">
+          <div class="ai-vertical-timeline__connector-{{ ai_gen_id }}">
+            <div class="ai-vertical-timeline__dot-{{ ai_gen_id }}"></div>
+            <div class="ai-vertical-timeline__line-{{ ai_gen_id }}"></div>
+          </div>
+          <div class="ai-vertical-timeline__card-{{ ai_gen_id }}">
+            {% if block.settings.item_5_date != blank %}
+              <div class="ai-vertical-timeline__date-{{ ai_gen_id }}">{{ block.settings.item_5_date }}</div>
+            {% endif %}
+            {% if block.settings.item_5_title != blank %}
+              <div class="ai-vertical-timeline__title-{{ ai_gen_id }}">{{ block.settings.item_5_title }}</div>
+            {% endif %}
+            {% if block.settings.item_5_description != blank %}
+              <div class="ai-vertical-timeline__description-{{ ai_gen_id }}">{{ block.settings.item_5_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.item_6_enabled %}
+        <div class="ai-vertical-timeline__item-{{ ai_gen_id }}">
+          <div class="ai-vertical-timeline__connector-{{ ai_gen_id }}">
+            <div class="ai-vertical-timeline__dot-{{ ai_gen_id }}"></div>
+            <div class="ai-vertical-timeline__line-{{ ai_gen_id }}"></div>
+          </div>
+          <div class="ai-vertical-timeline__card-{{ ai_gen_id }}">
+            {% if block.settings.item_6_date != blank %}
+              <div class="ai-vertical-timeline__date-{{ ai_gen_id }}">{{ block.settings.item_6_date }}</div>
+            {% endif %}
+            {% if block.settings.item_6_title != blank %}
+              <div class="ai-vertical-timeline__title-{{ ai_gen_id }}">{{ block.settings.item_6_title }}</div>
+            {% endif %}
+            {% if block.settings.item_6_description != blank %}
+              <div class="ai-vertical-timeline__description-{{ ai_gen_id }}">{{ block.settings.item_6_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</vertical-timeline-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class VerticalTimeline{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.observeItems();
+      }
+
+      observeItems() {
+        const items = this.querySelectorAll('.ai-vertical-timeline__item-{{ ai_gen_id }}');
+        
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+              }
+            });
+          }, { threshold: 0.1 });
+
+          items.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            observer.observe(item);
+          });
+        }
+      }
+    }
+
+    customElements.define('vertical-timeline-{{ ai_gen_id }}', VerticalTimeline{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Vertical timeline",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Campaign Timeline"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size (desktop)",
+      "min": 20,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1c1d"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_1_enabled",
+      "label": "Enable item 1",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "item_1_date",
+      "label": "Date",
+      "default": "Apr 29"
+    },
+    {
+      "type": "text",
+      "id": "item_1_title",
+      "label": "Title",
+      "default": "VIP 22% OFF coupon released"
+    },
+    {
+      "type": "textarea",
+      "id": "item_1_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_2_enabled",
+      "label": "Enable item 2",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "item_2_date",
+      "label": "Date",
+      "default": "Apr 30"
+    },
+    {
+      "type": "text",
+      "id": "item_2_title",
+      "label": "Title",
+      "default": "Mid-Year Surprise Drop begins"
+    },
+    {
+      "type": "textarea",
+      "id": "item_2_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_3_enabled",
+      "label": "Enable item 3",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "item_3_date",
+      "label": "Date",
+      "default": "May 7"
+    },
+    {
+      "type": "text",
+      "id": "item_3_title",
+      "label": "Title",
+      "default": "VIP 25% OFF coupon released"
+    },
+    {
+      "type": "textarea",
+      "id": "item_3_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_4_enabled",
+      "label": "Enable item 4",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "item_4_date",
+      "label": "Date",
+      "default": "May 20"
+    },
+    {
+      "type": "text",
+      "id": "item_4_title",
+      "label": "Title",
+      "default": "Campaign ends"
+    },
+    {
+      "type": "textarea",
+      "id": "item_4_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_5_enabled",
+      "label": "Enable item 5",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "item_5_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_5_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "item_5_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "item_6_enabled",
+      "label": "Enable item 6",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "item_6_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_6_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "item_6_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 600,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "item_gap_mobile",
+      "label": "Item spacing (mobile)",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "item_gap_desktop",
+      "label": "Item spacing (desktop)",
+      "min": 20,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "connector_gap",
+      "label": "Connector gap",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Timeline style"
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "label": "Dot size",
+      "min": 10,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dot color",
+      "default": "#3f72e5"
+    },
+    {
+      "type": "range",
+      "id": "dot_border_width",
+      "label": "Dot border width",
+      "min": 0,
+      "max": 6,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "color",
+      "id": "dot_border_color",
+      "label": "Dot border color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "line_width",
+      "label": "Line width",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "unit": "px",
+      "default": 3
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Line color",
+      "default": "#ebebed"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Enable card shadow",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "card_border",
+      "label": "Enable card border",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border color",
+      "default": "#ebebed"
+    },
+    {
+      "type": "range",
+      "id": "card_padding_mobile",
+      "label": "Card padding (mobile)",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "card_padding_desktop",
+      "label": "Card padding (desktop)",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "range",
+      "id": "date_size_mobile",
+      "label": "Date size (mobile)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "date_size_desktop",
+      "label": "Date size (desktop)",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "color",
+      "id": "date_color",
+      "label": "Date color",
+      "default": "#3f72e5"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title size (mobile)",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title size (desktop)",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#1a1c1d"
+    },
+    {
+      "type": "range",
+      "id": "description_size_mobile",
+      "label": "Description size (mobile)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "description_size_desktop",
+      "label": "Description size (desktop)",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#2c2d2e"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_mobile",
+      "label": "Padding (mobile)",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_desktop",
+      "label": "Padding (desktop)",
+      "min": 40,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vertical timeline"
+    }
+  ]
+}
+{% endschema %}

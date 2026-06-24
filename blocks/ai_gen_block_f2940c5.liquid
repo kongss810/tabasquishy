@@ -1,0 +1,585 @@
+{% doc %}
+  @prompt
+    Create a responsive Shopify “Why Tabasquishy” section.
+    
+    Purpose:
+    Explain the brand’s key differences in a clear and premium way.
+    
+    Heading:
+    Why Tabasquishy® Feels Different
+    
+    Feature cards:
+    1. Soft Emotional Relief
+    Description: Made to be pressed, stretched, and held whenever your mood needs a tiny reset.
+    
+    2. Original Character-Led Design
+    Description: We turn feelings, trends, and everyday joy into collectible squishy characters.
+    
+    3. Satisfying Silicone Texture
+    Description: Soft, slow-rebounding, and made for a deeply satisfying sensory experience.
+    
+    4. Collectible & Giftable
+    Description: Cute, expressive, and easy to love — perfect for collecting, gifting, and sharing.
+    
+    Design requirements:
+    - Desktop: 4 cards in one row or 2x2 grid.
+    - Tablet: 2 cards per row.
+    - Mobile: stacked cards.
+    - Use icons or small image placeholders for each feature.
+    - Rounded cards, soft shadow, subtle hover effect.
+    - Fully responsive and aligned with theme container margins.
+    - Include customizable heading, feature title, description, icon/image, colors, spacing, and card style in schema.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-why-tabasquishy-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: {{ block.settings.section_padding_mobile }}px 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-why-tabasquishy-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding_desktop }}px 40px;
+    }
+  }
+
+  .ai-why-tabasquishy__heading-{{ ai_gen_id }} {
+    text-align: {{ block.settings.heading_alignment }};
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    font-size: {{ block.settings.heading_size_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-why-tabasquishy__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_desktop }}px;
+    }
+  }
+
+  .ai-why-tabasquishy__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: {{ block.settings.card_gap_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-why-tabasquishy__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: {{ block.settings.card_gap_desktop }}px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .ai-why-tabasquishy__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat({{ block.settings.desktop_columns }}, 1fr);
+    }
+  }
+
+  .ai-why-tabasquishy__card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_bg_color }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: {{ block.settings.card_padding }}px;
+    text-align: {{ block.settings.card_alignment }};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    {% if block.settings.card_shadow %}
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    {% endif %}
+    {% if block.settings.card_border %}
+      border: 1px solid {{ block.settings.card_border_color }};
+    {% endif %}
+  }
+
+  .ai-why-tabasquishy__card-{{ ai_gen_id }}:hover {
+    {% if block.settings.enable_hover_effect %}
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    {% endif %}
+  }
+
+  .ai-why-tabasquishy__icon-wrapper-{{ ai_gen_id }} {
+    margin-bottom: {{ block.settings.icon_spacing }}px;
+    display: flex;
+    justify-content: {{ block.settings.card_alignment }};
+    align-items: center;
+  }
+
+  .ai-why-tabasquishy__icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    object-fit: contain;
+  }
+
+  .ai-why-tabasquishy__icon-placeholder-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    background-color: {{ block.settings.icon_placeholder_bg }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-why-tabasquishy__icon-placeholder-{{ ai_gen_id }} svg {
+    width: calc({{ block.settings.icon_size }}px * 0.5);
+    height: calc({{ block.settings.icon_size }}px * 0.5);
+    color: {{ block.settings.icon_placeholder_color }};
+  }
+
+  .ai-why-tabasquishy__card-title-{{ ai_gen_id }} {
+    color: {{ block.settings.card_title_color }};
+    margin: 0 0 {{ block.settings.title_spacing }}px;
+    font-size: {{ block.settings.card_title_size }}px;
+    font-weight: 600;
+  }
+
+  .ai-why-tabasquishy__card-description-{{ ai_gen_id }} {
+    color: {{ block.settings.card_description_color }};
+    margin: 0;
+    font-size: {{ block.settings.card_description_size }}px;
+    line-height: 1.6;
+  }
+{% endstyle %}
+
+<why-tabasquishy-{{ ai_gen_id }} class="ai-why-tabasquishy-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.heading != blank %}
+    <h2 class="ai-why-tabasquishy__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="ai-why-tabasquishy__grid-{{ ai_gen_id }}">
+    {% for i in (1..4) %}
+      {% liquid
+        assign title_key = 'feature_' | append: i | append: '_title'
+        assign description_key = 'feature_' | append: i | append: '_description'
+        assign icon_key = 'feature_' | append: i | append: '_icon'
+        
+        assign feature_title = block.settings[title_key]
+        assign feature_description = block.settings[description_key]
+        assign feature_icon = block.settings[icon_key]
+      %}
+
+      {% if feature_title != blank or feature_description != blank %}
+        <div class="ai-why-tabasquishy__card-{{ ai_gen_id }}">
+          <div class="ai-why-tabasquishy__icon-wrapper-{{ ai_gen_id }}">
+            {% if feature_icon %}
+              <img
+                src="{{ feature_icon | image_url: width: 200 }}"
+                alt="{{ feature_title | escape }}"
+                class="ai-why-tabasquishy__icon-{{ ai_gen_id }}"
+                loading="lazy"
+                width="200"
+                height="200"
+              >
+            {% else %}
+              <div class="ai-why-tabasquishy__icon-placeholder-{{ ai_gen_id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+            {% endif %}
+          </div>
+
+          {% if feature_title != blank %}
+            <h3 class="ai-why-tabasquishy__card-title-{{ ai_gen_id }}">{{ feature_title }}</h3>
+          {% endif %}
+
+          {% if feature_description != blank %}
+            <p class="ai-why-tabasquishy__card-description-{{ ai_gen_id }}">{{ feature_description }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</why-tabasquishy-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class WhyTabasquishy{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.cards = this.querySelectorAll('.ai-why-tabasquishy__card-{{ ai_gen_id }}');
+        this.setupAccessibility();
+      }
+
+      setupAccessibility() {
+        this.cards.forEach((card) => {
+          card.setAttribute('role', 'article');
+        });
+      }
+    }
+
+    customElements.define('why-tabasquishy-{{ ai_gen_id }}', WhyTabasquishy{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Why Tabasquishy",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Tabasquishy® Feels Different"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size (desktop)",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1c1d"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Spacing below heading",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_1_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "feature_1_title",
+      "label": "Title",
+      "default": "Soft Emotional Relief"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_1_description",
+      "label": "Description",
+      "default": "Made to be pressed, stretched, and held whenever your mood needs a tiny reset."
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_2_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "feature_2_title",
+      "label": "Title",
+      "default": "Original Character-Led Design"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_description",
+      "label": "Description",
+      "default": "We turn feelings, trends, and everyday joy into collectible squishy characters."
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_3_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "feature_3_title",
+      "label": "Title",
+      "default": "Satisfying Silicone Texture"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_description",
+      "label": "Description",
+      "default": "Soft, slow-rebounding, and made for a deeply satisfying sensory experience."
+    },
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_4_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "feature_4_title",
+      "label": "Title",
+      "default": "Collectible & Giftable"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_4_description",
+      "label": "Description",
+      "default": "Cute, expressive, and easy to love — perfect for collecting, gifting, and sharing."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "options": [
+        { "value": "2", "label": "2 columns" },
+        { "value": "4", "label": "4 columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "range",
+      "id": "card_gap_mobile",
+      "label": "Card gap (mobile)",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_gap_desktop",
+      "label": "Card gap (desktop)",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "section_padding_mobile",
+      "label": "Section padding (mobile)",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_desktop",
+      "label": "Section padding (desktop)",
+      "min": 40,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "select",
+      "id": "card_alignment",
+      "label": "Content alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Padding",
+      "min": 20,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Enable shadow",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "card_border",
+      "label": "Enable border",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Border color",
+      "default": "#ebebed"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_hover_effect",
+      "label": "Enable hover effect",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 40,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "label": "Spacing below icon",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "icon_placeholder_bg",
+      "label": "Placeholder background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "icon_placeholder_color",
+      "label": "Placeholder icon color",
+      "default": "#3f72e5"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Title size",
+      "min": 14,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Title color",
+      "default": "#1a1c1d"
+    },
+    {
+      "type": "range",
+      "id": "title_spacing",
+      "label": "Spacing below title",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "card_description_color",
+      "label": "Description color",
+      "default": "#2c2d2e"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Tabasquishy"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,20 @@
+@import 'tailwindcss/theme' layer(theme);
+@import 'tailwindcss/utilities';
+@config './tailwind.config.js';
+@theme {
+    --spacing: 1px; /* 以4为倍数 也可以2*/
+    --color-primary: #3b82f6;
+    --color-sec: #ec4899;
+    --color-zhu: #6f46ee;
+    --breakpoint-sm: 768px; /* 大于 768px 生效 */
+    --breakpoint-md: 1024px; /* 大于 1024px 生效 */
+    --breakpoint-lg: 1440px; /* 大于 1440px 生效 */
+
+    /* 定义全局css配置*/
+    --color-my1: #ff6621;
+    --color-text: #333333;
+    --color-title: #1a1a1a;
+}
+/* 监听文件*/
+@source '../../sections';
+@source '../../snippets';

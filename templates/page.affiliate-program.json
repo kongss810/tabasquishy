@@ -1,0 +1,341 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "jd_page_banner_iKDcpj": {
+      "type": "jd-page-banner",
+      "name": "page-banner",
+      "settings": {
+        "img": "shopify://shop_images/Frame_2147241829.svg",
+        "title": "<p>Join The TABASQUISHY<br/>Affiliate Team</p>",
+        "text": "<p>Tabasquishy is a fun and trendy squeeze toy, perfect for gifting to loved ones, friends, or kids <br/>.Currently, Tabasquishy has been sold in more than 30 countries around the world.</p>",
+        "btn_text": "APPLY NOW",
+        "btn_link": "#app_all",
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "affiliate_program_Lz7zNR": {
+      "type": "affiliate-program",
+      "blocks": {
+        "program_item_wLJHca": {
+          "type": "program_item",
+          "settings": {
+            "block_description": "<p>Tabasquishy is a fun and trendy squeeze toy, perfect for gifting to loved ones, friends, or kids .Currently, Tabasquishy has been sold in more than 30 countries around the world.</p>"
+          }
+        },
+        "program_item_4HPGzm": {
+          "type": "program_item",
+          "settings": {
+            "block_description": "<p>We also welcome influencers, moms and loyal fans who like fashion lifestyle and willing to share fun to join us.</p>"
+          }
+        },
+        "program_item_EV4N3b": {
+          "type": "program_item",
+          "settings": {
+            "block_description": "<p>Join the TABASQUISHY® Affiliate Program and earn 12% on each sale!  The more sales you make, the higher commission rate will be.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "program_item_wLJHca",
+        "program_item_4HPGzm",
+        "program_item_EV4N3b"
+      ],
+      "name": "Affiliate Program",
+      "settings": {
+        "title": "<p>TABASQUISHY<br/>Affiliate Program</p>",
+        "description": "<p>Join Us, Share the Fun, and Help Everyone Discover TABASQUISHY®!</p>",
+        "background_image": "shopify://shop_images/Frame_1171276907_42bc4a80-5608-41b7-bafd-0a08c6d4347e.png",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "affiliate_discover_G9djV8": {
+      "type": "affiliate-discover",
+      "blocks": {
+        "left_program_item_AjAYpF": {
+          "type": "left_program_item",
+          "settings": {
+            "svg": "shopify://shop_images/Group_3645_1.svg",
+            "block_title": "<p>Commission Rate</p>",
+            "block_description": "<p>Earn an attractive 12% commission on every order you bring in. The more you promote, the more you earn!</p>"
+          }
+        },
+        "left_program_item_Em9E6q": {
+          "type": "left_program_item",
+          "settings": {
+            "svg": "shopify://shop_images/Group_3645_2.svg",
+            "block_title": "<p>Promotion Method</p>",
+            "block_description": "<p>Get a unique affiliate link upon signup to promote our brand. Any order made via your link will be credited to you.</p>"
+          }
+        },
+        "left_program_item_4iqytb": {
+          "type": "left_program_item",
+          "settings": {
+            "svg": "shopify://shop_images/Group_3645_3.svg",
+            "block_title": "<p>Cookie Time</p>",
+            "block_description": "<p>Enjoy a tracking time of 30 days to get commissions on any purchase they make within this period after clicking your link.</p>"
+          }
+        },
+        "right_program_item_nefVLB": {
+          "type": "Right_program_item",
+          "settings": {
+            "svg": "shopify://shop_images/Group_3645.svg",
+            "block_title": "<p>Commission Payouts</p>",
+            "block_description": "<p>Get paid regularly without any hassle via PayPal or Bank Transfer.</p>"
+          }
+        },
+        "right_program_item_CqrqcL": {
+          "type": "Right_program_item",
+          "settings": {
+            "svg": "shopify://shop_images/Group_3645_4.svg",
+            "block_title": "<p>Earn More As You Grow</p>",
+            "block_description": "<p>Level up automatically when you hit $1,000 in sales, unlocking higher commissions every 3 months!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_program_item_AjAYpF",
+        "left_program_item_Em9E6q",
+        "left_program_item_4iqytb",
+        "right_program_item_nefVLB",
+        "right_program_item_CqrqcL"
+      ],
+      "name": "Affiliate Discover",
+      "settings": {
+        "title": "<p>Discover The Benefits</p>",
+        "description": "<p>As an affiliate in our Affiliate Program, you'll enjoy a suite of benefits designed to make your partnership with us both rewarding and enjoyable.</p>",
+        "background_image": "shopify://shop_images/Frame_2147241747_662f8822-bb43-433d-94ad-0b7b81ad76e3.png",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 214,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "faqs_gFJrQk": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_GgnfkN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does the Affiliate Program work?",
+            "answer": "<p>Once you join, you'll receive a unique affiliate link to share with your audiences. You'll earn a commission for every purchase made via your link. Use your blog, social media platforms, YouTube channel, or any creative content to promote it. We provide marketing materials and ideas to help you get started.</p>"
+          }
+        },
+        "faq_item_FHqGQA": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who can join the Affiliate Program?",
+            "answer": "<p>Anyone passionate about fashion and beauty, from influencers and bloggers to fashion enthusiasts and beauty experts, is welcome to apply. We value diversity and creativity in our affiliate family.</p>"
+          }
+        },
+        "faq_item_FwfFfR": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I get help if I have more questions?",
+            "answer": "<p>Our dedicated affiliate support team is here to assist you with any inquiries or support you might need. Simply email us at: partnerships@tabasquishy.com</p>"
+          }
+        },
+        "faq_item_4KYxjx": {
+          "type": "faq_item",
+          "disabled": true,
+          "settings": {
+            "question": "Can I return or get a refund for my purchase?",
+            "answer": ""
+          }
+        },
+        "faq_item_aHbbFq": {
+          "type": "faq_item",
+          "disabled": true,
+          "settings": {
+            "question": "How long will it take to get my order?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_GgnfkN",
+        "faq_item_FHqGQA",
+        "faq_item_FwfFfR",
+        "faq_item_4KYxjx",
+        "faq_item_aHbbFq"
+      ],
+      "name": "faqs",
+      "settings": {
+        "show_topBanner": false,
+        "title": "<p>Frequently Asked Questions</p>",
+        "highlighted_text": "none",
+        "faq_active_bg_color": "#fcd454",
+        "faq_active_bg_image": "shopify://shop_images/Vector_5f3931f5-cd6d-4492-95b5-a03cd90f4526.png",
+        "faq_a_active": "#ed8e25",
+        "bg_color": "",
+        "Desktop_top": 0,
+        "Desktop_paddingTop": 160,
+        "Mobile_top": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_bottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "affiliate_guide_NiCbAC": {
+      "type": "affiliate-guide",
+      "blocks": {
+        "guide_item_m7BNng": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/image_908.png",
+            "block_title": "<p>Locate the Affiliate Program</p>",
+            "block_description": "<p>Visit our website and find the Affiliate Program link to access the registration page. Scroll to the bottom of the homepage to find the AFFILIATE entry.</p>"
+          }
+        },
+        "guide_item_QrUp76": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/2_b412c261-2850-4727-9093-6ee7a8a399b6.png",
+            "block_title": "<p>Sign Up</p>",
+            "block_description": "<p>Complete the registration to become an affiliate. Then verify your email address.</p>"
+          }
+        },
+        "guide_item_PYqARt": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/3_a414a5d5-3f2e-4aff-9a76-419606dc0d24.png",
+            "block_title": "<p>Request Approval</p>",
+            "block_description": "<p>Contact our admin for approval. Email <a href=\"mailto:partnerships@tabasquishy.com\" target=\"_blank\" title=\"mailto:partnerships@tabasquishy.com\">partnerships@tabasquishy.com</a> or message us through your inbox. Include your username or email used in registration. Our admin will notify you once approved.</p>"
+          }
+        },
+        "guide_item_XMzMNg": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/4_3475dd2d-7515-470a-a757-07346caa7987.png",
+            "block_title": "<p>Select Your Link</p>",
+            "block_description": "<p>Use the Default Affiliate Link for the whole site, or opt for a <strong>product-specific link</strong> to increase conversions—our experience shows that linking directly to products yields better results.</p>"
+          }
+        },
+        "guide_item_ibGAGM": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/5_67159d07-2711-470f-8aad-4ccbdf3ab82c.png",
+            "block_title": "<p>Select Your Link</p>",
+            "block_description": "<p>Use the Default Affiliate Link for the whole site, or opt for a <strong>product-specific link</strong> to increase conversions—our experience shows that linking directly to products yields better results.</p>"
+          }
+        },
+        "guide_item_9L8kzq": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/6.png",
+            "block_title": "<p>Select Your Link</p>",
+            "block_description": "<p>Use the Default Affiliate Link for the whole site, or opt for a <strong>product-specific link</strong> to increase conversions—our experience shows that linking directly to products yields better results.</p>"
+          }
+        },
+        "guide_item_8KcLqN": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/7_eca95b05-1921-4c3d-883a-e875f44da57f.png",
+            "block_title": "<p>Select Your Link</p>",
+            "block_description": "<p>Use the Default Affiliate Link for the whole site, or opt for a <strong>product-specific link</strong> to increase conversions—our experience shows that linking directly to products yields better results.</p>"
+          }
+        },
+        "guide_item_PnALpk": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/8.png",
+            "block_title": "<p>Use the marketing materials</p>",
+            "block_description": "<p>Use the marketing materials we’ve prepared in the affiliate tools and share them on your social media or other channels to attract your audience.</p>"
+          }
+        },
+        "guide_item_RMyeh7": {
+          "type": "guide_item",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_affiliate_3.png",
+            "block_title": "<p>Share the link and Earn</p>",
+            "block_description": "<p>Share the distribution link to the social media homepage，comment area or anywhere you want to promote.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "guide_item_m7BNng",
+        "guide_item_QrUp76",
+        "guide_item_PYqARt",
+        "guide_item_XMzMNg",
+        "guide_item_ibGAGM",
+        "guide_item_9L8kzq",
+        "guide_item_8KcLqN",
+        "guide_item_PnALpk",
+        "guide_item_RMyeh7"
+      ],
+      "name": "Affiliate Guide",
+      "settings": {
+        "title": "<p>Guide For Joining The TABASQUISHY™ Affiliate Program</p>",
+        "description": "<p>A community of passionate pet lovers and outdoor adventurers who believe life is better when shared with your furry friend.</p>",
+        "enable_autoplay": false,
+        "autoplay_delay": 5,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "17309655327252a2be": {
+      "type": "apps",
+      "blocks": {
+        "uppromote_affiliate_registration_form_ktLzRw": {
+          "type": "shopify://apps/uppromote-affiliate/blocks/registration-form/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
+          "settings": {
+            "section_width": 100,
+            "border_radius": 4,
+            "top_margin": 20,
+            "bottom_margin": 4
+          }
+        }
+      },
+      "block_order": [
+        "uppromote_affiliate_registration_form_ktLzRw"
+      ],
+      "settings": {
+        "show_cotnaienr": true,
+        "title": "",
+        "text": "",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "jd_page_banner_iKDcpj",
+    "affiliate_program_Lz7zNR",
+    "affiliate_discover_G9djV8",
+    "faqs_gFJrQk",
+    "affiliate_guide_NiCbAC",
+    "17309655327252a2be"
+  ]
+}

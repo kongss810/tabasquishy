@@ -1,0 +1,142 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    #shopify-section-{{ section.id }} .affiliate_programAll {
+        padding: 166px 0;
+        {% if section.settings.background_image != blank %}
+            background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        {% endif %}
+    }
+    .affiliate-program-container p { margin: 0; }
+    .affiliate-program-block-description,
+    .affiliate-program-block-description p,
+    .affiliate-program-description,
+    .affiliate-program-description p {
+        font-size: 16px;
+        line-height: 150%;
+    }
+    .affiliate-program-block path,
+    .affiliate-program-block svg,
+    .affiliate-program-block-svg {
+        width: 24px;
+        height: 24px;
+    }
+</style>
+
+{% liquid
+    assign title = section.settings.title
+    assign description = section.settings.description
+%}
+
+<div class='affiliate_programAll'>
+    <div class='container'>
+        <div class='affiliate-program-container flex w-[46.9375%] flex-col items-start justify-center'>
+            {% if title != blank %}
+                <h2 class='affiliate-program-title hide_p mb-[16px] w-full self-stretch text-[64px] leading-[120%] font-[600] tracking-[-1.28px]'>
+                    {{ title }}
+                </h2>
+            {% endif %}
+
+            {% if section.blocks.size > 0 %}
+                {% for block in section.blocks %}
+                    <div class='affiliate-program-block mb-[16px] flex items-center gap-[16px] self-stretch'>
+                        <div class='affiliate-program-block-svg'>
+                            <svg
+                                width='24'
+                                height='24'
+                                viewBox='0 0 24 24'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                            >
+                                <path d="M12 0L15.2411 8.75891L24 12L15.2411 15.2411L12 24L8.75891 15.2411L0 12L8.75891 8.75891L12 0Z" fill="#ED8E24"/>
+                            </svg>
+                        </div>
+                        {% if block.settings.block_description != blank %}
+                            <div class='affiliate-program-block-description'>{{ block.settings.block_description }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if description != blank %}
+                <div class='affiliate-program-description'>{{ description }}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Affiliate Program",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "program_item",
+            "name": "Program Item",
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "block_description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Affiliate Program"
+        }
+    ]
+}
+{% endschema %}

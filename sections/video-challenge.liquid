@@ -1,0 +1,207 @@
+{%- render 'section-spacing', section: section -%}
+<style>
+    .videoChallenge_title .highlight-word {
+        position: relative;
+        display: inline-block;
+    }
+    .videoChallenge_title .title-line {
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 21px;
+        max-width: 303px;
+        min-width: 303px;
+        display: flex;
+    }
+
+    .videoChallenge_title span svg {
+        width: 100%;
+        height: 100%;
+    }
+    .video-challenge_subtitle a {
+        color: unset;
+    }
+</style>
+<section id='videoChallenge_form'>
+    <div class='container flex sm:gap-[80px]'>
+        <div class='videoChallenge_left rounded-[15px] bg-[#FDD554] sm:w-1/2 sm:p-[25px]'>
+            {% for block in section.blocks %}
+                {% if block.type == '@app' %}
+                    {% render block %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class='video-challenge_right flex flex-col sm:w-1/2 sm:gap-52'>
+            <div class='flex flex-col sm:gap-24'>
+                <div class='flex flex-col sm:gap-12'>
+                    {%- if section.settings.subtitle != blank -%}
+                        <div class='video-challenge_subtitle w-max bg-[linear-gradient(90deg,#ED8E25_0%,#E40078_100%)] bg-clip-text leading-normal font-[600] text-transparent underline sm:text-[24px]'>
+                            {{ section.settings.subtitle }}
+                        </div>
+                    {%- endif -%}
+
+                    {%- if section.settings.title != blank -%}
+                        <h2 class='videoChallenge_title hide_p m-0 font-[600] text-[#1A1A1A] sm:text-[64px] sm:leading-[120%]'>
+                            {{ section.settings.title }}
+                        </h2>
+                    {%- endif -%}
+                </div>
+                {%- if section.settings.content != blank -%}
+                    <div class='hide_p font-[400] text-[#333] sm:text-[16px] sm:leading-[150%]'>{{ section.settings.content }}</div>
+                {%- endif -%}
+            </div>
+            <div class='videoChallenge_box flex flex-wrap sm:gap-x-24 sm:gap-y-[52px]'>
+                {% for block in section.blocks %}
+                    {%- if block.type == 'content_item' -%}
+                        <div class='videoChallenge_list flex items-center gap-[12px]'>
+                            {% if block.settings.icon_svg != blank %}
+                                <div class='videoChallenge_listIcon svg-icon flex items-center justify-center sm:h-[60px] sm:w-[60px]'>
+                                    {{ block.settings.icon_svg }}
+                                </div>
+                            {% else %}
+                                <div class='videoChallenge_listIcon image-icon flex items-center justify-center sm:h-[60px] sm:w-[60px]'>
+                                    {% render 'section-img', loading: 'lazy', img: block.settings.icon_image, width: 60 %}
+                                </div>
+                            {% endif %}
+                            {%- if block.settings.title != blank or block.settings.content != blank -%}
+                                <div class='flex flex-col sm:gap-4'>
+                                    {%- if block.settings.title != blank -%}
+                                        <div class='text-[18px] leading-[120%] font-[500] text-[#1A1A1A]'>{{ block.settings.title }}</div>
+                                    {%- endif -%}
+                                    {%- if block.settings.content != blank -%}
+                                        <div class='hide_p text-[16px] leading-[120%] font-[400] text-[#333]'>{{ block.settings.content }}</div>
+                                    {%- endif -%}
+                                </div>
+                            {%- endif -%}
+                        </div>
+                    {%- endif -%}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.querySelectorAll('.videoChallenge_title').forEach((title) => {
+        const text = title.textContent.trim();
+        const words = text.split(' ');
+
+        if (words.length > 1) {
+            const lastWord = words.pop();
+
+            title.innerHTML = `
+            ${words.join(' ')}
+            <span class="highlight-word">
+                ${lastWord}
+                <span class="title-line">
+                <svg xmlns="http://www.w3.org/2000/svg" width="311" height="26" viewBox="0 0 311 26" fill="none">
+                <path d="M3.0006 22.037C31.4845 8.50923 148.616 -1.21753 139.586 5.90675C129.291 14.0297 120.448 22.0845 158.345 12.6665C178.859 7.56859 284.52 -8.15135 307.025 16.3863" stroke="url(#paint0_linear_1617_6755)" stroke-width="6" stroke-linecap="round"/>
+                <defs>
+                    <linearGradient id="paint0_linear_1617_6755" x1="2.90043" y1="19.902" x2="306.521" y2="5.65618" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#ED8E25"/>
+                    <stop offset="1" stop-color="#E40078"/>
+                    </linearGradient>
+                </defs>
+                </svg>
+            </span>
+            </span>
+            `;
+        }
+    });
+</script>
+{% schema %}
+{
+    "name": "Video Challenge From",
+    "tag": "section",
+    "class": "video-challenge css-layout",
+    "settings": [
+        {
+            "type": "inline_richtext",
+            "id": "subtitle",
+            "label": "Subtitle"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "@app"
+        },
+        {
+            "type": "content_item",
+            "name": "content item",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "icon_image",
+                    "label": "Image Icon",
+                    "info": "60*60px"
+                },
+                {
+                    "type": "textarea",
+                    "id": "icon_svg",
+                    "label": "SVG Icon",
+                    "info": "Paste SVG code here"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Video Challenge From",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}

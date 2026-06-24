@@ -1,0 +1,79 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "settings": {
+        "show_collection_image": false,
+        "show_collection_description": true,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#2c2d2e",
+        "display_description": true
+      }
+    },
+    "17521363498b7796ec": {
+      "type": "apps",
+      "blocks": {
+        "goodapi_sprout_cart_badge_8PTjdK": {
+          "type": "shopify://apps/goodapi-sprout/blocks/cart-badge/7db5ee24-2195-4099-b98e-1547c600e4aa",
+          "settings": {
+            "refresh_on_toggle": false,
+            "refresh_off_toggle": true
+          }
+        }
+      },
+      "block_order": [
+        "goodapi_sprout_cart_badge_8PTjdK"
+      ],
+      "settings": {}
+    },
+    "main-cart": {
+      "type": "main-cart",
+      "settings": {
+        "cart_notes_enable": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_limit": 6
+      }
+    },
+    "1740823859ff45bc29": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_VxDWPi": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_VxDWPi"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "template-header",
+    "17521363498b7796ec",
+    "main-cart",
+    "product-recommendations",
+    "1740823859ff45bc29"
+  ]
+}

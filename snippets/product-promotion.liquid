@@ -1,0 +1,49 @@
+{%- liquid
+	assign content_position = block.settings.content_position
+	assign text_alignment = block.settings.text_alignment
+	assign overlay_color = block.settings.overlay_color
+	assign overlay_opacity = block.settings.overlay_opacity
+-%}
+<div class="gallery--item" {{ block.shopify_attributes }} style="--overlay-color-rgb: {{ overlay_color.rgb | replace: ' ' , ',' }}; --overlay-opacity: {{ overlay_opacity | divided_by: 100.0 }}">
+	<figure class="aspect-ratio">
+		{%- if block.settings.image -%}
+			{%- liquid
+				assign sizes = block.settings.image.width | append: 'x' | append: block.settings.image.height
+			-%}
+			{%- render 'responsive-image', image: block.settings.image, sizes: sizes -%}
+		{%- else -%}
+			<div class="thb-placeholder">
+				{{ 'image' | placeholder_svg_tag: 'placeholder_svg_tag' }}
+			</div>
+		{%- endif -%}
+		<div class="gallery--item-content content-{{ content_position }} text-{{ text_alignment }}">
+			<div>
+				{% if block.settings.title != blank %}
+					<h4 style="color: {{ block.settings.text_color }};" class="hide_p lg:text-[64px] text-[48px] leading-[120%] font-[600] text-shadow-[0_4px_8px_rgba(0,0,0,0.25)]">{{ block.settings.title }}</h4>
+				{% endif %}
+
+				{% if block.settings.countdown != blank %}
+					<my-countdown2 class="lg:mt-[32px] mt-[22px]">
+						<span data-time='{{ block.settings.countdown }}'></span>
+					</my-countdown2>
+				{% endif %}
+
+				{% if block.settings.text != blank %}
+					<div style="color: {{ block.settings.text_color }};" class="hide_p lg:mt-[32px] mt-[22px] lg:text-[24px] text-[20px] leading-[120%] font-[600] tracking-[-0.24px]">{{ block.settings.text }}</div>
+				{% endif %}
+
+				
+				{% if block.settings.link_label != blank %}
+					{% if block.settings.use_text_button %}
+					{% render 'text-button', url: block.settings.link, title: block.settings.link_label, class: 'white' %}
+					{% else %}
+					<a class="lg:mt-[32px] mt-[22px] button w-fit mx-auto text-text flex h-[48px] items-center rounded-[999px] bg-[#FCD454] px-[48px] py-[0px] text-center text-[28px] leading-[113%] font-[500] tracking-[0] sm:text-[16px] sm:leading-[120%]"{% if block.settings.link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.link }}"{% endif %}>{{ block.settings.link_label }}</a>
+					{% endif %}
+				{% endif %}
+				{% if block.settings.link != blank %}
+					<a href="{{ block.settings.link }}" class="gallery--item-content-link" target="_blank"></a>
+				{% endif %}
+			</div>
+		</div>
+	</figure>
+</div>

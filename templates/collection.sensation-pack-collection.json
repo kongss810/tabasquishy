@@ -1,0 +1,191 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "settings": {
+        "show_collection_image": false,
+        "show_collection_description": true,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": true
+      }
+    },
+    "image_with_text_9xPfHn": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_3wyDj7": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™"
+          }
+        },
+        "heading_y9D8xQ": {
+          "type": "heading",
+          "settings": {
+            "text": "SQUISHY SENSATION BUNDLE 🐾 🍫",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_BpUFq7": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Discover the Ultimate Squeeze with the TABASQUISHY™ Squishy Sensation Bundle!</strong></p><p>Each available in 4 unique sensations to match every mood:</p><p>1️⃣ <strong>Water:</strong> Ultra-Soft — silky, smooth, and delicate</p><p>2️⃣ <strong>Cream:</strong> Buttery-Soft — rich, creamy, and comforting</p><p>3️⃣ <strong>Jelly:</strong> Bouncy-Soft — springier, more resilient squeeze</p><p>4️⃣ <strong>Playdough:</strong> Firm-Dense-Soft — satisfyingly thick and durable</p><p>🔥 <strong>Buy 3, Get 1 Free!</strong> Find your own perfect sensations match!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_3wyDj7",
+        "heading_y9D8xQ",
+        "text_BpUFq7"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_sensation_pack_1200_1200.jpg",
+        "use_video": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_sensation_pack_1200_1200_v.mp4",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "slideshow_ytwahc": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_nQ9mkr": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_B3G1F_1920_400_2.png",
+            "mobile_image": "shopify://shop_images/tabasquishy_B3G1F_1920_400_2.png",
+            "slide_link": "",
+            "video_background": false,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_nQ9mkr"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 20,
+        "columns_desktop": 4,
+        "pagination_type": "paginated",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "show_counts": true,
+        "filter_color_swatches": true,
+        "facets_desktop": "drawer"
+      }
+    },
+    "a923b0af-87bd-4fac-ac50-7c5ad000c0d0": {
+      "type": "rich-text",
+      "blocks": {
+        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-1": {
+          "type": "heading",
+          "settings": {
+            "text": "Use it to add SEO text",
+            "marker_style": "style1",
+            "size": "h4",
+            "marker_color": "#fd6262"
+          }
+        },
+        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Due to high demand, occasionally some of our products do go out of stock. We are constantly monitoring our stock levels, and we usually expect to replenish any product line within a couple of weeks. If you have placed a pre-order for an item that is out of stock and it looks like it will take longer than expected to get it to you.</p>",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-1",
+        "template--17918041260314__a923b0af-87bd-4fac-ac50-7c5ad000c0d0-16783546709e4eefff-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "color_links": "#3f72e5",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "template-header",
+    "image_with_text_9xPfHn",
+    "slideshow_ytwahc",
+    "product-grid",
+    "a923b0af-87bd-4fac-ac50-7c5ad000c0d0"
+  ]
+}

@@ -1,0 +1,470 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .IndexOriginalSeries_items {
+        display: none;
+    }
+    .IndexOriginalSeries_items.active {
+        display: block;
+    }
+    .IndexOriginalSeries_topTextBox {
+        display: none;
+    }
+    .IndexOriginalSeries_topTextBox.active {
+        display: block;
+    }
+    .IndexOriginalSeries_topRightBox {
+        display: none;
+    }
+    .IndexOriginalSeries_topRightBox.active {
+        display: block;
+    }
+    .IndexOriginalSeries_topBox.active {
+        background: #f3f3f3;
+        font-weight: 600;
+        border-color: #1a1a1a;
+    }
+    .IndexOriginalSeries_topBox:hover {
+        background: #f3f3f3;
+        border-color: #1a1a1a;
+    }
+    .IndexOriginalSeries-all {
+        padding-top: 18px;
+    }
+    .IndexOriginalSeries_topRight {
+        margin-top: -148px;
+    }
+
+    .IndexOriginalSeries_topLeftBox .swiper-button-disabled {
+        display: none !important;
+    }
+    .IndexOriginalSeries_topLeftBox .swiper-button-prev::after,
+    .IndexOriginalSeries_topLeftBox .swiper-button-next::after {
+        content: unset;
+    }
+    .IndexOriginalSeries_topLeftBox .swiper-button-prev {
+        position: unset;
+        left: 0;
+        margin: 0;
+    }
+    .IndexOriginalSeries_topLeftBox .swiper-button-next {
+        position: unset;
+        right: 0;
+        margin: 0;
+    }
+    .IndexOriginalSeries_topLeftBox .swiper-button-prev svg,
+    .IndexOriginalSeries_topLeftBox .swiper-button-next svg {
+        width: 8px;
+        height: 15px;
+    }
+    @media (min-width: 1024px) {
+    }
+    @media (max-width: 1023px) {
+    }
+</style>
+<div class='IndexOriginalSeries-all'>
+    <div class=''>
+        {% if section.settings.title != blank %}
+            {%- if section.settings.title != blank -%}
+                {%- if section.settings.highlighted_text == 'none' -%}
+                    <h2 class='header-title text-title hide_p container text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
+                        {{ section.settings.title }}
+                    </h2>
+                {% else %}
+                    {%- render 'highlighted-text',
+                        class: 'container header-title text-title hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                        content: section.settings.title,
+                        style: section.settings.highlighted_text,
+                        scribble: 'sketch-underline',
+                        gradient: with_gradient
+                    -%}
+                {% endif %}
+            {%- endif -%}
+        {% endif %}
+        <div
+            class='IndexOriginalSeries_box mt-[52px]'
+            style='background: {{ section.settings.bg_color }};'
+        >
+            <div class='container'>
+                <div class='IndexOriginalSeries_top flex justify-between gap-[40px] sm:mb-[38px]'>
+                    <div class='IndexOriginalSeries_topLeft w-[50%] max-w-[762px] pt-[58px]'>
+                        <div class='IndexOriginalSeries_topLeftBox relative flex items-center gap-[24px]'>
+                            <div class='swiper-button-prev'>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='9'
+                                    height='16'
+                                    viewBox='0 0 9 16'
+                                    fill='none'
+                                >
+                                    <path d="M7.85714 15C7.7541 15.0012 7.65193 14.9818 7.5572 14.9431C7.46248 14.9043 7.3773 14.8471 7.30714 14.775L0.235714 8.025C-0.0785714 7.725 -0.0785714 7.26 0.235714 6.96L7.30714 0.225C7.62143 -0.075 8.10857 -0.075 8.42286 0.225C8.73714 0.525 8.73714 0.99 8.42286 1.29L1.90143 7.5L8.42286 13.725C8.73714 14.025 8.73714 14.49 8.42286 14.79C8.26571 14.94 8.06143 15.015 7.87286 15.015L7.85714 15Z" fill="#333333"/>
+                                </svg>
+                            </div>
+                            <div class='swiper IndexOriginalSeriesTabSwier w-full'>
+                                <div class='swiper-wrapper'>
+                                    {% for block in section.blocks %}
+                                        <div
+                                            data-collection-url='{{ block.settings.collection.url }}'
+                                            {% comment %} transition-all duration-300 {% endcomment %}
+                                            class='swiper-slide IndexOriginalSeries_topBox w-auto text-[#1a1a1a]  {% if forloop.first %}active{% endif %} flex h-[44px] cursor-pointer items-center justify-center rounded-[50px] border-1 border-[rgba(26,26,26,0.20)] px-[20px]'
+                                        >
+                                            {{ block.settings.tab }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class='swiper-button-next'>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='9'
+                                    height='16'
+                                    viewBox='0 0 9 16'
+                                    fill='none'
+                                >
+                                    <path d="M0.801548 0.0148926C0.904596 0.0136938 1.00677 0.0330925 1.10149 0.0718422C1.19621 0.110593 1.28139 0.167836 1.35155 0.239892L8.42298 6.98989C8.73726 7.28989 8.73726 7.75489 8.42298 8.05489L1.35155 14.7899C1.03726 15.0899 0.550119 15.0899 0.235833 14.7899C-0.0784521 14.4899 -0.0784521 14.0249 0.235833 13.7249L6.75726 7.51489L0.235833 1.28989C-0.0784521 0.989893 -0.0784521 0.524893 0.235833 0.224894C0.392977 0.074893 0.597262 -0.000107765 0.785833 -0.000107765L0.801548 0.0148926Z" fill="#333333"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class='IndexOriginalSeries_topText mt-[36px]'>
+                            {% for block in section.blocks %}
+                                <div class='IndexOriginalSeries_topTextBox hide_p text-left text-[18px] {% if forloop.first %}active{% endif %}'>
+                                    {{ block.settings.text }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class='IndexOriginalSeries_topRight'>
+                        {% for block in section.blocks %}
+                            <div class='IndexOriginalSeries_topRightBox {% if forloop.first %}active{% endif %}'>
+                                {% render 'section-img', loading: 'eager', img: block.settings.img, width: 1200, mobile_width: 750 %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class='IndexOriginalSeries_boxList'>
+                    {% for block in section.blocks %}
+                        <div
+                            class='
+                                IndexOriginalSeries_items
+                                block-{{ block.id }} {% if forloop.first %}
+                                    active
+                                {% endif %}
+                            '
+                        >
+                            <div class='swiper IndexOriginalSeriesSwiper'>
+                                <div class='swiper-wrapper'>
+                                    {% for product in block.settings.collection.products limit: section.settings.product_limit %}
+                                        <div class='swiper-slide'>
+                                            {%- render 'product-card-new', product_card_product: product -%}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if section.blocks.size > 0 %}
+                    <div class='swiper-buttons mt-[52px] flex items-center justify-between gap-[20px]'>
+                        <div class='swiper_buttons_left'>
+                            <div class='swiper-pagination'></div>
+                        </div>
+                        <div class='swiper_buttons_right'>
+                            <div class='swiper-button-prev'>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='11'
+                                    height='23'
+                                    viewBox='0 0 11 23'
+                                    fill='none'
+                                >
+                                    <path d="M9.67364 2.32616L0.999802 11L9.67364 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class='swiper-button-next'>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='11'
+                                    height='23'
+                                    viewBox='0 0 11 23'
+                                    fill='none'
+                                >
+                                    <path d="M1.05973 2.32616L9.73358 11L1.05973 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if section.settings.button != blank %}
+                    <div class='IndexOriginalSeries_box_button mt-[52px]  flex items-center justify-center'>
+                        <a
+                            href='{{  section.blocks[0].settings.collection.url }}'
+                            class='my_button_hover inline-flex items-center justify-center gap-[12px] leading-[120%] font-[500]'
+                        >
+                            {{ section.settings.button }}
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                width='7'
+                                height='12'
+                                viewBox='0 0 7 12'
+                                fill='none'
+                            >
+                                <path d="M0.647913 0.0119886C0.731222 0.0110302 0.813821 0.0265341 0.890399 0.0575027C0.966978 0.0884724 1.03584 0.134221 1.09256 0.191808L6.80944 5.58641C7.06352 5.82617 7.06352 6.1978 6.80944 6.43756L1.09256 11.8202C0.838476 12.0599 0.444646 12.0599 0.190563 11.8202C-0.0635204 11.5804 -0.0635204 11.2088 0.190563 10.969L5.4628 6.00599L0.190563 1.03097C-0.0635204 0.791209 -0.0635204 0.419581 0.190563 0.179821C0.317605 0.0599413 0.482759 0 0.635209 0L0.647913 0.0119886Z" fill="#333333"/>
+                            </svg>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tabSwiper = new Swiper(`#shopify-section-{{section.id}} .IndexOriginalSeriesTabSwier`, {
+            spaceBetween: 24,
+            observer: true,
+            observeParents: true,
+            watchOverflow: true,
+            navigation: {
+                nextEl: '#shopify-section-{{section.id}} .IndexOriginalSeries_topLeftBox .swiper-button-next',
+                prevEl: '#shopify-section-{{section.id}} .IndexOriginalSeries_topLeftBox .swiper-button-prev',
+            },
+            slidesPerView: 'auto',
+        });
+
+        const topBoxes = document.querySelectorAll('#shopify-section-{{section.id}} .IndexOriginalSeries_topBox');
+        const items = document.querySelectorAll('#shopify-section-{{section.id}} .IndexOriginalSeries_items');
+        const topTextBoxes = document.querySelectorAll('#shopify-section-{{section.id}} .IndexOriginalSeries_topTextBox');
+        const topRightBoxes = document.querySelectorAll('#shopify-section-{{section.id}} .IndexOriginalSeries_topRightBox');
+        let currentSwiper = null;
+
+        const swiperOptions = {
+            observer: true,
+            observeParents: true,
+            watchOverflow: true,
+            breakpoints: {
+                300: { slidesPerView: 1.1, spaceBetween: 15 },
+                740: { slidesPerView: 2, spaceBetween: 20 },
+                1200: { slidesPerView: 4, spaceBetween: 24 },
+            },
+            navigation: {
+                // ← .swiper-buttons 限定范围，避免匹配到 Tab swiper 的按钮
+                nextEl: '#shopify-section-{{section.id}} .swiper-buttons .swiper-button-next',
+                prevEl: '#shopify-section-{{section.id}} .swiper-buttons .swiper-button-prev',
+            },
+            pagination: {
+                el: '#shopify-section-{{section.id}} .swiper-pagination',
+                type: 'progressbar',
+            },
+        };
+
+        function initSwiperOn(container) {
+            const swiperEl = container.querySelector('.IndexOriginalSeriesSwiper');
+            if (!swiperEl) return;
+
+            const buttons = document.querySelector('#shopify-section-{{section.id}} .swiper-buttons');
+            const slideCount = swiperEl.querySelectorAll('.swiper-slide').length;
+
+            if (buttons) {
+                buttons.style.display = slideCount > 4 ? '' : 'none';
+            }
+
+            currentSwiper = new Swiper(swiperEl, swiperOptions);
+
+            // 确保按钮显示后导航状态正确
+            if (slideCount > 4) {
+                currentSwiper.navigation.update();
+            }
+        }
+
+        // 初始化第一个 active swiper
+        const activeItem = document.querySelector('#shopify-section-{{section.id}} .IndexOriginalSeries_items.active');
+        if (activeItem) initSwiperOn(activeItem);
+
+        const buttonLink = document.querySelector('#shopify-section-{{section.id}} .IndexOriginalSeries_box_button a');
+        const buttonContainer = document.querySelector('#shopify-section-{{section.id}} .IndexOriginalSeries_box_button');
+
+        function updateButtonVisibility(url) {
+            if (!buttonContainer || !buttonLink) return;
+            if (url && url.trim() !== '') {
+                buttonLink.href = url;
+                buttonContainer.style.display = 'flex';
+            } else {
+                buttonContainer.style.display = 'none';
+            }
+        }
+
+        // 初始按钮状态
+        if (buttonLink) {
+            const activeTab =
+                document.querySelector('#shopify-section-{{section.id}} .IndexOriginalSeries_topBox.active') ||
+                document.querySelector('#shopify-section-{{section.id}} .IndexOriginalSeries_topBox');
+            const initialUrl = activeTab ? activeTab.getAttribute('data-collection-url') : buttonLink.href;
+            updateButtonVisibility(initialUrl);
+        }
+
+        // tab 点击切换
+        topBoxes.forEach((box, idx) => {
+            box.addEventListener('click', function () {
+                if (box.classList.contains('active')) return;
+
+                topBoxes.forEach((b) => b.classList.remove('active'));
+                box.classList.add('active');
+
+                items.forEach((it) => it.classList.remove('active'));
+                topTextBoxes.forEach((textBox) => textBox.classList.remove('active'));
+                topRightBoxes.forEach((rightBox) => rightBox.classList.remove('active'));
+
+                const target = items[idx];
+                const targetText = topTextBoxes[idx];
+                const targetRight = topRightBoxes[idx];
+                const url = box.getAttribute('data-collection-url');
+
+                if (target) {
+                    target.classList.add('active');
+                    if (targetText) targetText.classList.add('active');
+                    if (targetRight) targetRight.classList.add('active');
+
+                    // 更新底部按钮链接 / 显示状态
+                    updateButtonVisibility(url);
+
+                    // 销毁旧 swiper
+                    if (currentSwiper && typeof currentSwiper.destroy === 'function') {
+                        try {
+                            currentSwiper.destroy(true, true);
+                        } catch (e) {
+                            /* ignore */
+                        }
+                        currentSwiper = null;
+                    }
+
+                    initSwiperOn(target);
+                }
+            });
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Index Original Series",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "title"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "range",
+            "id": "product_limit",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "label": "Product Limit",
+            "default": 4
+        },
+        {
+            "type": "text",
+            "id": "button",
+            "label": "button"
+        },
+        {
+            "type": "color_background",
+            "id": "bg_color",
+            "label": "background color"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "item",
+            "name": "Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "tab",
+                    "label": "tab"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "text"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "img"
+                },
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "collection"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Index Original Series"
+        }
+    ]
+}
+{% endschema %}

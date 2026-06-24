@@ -1,0 +1,199 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    @media (max-width: 1023px) {
+    }
+
+    @media (min-width: 1024px) {
+        .index-sale-all .header-title {
+            font-size: 64px;
+        }
+
+        my-countdown2 {
+            display: block;
+            margin-top: 32px;
+        }
+
+        .countdown2__wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .countdown2__unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .countdown2__num {
+            font-family: 'Prompt';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 96px;
+            height: 96px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 15px;
+            font-size: 44px;
+            font-weight: 400;
+            color: #1a1a1a;
+            line-height: 120%;
+        }
+
+        .countdown2__label {
+            font-family: 'Prompt';
+            font-size: 16px;
+            font-weight: 400;
+            color: #1a1a1a;
+            line-height: 120%;
+        }
+
+        .countdown2__sep {
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            line-height: 1;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .index-sale-all .header-title {
+            font-size: 100px;
+        }
+
+        my-countdown2 {
+            display: block;
+            margin-top: 52px;
+        }
+    }
+
+    .index-sale-all .bottom-text strong {
+        font-weight: 700;
+    }
+</style>
+
+<div class='index-sale-all relative'>
+    {% render 'section-img', img: section.settings.img, img_mobile: section.settings.img_mobile, width: 1920, mobile_width: 750 %}
+
+    <div class='index-sale-info absolute top-[0px] left-[0px] flex h-full w-full flex-col items-center justify-center text-center'>
+        {% if section.settings.title != blank %}
+            <h2 class='header-title text-title hide_p max-w-[80%] text-center text-[100px] leading-[113%] font-[600] tracking-[-2px] sm:leading-[80%]'>
+                {{ section.settings.title }}
+            </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+            <div class='header-text hide_p text-text max-w-[846px] text-center text-[28px] leading-[113%] font-[400] tracking-[-0.2px] sm:text-[20px] sm:leading-[150%] md:mt-[20px] lg:mt-[28px]'>
+                {{ section.settings.text }}
+            </div>
+        {% endif %}
+
+        {% if section.settings.countdown != blank %}
+            <my-countdown2>
+                <span data-time='{{ section.settings.countdown }}'></span>
+            </my-countdown2>
+        {% endif %}
+
+        {% if section.settings.bottom_text != blank %}
+            <div class='bottom-text hide_p text-text mt-[32px] rounded-[999px] bg-[rgba(252,212,84,0.50)] px-[16px] py-[8px] text-center text-[18px] leading-[113%] font-[400] tracking-[0px] sm:text-[18px] sm:leading-[120%]'>
+                {{ section.settings.bottom_text }}
+            </div>
+        {% endif %}
+
+        {% if section.settings.btn_text != blank %}
+            <a
+                href='{{ section.settings.btn_link }}'
+                class='button index-sale-btn text-text flex h-[48px] items-center rounded-[999px] bg-[#FCD454] px-[48px] text-center text-[28px] leading-[113%] font-[500] tracking-[0] sm:text-[16px] sm:leading-[120%] md:mt-[32px] lg:mt-[52px]'
+            >
+                {{ section.settings.btn_text }}
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "index-sale-time",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "img"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "text",
+            "id": "countdown",
+            "label": "Countdown",
+            "info": "2026-04-25T13:38:59"
+        },
+        {
+            "type": "richtext",
+            "id": "bottom_text",
+            "label": "Bottom Text"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "btn_link",
+            "label": "Button Link"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "index-sale-time"
+        }
+    ]
+}
+{% endschema %}

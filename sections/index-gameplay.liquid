@@ -1,0 +1,455 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .gameplay-container {
+        display: flex;
+        gap: 52px;
+        flex-direction: column;
+    }
+
+    .gameplay-content-container {
+        display: flex;
+        gap: 60px;
+        height: 582px;
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+
+    /* 基础卡片样式 - 移除 flex: 1 */
+    .gameplay-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+
+    /* 第一张卡片默认宽度 */
+    .gameplay-card.active {
+        width: 68.75%;
+        flex-shrink: 0;
+    }
+    .gameplay-card.active .gameplay-text-container {
+       align-items: center;
+       max-height: 113px;
+       padding: 28px;
+       flex-direction: unset;
+    }
+    .gameplay-card.active .gameplay-card-description {
+        display: none;
+    }
+
+    /* 第二张卡片默认宽度 */
+    .gameplay-card {
+        width: 31.25%;
+    }
+
+    .gameplay-card img,.gameplay-card video{
+        aspect-ratio: 110/81;
+    }
+    .gameplay-card.active img {
+        aspect-ratio: unset;
+    }
+    /* 文字容器样式 */
+    .gameplay-text-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 40px;
+        flex-direction: column;
+        height: 100%;
+        padding: 28px;
+        min-height: 113px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .bg-svg {
+        position: absolute;
+    }
+
+    #shopify-section-{{ section.id }} .gameplay-text-first-container {
+        background: {{ section.settings.first_bg_color }};
+    }
+
+    #shopify-section-{{ section.id }} .gameplay-text-second-container {
+        background: {{ section.settings.second_bg_color }};
+    }
+    {%- if section.settings.first_bg !=blank -%}
+    #shopify-section-{{ section.id }} .gameplay-text-first-container {
+        background-image: url('{{ section.settings.first_bg | image_url: width: 1920 }}')
+    }
+    {%- endif -%}
+    {%- if section.settings.second_bg !=blank -%}
+    #shopify-section-{{ section.id }} .gameplay-text-second-container {
+        background-image: url('{{ section.settings.second_bg | image_url: width: 1920 }}')
+    }
+    {%- endif -%}
+    .gameplay-text-second-container {
+        flex-direction: column;
+    }
+
+    /* 描述文字默认显示 */
+    .first-description,
+    .second-description {
+        display: block;
+        transition: opacity 0.3s ease;
+    }
+
+    /* 媒体元素确保响应式 */
+    .gameplay-card img,
+    .gameplay-card video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gameplay-card-title {
+        line-height: 120%;
+        font-size: 28px;
+        font-weight: 600;
+        color: #1a1a1a;
+    }
+
+    .gameplay-card-button {
+        display: flex;
+        height: 48px;
+        width: max-content;
+        min-width: fit-content;
+        padding: 6px 48px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 100px;
+        background: #FFF;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .gameplay-card-description {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .gameplay-card-top {
+        width: 100%;
+        height: calc(100% - 113px);
+    }
+    .gameplay-texts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .gameplay-card .my_picture  {
+        height: 100%;
+    }
+</style>
+
+<div>
+    <div class='container'>
+        {%- if section.settings.title != blank -%}
+            {%- if section.settings.highlighted_text == 'none' -%}
+                <h2 class='header-title text-title hide_p text-center text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
+                    {{ section.settings.title }}
+                </h2>
+            {% else %}
+                {%- render 'highlighted-text',
+                    class: 'header-title text-title text-center hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                    content: section.settings.title,
+                    style: section.settings.highlighted_text,
+                    scribble: 'sketch-underline',
+                    gradient: with_gradient
+                -%}
+            {% endif %}
+        {%- endif -%}
+        <div class='gameplay-container mt-[52px]'>
+            <div class='gameplay-content-container'>
+                <div class='gameplay-card first-card active'>
+                    <div class='gameplay-card-top hidden md:block'>
+                        {% if section.settings.first_pc_video != blank %}
+                            {{
+                                section.settings.first_pc_video
+                                | video_tag: autoplay: true, playsinline: true, loop: true, controls: false, muted: true, image_size: '1000x'
+                            }}
+                        {%- else -%}
+                            {% render 'section-img', img: section.settings.first_pc_image, width: 1200, loading: 'lazy', class: '' %}
+                        {% endif %}
+                    </div>
+                    <div class='gameplay-card-top block md:hidden'>
+                        {% if section.settings.first_h5_video != blank %}
+                            {{
+                                section.settings.first_h5_video
+                                | video_tag: autoplay: true, playsinline: true, loop: true, controls: false, muted: true, image_size: '1000x'
+                            }}
+                        {%- else -%}
+                            {% render 'section-img', img_mobile: section.settings.first_h5_image, mobile_width: 750, loading: 'lazy', class: '' %}
+                        {% endif %}
+                    </div>
+                    <div class='gameplay-text-container gameplay-text-first-container'>
+                        <div class='gameplay-texts'>
+                            {% if section.settings.first_title != blank %}
+                                <div class='gameplay-card-title'>{{ section.settings.first_title }}</div>
+                            {% endif %}
+                            {% if section.settings.first_description != blank %}
+                                <div class='gameplay-card-description first-description'>{{ section.settings.first_description }}</div>
+                            {% endif %}
+                        </div>
+                        {% if section.settings.first_button != blank %}
+                            <a
+                                class='my_button_hover2 gameplay-card-button'
+                                href='{{ section.settings.first_button_url }}'
+                            >
+                                {{ section.settings.first_button }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class='gameplay-card second-card'>
+                    <div class='gameplay-card-top hidden md:block'>
+                        {% if section.settings.second_pc_video != blank %}
+                            {{
+                                section.settings.second_pc_video
+                                | video_tag: autoplay: true, playsinline: true, loop: true, controls: false, muted: true, image_size: '1000x'
+                            }}
+                        {%- else -%}
+                            {% render 'section-img', img: section.settings.second_pc_image, width: 1200, loading: 'lazy', class: '' %}
+                        {% endif %}
+                    </div>
+                    <div class='gameplay-card-top block md:hidden'>
+                        {% if section.settings.second_h5_video != blank %}
+                            {{
+                                section.settings.second_h5_video
+                                | video_tag: autoplay: true, playsinline: true, loop: true, controls: false, muted: true, image_size: '1000x'
+                            }}
+                        {%- else -%}
+                            {% render 'section-img', img_mobile: section.settings.second_h5_image, mobile_width: 750, loading: 'lazy', class: '' %}
+                        {% endif %}
+                    </div>
+                    <div class='gameplay-text-container gameplay-text-second-container'>
+                        <div class='gameplay-texts'>
+                            {% if section.settings.second_title != blank %}
+                                <div class='gameplay-card-title'>{{ section.settings.second_title }}</div>
+                            {% endif %}
+                            {% if section.settings.second_description != blank %}
+                                <div class='gameplay-card-description second-description text-ellipsis-4'>{{ section.settings.second_description }}</div>
+                            {% endif %}
+                        </div>
+                        {% if section.settings.second_button != blank %}
+                            <a
+                                class='my_button_hover2 gameplay-card-button'
+                                href='{{ section.settings.second_button_url }}'
+                            >
+                                {{ section.settings.second_button }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var section = document.querySelector('#shopify-section-{{ section.id }}');
+        if (!section) return;
+
+        var cards = Array.prototype.slice.call(section.querySelectorAll('.gameplay-card'));
+        var activeCard = section.querySelector('.gameplay-card.active') || cards[0];
+        var container = section.querySelector('.gameplay-content-container');
+
+        function setActiveCard(card) {
+            if (!card || card === activeCard) return;
+            cards.forEach(function (item) {
+                item.classList.toggle('active', item === card);
+            });
+            activeCard = card;
+        }
+
+        if (container) {
+            container.addEventListener('mousemove', function (event) {
+                var element = document.elementFromPoint(event.clientX, event.clientY);
+                if (!element) return;
+                var card = element.closest('.gameplay-card');
+                if (card && section.contains(card)) {
+                    setActiveCard(card);
+                }
+            });
+        }
+    });
+</script>
+{% schema %}
+{
+    "name": "Index Gameplay",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "image_picker",
+            "id": "first_pc_image",
+            "label": "First Image"
+        },
+        {
+            "type": "video",
+            "id": "first_pc_video",
+            "label": "First Shopify Video"
+        },
+        {
+            "type": "image_picker",
+            "id": "first_h5_image",
+            "label": "First Mobile Image"
+        },
+        {
+            "type": "video",
+            "id": "first_h5_video",
+            "label": "First Mobile Shopify Video"
+        },
+        {
+            "type": "textarea",
+            "id": "first_title",
+            "label": "First Title"
+        },
+        {
+            "type": "textarea",
+            "id": "first_description",
+            "label": "First Description"
+        },
+        {
+            "type": "text",
+            "id": "first_button",
+            "label": "First Button"
+        },
+        {
+            "type": "url",
+            "id": "first_button_url",
+            "label": "First Button URL"
+        },
+        {
+            "type": "color",
+            "id": "first_bg_color",
+            "label": "First Background Color"
+        },
+        {
+            "type": "image_picker",
+            "id": "first_bg",
+            "label": "First Background Image"
+        },
+        {
+            "type": "textarea",
+            "id": "second_title",
+            "label": "Second Title"
+        },
+        {
+            "type": "textarea",
+            "id": "second_description",
+            "label": "Second Description"
+        },
+        {
+            "type": "text",
+            "id": "second_button",
+            "label": "Second Button"
+        },
+        {
+            "type": "url",
+            "id": "second_button_url",
+            "label": "Second Button URL"
+        },
+        {
+            "type": "color",
+            "id": "second_bg_color",
+            "label": "Second Background Color"
+        },
+        {
+            "type": "image_picker",
+            "id": "second_bg",
+            "label": "Second Background Image"
+        },
+
+        {
+            "type": "image_picker",
+            "id": "second_pc_image",
+            "label": "Second PC Image"
+        },
+        {
+            "type": "video",
+            "id": "second_pc_video",
+            "label": "Second Shopify Video"
+        },
+        {
+            "type": "image_picker",
+            "id": "second_h5_image",
+            "label": "Second H5 Image"
+        },
+        {
+            "type": "video",
+            "id": "second_h5_video",
+            "label": "Second Mobile Shopify Video"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "Index Gameplay"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "@shopify/prettier-plugin-liquid",
+    "prettier-plugin-tailwindcss"
+  ],
+  "printWidth": 160,
+  "tabWidth": 4,
+  "useTabs": false,
+  "singleQuote": true,
+  "liquidSingleQuote": true,
+  "bracketSpacing": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "singleAttributePerLine": true,
+  "embeddedLanguageFormatting": "auto"
+}

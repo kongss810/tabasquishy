@@ -1,0 +1,187 @@
+{%- liquid
+    assign modal_id = 'ProductOfferModal-' | append: block.id
+    assign offer_metaobject = null
+    assign metaobject_namespace = 'custom'
+    assign metaobject_key = 'product_offer'
+
+    if product != blank and metaobject_namespace != blank and metaobject_key != blank
+        assign offer_metaobject = product.metafields[metaobject_namespace][metaobject_key].value
+    endif
+
+    assign offer_style = block.settings.offer_style
+    assign offer_style_countdown = offer_metaobject.offer_style_countdown.value
+    if offer_style_countdown == true or offer_style_countdown == 'true'
+        assign offer_style = 'countdown'
+    elsif offer_style_countdown == false or offer_style_countdown == 'false'
+        assign offer_style = 'coupon'
+    endif
+    assign background_image = offer_metaobject.background_image.value | default: block.settings.background_image
+    assign background_color = offer_metaobject.background_color.value | default: block.settings.background_color
+    assign coupon_save_background = offer_metaobject.coupon_save_background.value | default: block.settings.coupon_save_background
+    assign title_color = offer_metaobject.title_color.value | default: block.settings.title_color
+    assign text_color = offer_metaobject.text_color.value | default: block.settings.text_color
+    assign accent_color = offer_metaobject.accent_color.value | default: block.settings.accent_color
+    assign button_background = offer_metaobject.button_background.value | default: block.settings.button_background
+    assign button_color = offer_metaobject.button_color.value | default: block.settings.button_color
+    assign coupon_code = offer_metaobject.coupon_code.value | default: block.settings.coupon_code
+    assign copy_text = offer_metaobject.copy_text.value | default: block.settings.copy_text
+    assign copied_text = offer_metaobject.copied_text.value | default: block.settings.copied_text
+    assign save_label = offer_metaobject.save_label.value | default: block.settings.save_label
+    assign save_value = offer_metaobject.save_value.value | default: block.settings.save_value
+    assign coupon_title = offer_metaobject.coupon_title.value | default: block.settings.coupon_title
+    assign coupon_code_label = offer_metaobject.coupon_code_label.value | default: block.settings.coupon_code_label
+    assign popup_title = offer_metaobject.popup_title.value | default: block.settings.popup_title
+    assign popup_text = offer_metaobject.popup_text.value | default: block.settings.popup_text
+    assign countdown_title = offer_metaobject.countdown_title.value | default: block.settings.countdown_title
+    assign countdown_time = offer_metaobject.countdown_time.value | default: block.settings.countdown_time
+    assign countdown_code_label = offer_metaobject.countdown_code_label.value | default: block.settings.countdown_code_label
+    assign countdown_offer_text = offer_metaobject.countdown_offer_text.value | default: block.settings.countdown_offer_text
+    assign countdown_button_text = offer_metaobject.countdown_button_text.value | default: block.settings.countdown_button_text
+-%}
+
+{%- if coupon_code != blank -%}
+<div
+    class='product-offer product-offer--{{ offer_style }}{% if offer_style == 'countdown' and countdown_time != blank %} product-offer--has-countdown{% endif %}'
+    style='
+        --product-offer-bg: {{ background_color }};
+        --product-offer-coupon-save-bg: {{ coupon_save_background }};
+        --product-offer-title-color: {{ title_color }};
+        --product-offer-text-color: {{ text_color }};
+        --product-offer-accent-color: {{ accent_color }};
+        --product-offer-button-bg: {{ button_background }};
+        --product-offer-button-color: {{ button_color }};
+        {% if background_image != blank %}--product-offer-bg-image: url({{ background_image | image_url: width: 1400 }});{% endif %}
+    '
+    {{ block.shopify_attributes }}
+>
+    {%- if offer_style == 'coupon' -%}
+        <div class='product-offer__coupon-save'>
+            <div class='product-offer__save-label'>{{ save_label }}</div>
+            <div class='product-offer__save-value'>{{ save_value }}</div>
+        </div>
+        <div class='product-offer__coupon-main'>
+            <div class='product-offer__coupon-title-row'>
+                <div class='product-offer__coupon-title'>{{ coupon_title }}</div>
+                {%- if popup_title != blank or popup_text != blank -%}
+                    <button
+                        class='product-offer__coupon-help'
+                        type='button'
+                        aria-label='{{ popup_title | default: coupon_title | escape }}'
+                        data-product-offer-modal-target='#{{ modal_id }}'
+                    >
+                        <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='20'
+                            height='20'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                        >
+                            <path d="M10 1.69922C12.2012 1.69922 14.3126 2.57345 15.8691 4.12988C17.4256 5.68639 18.2998 7.7978 18.2998 9.99902C18.2998 11.089 18.0851 12.1688 17.668 13.1758C17.2509 14.1826 16.6398 15.0975 15.8691 15.8682C15.0985 16.6388 14.1836 17.2499 13.1768 17.667C12.1698 18.0841 11.09 18.2988 10 18.2988C8.91013 18.2988 7.83113 18.0841 6.82422 17.667C5.81722 17.2499 4.90159 16.6389 4.13086 15.8682C3.36029 15.0975 2.74911 14.1826 2.33203 13.1758C1.91492 12.1688 1.7002 11.089 1.7002 9.99902C1.70025 7.7978 2.57435 5.68639 4.13086 4.12988C5.68737 2.57338 7.79877 1.69927 10 1.69922Z" stroke="#4D4D4D"/>
+                            <path d="M10.6324 12.3008V12.1908C10.6324 11.582 10.9316 11.0164 11.4268 10.6868C12.4456 10.0088 13 9.21162 13 8.29242C13 6.58402 11.6572 5.19922 10 5.19922C8.3428 5.19922 7 6.58402 7 8.29242C7 8.65202 7.282 8.94442 7.6324 8.94442C7.9808 8.94442 8.2644 8.65402 8.2644 8.29242C8.2644 7.30282 9.042 6.50122 10.002 6.50122C10.962 6.50122 11.7392 7.30282 11.7392 8.29242C11.7392 8.69722 11.438 9.13122 10.7448 9.59242C9.8896 10.162 9.3716 11.1404 9.3716 12.1908V12.3008C9.3716 12.6604 9.6532 12.9528 10.002 12.9528C10.3484 12.9512 10.6304 12.6604 10.6324 12.3008ZM9.3 14.4848C9.3 14.88 9.6144 15.1992 10 15.1992C10.3872 15.1992 10.7 14.8784 10.7 14.4852C10.7 14.09 10.3872 13.7708 10 13.7692C9.6128 13.7692 9.3 14.09 9.3 14.4852V14.4848Z" fill="#4D4D4D"/>
+                        </svg>
+                    </button>
+                {%- endif -%}
+            </div>
+            <div class='product-offer__coupon-code-row'>
+                <span>
+                    {{ coupon_code_label }}
+                    {{ coupon_code }}
+                </span>
+                {%- if coupon_code != blank -%}
+                    <button
+                        class='product-offer__copy'
+                        type='button'
+                        data-product-offer-copy
+                        data-copy-code='{{ coupon_code | escape }}'
+                        data-copy-text='{{ copy_text | escape }}'
+                        data-copied-text='{{ copied_text | escape }}'
+                    >
+                        {{ copy_text }}
+                    </button>
+                {%- endif -%}
+            </div>
+        </div>
+    {%- else -%}
+        <div class='product-offer__countdown-inner'>
+            {%- if countdown_title != blank -%}
+                <h3 class='product-offer__countdown-title'>{{ countdown_title }}</h3>
+            {%- endif -%}
+
+            {%- if countdown_time != blank -%}
+                <my-countdown2 class='product-offer__countdown'>
+                    <span data-time='{{ countdown_time }}'></span>
+                </my-countdown2>
+            {%- endif -%}
+
+            <div class='product-offer__code-box'>
+                <div class='product-offer__code-label'>{{ countdown_code_label }}</div>
+                <div class='product-offer__code-value'>{{ coupon_code }}</div>
+            </div>
+
+            {%- if countdown_offer_text != blank -%}
+                <div class='product-offer__countdown-text'>{{ countdown_offer_text }}</div>
+            {%- endif -%}
+
+            {%- if coupon_code != blank -%}
+                <button
+                    class='product-offer__countdown-copy button'
+                    type='button'
+                    data-product-offer-copy
+                    data-copy-code='{{ coupon_code | escape }}'
+                    data-copy-text='{{ countdown_button_text | escape }}'
+                    data-copied-text='{{ copied_text | escape }}'
+                >
+                    {{ countdown_button_text }}
+                </button>
+            {%- endif -%}
+        </div>
+    {%- endif -%}
+</div>
+
+{%- if popup_title != blank or popup_text != blank -%}
+    <modal-dialog
+        id='{{ modal_id }}'
+        class='product-popup-modal product-commitment-modal product-offer-modal'
+    >
+        <div
+            role='dialog'
+            aria-label='{{ popup_title | default: coupon_title | escape }}'
+            aria-modal='true'
+            class='product-popup-modal__content product-commitment-modal__content product-offer-modal__content'
+            tabindex='-1'
+        >
+            <div class='product-popup-modal__content-header product-commitment-modal__header product-offer-modal__header'>
+                <h3>{{ popup_title | default: coupon_title }}</h3>
+                <button
+                    id='ModalClose-{{ block.id }}'
+                    type='button'
+                    class='product-popup-modal__toggle product-commitment-modal__close'
+                    aria-label='{{ 'accessibility.close' | t }}'
+                >
+                    <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='48'
+                        height='48'
+                        viewBox='0 0 48 48'
+                        fill='none'
+                    >
+                        <mask id="ProductOfferCloseMask-{{ block.id }}" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+                          <rect width="48" height="48" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#ProductOfferCloseMask-{{ block.id }})">
+                          <path d="M13.257 14.5295L22.7272 23.9997L13.257 33.4699L15.5298 35.7427L25 26.2725L34.4702 35.7427L36.743 33.4699L27.2728 23.9997L36.743 14.5295L34.4702 12.2567L25 21.7268L15.5298 12.2567L13.257 14.5295Z" fill="black"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class='product-commitment-modal__body product-offer-modal__body'>
+                {%- if popup_text != blank -%}
+                    <div class='product-offer-modal__text'>
+                        {{ popup_text | escape | newline_to_br }}
+                    </div>
+                {%- endif -%}
+            </div>
+        </div>
+    </modal-dialog>
+{%- endif -%}
+{%- endif -%}

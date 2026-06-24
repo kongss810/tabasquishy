@@ -1,0 +1,326 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .affiliate-guide-container p {
+        margin: 0;
+    }
+
+    .affiliate-guide-images {
+        aspect-ratio: 499/250;
+    }
+
+    .affiliate-guide-image-item {
+        height: auto;
+    }
+
+    .affiliate-guide-content-item {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.4s ease,
+            visibility 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        padding: 64px 0;
+    }
+    .affiliate-guide-content-item.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .affiliate-guide-content {
+        height: stretch;
+        position: relative;
+    }
+
+    .affiliate-guide-dot {
+        border-radius: 50%;
+        background: rgba(26, 26, 26, 0.2);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        width: 10px;
+        height: 10px;
+        aspect-ratio: 1/1;
+        color: transparent;
+        font-size: 0;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .affiliate-guide-dot.active {
+        background: #e2b742;
+        width: 48px;
+        height: 48px;
+        color: #333;
+        font-size: 16px;
+        line-height: 120%;
+        white-space: nowrap;
+    }
+
+    .affiliate-guide-container .affiliate-guide-swiper-pagination {
+        width: auto;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    .affiliate-guide-container .affiliate-guide-swiper-pagination .swiper-pagination-bullet {
+        margin: 0;
+        width: 10px;
+        height: 10px;
+        background: rgba(26, 26, 26, 0.2);
+        opacity: 1;
+        font-size: 0;
+        color: transparent;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    .affiliate-guide-container .affiliate-guide-swiper-pagination .swiper-pagination-bullet-active {
+        background: #fcd454;
+        width: 48px;
+        height: 48px;
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 120%;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+    }
+</style>
+
+{% liquid
+    assign title = section.settings.title
+    assign description = section.settings.description
+%}
+
+<div class='container'>
+    <div class='affiliate-guide-container'>
+        <!-- Header -->
+        <div class='affiliate-guide-header mx-auto mb-[52px] w-full max-w-[1228px]'>
+            {% if title != blank %}
+                <h2 class='affiliate-guide-title hide_p mb-[0] text-center text-[64px] leading-[120%] font-[600]'>{{ title }}</h2>
+            {% endif %}
+            {% if description != blank %}
+                <div class='affiliate-guide-description mt-[16px] text-center text-[16px] leading-[150%] font-[400]'>{{ description }}</div>
+            {% endif %}
+        </div>
+
+        {% if section.blocks.size > 0 %}
+            <div class='affiliate-guide-layout flex items-center gap-[60px] overflow-hidden'>
+                <!-- 左侧图片堆叠 -->
+                <div class='swiper affiliate-guide-images relative w-[62.5%] overflow-hidden rounded-[15px]'>
+                    <div class='swiper-wrapper'>
+                        {% for block in section.blocks %}
+                            <div
+                                class='swiper-slide affiliate-guide-image-item overflow-hidden rounded-[15px]'
+                                data-index='{{ forloop.index0 }}'
+                            >
+                                {% render 'section-img', img: block.settings.image, loading: 'lazy', width: 1000 %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- 右侧文字 -->
+                <div class='affiliate-guide-content flex w-[30.4375%] flex-col py-[64px]'>
+                    <div class='affiliate-guide-content-list relative max-w-full flex-1'>
+                            {% for block in section.blocks %}
+                                <div class='affiliate-guide-content-item{% if forloop.first %} active{% endif %}' data-index='{{ forloop.index0 }}'>
+                                    <h4 class='guide-step m-0 mb-auto flex-shrink-0 text-[40px] leading-[110%]'>STEP {{ forloop.index }}</h4>
+
+                                    <div class='affiliate-guide-content-texts-container mb-auto flex flex-1 flex-col items-start justify-center text-left'>
+                                        {% if block.settings.block_title != blank %}
+                                            <div class='guide-title text-title hide_p mb-[16px] text-[24px] leading-[120%] font-[600]'>
+                                                {{ block.settings.block_title }}
+                                            </div>
+                                        {% endif %}
+                                        {% if block.settings.block_description != blank %}
+                                            <div class='guide-desc hide_p text-[16px]'>
+                                                {{ block.settings.block_description }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                    </div>
+
+                    <div class='affiliate-guide-navigation relative z-[2] flex min-h-[48px] flex-shrink-0 items-center justify-start gap-[16px]'>
+                        <div class='affiliate-guide-swiper-button-prev cursor-pointer'>
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                width='6'
+                                height='10'
+                                viewBox='0 0 6 10'
+                                fill='none'
+                            >
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.238562 4.44453L4.84788 0L6 1.11094L1.96675 5L6 8.88906L4.84788 10L0.238562 5.55547C0.0858107 5.40813 0 5.20833 0 5C0 4.79167 0.0858107 4.59187 0.238562 4.44453Z" fill="#333333"/>
+                            </svg>
+                        </div>
+                        <div class='affiliate-guide-swiper-pagination'></div>
+                        <div class='affiliate-guide-swiper-button-next cursor-pointer'>
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                width='6'
+                                height='10'
+                                viewBox='0 0 6 10'
+                                fill='none'
+                            >
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.76144 5.55547L1.15212 10L0 8.88906L4.03325 5L0 1.11094L1.15212 0L5.76144 4.44453C5.91419 4.59187 6 4.79167 6 5C6 5.20833 5.91419 5.40813 5.76144 5.55547Z" fill="#333333"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<!-- Initialize Swiper -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const swiper = new Swiper('.affiliate-guide-images', {
+            effect: 'slide',
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            speed: 500,
+            autoplay: {% if section.settings.enable_autoplay %}{ delay: {{ section.settings.autoplay_delay | times: 1000 }}, disableOnInteraction: false }{% else %}false{% endif %},
+            pagination: {
+                el: '.affiliate-guide-swiper-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return `<span class="${className}">${index + 1}</span>`;
+                },
+            },
+
+            navigation: {
+                nextEl: '.affiliate-guide-swiper-button-next',
+                prevEl: '.affiliate-guide-swiper-button-prev',
+            },
+        });
+
+        const contentItems = document.querySelectorAll('.affiliate-guide-content-item');
+
+        function updateContent(index) {
+            contentItems.forEach((item) => {
+                item.classList.remove('active');
+            });
+
+            if (contentItems[index]) {
+                contentItems[index].classList.add('active');
+            }
+        }
+
+        swiper.on('init', function () {
+            updateContent(this.realIndex);
+        });
+
+        swiper.on('slideChange', function () {
+            updateContent(this.realIndex);
+        });
+
+        updateContent(0);
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Affiliate Guide",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_autoplay",
+            "label": "Enable autoplay",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "autoplay_delay",
+            "label": "Autoplay delay",
+            "min": 2,
+            "max": 12,
+            "step": 1,
+            "unit": "s",
+            "default": 5
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "guide_item",
+            "name": "Guide Item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Affiliate Guide"
+        }
+    ]
+}
+{% endschema %}

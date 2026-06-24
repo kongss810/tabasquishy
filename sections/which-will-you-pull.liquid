@@ -1,0 +1,370 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    #shopify-section-{{ section.id }} .wwyp-badge {
+        filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.15));
+    }
+    #shopify-section-{{ section.id }} .wwyp-gradient-text span{
+        background: linear-gradient(90deg, #ee8f25 0%, #e40078 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+</style>
+
+<div class='wwyp'>
+    <div class='container'>
+        {% if section.settings.title != blank %}
+            {%- if section.settings.highlighted_text == 'none' -%}
+                <h2 class='wwyp-title text-title hide_p mb-[40px] text-center text-[28px] leading-[113%] font-[600] tracking-[0] sm:mb-[76px] sm:text-[64px] sm:leading-[120%]'>
+                    {{ section.settings.title }}
+                </h2>
+            {% else %}
+                {%- render 'highlighted-text',
+                    class: 'wwyp-title text-title hide_p mb-[40px] sm:mb-[76px] text-center text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                    content: section.settings.title,
+                    style: section.settings.highlighted_text,
+                    scribble: 'sketch-underline'
+                -%}
+            {% endif %}
+        {% endif %}
+
+        <div class='wwyp-content'>
+            <div class='swiper wwyp-swiper'>
+                <div class='swiper-wrapper'>
+                    {% for block in section.blocks %}
+                        <div
+                            class='swiper-slide wwyp-card flex flex-col gap-[16px]'
+                            {{ block.shopify_attributes }}
+                        >
+                            <a
+                                href='{{ block.settings.url }}'
+                                class='wwyp-card-media relative block aspect-square w-full overflow-hidden rounded-[15px]'
+                            >
+                                {% if block.settings.image != blank %}
+                                    {% render 'section-img',
+                                        img: block.settings.image,
+                                        width: 800,
+                                        loading: 'lazy',
+                                        class: 'absolute inset-0 h-full w-full object-cover'
+                                    %}
+                                {% endif %}
+
+                                {% if block.settings.badge_image != blank %}
+                                    <div class='wwyp-badge absolute top-[18px] right-[18px] flex h-[65px] w-[71px] flex-col items-center justify-center'>
+                                        <img
+                                            class='absolute inset-0 h-full w-full object-contain'
+                                            src='{{ block.settings.badge_image | image_url: width: 200 }}'
+                                            alt='{{ section.settings.drop_rate | default: 'Drop Rate' }}'
+                                            loading='lazy'
+                                            width='{{ block.settings.badge_image.width }}'
+                                            height='{{ block.settings.badge_image.height }}'
+                                        >
+                                    </div>
+                                {% endif %}
+                            </a>
+
+                            <div class='wwyp-card-info flex flex-col gap-[16px] [&_p]:m-0'>
+                                <div class='flex flex-col gap-[12px]'>
+                                    <div class='flex items-start justify-between gap-[8px] text-[16px] leading-[1.2] tracking-[-0.48px] {% if block.settings.rarity == 'ultra' %}wwyp-gradient-text{% else %}text-[rgba(26,26,26,0.4)]{% endif %}'>
+                                        {% if block.settings.edition_label != blank %}
+                                            <span>{{ block.settings.edition_label }}</span>
+                                        {% endif %}
+                                        {% if block.settings.drop_rate != blank %}
+                                            <span class='whitespace-nowrap'>
+                                                {{ block.settings.drop_rate | default: 'Drop Rate' }}
+                                            </span>
+                                        {% endif %}
+                                    </div>
+
+                                    {% if block.settings.number_text != blank or block.settings.name_text != blank %}
+                                        <p class='text-title text-[20px] leading-[normal]'>
+                                            <span class='font-semibold'>{{ block.settings.number_text }}</span>
+                                            {% if block.settings.name_text != blank %}
+                                                <span class='font-normal'>| {{ block.settings.name_text }}</span>
+                                            {% endif %}
+                                        </p>
+                                    {% endif %}
+                                </div>
+
+                                {% if block.settings.description != blank %}
+                                    <p class='wwyp-card-desc text-[16px] leading-[150%] font-normal text-[#333]'>
+                                        {{ block.settings.description }}
+                                    </p>
+                                {% endif %}
+
+                                {% if section.settings.button_text != blank %}
+                                    <a
+                                        href='{{ block.settings.url | default: '#' }}'
+                                        class='wwyp-card-button button mt-auto flex h-[48px] w-full items-center justify-center rounded-full bg-[#fcd454] px-[48px] text-[16px] leading-[120%] font-[500] font-normal text-[#333]'
+                                    >
+                                        {{ section.settings.button_text }}
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% if section.blocks.size > 0 %}
+                <div class='swiper-buttons mt-[52px] flex items-center justify-between gap-[20px]'>
+                    <div class='swiper_buttons_left'>
+                        <div class='swiper-pagination'></div>
+                    </div>
+                    <div class='swiper_buttons_right flex'>
+                        <div class='swiper-button-prev'>
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                width='11'
+                                height='23'
+                                viewBox='0 0 11 23'
+                                fill='none'
+                            >
+                                <path d="M9.67364 2.32616L0.999802 11L9.67364 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class='swiper-button-next'>
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                width='11'
+                                height='23'
+                                viewBox='0 0 11 23'
+                                fill='none'
+                            >
+                                <path d="M1.05973 2.32616L9.73358 11L1.05973 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper(`#shopify-section-{{ section.id }} .wwyp-swiper`, {
+            spaceBetween: 20,
+            observer: true,
+            observeParents: true,
+            watchOverflow: true,
+
+            navigation: {
+                nextEl: '#shopify-section-{{ section.id }} .swiper-button-next',
+                prevEl: '#shopify-section-{{ section.id }} .swiper-button-prev',
+            },
+            pagination: {
+                el: '#shopify-section-{{ section.id }} .swiper-pagination',
+                type: 'progressbar',
+            },
+            breakpoints: {
+                300: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 12,
+                },
+                768: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 16,
+                },
+                1280: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+            },
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Which Will You Pull",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title",
+            "default": "<p>Which Will You Pull?</p>"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text",
+            "default": "SHOP NOW"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "card",
+            "name": "Card",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Product image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "badge_image",
+                    "label": "Drop rate badge image",
+                    "info": "Upload the badge shape (e.g. cloud SVG/PNG). The badge only shows when an image is uploaded."
+                },
+                {
+                    "type": "text",
+                    "id": "drop_rate",
+                    "label": "Drop rate",
+                    "default": "1:8"
+                },
+                {
+                    "type": "select",
+                    "id": "rarity",
+                    "label": "Rarity style",
+                    "options": [
+                        {
+                            "value": "regular",
+                            "label": "Regular"
+                        },
+                        {
+                            "value": "ultra",
+                            "label": "Ultra rare (gradient)"
+                        }
+                    ],
+                    "default": "regular"
+                },
+                {
+                    "type": "text",
+                    "id": "edition_label",
+                    "label": "Edition label",
+                    "default": "Regular Edition"
+                },
+                {
+                    "type": "text",
+                    "id": "number_text",
+                    "label": "Number",
+                    "default": "No. 01 / 08"
+                },
+                {
+                    "type": "text",
+                    "id": "name_text",
+                    "label": "Name",
+                    "default": "MOODI-LUMI"
+                },
+                {
+                    "type": "textarea",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "KRAZI is full of energy and never stops. Jumping around and laughing non-stop."
+                },
+                {
+                    "type": "url",
+                    "id": "url",
+                    "label": "Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Which Will You Pull",
+            "blocks": [
+                {
+                    "type": "card",
+                    "settings": {
+                        "drop_rate": "1:8",
+                        "rarity": "regular",
+                        "edition_label": "Regular Edition",
+                        "number_text": "No. 01 / 08",
+                        "name_text": "MOODI-LUMI"
+                    }
+                },
+                {
+                    "type": "card",
+                    "settings": {
+                        "drop_rate": "1:8",
+                        "rarity": "regular",
+                        "edition_label": "Regular Edition",
+                        "number_text": "No. 02 / 08",
+                        "name_text": "MOODI-KRAZI"
+                    }
+                },
+                {
+                    "type": "card",
+                    "settings": {
+                        "drop_rate": "1:8",
+                        "rarity": "regular",
+                        "edition_label": "Regular Edition",
+                        "number_text": "No. 03 / 08",
+                        "name_text": "MOODI-LUMI"
+                    }
+                },
+                {
+                    "type": "card",
+                    "settings": {
+                        "drop_rate": "1:64",
+                        "rarity": "ultra",
+                        "edition_label": "Ultra Rare",
+                        "number_text": "No. 04 / 08",
+                        "name_text": "MOODI-LUMI"
+                    }
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

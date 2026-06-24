@@ -1,0 +1,704 @@
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+{% for block in section.blocks %}
+    {%- case block.type -%}
+        {%- when '@app' -%}
+            {% render block %}
+        {%- when 'label' -%}
+            {%- render 'product-card-labels', product: product -%}
+        {%- when 'separator' -%}
+            <hr class='product-information--separator'>
+        {%- when 'spacing' -%}
+            <div
+                class='product-information--spacing'
+                style='--desktop-spacing-top: {{ block.settings.desktop_top }}px; --desktop-spacing-bottom: {{ block.settings.desktop_bottom }}px; --mobile-spacing-top: {{ block.settings.mobile_top }}px; --mobile-spacing-bottom: {{ block.settings.mobile_bottom }}px;'
+                {{ block.shopify_attributes }}
+            ></div>
+        {%- when 'offer' -%}
+            {%- render 'product-offer', block: block, product: product -%}
+        {%- when 'text' -%}
+            <p
+                class='product--text {{ block.settings.text_style }}'
+                {{ block.shopify_attributes }}
+            >
+                {{- block.settings.text -}}
+            </p>
+        {%- when 'custom_liquid' -%}
+            {{ block.settings.custom_liquid }}
+        {%- when 'title' -%}
+            <div
+                class='product-title-container'
+                {{ block.shopify_attributes }}
+            >
+                <h1 class='product-title'>{{ product.title }}</h1>
+
+                {%- if block.settings.show_products_rating and product.metafields.reviews.rating.value != blank -%}
+                    <a
+                        class='star-rating-container'
+                        href='#shopify-product-reviews'
+                    >
+                        <div
+                            class='star-rating'
+                            style='--star-rating: {{ product.metafields.reviews.rating.value.rating }};'
+                        ></div>
+                    </a>
+                {%- endif -%}
+                {% comment %}
+                    {%- if product != blank -%}
+                        {%- form 'product', product, id: 'product-form-installment', class: 'installment' -%}
+                            <input
+                                type='hidden'
+                                name='id'
+                                value='{{ product.selected_or_first_available_variant.id }}'
+                            >
+                            {{ form | payment_terms }}
+                        {%- endform -%}
+                    {%- endif -%}
+                {% endcomment %}
+            </div>
+        {%- when 'description' -%}
+            <div
+                class='product-short-description rte'
+                {{ block.shopify_attributes }}
+            >
+                {{ product.description }}
+            </div>
+        {%- when 'price' -%}
+            <div class='product-price-container'>
+                <div
+                    class='no-js-hidden'
+                    id='price-{{ section.id }}'
+                >
+                    {% render 'product-price', product: product, use_variant: true, show_badges: false %}
+                </div>
+                {%- if section.settings.show_taxes_included != blank -%}
+                    {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+                        <div class='product__tax caption'>
+                            {%- if cart.taxes_included -%}
+                                {{ 'products.product.include_taxes' | t }}
+                            {%- endif -%}
+                            {%- if shop.shipping_policy.body != blank -%}
+                                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                            {%- endif -%}
+                        </div>
+                    {%- endif -%}
+                {%- endif -%}
+            </div>
+        {%- when 'inventory_level' -%}
+            {% render 'product-inventory-notice', product: product, section: section, block: block %}
+        {%- when 'variant_picker' -%}
+            {%- unless product.has_only_default_variant -%}
+                {%- liquid
+                    assign is_disabled = block.settings.variant_is_disabled
+                    assign picker_type = 'dropdown'
+                    assign color_picker = true
+                -%}
+                <variant-selects
+                    id='variant-selects-{{ section.id }}'
+                    class='no-js-hidden'
+                    data-update-url='{{ update_url }}'
+                    data-section='{{ section.id }}'
+                    data-url='{{ product.url }}'
+                    data-is-disabled='{{ is_disabled }}'
+                    data-hide-variants='{{ hide_variants }}'
+                >
+                    <div
+                        class='variations'
+                        {{ block.shopify_attributes }}
+                    >
+                        {%- for option in product.options_with_values -%}
+                            {%- liquid
+                                assign option_name = option.name | downcase | escape
+                                assign option_type = block.settings.picker_type
+                                assign picker_type = option_type
+
+                                if block.settings.color_picker
+                                    if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' or option_name contains 'farbe'
+                                        assign option_type = 'color'
+                                    endif
+                                endif
+                                unless block.settings.color_picker
+                                    assign color_picker = false
+                                endunless
+                            -%}
+                            {%- liquid
+                                assign option_slug = option.name | downcase
+                                assign sizing_link = ''
+
+                                assign sizing_guide_variant = block.settings.sizing_guide_variant | default: 'Size' | downcase
+                            -%}
+                            {%- if option_slug == sizing_guide_variant -%}
+                                {%- if block.settings.sizing_guide_text != empty -%}
+                                    {%- capture sizing_link -%}
+                  <modal-opener class="product-popup-modal__opener no-js-hidden" data-modal="#PopupModal-{{ block.id }}">
+                    <button id="ProductPopup-{{ block.id }}" class="product-popup-modal__button" type="button" aria-haspopup="dialog">
+                      {% render 'svg-icons-inline', icon: block.settings.sizing_guide_icon %}<span>{{ block.settings.sizing_guide_text }}</span></button>
+                  </modal-opener>
+                {%- endcapture -%}
+                                    {%- capture sizing_popup -%}
+                <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal">
+                  <div role="dialog" aria-label="{{ block.settings.sizing_guide_text }}" aria-modal="true" class="product-popup-modal__content" tabindex="-1">
+                    <div class="product-popup-modal__content-header">
+                      <h5>{{ block.settings.sizing_guide_page.title }}</h5>
+                      <button id="ModalClose-{{ block.id }}" type="button" class="product-popup-modal__toggle" aria-label="{{ 'accessibility.close' | t }}">{% render 'svg-icons' with 'close' %}</button>
+                    </div>
+                    <scroll-shadow>
+                      <div class="product-popup-modal__content-info">
+                        {{ block.settings.sizing_guide_page.content }}
+                      </div>
+                    </scroll-shadow>
+                  </div>
+                </modal-dialog>
+                {%- endcapture -%}
+                                {%- endif -%}
+                            {%- endif -%}
+                            {% render 'product-option',
+                                option_type: option_type,
+                                product: product,
+                                option: option,
+                                forloop: forloop,
+                                product_form_id: product_form_id,
+                                sizing_link: sizing_link,
+                                variant_image_option: block.settings.variant_image_option
+                            %}
+                        {%- endfor -%}
+                    </div>
+                    <script type='application/json'>
+                        {{ product.variants | json }}
+                    </script>
+                </variant-selects>
+            {%- endunless -%}
+            <noscript class='product-form__noscript-wrapper-{{ section.id }}'>
+                <div class='product-form__input{% if product.has_only_default_variant %} hidden{% endif %}'>
+                    <label for='Variants-{{ section.id }}'>{{ 'products.product.product_variants' | t }}</label>
+                    <div class='select'>
+                        <select
+                            name='id'
+                            id='Variants-{{ section.id }}'
+                            class='select__select'
+                            form='{{ product_form_id }}'
+                        >
+                            {%- for variant in product.variants -%}
+                                <option
+                                    {% if variant == product.selected_or_first_available_variant %}
+                                        selected='selected'
+                                    {% endif %}
+                                    {% if variant.available == false %}
+                                        disabled
+                                    {% endif %}
+                                    value='{{ variant.id }}'
+                                >
+                                    {{ variant.title }}
+                                    {%- if variant.available == false %}- {{ 'products.product.sold_out' | t }}{% endif %}
+                                    - {{ variant.price | money | strip_html }}
+                                </option>
+                            {%- endfor -%}
+                        </select>
+                    </div>
+                </div>
+            </noscript>
+        {%- when 'icon_list' -%}
+            {% render 'product-icon-list', block: block %}
+        {%- when 'side_panel' -%}
+            <side-panel-links class='side-panel-links'>
+                {%- if block.settings.side_panel_1_label != '' -%}
+                    <button
+                        class='side-panel-links--link no-js-hidden'
+                        data-id='1'
+                    >
+                        {% render 'svg-icons-inline', icon: block.settings.side_panel_1_icon %}
+                        <span class='text-button'>{{ block.settings.side_panel_1_label }}</span>
+                    </button>
+                    <a
+                        href='{{ block.settings.side_panel_1_page.url }}'
+                        class='side-panel-links--link no-js'
+                        target='_blank'
+                    >
+                        {% render 'svg-icons-inline', icon: block.settings.side_panel_1_icon %}
+                        <span class='text-button'>{{ block.settings.block.settings.side_panel_1_label }}</span>
+                    </a>
+                {%- endif -%}
+                {%- if block.settings.side_panel_2_label != '' -%}
+                    <button
+                        class='side-panel-links--link no-js-hidden'
+                        data-id='2'
+                    >
+                        {% render 'svg-icons-inline', icon: block.settings.side_panel_2_icon %}
+                        <span class='text-button'>{{ block.settings.side_panel_2_label }}</span>
+                    </button>
+                    <a
+                        href='{{ block.settings.side_panel_2_page.url }}'
+                        class='side-panel-links--link no-js'
+                        target='_blank'
+                    >
+                        {% render 'svg-icons-inline', icon: block.settings.side_panel_2_icon %}
+                        <span class='text-button'>{{ block.settings.block.settings.side_panel_2_label }}</span>
+                    </a>
+                {%- endif -%}
+                {%- if block.settings.side_panel_3_label != '' -%}
+                    <button
+                        class='side-panel-links--link no-js-hidden'
+                        data-id='3'
+                    >
+                        {% render 'svg-icons-inline', icon: block.settings.side_panel_3_icon %}
+                        <span class='text-button'>{{ block.settings.side_panel_3_label }}</span>
+                    </button>
+                    <a
+                        href='{{ block.settings.side_panel_3_page.url }}'
+                        class='side-panel-links--link no-js'
+                        target='_blank'
+                    >
+                        {% render 'svg-icons-inline', icon: block.settings.side_panel_3_icon %}
+                        <span class='text-button'>{{ block.settings.block.settings.side_panel_3_label }}</span>
+                    </a>
+                {%- endif -%}
+            </side-panel-links>
+        {%- when 'quantity' -%}
+            {%- if product.available -%}
+                <div
+                    id='quantity-{{ section.id }}'
+                    {{ block.shopify_attributes }}
+                >
+                    <label class='form__label quantity__label'>{{ 'products.product.quantity.label' | t }}</label>
+                    <quantity-selector class='quantity'>
+                        <button
+                            class='minus'
+                            type='button'
+                            aria-label='{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}'
+                        >
+                            {% render 'svg-icons' with 'minus' %}
+                        </button>
+                        <input
+                            type='number'
+                            id='Quantity-{{ section.id }}'
+                            name='quantity'
+                            class='qty quantity__input'
+                            value='{{ product.selected_or_first_available_variant.quantity_rule.min }}'
+                            data-min='{{ product.selected_or_first_available_variant.quantity_rule.min }}'
+                            min='{{ product.selected_or_first_available_variant.quantity_rule.min }}'
+                            {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                                data-max='{{ product.selected_or_first_available_variant.quantity_rule.max }}'
+                                max='{{ product.selected_or_first_available_variant.quantity_rule.max }}'
+                            {% endif %}
+                            step='{{ product.selected_or_first_available_variant.quantity_rule.increment }}'
+                            form='{{ product_form_id }}'
+                            aria-label='{{ 'products.product.quantity.input_label' | t: product: product.title | escape }}'
+                        >
+                        <button
+                            class='plus'
+                            type='button'
+                            aria-label='{{ 'products.product.quantity.increase' | t: product: product.title | escape }}'
+                        >
+                            {% render 'svg-icons' with 'plus' %}
+                        </button>
+                    </quantity-selector>
+                </div>
+            {%- endif -%}
+        {%- when 'buy_buttons' -%}
+            {% render 'product-add-to-cart', product: product, form: form, product_form_id: product_form_id, block: block, pickup: pickup %}
+        {%- when 'share' -%}
+            {%- liquid
+                assign _permalink_share = product.url | default: ['url'] | default: page.url
+                assign _permalink_share2 = shop.url | append: _permalink_share
+                assign perLinkURL = permalink_share | default: _permalink_share2
+                unless share_title
+                    assign share_title = product.title | default: article.title | default: page.title | default: shop.name
+                endunless
+                assign perTitle = share_title | url_param_escape
+                unless share_image
+                    assign share_image = product.featured_image | default: article.image | default: settings.share_image | default: page_image | default: settings.logo
+                endunless
+                assign perImage = share_image | image_url: width: 1024, height: 1024
+            -%}
+
+            <div class='productShareShare_box'>
+                <div class='productShare_shareTitle'>
+                    {{ 'blogs.article.share' | t }}
+                </div>
+
+                <div
+                    class='productShare_shareList'
+                    role='list'
+                >
+                    {%- if block.settings.share_facebook -%}
+                        <li class='social-share__item'>
+                            <a
+                                class='facebook'
+                                href='https://www.facebook.com/sharer/sharer.php?u={{ perLinkURL }}'
+
+                                data-no-instant
+                                rel='noopener noreferrer nofollow'
+                                target='_blank'
+                            >
+                                <svg
+                                    width='{{ width | default: 20 }}'
+                                    height='{{ height | default: 14 }}'
+                                    aria-hidden='true'
+                                    focusable='false'
+                                    role='presentation'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    viewBox='0 0 320 512'
+                                    class='icon icon-facebook'
+                                    fill='currentColor'
+                                >
+                                    <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    {%- endif -%}
+                    {%- if block.settings.share_twitter -%}
+                        <li class='social-share__item'>
+                            <a
+                                class='twitter'
+                                href='http://twitter.com/share?text={{ perTitle }}&amp;url={{ perLinkURL }}'
+
+                                data-no-instant
+                                rel='noopener noreferrer nofollow'
+                                target='_blank'
+                            >
+                                <svg
+                                    width='{{ width | default: 20 }}'
+                                    height='{{ height | default: 14 }}'
+                                    aria-hidden='true'
+                                    focusable='false'
+                                    role='presentation'
+                                    class='icon icon-twitter'
+                                    fill='currentColor'
+                                    viewBox='0 0 35 35'
+                                >
+                                    <path d="M20.3306 15.2794L31.4059 3H28.7809L19.1669 13.6616L11.4844 3H2.625L14.2406 19.124L2.625 32H5.25L15.4044 20.7397L23.5178 32H32.3772L20.3306 15.2794ZM16.7366 19.2649L15.5597 17.6595L6.195 4.885H10.2266L17.7822 15.1945L18.9591 16.7999L28.7831 30.202H24.7516L16.7366 19.2649Z"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    {%- endif -%}
+                    {%- if perImage != blank -%}
+                        {%- if block.settings.share_pinterest -%}
+                            <li class='social-share__item'>
+                                <a
+                                    class='pinterest'
+                                    href='http://pinterest.com/pin/create/button/?url={{ perLinkURL }}&amp;media=http:{{perImage}}&amp;description={{ perTitle }}'
+
+                                    data-no-instant
+                                    rel='noopener noreferrer nofollow'
+                                    target='_blank'
+                                >
+                                    <svg
+                                        width='{{ width | default: 20 }}'
+                                        height='{{ height | default: 14 }}'
+                                        aria-hidden='true'
+                                        focusable='false'
+                                        role='presentation'
+                                        fill='currentColor'
+                                        class='icon icon-pinterest'
+                                        viewBox='0 0 17 18'
+                                    >
+                                        <path d="M8.48.58a8.42 8.42 0 015.9 2.45 8.42 8.42 0 011.33 10.08 8.28 8.28 0 01-7.23 4.16 8.5 8.5 0 01-2.37-.32c.42-.68.7-1.29.85-1.8l.59-2.29c.14.28.41.52.8.73.4.2.8.31 1.24.31.87 0 1.65-.25 2.34-.75a4.87 4.87 0 001.6-2.05 7.3 7.3 0 00.56-2.93c0-1.3-.5-2.41-1.49-3.36a5.27 5.27 0 00-3.8-1.43c-.93 0-1.8.16-2.58.48A5.23 5.23 0 002.85 8.6c0 .75.14 1.41.43 1.98.28.56.7.96 1.27 1.2.1.04.19.04.26 0 .07-.03.12-.1.15-.2l.18-.68c.05-.15.02-.3-.11-.45a2.35 2.35 0 01-.57-1.63A3.96 3.96 0 018.6 4.8c1.09 0 1.94.3 2.54.89.61.6.92 1.37.92 2.32 0 .8-.11 1.54-.33 2.21a3.97 3.97 0 01-.93 1.62c-.4.4-.87.6-1.4.6-.43 0-.78-.15-1.06-.47-.27-.32-.36-.7-.26-1.13a111.14 111.14 0 01.47-1.6l.18-.73c.06-.26.09-.47.09-.65 0-.36-.1-.66-.28-.89-.2-.23-.47-.35-.83-.35-.45 0-.83.2-1.13.62-.3.41-.46.93-.46 1.56a4.1 4.1 0 00.18 1.15l.06.15c-.6 2.58-.95 4.1-1.08 4.54-.12.55-.16 1.2-.13 1.94a8.4 8.4 0 01-5-7.65c0-2.3.81-4.28 2.44-5.9A8.04 8.04 0 018.48.57z">
+                                    </svg>
+                                </a>
+                            </li>
+                        {%- endif -%}
+                        {%- if block.settings.share_tumblr -%}
+                            <li class='social-share__item'>
+                                <a
+                                    class='tumblr'
+                                    href='//tumblr.com/widgets/share/tool?canonicalUrl={{ perLinkURL }}'
+
+                                    data-no-instant
+                                    rel='noopener noreferrer nofollow'
+                                    data-content='http:{{perImage}}'
+                                    target='_blank'
+                                >
+                                    <svg
+                                        width='{{ width | default: 20 }}'
+                                        height='{{ height | default: 14 }}'
+                                        aria-hidden='true'
+                                        focusable='false'
+                                        role='presentation'
+                                        fill='currentColor'
+                                        class='icon icon-tumblr'
+                                        viewBox='0 0 91 161'
+                                    >
+                                        <path fill-rule="evenodd" d="M64 160.3c-24 0-42-12.3-42-41.8V71.3H.3V45.7c24-6.2 34-26.9 35.2-44.7h24.9v40.5h29v29.8h-29v41.1c0 12.3 6.2 16.6 16.1 16.6h14v31.3H64">
+                                    </svg>
+                                </a>
+                            </li>
+                        {%- endif -%}
+                    {%- endif -%}
+                    {%- if block.settings.share_telegram -%}
+                        <li class='social-share__item'>
+                            <a
+                                class='telegram'
+                                href='https://telegram.me/share/url?url={{ perLinkURL }}'
+
+                                data-no-instant
+                                rel='nofollow'
+                                target='_blank'
+                            >
+                                <svg
+                                    width='{{ width | default: 20 }}'
+                                    height='{{ height | default: 14 }}'
+                                    class='icon icon-telegram'
+                                    role='presentation'
+                                    viewBox='0 0 496 512'
+                                    fill='currentColor'
+                                >
+                                    <path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    {%- endif -%}
+                    {%- if block.settings.share_email -%}
+                        <li class='social-share__item'>
+                            <a
+                                class='email'
+                                href='mailto:?subject={{ perTitle }}&amp;body={{ perLinkURL }}'
+
+                                data-no-instant
+                                rel='noopener noreferrer nofollow'
+                                target='_blank'
+                            >
+                                <svg
+                                    width='{{ width | default: 20 }}'
+                                    height='{{ height | default: 14 }}'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    viewBox='0 0 24 24'
+                                    aria-hidden='true'
+                                    focusable='false'
+                                    fill='currentColor'
+                                    role='presentation'
+                                    class='icon icon-mail'
+                                >
+                                    <path d="M 1 3 L 1 5 L 1 18 L 3 18 L 3 5 L 19 5 L 19 3 L 3 3 L 1 3 z M 5 7 L 5 7.1777344 L 14 12.875 L 23 7.125 L 23 7 L 5 7 z M 23 9.2832031 L 14 15 L 5 9.4160156 L 5 21 L 14 21 L 14 17 L 17 17 L 17 14 L 23 14 L 23 9.2832031 z M 19 16 L 19 19 L 16 19 L 16 21 L 19 21 L 19 24 L 21 24 L 21 21 L 24 21 L 24 19 L 21 19 L 21 16 L 19 16 z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    {%- endif -%}
+                    {%- if block.settings.share_whatsapp -%}
+                        <li class='social-share__item'>
+                            <a
+                                class='whatsapp'
+                                href='https://wa.me/?text={{ perTitle }}&#x20;{{ perLinkURL }}'
+                                title='whatsapp'
+                                data-no-instant
+                                rel='nofollow'
+                                target='_blank'
+                            >
+                                <svg
+                                    width='{{ width | default: 20 }}'
+                                    height='{{ height | default: 14 }}'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    xmlns:xlink='http://www.w3.org/1999/xlink'
+                                    version='1.1'
+                                    fill='currentColor'
+                                    viewBox='0 0 256 256'
+                                    xml:space='preserve'
+                                >
+                                    <defs></defs><g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"><path d="M 76.735 13.079 C 68.315 4.649 57.117 0.005 45.187 0 C 20.605 0 0.599 20.005 0.589 44.594 c -0.003 7.86 2.05 15.532 5.953 22.296 L 0.215 90 l 23.642 -6.202 c 6.514 3.553 13.848 5.426 21.312 5.428 h 0.018 c 0.001 0 -0.001 0 0 0 c 24.579 0 44.587 -20.007 44.597 -44.597 C 89.789 32.713 85.155 21.509 76.735 13.079 z M 27.076 46.217 c -0.557 -0.744 -4.55 -6.042 -4.55 -11.527 c 0 -5.485 2.879 -8.181 3.9 -9.296 c 1.021 -1.115 2.229 -1.394 2.972 -1.394 s 1.487 0.007 2.136 0.039 c 0.684 0.035 1.603 -0.26 2.507 1.913 c 0.929 2.231 3.157 7.717 3.436 8.274 c 0.279 0.558 0.464 1.208 0.093 1.952 c -0.371 0.743 -0.557 1.208 -1.114 1.859 c -0.557 0.651 -1.17 1.453 -1.672 1.952 c -0.558 0.556 -1.139 1.159 -0.489 2.274 c 0.65 1.116 2.886 4.765 6.199 7.72 c 4.256 3.797 7.847 4.973 8.961 5.531 c 1.114 0.558 1.764 0.465 2.414 -0.279 c 0.65 -0.744 2.786 -3.254 3.529 -4.369 c 0.743 -1.115 1.486 -0.929 2.507 -0.558 c 1.022 0.372 6.5 3.068 7.614 3.625 c 1.114 0.558 1.857 0.837 2.136 1.302 c 0.279 0.465 0.279 2.696 -0.65 5.299 c -0.929 2.603 -5.381 4.979 -7.522 5.298 c -1.92 0.287 -4.349 0.407 -7.019 -0.442 c -1.618 -0.513 -3.694 -1.199 -6.353 -2.347 C 34.934 58.216 27.634 46.961 27.076 46.217 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: evenodd; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/></g>
+                                </svg>
+                            </a>
+                        </li>
+                    {%- endif -%}
+                </div>
+            </div>
+
+        {%- when 'collapsible_tab' -%}
+            <collapsible-row
+                class='product__accordion accordion{% if block.settings.icon_image != blank %} product__accordion--has-icon{% endif %}'
+                {{ block.shopify_attributes }}
+            >
+                <details
+                    id='Details-{{ block.id }}-{{ section.id }}'
+                    {% if block.settings.open %}
+                        open
+                    {% endif %}
+                >
+                    <summary>
+                        <div class='product-accordion__label'>
+                            {%- if block.settings.icon_image != blank -%}
+                                {{ block.settings.icon_image | image_url: width: 48 | image_tag: loading: 'lazy', class: 'product-accordion__icon' }}
+                            {%- endif -%}
+                            <div class='product-accordion__heading'>
+                                {{ block.settings.heading | default: block.settings.page.title }}
+                            </div>
+                        </div>
+                        <span class='product-accordion__arrow'>{%- render 'svg-icons' with 'thb-collapsible-arrow' -%}</span>
+                    </summary>
+                    <div
+                        class='collapsible__content accordion__content rte'
+                        id='ProductAccordion-{{ block.id }}-{{ section.id }}'
+                    >
+                        {{ block.settings.content }}
+                        {{ block.settings.page.content }}
+                        {{ block.settings.custom_liquid }}
+                    </div>
+                </details>
+            </collapsible-row>
+        {%- when 'complementary' -%}
+            <product-recommendations
+                class='complementary-products no-js-hidden'
+                data-url='{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ block.settings.product_list_limit }}&intent=complementary'
+            >
+                {%- if recommendations.performed and recommendations.products_count > 0 -%}
+                    {%- if block.settings.block_heading != blank -%}
+                        <div class='complementary-products--heading'>{{ block.settings.block_heading }}</div>
+                    {%- endif -%}
+                    <scroll-shadow>
+                        <div class='complementary-products--inner'>
+                            {%- for recommended_product in recommendations.products limit: block.settings.product_list_limit offset: continue -%}
+                                {% render 'product-card-small', product_small: recommended_product %}
+                            {%- endfor -%}
+                        </div>
+                    </scroll-shadow>
+                    <script
+                        src='{{ 'product-recommendations.js' | asset_url }}'
+                        defer='defer'
+                    ></script>
+                {%- endif -%}
+            </product-recommendations>
+        {%- when 'image' -%}
+            <div
+                class='product-information--image {{ block.settings.position }}'
+                {{ block.shopify_attributes }}
+            >
+                {% if block.settings.image %}
+                    {%- liquid
+                        assign image = block.settings.image
+                        assign sizes = image.src.width | append: 'x' | append: image.src.height
+                        render 'responsive-image', image: image, sizes: sizes
+                    -%}
+                {%- else -%}
+                    <div class='thb-placeholder'>
+                        {{ 'image' | placeholder_svg_tag: 'placeholder_svg_tag' }}
+                    </div>
+                {%- endif -%}
+            </div>
+        {% when 'custom_option' %}
+            {%- if block.settings.label != blank -%}
+                {%- liquid
+                    assign line_item_input_id = product_form_id | append: '-custom-' | append: forloop.index
+                    assign line_item_input_name = block.settings.label | escape | prepend: 'properties[' | append: ']'
+                    assign required = block.settings.text_required
+                    assign text_placeholder = block.settings.text_placeholder
+                -%}
+                <fieldset
+                    class='product-form__input product-information--line-item'
+                    {{ block.shopify_attributes }}
+                >
+                    <div
+                        class='form__label'
+                        for='{{ line_item_input_id }}'
+                    >
+                        {{ block.settings.label | escape }}
+                    </div>
+                    {% case block.settings.type %}
+                        {% when 'text' %}
+                            <input
+                                class='product-information--line-item--text'
+                                type='text'
+                                id='{{ line_item_input_id }}'
+                                form='{{ product_form_id }}'
+                                name='{{ line_item_input_name }}'
+                                placeholder='{{ text_placeholder }}'
+                                form='{{ product_form_id }}'
+                                {% if required %}
+                                    required
+                                {% endif %}
+                            >
+
+                        {% when 'textarea' %}
+                            <textarea
+                                class='product-information--line-item--textarea'
+                                id='{{ line_item_input_id }}'
+                                form='{{ product_form_id }}'
+                                name='{{ line_item_input_name }}'
+                                rows='3'
+                                placeholder='{{ text_placeholder }}'
+                                form='{{ product_form_id }}'
+                                {% if required %}
+                                    required
+                                {% endif -%}
+                            ></textarea>
+
+                        {% when 'checkbox' %}
+                            <input
+                                type='hidden'
+                                form='{{ product_form_id }}'
+                                name='{{ line_item_input_name }}'
+                                value='{{ block.settings.checkbox_unchecked_value | escape }}'
+                            >
+                            <input
+                                type='checkbox'
+                                class='custom-checkbox'
+                                form='{{ product_form_id }}'
+                                name='{{ line_item_input_name }}'
+                                value='{{ block.settings.checkbox_checked_value | escape }}'
+                                id='{{ line_item_input_id }}'
+                                {% if required %}
+                                    required
+                                {% endif %}
+                            >
+
+                        {% when 'multiple' %}
+                            {%- assign custom_options = block.settings.multiple_options | newline_to_br | strip_newlines | split: '<br />' -%}
+
+                            {% if block.settings.multiple_style == 'dropdown' %}
+                                <div class='select'>
+                                    <select
+                                        name='{{ line_item_input_name }}'
+                                        id='{{ line_item_input_id }}'
+                                        form='{{ product_form_id }}'
+                                    >
+                                        {% for option in custom_options %}
+                                            <option
+                                                value='{{ option | escape }}'
+                                                {% if forloop.first %}
+                                                    selected
+                                                {% endif %}
+                                            >
+                                                {{ option | escape }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <div class='select-arrow'>{%- render 'svg-icons' with 'thb-select' -%}</div>
+                                </div>
+                            {% else %}
+                                {% for option in custom_options %}
+                                    <label class='label'>
+                                        <input
+                                            type='radio'
+                                            form='{{ product_form_id }}'
+                                            name='{{ line_item_input_name }}'
+                                            value='{{ option | escape }}'
+                                            {% if forloop.first %}
+                                                checked
+                                            {% endif %}
+                                        >
+                                        <span class='label__text-beside-input'>{{ option | escape }}</span>
+                                    </label>
+                                {% endfor %}
+                            {% endif %}
+                    {% endcase %}
+                </fieldset>
+            {%- endif -%}
+        {%- when 'sku' -%}
+            <div
+                class='product-sku product--text {{ block.settings.sku_style }}'
+                id='sku-{{ section.id }}'
+            >
+                {{ product.selected_or_first_available_variant.sku }}
+            </div>
+        {%- when 'product_link' -%}
+            {% assign text_button_title = 'products.product.view_product_details' | t %}
+            {% render 'text-button', url: product.url, title: text_button_title, class: 'view-product-details', block: block %}
+        {%- when 'siblings' -%}
+            {%- render 'product-siblings', product: product, product_form_id: product_form_id, block: block -%}
+        {%- when 'commitment' -%}
+            {%- render 'product-commitment', block: block -%}
+    {%- endcase -%}
+{% endfor %}
+{% comment %}
+    {%- if section.settings.enable_sticky_add_to_cart -%}
+    {% render 'product-add-to-cart-sticky', product: product, media: first_image, color_picker: color_picker, picker_type: picker_type, form: form, is_disabled: is_disabled %}
+    {%- endif -%}
+{% endcomment %}
+
+{{ sizing_popup }}

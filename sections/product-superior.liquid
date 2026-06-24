@@ -1,0 +1,856 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.background_color }};
+      {% if section.settings.section_background_image != blank %}
+        background-image: url({{ section.settings.section_background_image | image_url: width: 2400 }});
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-size: 100% 100%;
+      {% endif %}
+      position: relative;
+    }
+    .product-superior-desktop {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 156px;
+    }
+
+    .product-superior-desktop p {
+      margin: 0;
+      line-height: 120%
+    }
+
+    .product-superior-desktop {
+      position: relative;
+      padding-top: 132px;
+    }
+
+    .product-superior-content {
+      flex: 1;
+      position: relative;
+      z-index: 2;
+      width: 44.0625%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-superior-title {
+      margin-bottom: 52px;
+      color: #1A1A1A;
+      font-size: 64px;
+      line-height: 120%; /* 76.8px */
+    }
+
+    .product-superior-title p {
+      color: #1A1A1A;
+      font-size: 64px;
+      line-height: 120%; /* 76.8px */
+    }
+
+    .product-superior-bg {
+      width: 46.0625%;
+      position: relative;
+    }
+
+    .product-superior-bg-image {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .5s ease;
+      z-index: 5;
+      pointer-events: auto;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .product-superior-tab-title p {
+      line-height: 120%;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 120%;
+    }
+
+    .product-superior-bg-image.active {
+      opacity: 1;
+    }
+
+    .product-superior-description-inline {
+        height: 0;
+        display: none;
+    }
+
+    .product-superior-description-inline p {
+      color: #333;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 120%; /* 21.6px */
+    }
+
+    .product-superior-tab.active .product-superior-description-inline {
+      height: auto;
+      display: block;
+    }
+
+    .product-superior-bg-image img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .product-superior-bg-image .my_picture ,.product-superior-bg-image .my_picture img {
+      height: 100%;
+    }
+
+    .product-superior-scroll-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .product-superior-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .product-superior-tab {
+      cursor: pointer;
+      opacity: .4;
+      transition: all .3s ease;
+    }
+
+    .product-superior-tab.active {
+      opacity: 1;
+    }
+
+    .product-superior-progress-bar-vertical {
+      display: flex;
+      width: 2px;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 10px;
+      align-self: stretch;
+      position: relative;
+      background: rgba(26, 26, 26, 0.10);
+    }
+
+    .product-superior-progress-track {
+      width: 2px;
+      height: 100%;
+      background: #ddd;
+      position: absolute;
+      left: 0;                   /* 与轨道对齐即可 */
+      transform: translateX(-50%);
+    }
+
+    .product-superior-progress-thumb {
+      width: 2px;
+      position: absolute;
+      left: -1px;
+      top: 0;
+      transition: top .3s ease;
+      background: linear-gradient(180deg, #ED8E25 0%, #E40078 100%);
+    }
+
+    .product-superior-progress-click-area {
+      position: absolute;
+      inset: 0;
+    }
+
+    .product-superior-progress-point {
+      position: absolute;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .product-superior-with-progress {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .product-superior-tab-title {
+      color:  #1A1A1A;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 120%; /* 21.6px */
+    }
+
+    .product-superior-tab-title p {
+      color: #1A1A1A;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 120%; /* 21.6px */
+    }
+
+    .product-superior-tab.active .product-superior-tab-title p {
+      font-size: 24px;
+    }
+
+    .product-superior-tab.active .product-superior-tab-title {
+      margin-bottom: 12px;
+    }
+
+    .product-superior-tab.active .product-superior-tab-title{
+      display: inline-block;  /* 新增 */
+      font-size: 24px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ED8E25 0%, #E40078 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .product-superior-description-inline {
+      color: #333;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 120%; /* 21.6px */
+    }
+
+    .product-superior-navigation {
+      display: flex;
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .nav-btn.disabled {
+      opacity: .4;
+      pointer-events: none;
+    }
+
+    .product-superior-bg-placeholder {
+      visibility: hidden;
+    }
+
+    /* 默认 PC 显示，移动端隐藏 */
+    .product-superior-mobile {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .nav-btn:hover svg {
+      background: #fbd35d;
+      border-radius: 50%;
+    }
+    #shopify-section-{{ section.id }} .nav-btn:hover rect{
+      stroke: #fbd35d;
+    }
+
+    .product-superior-bg-image {
+      pointer-events: none;
+    }
+
+    .product-superior-bg-image.active {
+      pointer-events: auto;
+    }
+
+    /* 移动端显示，PC 隐藏 */
+    @media screen and (max-width: 1024px) {
+        .product-superior-desktop {
+          display: none;
+        }
+        .product-superior-mobile {
+          display: block;
+          padding: 60px 0;
+        }
+        .product-superior-mobile p {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 150%; /* 27px */
+        }
+
+        .product-superior-mobile-header-title {
+          color: #1A1A1A;
+          text-align: center;
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 120%; /* 38.4px */
+          margin-bottom: 32px;
+        }
+
+        .product-superior-mobile-description-inline p {
+          line-height: 150%; /* 38.4px */
+          font-size: 14px;
+          font-weight: 400;
+        }
+
+        .product-superior-mobile-header-title p {
+          line-height: 120%; /* 38.4px */
+          font-size: 32px;
+          font-weight: 600;
+        }
+
+        .product-superior-mobile-tab-header {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          position: relative;
+          margin-bottom: 54px;
+        }
+
+        .product-superior-mobile-tab-title {
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 150%; /* 27px */
+          background:  linear-gradient(90deg, #ED8E25 0%, #E40078 100%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: inline-flex;
+        }
+
+        .product-superior-mobile-description-inline {
+          color: #333;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 150%; /* 21px */
+        }
+
+        .product-superior-mobile .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+          background: linear-gradient( to right, #ED8E25 , #E40078)
+        }
+
+        .product-superior-mobile .swiper-horizontal>.swiper-pagination-progressbar,
+        .product-superior-mobile .swiper-pagination-progressbar.swiper-pagination-horizontal {
+          height: 2px;
+        }
+
+        .product-superior-mobile-swiper-button-prev::after,
+        .product-superior-mobile-swiper-button-next::after {
+          display: none;  /* 移除 Swiper 默认的箭头伪元素 */
+        }
+
+        .product-superior-mobile .swiper-button-disabled {
+          opacity: 0.5;
+        }
+
+        .product-superior-mobile .swiper-button-disabled svg {
+          fill: #fff;
+          opacity: 0.5;
+        }
+
+    }
+</style>
+
+<div>
+    {%- if section.settings.show_topBanner != blank -%}
+        <div class='my_banner_topScroll'>
+            {% if section.settings.top_video != blank %}
+                {{ section.settings.top_video | video_tag: autoplay: true, playsinline: true, loop: true, controls: false, muted: true, image_size: '1920x' }}
+            {%- else -%}
+                {% render 'section-img', loading: 'eager', img: section.settings.background_image, width: 1920 %}
+            {% endif %}
+        </div>
+    {%- endif -%}
+    <div class='container'>
+        <section class='product-superior-desktop'>
+            <div class='product-superior-bg'>
+                {% assign first_block = section.blocks.first %}
+
+                <div class='product-superior-bg-placeholder'>
+                    {% if first_block.settings.image != blank %}
+                        {% render 'section-img', img: first_block.settings.image, loading: 'lazy', width: 737 %}
+                    {% endif %}
+                </div>
+                {% for block in section.blocks %}
+                    <div
+                        class='img_hover product-superior-bg-image {% if forloop.first %}active{% endif %}'
+                        data-bg='{{ forloop.index0 }}'
+                    >
+                        {% if block.settings.image != blank %}
+                            {% render 'section-img', img: block.settings.image, loading: 'lazy', width: 737, class: 'hover_img' %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- 内容层：左侧文字在版心内 -->
+            <div class='product-superior-content'>
+                <div class='product-superior-content-left'>
+                    {% if section.settings.main_title != blank %}
+                        <h2 class='product-superior-title'>{{ section.settings.main_title }}</h2>
+                    {% endif %}
+                    <!-- 左侧：进度条 + 内容区域 水平排列 -->
+                    <div class='product-superior-with-progress'>
+                        <!-- 竖向进度条（左侧） -->
+                        <div class='product-superior-progress-bar-vertical'>
+                            <div class='product-superior-progress-track'></div>
+                            <div class='product-superior-progress-thumb'></div>
+                            <!-- 点击区域 -->
+                            <div class='product-superior-progress-click-area'>
+                                {% for block in section.blocks %}
+                                    <div
+                                        class='product-superior-progress-point'
+                                        data-point='{{ forloop.index0 }}'
+                                    ></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- 右侧内容区域 -->
+                        <div class='product-superior-scroll-wrapper'>
+                            <div class='product-superior-tabs'>
+                                {% for block in section.blocks %}
+                                    <div
+                                        class='product-superior-tab {% if forloop.first %}active{% endif %}'
+                                        data-tab='{{ forloop.index0 }}'
+                                        {{ block.shopify_attributes }}
+                                    >
+                                        {% if block.settings.title != blank %}
+                                            <div class='product-superior-tab-title'>{{ block.settings.title }}</div>
+                                        {% endif %}
+                                        {% if block.settings.description != blank %}
+                                            <div class='product-superior-description-inline'>
+                                                {{ block.settings.description }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 下方上下切换按钮 -->
+                    <div class='product-superior-navigation'>
+                        <button
+                            class='nav-btn nav-prev'
+                            aria-label='prev'
+                        >
+                            <svg
+                                width='48'
+                                height='48'
+                                viewBox='0 0 48 48'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                            >
+                                <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="#333333"/>
+                                <path d="M26.6423 31C26.5393 31.0012 26.4371 30.9818 26.3424 30.9431C26.2476 30.9043 26.1625 30.8471 26.0923 30.775L19.0209 24.025C18.7066 23.725 18.7066 23.26 19.0209 22.96L26.0923 16.225C26.4066 15.925 26.8937 15.925 27.208 16.225C27.5223 16.525 27.5223 16.99 27.208 17.29L20.6866 23.5L27.208 29.725C27.5223 30.025 27.5223 30.49 27.208 30.79C27.0509 30.94 26.8466 31.015 26.658 31.015L26.6423 31Z" fill="#333333"/>
+                            </svg>
+                        </button>
+                        <button
+                            class='nav-btn nav-next'
+                            aria-label='next'
+                        >
+                            <svg
+                                width='48'
+                                height='48'
+                                viewBox='0 0 48 48'
+                                fill='none'
+                                xmlns='http://www.w3.org/2000/svg'
+                            >
+                                <rect x="47.5" y="47.5" width="47" height="47" rx="23.5" transform="rotate(180 47.5 47.5)" stroke="#333333"/>
+                                <path d="M21.3567 16.5C21.4598 16.4988 21.5619 16.5182 21.6567 16.5569C21.7514 16.5957 21.8366 16.6529 21.9067 16.725L28.9782 23.475C29.2924 23.775 29.2924 24.24 28.9782 24.54L21.9067 31.275C21.5924 31.575 21.1053 31.575 20.791 31.275C20.4767 30.975 20.4767 30.51 20.791 30.21L27.3124 24L20.791 17.775C20.4767 17.475 20.4767 17.01 20.791 16.71C20.9482 16.56 21.1524 16.485 21.341 16.485L21.3567 16.5Z" fill="#333333"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 移动端布局 -->
+        <div class='product-superior-mobile'>
+            <h2 class='product-superior-mobile-header-title'>
+                {{ section.settings.main_title }}
+            </h2>
+            <div class='swiper product-superior-mobile-swiper'>
+                <div class='swiper-wrapper'>
+                    {% if section.blocks.size > 0 %}
+                        {% for block in section.blocks %}
+                            <div class='swiper-slide'>
+                                <div class='product-superior-mobile-tab-header'>
+                                    {% if block.settings.title != blank %}
+                                        <div class='product-superior-mobile-tab-title'>{{ block.settings.title }}</div>
+                                    {% endif %}
+                                    {% if block.settings.description != blank %}
+                                        <div class='product-superior-mobile-description-inline'>
+                                            {{ block.settings.description }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class='product-superior-mobile-img'>
+                                    {% render 'section-img', img: block.settings.mb_image, loading: 'lazy', width: 363 %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class='product-superior-mobile-swiper-buttons'>
+                    <div class='product-superior-mobile-swiper-button-prev'>
+                        <svg
+                            width='40'
+                            height='40'
+                            viewBox='0 0 40 40'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'
+                        >
+                            <rect width="40" height="40" rx="20" fill="none"/>
+                            <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" stroke="#333333"/>
+                            <path d="M22.6423 27C22.5393 27.0012 22.4371 26.9818 22.3424 26.9431C22.2476 26.9043 22.1625 26.8471 22.0923 26.775L15.0209 20.025C14.7066 19.725 14.7066 19.26 15.0209 18.96L22.0923 12.225C22.4066 11.925 22.8937 11.925 23.208 12.225C23.5223 12.525 23.5223 12.99 23.208 13.29L16.6866 19.5L23.208 25.725C23.5223 26.025 23.5223 26.49 23.208 26.79C23.0509 26.94 22.8466 27.015 22.658 27.015L22.6423 27Z" fill="#333333"/>
+                        </svg>
+                    </div>
+                    <div class='product-superior-mobile-swiper-button-next'>
+                        <svg
+                            width='40'
+                            height='40'
+                            viewBox='0 0 40 40'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'
+                        >
+                            <rect x="-0.5" y="0.5" width="39" height="39" rx="19.5" transform="matrix(-1 0 0 1 39 0)" stroke="#333333"/>
+                            <path d="M17.3577 27C17.4607 27.0012 17.5629 26.9818 17.6576 26.9431C17.7524 26.9043 17.8375 26.8471 17.9077 26.775L24.9791 20.025C25.2934 19.725 25.2934 19.26 24.9791 18.96L17.9077 12.225C17.5934 11.925 17.1063 11.925 16.792 12.225C16.4777 12.525 16.4777 12.99 16.792 13.29L23.3134 19.5L16.792 25.725C16.4777 26.025 16.4777 26.49 16.792 26.79C16.9491 26.94 17.1534 27.015 17.342 27.015L17.3577 27Z" fill="#333333"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class='product-superior-mobile-swiper-pagination'></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let currentDevice = null;
+    let desktopInstance = null;
+    let mobileInstance = null;
+
+    function destroyDesktop() {
+      if (desktopInstance) {
+        // 销毁 PC 端实例，例如清除定时器、解绑事件等
+        if (desktopInstance.autoPlayInterval) clearInterval(desktopInstance.autoPlayInterval);
+        desktopInstance = null;
+      }
+    }
+
+    function destroyMobile() {
+      if (mobileInstance) {
+        // 销毁移动端实例
+        mobileInstance = null;
+      }
+    }
+
+    function initDesktop() {
+    destroyMobile();
+    const container = document.querySelector('#shopify-section-{{ section.id }} .product-superior-desktop');
+    if (!container) return;
+
+    (function () {
+      const sectionId = {{ section.id | json }};
+      const container = document.querySelector("#shopify-section-" + sectionId);
+      if (!container) return;
+
+      const tabs = container.querySelectorAll(".product-superior-tab");
+      const bgImages = container.querySelectorAll(".product-superior-bg-image");
+      const scrollWrapper = container.querySelector(".product-superior-scroll-wrapper");
+      const prevBtn = container.querySelector(".nav-prev");
+      const nextBtn = container.querySelector(".nav-next");
+      const progressThumb = container.querySelector(".product-superior-progress-thumb");
+      const progressPoints = container.querySelectorAll(".product-superior-progress-point");
+      const progressBar = container.querySelector(".product-superior-progress-bar-vertical");
+
+      if (!tabs.length) return;
+
+      let currentIndex = -1;
+      const totalCount = tabs.length;
+      let autoPlayInterval = null;
+      const AUTO_PLAY_DELAY = 5000;
+
+      // ========== 进度条更新（核心修复） ==========
+      // 延迟更新，确保 DOM 布局完成
+      function scheduleProgressUpdate() {
+        if (!progressThumb || !progressBar) return;
+        requestAnimationFrame(() => {
+          const activeTab = Array.from(tabs).find(tab => tab.classList.contains('active'));
+          if (!activeTab) return;
+          const tabHeight = activeTab.offsetHeight - 4;
+          if (tabHeight <= 0) return; // 高度无效时放弃，等待下次调用
+          progressThumb.style.height = `${tabHeight}px`;
+          const barHeight = progressBar.offsetHeight;
+          const maxTop = barHeight - tabHeight;
+          const topPx = totalCount === 1 ? 0 : (currentIndex / (totalCount - 1)) * maxTop;
+          progressThumb.style.top = `${topPx}px`;
+        });
+      }
+
+      // 监听所有图片加载完成后，重新更新进度条
+      const allImages = container.querySelectorAll('img');
+      let pendingImages = allImages.length;
+      function onImageLoad() {
+        pendingImages--;
+        if (pendingImages === 0) {
+          scheduleProgressUpdate();
+        }
+      }
+      if (pendingImages === 0) {
+        scheduleProgressUpdate();
+      } else {
+        allImages.forEach(img => {
+          if (img.complete) onImageLoad();
+          else img.addEventListener('load', onImageLoad);
+        });
+      }
+
+      // 窗口尺寸变化时重新计算
+      window.addEventListener('resize', () => scheduleProgressUpdate());
+
+      // ========== 原有功能 ==========
+      function updateButtonsState() {
+        prevBtn?.classList.toggle("disabled", currentIndex === 0);
+        nextBtn?.classList.toggle("disabled", currentIndex === totalCount - 1);
+      }
+
+      function switchTo(index) {
+        if (index < 0) index = totalCount - 1;
+        if (index >= totalCount) index = 0;
+        if (currentIndex === index) return;
+
+        currentIndex = index;
+
+        tabs.forEach((tab, i) => {
+          tab.classList.toggle("active", i === index);
+        });
+
+        bgImages.forEach((img, i) => {
+          img.classList.toggle("active", i === index);
+        });
+
+        updateButtonsState();
+        scheduleProgressUpdate();  // 每次切换后重新计算
+
+        const activeTab = tabs[index];
+        if (scrollWrapper && activeTab) {
+          const target = activeTab.offsetTop - scrollWrapper.clientHeight / 2 + activeTab.clientHeight / 2;
+          scrollWrapper.scrollTo({ top: Math.max(target, 0), behavior: "smooth" });
+        }
+      }
+
+      // 自动播放（可选，目前被注释了）
+      // function startAutoPlay() { ... }
+      // function resetAutoPlay() { ... }
+
+      // 绑定交互事件
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => { switchTo(index); });
+      });
+      progressBar?.addEventListener("click", (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+        switchTo(Math.round(ratio * (totalCount - 1)));
+      });
+      progressPoints.forEach((point, index) => {
+        point.addEventListener("click", (e) => { e.stopPropagation(); switchTo(index); });
+      });
+      prevBtn?.addEventListener("click", () => { switchTo(currentIndex - 1); });
+      nextBtn?.addEventListener("click", () => { switchTo(currentIndex + 1); });
+
+      // 初始化
+      switchTo(0);
+    })();
+  }
+
+    function initMobile() {
+    destroyDesktop();
+    const container = document.querySelector('#shopify-section-{{ section.id }} .product-superior-mobile');
+    if (!container) return;
+
+    const swiperEl = container.querySelector('.product-superior-mobile-swiper');
+    const paginationEl = container.querySelector('.product-superior-mobile-swiper-pagination');
+    const prevBtn = container.querySelector('.product-superior-mobile-swiper-button-prev');
+    const nextBtn = container.querySelector('.product-superior-mobile-swiper-button-next');
+
+    // 设置分页器绝对定位
+    swiperEl.style.position = 'relative';
+    paginationEl.style.position = 'absolute';
+    paginationEl.style.left = '0';
+    paginationEl.style.right = '0';
+    paginationEl.style.zIndex = '5';
+
+    // 按钮基础样式（CSS 中已定义绝对定位）
+    if (prevBtn) {
+      prevBtn.style.position = 'absolute';
+      prevBtn.style.transform = 'translateY(-50%)';
+      prevBtn.style.left = '15px';
+      prevBtn.style.zIndex = '10';
+    }
+    if (nextBtn) {
+      nextBtn.style.position = 'absolute';
+      nextBtn.style.transform = 'translateY(-50%)';
+      nextBtn.style.right = '15px';
+      nextBtn.style.zIndex = '10';
+    }
+
+    function updatePaginationPosition() {
+      const activeSlide = swiperEl.querySelector('.swiper-slide-active');
+      if (!activeSlide) return;
+      const header = activeSlide.querySelector('.product-superior-mobile-tab-header');
+      if (!header) return;
+      const headerRect = header.getBoundingClientRect();
+      const swiperRect = swiperEl.getBoundingClientRect();
+      const top = headerRect.bottom - swiperRect.top + 12;
+      paginationEl.style.top = `${top}px`;
+    }
+
+    function updateButtonsPosition() {
+      const activeSlide = swiperEl.querySelector('.swiper-slide-active');
+      if (!activeSlide) return;
+      const imgContainer = activeSlide.querySelector('.product-superior-mobile-img');
+      if (!imgContainer) return;
+      const imgRect = imgContainer.getBoundingClientRect();
+      const swiperRect = swiperEl.getBoundingClientRect();
+      const centerY = imgRect.top + imgRect.height / 2 - swiperRect.top;
+      if (prevBtn) prevBtn.style.top = `${centerY}px`;
+      if (nextBtn) nextBtn.style.top = `${centerY}px`;
+    }
+
+    var swiper = new Swiper(".product-superior-mobile-swiper", {
+      spaceBetween: 16,
+      pagination: {
+        el: ".product-superior-mobile-swiper-pagination",
+        type: "progressbar",
+      },
+      navigation: {
+        nextEl: ".product-superior-mobile-swiper-button-next",
+        prevEl: ".product-superior-mobile-swiper-button-prev",
+      },
+      on: {
+        init: function() {
+          updatePaginationPosition();
+          updateButtonsPosition();
+        },
+        slideChange: function() {
+          updatePaginationPosition();
+          updateButtonsPosition();
+        },
+        resize: function() {
+          updatePaginationPosition();
+          updateButtonsPosition();
+        },
+      },
+    });
+
+    mobileInstance = swiper;
+  }
+
+    function handleResize() {
+      const isMobile = window.innerWidth <= 1024;
+      if (isMobile && currentDevice !== 'mobile') {
+        currentDevice = 'mobile';
+        initMobile();
+      } else if (!isMobile && currentDevice !== 'desktop') {
+        currentDevice = 'desktop';
+        initDesktop();
+      }
+    }
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+});
+</script>
+
+{% schema %}
+{
+    "name": "product superior",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "main_title",
+            "label": "Main Title"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_topBanner",
+            "label": "show top banner",
+            "default": false
+        },
+        {
+            "type": "video",
+            "id": "top_video",
+            "label": "Top video"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Top Image"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background Color"
+        },
+        {
+            "type": "image_picker",
+            "id": "section_background_image",
+            "label": "Background Image"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_top",
+            "label": "Desktop Margin Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_top",
+            "label": "Mobile Margin Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_bottom",
+            "label": "Desktop Margin Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_bottom",
+            "label": "Mobile Margin Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "service",
+            "name": "Service Item",
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "title",
+                    "label": "Service Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Service Description"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "PC Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "mb_image",
+                    "label": "Mobile Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "product superior"
+        }
+    ]
+}
+{% endschema %}

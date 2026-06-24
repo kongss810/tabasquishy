@@ -1,0 +1,332 @@
+<style>
+    #shopify-section-{{section.id}} {
+        margin-top: {{section.settings.Desktop_top}}px;
+        margin-bottom: {{section.settings.Desktop_bottom}}px;
+    }
+    #shopify-section-{{section.id}} .section_faqAll{
+
+        padding-top:{{section.settings.Desktop_paddingTop}}px;
+        padding-bottom:{{section.settings.Desktop_paddingBottom}}px;
+
+        /* background-color: {{ section.settings.bg_color }};
+        color: {{ section.settings.text_color }} */
+    }
+    @media(max-width:999px) {
+        #shopify-section-{{section.id}} {
+          margin-top: {{section.settings.Mobile_top}}px;
+          margin-bottom: {{section.settings.Mobile_bottom}}px;
+        }
+      #shopify-section-{{section.id}} .section_faqAll   {
+
+
+          padding-top:{{section.settings.Mobile_paddingTop}}px;
+          padding-bottom:{{section.settings.Mobile_paddingBottom}}px;
+      }
+    }
+    .faq-question svg {
+        min-width: 24px;
+    }
+</style>
+<style>
+    .faq-item.active {
+      border-radius: 15px;
+      {% if section.settings.faq_active_bg_image %}
+          background-image: url('{{ section.settings.faq_active_bg_image | image_url: width: 1200 }}');
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+          background-color: {{ section.settings.faq_active_bg_color }};
+      {% else %}
+          background-color: {{ section.settings.faq_active_bg_color }};
+      {% endif %}
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      border-color: #333;
+    }
+
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer a {
+      color: var(--faq-a);
+      text-decoration: underline;
+    }
+    #shopify-section-{{ section.id }} {
+        background-color: {{ section.settings.bg_color }};
+    }
+</style>
+
+{%- liquid
+    assign is_collection = false
+    assign faq_from_meta = null
+
+    if template.name == 'collection'
+        assign is_collection = true
+        assign faq_from_meta = collection.metafields.custom.faq.value
+    endif
+
+    # 集合页且没有元字段数据，整个模块不渲染
+    if is_collection and faq_from_meta == blank
+        assign skip_section = true
+    endif
+-%}
+{% unless skip_section %}
+    {%- if section.settings.show_topBanner != blank -%}
+        <div class='my_banner_topScroll'>
+            {% if section.settings.top_video != blank %}
+                {{ section.settings.top_video | video_tag: autoplay: true, playsinline: true, loop: true, controls: false, muted: true, image_size: '1920x' }}
+            {%- else -%}
+                {% render 'section-img', loading: 'eager', img: section.settings.background_image, width: 1920 %}
+            {% endif %}
+        </div>
+    {%- endif -%}
+    <div class='section_faqAll'>
+        <div
+            class='faq-section-wrap mx-auto max-w-[1062px]'
+            style='--faq-a: {{ section.settings.faq_a_active }};'
+        >
+            <div class='container'>
+                {%- if section.settings.title != blank -%}
+                    {%- if section.settings.highlighted_text == 'none' -%}
+                        <h2 class='header-title text-title hide_p text-center text-[32px] leading-[120%] font-[600] tracking-[0] sm:text-[64px]'>
+                            {{ section.settings.title }}
+                        </h2>
+                    {% else %}
+                        {%- render 'highlighted-text',
+                            class: 'header-title text-title text-center hide_p text-[32px] sm:text-[64px] font-[600] leading-[120%] tracking-[0]',
+                            content: section.settings.title,
+                            style: section.settings.highlighted_text,
+                            scribble: 'sketch-underline',
+                            gradient: with_gradient
+                        -%}
+                    {% endif %}
+                {%- endif -%}
+
+                <div class='faq-content-wrap mt-[32px] flex flex-col gap-[12px] sm:mt-[52px] sm:gap-[20px]'>
+                    {%- if is_collection -%}
+                        <!-- 集合页：渲染元字段 JSON 数据 -->
+                        {%- for item in faq_from_meta -%}
+                            <div class='faq-item overflow-hidden rounded-[10px] border border-[rgba(26,26,26,0.20)] transition-all duration-300 sm:rounded-[999px]'>
+                                <div class='faq-question flex cursor-pointer items-center justify-between gap-[16px] px-[12px] py-[12px] sm:px-[32px] sm:py-[24px]'>
+                                    <span class='text-title text-[18px] leading-[150%] font-[600] sm:text-[20px] sm:leading-[120%]'>{{ item.Q }}</span>
+                                    <svg
+                                        class='faq-arrow shrink-0 transition-transform duration-300'
+                                        width='24'
+                                        height='24'
+                                        viewBox='0 0 20 20'
+                                        fill='none'
+                                        xmlns='http://www.w3.org/2000/svg'
+                                    >
+                                        <path d="M5 7.5L10 12.5L15 7.5" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class='faq-answer hidden px-[12px] pb-[12px] sm:px-[32px] sm:pb-[24px]'>
+                                    <div class='hide_p text-text text-[14px] leading-[150%] sm:text-[18px]'>{{ item.A }}</div>
+                                </div>
+                            </div>
+                        {%- endfor -%}
+
+                    {%- else -%}
+                        <!-- 非集合页：渲染 block 配置数据 -->
+                        {% for block in section.blocks %}
+                            {% if block.type == 'faq_item' %}
+                                <div class='faq-item overflow-hidden rounded-[10px] border border-[rgba(26,26,26,0.20)] transition-all duration-300 sm:rounded-[999px]'>
+                                    <div class='faq-question flex cursor-pointer items-center justify-between gap-[16px] px-[12px] py-[12px] sm:px-[32px] sm:py-[24px]'>
+                                        <span class='text-title text-[18px] leading-[150%] font-[600] sm:text-[20px] sm:leading-[120%]'>
+                                            {{ block.settings.question }}
+                                        </span>
+                                        <svg
+                                            class='faq-arrow shrink-0 transition-transform duration-300'
+                                            width='24'
+                                            height='24'
+                                            viewBox='0 0 20 20'
+                                            fill='none'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <path d="M5 7.5L10 12.5L15 7.5" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class='faq-answer hidden px-[12px] pb-[12px] sm:px-[32px] sm:pb-[24px]'>
+                                        <div class='hide_p text-text text-[14px] leading-[150%] sm:text-[18px]'>{{ block.settings.answer }}</div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {%- endif -%}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endunless %}
+
+<script>
+    $(function () {
+        /* -------- 手风琴功能 -------- */
+        $('.faq-section-wrap').on('click', '.faq-question', function () {
+            var $item = $(this).closest('.faq-item');
+            var $siblings = $item.siblings('.faq-item');
+
+            if ($item.hasClass('active')) {
+                $item.removeClass('active').find('.faq-answer').slideUp(250);
+            } else {
+                $siblings.removeClass('active').find('.faq-answer').slideUp(250);
+                $item.addClass('active').find('.faq-answer').slideDown(250);
+            }
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "faqs",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_topBanner",
+            "label": "show top banner",
+            "default": false
+        },
+        {
+            "type": "video",
+            "id": "top_video",
+            "label": "Top video"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Top Image"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "color",
+            "id": "faq_active_bg_color",
+            "label": "Active Background Color",
+            "default": "#fcd454"
+        },
+        {
+            "type": "image_picker",
+            "id": "faq_active_bg_image",
+            "label": "Active Background Image (optional)"
+        },
+        {
+            "type": "color",
+            "id": "faq_a_active",
+            "label": "faq a active",
+            "default": "#ED8E25"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "background color"
+        },
+
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_top",
+            "label": "Desktop Margin Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_top",
+            "label": "Mobile Margin Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_bottom",
+            "label": "Desktop Margin Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_bottom",
+            "label": "Mobile Margin Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "faq_item",
+            "name": "FAQ Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "question",
+                    "label": "Question"
+                },
+                {
+                    "type": "richtext",
+                    "id": "answer",
+                    "label": "Answer"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "faqs"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,139 @@
+{%- render 'section-spacing', section: section -%}
+<style>
+    .influencer_benefits_bottom .influencer_benefits_list:nth-child(odd) {
+        transform: rotate(-5deg);
+    }
+
+    .influencer_benefits_bottom .influencer_benefits_list:nth-child(even) {
+        transform: rotate(5deg);
+    }
+</style>
+<section>
+    <div class='influencer_benefits container flex flex-col items-center justify-center sm:gap-72'>
+        {%- if section.settings.title != blank or section.settings.content != blank -%}
+            <div class='influencer_benefits_top flex flex-col items-center justify-center sm:gap-24'>
+                {%- if section.settings.title != blank -%}
+                    <h2 class='influencer_benefits_title hide_p m-0 text-center font-[600] text-[#1A1A1A] sm:text-[64px] sm:leading-[120%]'>
+                        {{ section.settings.title }}
+                    </h2>
+                {%- endif -%}
+                {%- if section.settings.content != blank -%}
+                    <div class='influencer_benefits_text hide_p text-center font-[400] text-[#333] sm:text-[16px] sm:leading-[150%]'>
+                        {{ section.settings.content }}
+                    </div>
+                {%- endif -%}
+            </div>
+        {%- endif -%}
+        <div class='influencer_benefits_bottom flex w-full items-center justify-center py-[14px]'>
+            {% for block in section.blocks %}
+                <div
+                    class='influencer_benefits_list w-[33.33%] max-w-[400px] bg-top bg-no-repeat'
+                    style='background-image: url({{block.settings.img | image_url: width: 750 }}); background-size: 100% 100%'
+                >
+                    {%- if block.settings.title != blank or block.settings.content != blank -%}
+                        <div
+                            class='influencer_benefits_listBox z-[1] flex h-full w-full flex-col items-center justify-end sm:gap-8 sm:px-40 sm:pt-[90px] sm:pb-[35px]'
+                            style='color: {{ block.settings.content_color  }};'
+                        >
+                            {%- if block.settings.title != blank -%}
+                                <div class='influencer_benefits_listTitle font-prompt text-[80px] leading-[120%] font-[600] tracking-[-1.6px]'>
+                                    {{ block.settings.title }}
+                                </div>
+                            {%- endif -%}
+                            {%- if block.settings.content != blank -%}
+                                <div class='influencer_benefits_listContent hide_p text-center text-[24px] font-[600]'>{{ block.settings.content }}</div>
+                            {%- endif -%}
+                        </div>
+                    {%- endif -%}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Influencer Benefits",
+    "tag": "section",
+    "class": "influencer-benefits css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "content_item",
+            "name": "content item",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "image",
+                    "info": "400*250px"
+                },
+                {
+                    "type": "color",
+                    "id": "content_color",
+                    "label": "Content Color"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Influencer Benefits",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}

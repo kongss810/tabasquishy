@@ -1,0 +1,258 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
+    },
+    "jd_page_banner_iM3wfP": {
+      "type": "jd-page-banner",
+      "name": "page-banner",
+      "settings": {
+        "img": "shopify://shop_images/82ad92dd-788a-4f68-9960-c257847173fe_1_1.png",
+        "title": "<p>Discover Our Collections</p>",
+        "text": "<p>From mystery blind boxes to artisanal handcrafts—explore unique worlds created with care,<br/>safety, and endless joy.</p>",
+        "btn_text": "",
+        "btn_link": "",
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 100,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "main": {
+      "type": "main-list-collections",
+      "disabled": true,
+      "settings": {
+        "heading": "Shop by category",
+        "description": "<p>Add a short description for your collections</p>",
+        "heading_size": "small",
+        "sort": "date",
+        "image_ratio": "square",
+        "style": "style2",
+        "columns_desktop": 3,
+        "collection_list_pagination_num": 12,
+        "heading_position": "bottom-center",
+        "text_color": "#414141",
+        "overlay_color": "#000000",
+        "overlay_opacity": 5,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "jd_collection_list_khfkfj": {
+      "type": "jd-collection-list",
+      "blocks": {
+        "collection_item_XXi6Td": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_9zihB8": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_nAa9ip": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_7pnQQP": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_AXkj7y": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_iw9Jtq": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_qqU9tx": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_nqnQFa": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_XXi6Td",
+        "collection_item_9zihB8",
+        "collection_item_nAa9ip",
+        "collection_item_7pnQQP",
+        "collection_item_AXkj7y",
+        "collection_item_iw9Jtq",
+        "collection_item_qqU9tx",
+        "collection_item_nqnQFa"
+      ],
+      "name": "collection-list",
+      "settings": {
+        "title": "<p>IP Series </p>",
+        "highlighted_text": "none",
+        "description": "The joy of slow, bouncy texture is hidden within the intertwining of the yarn.",
+        "button_text": "LEARN MORE",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "jd_collection_list_LYakqp": {
+      "type": "jd-collection-list",
+      "blocks": {
+        "collection_item_T6UaCX": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_WNEqMD": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_yjdUW9": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_jDKVQq": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_TwAExp": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_C9DQWH": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_xeNxBX": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_tmYdqw": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Component_55.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_T6UaCX",
+        "collection_item_WNEqMD",
+        "collection_item_yjdUW9",
+        "collection_item_jDKVQq",
+        "collection_item_TwAExp",
+        "collection_item_C9DQWH",
+        "collection_item_xeNxBX",
+        "collection_item_tmYdqw"
+      ],
+      "name": "collection-list",
+      "settings": {
+        "title": "<p>Orignal IP Series</p>",
+        "highlighted_text": "none",
+        "description": "The joy of slow, bouncy texture is hidden within the intertwining of the yarn.",
+        "button_text": "LEARN MORE",
+        "Desktop_paddingTop": 100,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "jd_page_banner_iM3wfP",
+    "main",
+    "jd_collection_list_khfkfj",
+    "jd_collection_list_LYakqp"
+  ]
+}

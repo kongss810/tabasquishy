@@ -1,0 +1,390 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "jd_page_banner_ch3xjn": {
+      "type": "jd-page-banner",
+      "name": "page-banner",
+      "settings": {
+        "img": "shopify://shop_images/Frame_1171276650.png",
+        "title": "<p>Join The TABASQUISHY <br/>Video Challenge</p>",
+        "text": "<p>Love TABASQUISHY™? Show off your creativity and earn rewards! Whether it’s an ASMR moment, <br/>unboxing, or a fun skit, your video could be featured on our official channels!</p>",
+        "btn_text": "CONTACT US",
+        "btn_link": "#videoChallenge_form",
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "influencer_benefits_bryWke": {
+      "type": "influencer-benefits",
+      "blocks": {
+        "content_item_a8EgVj": {
+          "type": "content_item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_2147241797.png",
+            "content_color": "#e30078",
+            "title": "15k+",
+            "content": "<p>Collaborating Influencers</p>"
+          }
+        },
+        "content_item_qiPrez": {
+          "type": "content_item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_2147241798.png",
+            "content_color": "#009fe8",
+            "title": "35+",
+            "content": "<p>Exporting Countries</p>"
+          }
+        },
+        "content_item_aBNLpj": {
+          "type": "content_item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_2147241799.png",
+            "content_color": "#7e308d",
+            "title": "58k+",
+            "content": "<p>Fan Groups</p>"
+          }
+        }
+      },
+      "block_order": [
+        "content_item_a8EgVj",
+        "content_item_qiPrez",
+        "content_item_aBNLpj"
+      ],
+      "name": "Influencer Benefits",
+      "settings": {
+        "title": "<p>Get Hyped. Get Noticed. Get Resilts</p>",
+        "content": "<p>One person squeezing is a way to relieve stress; a million people squeezing is a phenomenon. 300+ leading brands × 1 million+ <br/>core players—this isn't just a platform, it's a squeezing universe jointly built by brands and fans.</p>",
+        "Desktop_paddingTop": 80,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "influencer_picks_EyzfQD": {
+      "type": "influencer-picks",
+      "blocks": {
+        "content_item_b6YB94": {
+          "type": "content_item",
+          "settings": {
+            "img": "shopify://shop_images/image_305_1.png",
+            "avatar_img": "shopify://shop_images/Ellipse_2_1ef21286-6b9c-4fdb-ad4a-36cb48951edf.png",
+            "name": "little bean •ᴗ•",
+            "follower_count": "1.3M",
+            "link_text": "a.littlebean_",
+            "link": "#",
+            "title": "<p>1.TABASQUISHYT X @The.Littlebean</p>",
+            "content": "<p>“ This influencer series is a special collaboration with @CHRISTINAAGAJANOVV, combining her unique perspective with the playful designs of TABASQUISHY™. ”</p>",
+            "collection": "2025-children-s-day-collection"
+          }
+        },
+        "content_item_LttgCn": {
+          "type": "content_item",
+          "settings": {
+            "img": "shopify://shop_images/Frame_2147241824.png",
+            "avatar_img": "shopify://shop_images/Ellipse_2_1ef21286-6b9c-4fdb-ad4a-36cb48951edf.png",
+            "name": "little bean •ᴗ•",
+            "follower_count": "1.3M",
+            "link_text": "a.littlebean_",
+            "link": "",
+            "title": "<p>2.TABASQUISHYT X @The.Littlebean</p>",
+            "content": "<p>“ This influencer series is a special collaboration with @CHRISTINAAGAJANOVV, combining her unique perspective with the playful designs of TABASQUISHY™. ”</p>",
+            "collection": "bold-black-collection"
+          }
+        }
+      },
+      "block_order": [
+        "content_item_b6YB94",
+        "content_item_LttgCn"
+      ],
+      "name": "Influencer Picks",
+      "settings": {
+        "title": "<p>Crafted To Inspire And Delight</p>",
+        "content": "<p>SUBMIT NOW & BECOME A #TabaSquishyStar2025!</p>",
+        "product_limit": 10,
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0,
+        "img": "shopify://shop_images/Vector_85_2_1.png",
+        "background": "linear-gradient(178deg, rgba(255, 248, 228, 1) 8.5%, rgba(255, 255, 255, 1) 77.37%)"
+      }
+    },
+    "index_comment_rate_h8qDdm": {
+      "type": "index-comment-rate",
+      "blocks": {
+        "product_item_64nxqc": {
+          "type": "product_item",
+          "settings": {
+            "product": "2-purple-double-stars",
+            "image": "shopify://shop_images/Frame_1249188384_fbd0bf3b-d0c0-45e9-8457-829544e36491.png",
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "block_title": "<p>This is so cute</p>",
+            "block_text": "<p>“Super cute and my daughter is OBSESSED with it!! She takes it everywhere and has a little spot for it to sleep next to her at night. Definitely need to get some more of these!”</p>",
+            "block_rate_title": "<p>White Yorkshire Terrier</p>",
+            "block_rate_confirm": "<p>Verify Customer</p>",
+            "block_bg": "shopify://shop_images/Frame_1249187356.png",
+            "bg_color": "#fffbee",
+            "rating": "shopify://shop_images/Container_2f3f6a7b-444e-429d-89f1-8f091134e106.svg"
+          }
+        },
+        "product_item_yBnQDM": {
+          "type": "product_item",
+          "settings": {
+            "product": "100g-black-bling-paw-taba-squishy",
+            "image": "shopify://shop_images/Frame_1249188385.png",
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "block_title": "<p>This is so cute</p>",
+            "block_text": "<p>“Super cute and my daughter is OBSESSED with it!! She takes it everywhere and has a little spot for it to sleep next to her at night. Definitely need to get some more of these!”</p>",
+            "block_rate_title": "<p>White Yorkshire Terrier</p>",
+            "block_rate_confirm": "<p>Verify Customer</p>",
+            "block_bg": "shopify://shop_images/Frame_1249187356.png",
+            "bg_color": "#fffbee",
+            "rating": "shopify://shop_images/Container_2f3f6a7b-444e-429d-89f1-8f091134e106.svg"
+          }
+        },
+        "product_item_tK7TE3": {
+          "type": "product_item",
+          "settings": {
+            "product": "2-purple-double-stars",
+            "image": "shopify://shop_images/Frame_1249188384_fbd0bf3b-d0c0-45e9-8457-829544e36491.png",
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "block_title": "<p>This is so cute</p>",
+            "block_text": "<p>“Super cute and my daughter is OBSESSED with it!! She takes it everywhere and has a little spot for it to sleep next to her at night. Definitely need to get some more of these!”</p>",
+            "block_rate_title": "<p>White Yorkshire Terrier</p>",
+            "block_rate_confirm": "<p>Verify Customer</p>",
+            "block_bg": "shopify://shop_images/Frame_1249187356.png",
+            "bg_color": "#fffbee",
+            "rating": "shopify://shop_images/Container_2f3f6a7b-444e-429d-89f1-8f091134e106.svg"
+          }
+        },
+        "product_item_8THRhC": {
+          "type": "product_item",
+          "settings": {
+            "product": "100g-black-bling-paw-taba-squishy",
+            "image": "shopify://shop_images/Frame_1249188385.png",
+            "avatar": "shopify://shop_images/Ellipse_2.png",
+            "block_title": "<p>This is so cute</p>",
+            "block_text": "<p>“Super cute and my daughter is OBSESSED with it!! She takes it everywhere and has a little spot for it to sleep next to her at night. Definitely need to get some more of these!”</p>",
+            "block_rate_title": "<p>White Yorkshire Terrier</p>",
+            "block_rate_confirm": "<p>Verify Customer</p>",
+            "block_bg": "shopify://shop_images/Frame_1249187356.png",
+            "bg_color": "#fffbee",
+            "rating": "shopify://shop_images/Container_2f3f6a7b-444e-429d-89f1-8f091134e106.svg"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_64nxqc",
+        "product_item_yBnQDM",
+        "product_item_tK7TE3",
+        "product_item_8THRhC"
+      ],
+      "name": "Index Comment Rate",
+      "settings": {
+        "title": "<p>Listen To The Voices From <br/>Within The Industry</p>",
+        "highlighted_text": "none",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_positive_reviews_RnEV7r": {
+      "type": "index-positive-reviews",
+      "blocks": {
+        "block_item_8pYek8": {
+          "type": "block-item",
+          "settings": {
+            "pc_image": "shopify://shop_images/image_67_5.png",
+            "video": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-6.MOV",
+            "product": "2-purple-double-stars"
+          }
+        },
+        "block_item_nErgnC": {
+          "type": "block-item",
+          "settings": {
+            "pc_image": "shopify://shop_images/image_67_5.png",
+            "video": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-4.MOV",
+            "product": "100g-black-bling-paw-taba-squishy"
+          }
+        },
+        "block_item_facLTa": {
+          "type": "block-item",
+          "settings": {
+            "pc_image": "shopify://shop_images/image_67_5.png",
+            "video": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-5.MOV",
+            "product": "100g-black-bling-paw-taba-squishy-1"
+          }
+        },
+        "block_item_7BxfgR": {
+          "type": "block-item",
+          "settings": {
+            "pc_image": "shopify://shop_images/image_67_5.png",
+            "video": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-4.MOV",
+            "product": "100g-black-purple-paw-taba-squishy"
+          }
+        }
+      },
+      "block_order": [
+        "block_item_8pYek8",
+        "block_item_nErgnC",
+        "block_item_facLTa",
+        "block_item_7BxfgR"
+      ],
+      "name": "index-positive-reviews",
+      "settings": {
+        "title": "<p>Pick Up! The Co-op Studio</p>",
+        "number_reviews": "",
+        "highlighted_text": "none",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "creator_authority_Hyqfif": {
+      "type": "creator-authority",
+      "blocks": {
+        "content_item_bACYCe": {
+          "type": "content_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_2085663111.png",
+            "icon_svg": "",
+            "border_color": "#e30078",
+            "title": "How To Participate",
+            "list_content": "<ul><li>Record a <strong>10-20 second HD video </strong>(720p+) featuring your TABASQUISHY™ moment. Keep it fun, real, and engaging!</li><li><strong>Post on social media</strong> (YouTube, TikTok, Instagram, or Facebook) with #TabaSquishyStar2025 and tag <br/><strong>YouTube-</strong> @tabasquishy_official• Facebook Page Tabasquishy <br/><strong>Instagram-</strong> tabasquishy_official <br/><strong>TikTok-</strong> @tabasquishy_official <br/><strong>OR email your video-</strong> to service@tabasquishy.com</li><li><strong>IMPORTANT! </strong>Fill out this form to confirm your entry, provide your contact details, and authorize us to feature your video on our social media and website<br/></li></ul>"
+          }
+        },
+        "content_item_m4fR6r": {
+          "type": "content_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_2147241473.png",
+            "icon_svg": "",
+            "border_color": "#ed8e24",
+            "title": "Rewards",
+            "list_content": "<ul><li><strong>5 Coupon -</strong> Just for submitting a valid video!</li><li><strong>Extra $10 Coupon-</strong> If your video gets featured on our website or social media!</li><li><strong>Extra $10 Coupon-</strong>  If your video gets featured on our website or social media!</li></ul><p>This is an ongoing event! Submit anytime for a chance to be featured and rewarded!</p>"
+          }
+        },
+        "content_item_QBLciW": {
+          "type": "content_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_2147241472.png",
+            "icon_svg": "",
+            "border_color": "#009fe8",
+            "title": "Pro Tips For A Great Video",
+            "list_content": "<ul><li><strong>Lighting -</strong> Good lighting makes your video visually stunning.</li><li><strong>Sound -</strong> Capture the satisfying squishy sounds for an ASMR effect!</li><li><strong>Creativity-</strong> Play with pets? Add fun interactions? Make it unique!</li><li><strong>Content Safety-</strong>  Keep it positive and friendly—no inappropriate content.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "content_item_bACYCe",
+        "content_item_m4fR6r",
+        "content_item_QBLciW"
+      ],
+      "name": "Creator Authority",
+      "settings": {
+        "title": "<p>Become A Leader In Shaping<br/>Opinion Circles</p>",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0,
+        "img": "shopify://shop_images/Vector_85_2_1_1.png",
+        "background": "#fff8e4"
+      }
+    },
+    "video_challenge_H6EfKh": {
+      "type": "video-challenge",
+      "blocks": {
+        "forms_inline_KbW4Hh": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "349497",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        },
+        "content_item_iVjHyq": {
+          "type": "content_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"60\" viewbox=\"0 0 60 60\" fill=\"none\">\n  <g clip-path=\"url(#clip0_1617_6758)\">\n    <path d=\"M57.1594 32.4444C69.2787 2.94503 42.0924 17.387 24.5479 8.77456C5.82519 -0.416243 0.267964 24.3429 2.51745 35.259C4.61407 47.0035 14.128 57.0465 27.1673 57.8995C43.4665 58.9656 54.2477 39.5316 57.1594 32.4444Z\" fill=\"#FCD454\"></path>\n    <path d=\"M42.2186 20.5314C41.8133 20.1239 41.3311 19.8008 40.8001 19.5808C40.2691 19.3609 39.6998 19.2484 39.125 19.25H20.9686C20.896 18.8973 20.7042 18.5805 20.4253 18.3528C20.1464 18.1251 19.7975 18.0005 19.4375 18H17.5625C17.1482 18.0005 16.7511 18.1652 16.4582 18.4582C16.1652 18.7511 16.0005 19.1482 16 19.5625V35.1875C16.0005 35.6018 16.1652 35.9989 16.4582 36.2918C16.7511 36.5848 17.1482 36.7495 17.5625 36.75H19.4375C19.7975 36.7495 20.1464 36.6249 20.4253 36.3972C20.7042 36.1695 20.896 35.8527 20.9686 35.5H26V41.125C26 41.2908 26.0658 41.4497 26.1831 41.5669C26.3003 41.6842 26.4592 41.75 26.625 41.75H31.625C31.7908 41.75 31.9497 41.6842 32.0669 41.5669C32.1842 41.4497 32.25 41.2908 32.25 41.125V35.5H42.875C43.0408 35.5 43.1997 35.4342 43.3169 35.3169C43.4342 35.1997 43.5 35.0408 43.5 34.875V23.625C43.5016 23.0502 43.3891 22.4809 43.1691 21.9499C42.9492 21.4189 42.6261 20.9367 42.2186 20.5314ZM19.75 35.1875C19.75 35.2704 19.7171 35.3499 19.6585 35.4085C19.5999 35.4671 19.5204 35.5 19.4375 35.5H17.5625C17.4796 35.5 17.4001 35.4671 17.3415 35.4085C17.2829 35.3499 17.25 35.2704 17.25 35.1875V19.5625C17.25 19.4796 17.2829 19.4001 17.3415 19.3415C17.4001 19.2829 17.4796 19.25 17.5625 19.25H19.4375C19.5204 19.25 19.5999 19.2829 19.6585 19.3415C19.7171 19.4001 19.75 19.4796 19.75 19.5625V35.1875ZM31 40.5H27.25V35.5H31V40.5ZM42.25 34.25H21V20.5H39.125C40.848 20.5 42.25 21.902 42.25 23.625V34.25ZM37.875 23H25.375C25.2929 23 25.2117 23.0162 25.1358 23.0476C25.06 23.079 24.9911 23.125 24.9331 23.1831C24.875 23.2411 24.829 23.31 24.7976 23.3858C24.7662 23.4617 24.75 23.5429 24.75 23.625V26.125C24.75 26.2908 24.8158 26.4497 24.9331 26.5669C25.0503 26.6842 25.2092 26.75 25.375 26.75C25.5408 26.75 25.6997 26.6842 25.8169 26.5669C25.9342 26.4497 26 26.2908 26 26.125V24.25H33.5V26.75C33.5 27.413 33.7634 28.0489 34.2322 28.5178C34.7011 28.9866 35.337 29.25 36 29.25C36.663 29.25 37.2989 28.9866 37.7678 28.5178C38.2366 28.0489 38.5 27.413 38.5 26.75V23.625C38.5 23.5429 38.4838 23.4617 38.4524 23.3858C38.421 23.31 38.375 23.2411 38.3169 23.1831C38.2589 23.125 38.19 23.079 38.1142 23.0476C38.0383 23.0162 37.9571 23 37.875 23ZM37.25 26.75C37.2499 27.0815 37.1182 27.3994 36.8838 27.6338C36.6494 27.8681 36.3315 27.9998 36 27.9998C35.6685 27.9998 35.3506 27.8681 35.1162 27.6338C34.8818 27.3994 34.7501 27.0815 34.75 26.75V24.25H37.25V26.75Z\" fill=\"#1A1A1A\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_1617_6758\">\n      <rect width=\"60\" height=\"60\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "title": "Email Us",
+            "content": "<p>123456@taba.com</p>"
+          }
+        },
+        "content_item_MLTwnj": {
+          "type": "content_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"60\" viewbox=\"0 0 60 60\" fill=\"none\">\n  <path d=\"M16.1377 9.35475C7.48402 7.37808 2.91679 12.0157 1.71488 14.5815C-5.2327 29.5966 10.949 33.4929 14.3788 42.0458C17.8087 50.5987 22.4697 62.9529 33.1989 53.7347C43.928 44.5166 42.6089 49.4583 52.8104 46.9875C63.0119 44.5166 61.253 33.1128 54.3934 27.5059C47.5338 21.899 48.1494 19.8083 44.5437 10.4001C40.9379 0.991922 33.6386 1.94224 28.0981 5.6485C22.5576 9.35475 20.0952 9.35475 16.1377 9.35475Z\" fill=\"#FCD454\"></path>\n  <path d=\"M19.9298 19.5782L19.9295 19.5785C20.4372 18.7594 21.0947 18.1269 21.8849 17.6984C22.7287 17.2408 23.6949 17.0748 24.7027 17.0515C24.8537 17.0587 24.8702 17.0601 25.0245 17.0686C26.7554 17.1635 28.3099 19.2258 28.6341 22.1021C28.8104 23.6697 28.5641 25.1291 27.9583 26.1068C27.5079 26.8334 26.8769 27.2564 26.1689 27.3106C26.0719 27.3559 25.9278 27.4426 25.8632 27.5469C25.8446 27.5769 25.806 27.6393 25.8537 27.7979C25.8564 27.808 25.859 27.8178 25.862 27.8282C26.2305 28.81 26.6788 29.7841 27.1943 30.7247C27.6681 31.5892 28.1962 32.4218 28.7655 33.2005C28.9792 33.3919 29.1189 33.4341 29.1696 33.4277C29.2059 33.423 29.2581 33.3741 29.2584 33.3736C29.6012 32.8488 30.1358 32.5213 30.8109 32.4157C32.082 32.217 33.7278 32.8176 35.2135 34.0229C37.4914 35.8705 38.5154 38.3825 37.5958 39.8663C37.5929 39.871 37.5723 39.9034 37.5691 39.9083C37.5239 39.9778 37.4745 40.0423 37.422 40.1033C36.8981 41.0393 36.189 41.7595 35.3219 42.2301C31.307 44.4072 25.2102 40.7265 21.442 33.8514C18.5343 28.5457 17.9267 22.8098 19.9296 19.5781L19.9298 19.5782ZM26.7295 25.3452C27.1613 24.6485 27.3361 23.4967 27.1974 22.2638C26.9555 20.114 25.8555 18.5499 25.042 18.497C24.9174 18.489 24.8371 18.4877 24.7727 18.4857C24.0099 18.4621 23.1982 18.6311 22.5739 18.9694C22.0076 19.2762 21.5319 19.7375 21.1585 20.3398C19.4484 23.0989 20.0866 28.3691 22.7101 33.1566C25.9777 39.1187 31.4375 42.6918 34.6328 40.9591C35.2734 40.6111 35.8025 40.0602 36.1912 39.3404C36.2202 39.2878 36.2549 39.2388 36.2952 39.1947C36.3183 39.1705 36.3406 39.145 36.3597 39.1167C36.812 38.3869 36.0235 36.5415 34.3024 35.1456C33.1648 34.2226 31.8819 33.7116 31.0344 33.844C30.6372 33.9062 30.5158 34.0926 30.4759 34.1536C30.4428 34.207 30.0682 34.7713 29.3506 34.8621C28.8035 34.9314 28.2567 34.7115 27.7264 34.2089C27.6953 34.1795 27.6666 34.1471 27.6409 34.1122C27.0193 33.2665 26.4424 32.3604 25.9264 31.4193C25.3638 30.3926 24.8765 29.3277 24.4779 28.2538C24.4601 28.2062 24.4474 28.1572 24.4402 28.1082C24.3243 27.6342 24.3905 27.1788 24.6344 26.7852C25.0211 26.1614 25.7248 25.9276 25.8039 25.9031C25.8724 25.8819 25.944 25.8707 26.0161 25.8706C26.3376 25.8695 26.5814 25.5841 26.7295 25.3452ZM32.0694 25.9718C32.2514 25.6782 32.6227 25.5476 32.9557 25.678C33.5862 25.925 34.0828 26.4031 34.3543 27.0239C34.6251 27.6446 34.6386 28.334 34.3912 28.9645C34.2435 29.34 33.8208 29.5243 33.4457 29.3772C33.0705 29.2302 32.8855 28.8067 33.0329 28.4318C33.1378 28.1639 33.1323 27.8712 33.0168 27.6077C32.9023 27.3442 32.6912 27.1414 32.4232 27.0361C32.0478 26.8893 31.8635 26.4661 32.0103 26.0908C32.0267 26.0491 32.0464 26.0089 32.0694 25.9718ZM33.4128 23.9042C33.5949 23.6107 33.9656 23.4796 34.2984 23.6104C36.5861 24.5066 37.7176 27.0966 36.8209 29.3838C36.6741 29.7578 36.2505 29.9438 35.8754 29.7966C35.5007 29.6499 35.3158 29.2264 35.4629 28.8517C36.0657 27.3134 35.3046 25.5716 33.7664 24.9688C33.3911 24.8218 33.2062 24.3982 33.3535 24.0232C33.37 23.9814 33.3897 23.9414 33.4127 23.9042L33.4128 23.9042L33.4128 23.9042ZM34.2234 21.0845C34.4053 20.7911 34.776 20.6599 35.1093 20.7904C37.012 21.5361 38.5104 22.9782 39.3284 24.851C40.1466 26.7236 40.1863 28.8027 39.4405 30.7056C39.2937 31.0798 38.8704 31.2653 38.495 31.1184C38.1198 30.9713 37.9354 30.5482 38.0822 30.1728C38.6857 28.6332 38.6535 26.9505 37.9916 25.4349C37.3291 23.9192 36.1166 22.7522 34.5767 22.1485C34.202 22.0018 34.0168 21.5785 34.1636 21.2031C34.1802 21.161 34.2005 21.1216 34.2234 21.0845Z\" fill=\"#1A1A1A\"></path>\n</svg>",
+            "title": "Call Us",
+            "content": "<p>+1 234-567-890</p>"
+          }
+        },
+        "content_item_CzLndX": {
+          "type": "content_item",
+          "settings": {
+            "icon_svg": "<svg width=\"60\" height=\"60\" viewbox=\"0 0 60 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_1617_6772)\">\n<path d=\"M16.7769 54.6753C8.99547 51.6455 15.5349 49.4343 5.61767 39.7389C-4.29956 30.0436 4.14684 13.8707 7.78351 9.48349C13.8468 2.16871 27.3267 -3.50945 35.1502 7.80488C42.9736 19.1192 45.9182 15.3121 54.584 19.7119C63.2497 24.1116 59.2667 40.2884 48.3463 45.0452C37.426 49.8021 41.622 47.4036 35.1501 50.4335C26.4408 54.5109 20.1504 55.9889 16.7769 54.6753Z\" fill=\"#FCD454\"></path>\n<path d=\"M25.1836 32.9924L24.6796 32.5724C24.3996 32.3484 18.0156 26.8604 18.0156 21.6524C18.0156 17.7044 21.2356 14.4844 25.1836 14.4844C29.1316 14.4844 32.3516 17.7044 32.3516 21.6524C32.3516 26.8604 25.9676 32.3484 25.6876 32.5724L25.1836 32.9924ZM25.1836 16.0244C22.0756 16.0244 19.5556 18.5444 19.5556 21.6524C19.5556 25.4044 23.7276 29.6044 25.1836 30.9764C26.6396 29.6324 30.8116 25.4044 30.8116 21.6524C30.8116 18.5444 28.2916 16.0244 25.1836 16.0244Z\" fill=\"#1A1A1A\"></path>\n<path d=\"M25.184 25.3757C23.14 25.3757 21.46 23.6957 21.46 21.6517C21.46 19.6077 23.14 17.9277 25.184 17.9277C27.228 17.9277 28.908 19.6077 28.908 21.6517C28.88 23.6957 27.228 25.3757 25.184 25.3757ZM25.184 19.4677C23.98 19.4677 23 20.4477 23 21.6517C23 22.8557 23.98 23.8357 25.184 23.8357C26.388 23.8357 27.368 22.8557 27.368 21.6517C27.368 20.4477 26.388 19.4677 25.184 19.4677Z\" fill=\"#1A1A1A\"></path>\n<path d=\"M39.3238 40.3569H21.0678C18.9678 40.3569 17.2598 38.9849 17.2598 37.3049C17.2598 35.6249 18.9678 34.2809 21.0678 34.2809H30.1958C31.4558 34.2809 32.4918 33.4409 32.4918 32.3769C32.4918 31.3129 31.4558 30.4729 30.1958 30.4729C29.7758 30.4729 29.4398 30.1369 29.4398 29.7169C29.4398 29.2969 29.7758 28.9609 30.1958 28.9609C32.2958 28.9609 34.0038 30.5009 34.0038 32.3769C34.0038 34.2529 32.2958 35.7929 30.1958 35.7929H21.0678C19.8358 35.7929 18.7718 36.4929 18.7718 37.3049C18.7718 38.1169 19.8078 38.8169 21.0678 38.8169H39.3238C39.7438 38.8169 40.0798 39.1529 40.0798 39.5729C40.0798 39.9929 39.7438 40.3569 39.3238 40.3569Z\" fill=\"#1A1A1A\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_1617_6772\">\n<rect width=\"60\" height=\"60\" fill=\"white\"></rect>\n</clippath>\n</defs>\n</svg>",
+            "title": "Address",
+            "content": "<p>11th Floor, Building 1, Hongyuan Innovation Building,Yangpu District, Shanghai, China</p>"
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_KbW4Hh",
+        "content_item_iVjHyq",
+        "content_item_MLTwnj",
+        "content_item_CzLndX"
+      ],
+      "name": "Video Challenge From",
+      "settings": {
+        "subtitle": "<a href=\"/pages/contact-us-1\" title=\"contact us\">Contact  Us</a>",
+        "title": "<p>TABASQUISHY Video Challenge</p>",
+        "content": "<p>Submit and be #TabaSquishyStar2026! You love Ninja, and we love you. Whether you're an immersive unboxing expert, a tactile review master, or simply a stress reliever—as long as you're passionate about Ninja and have a desire to express yourself, come on, let millions of fans hear your voice.</p>",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 80,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "jd_page_banner_ch3xjn",
+    "influencer_benefits_bryWke",
+    "influencer_picks_EyzfQD",
+    "index_comment_rate_h8qDdm",
+    "index_positive_reviews_RnEV7r",
+    "creator_authority_Hyqfif",
+    "video_challenge_H6EfKh"
+  ]
+}

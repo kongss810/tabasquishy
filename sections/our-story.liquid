@@ -1,0 +1,488 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+        .our-story-container {
+            position: relative;
+        }
+
+        .our-story-content {
+            background: #ffffff;
+        }
+        .our-story-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #fcd454;
+        }
+
+
+        .our-story-card {
+            padding: 68px 62.82px 68px 80px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background: #FFF;  /* 白色背景 */
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;  /* 让装饰背景不超出圆角 */
+        }
+
+        /* 装饰背景图片层 - 在白色背景之上，内容之下 */
+        .our-story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('{{section.settings.block_bg | image_url: width: 1920 }}');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1;  /* 调整透明度：0.2-0.4 比较合适 */
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* 内容层要在装饰背景之上 */
+        .our-story-card-img {
+            position: relative;
+            z-index: 1;
+        }
+         .our-story-card-content {
+            z-index: 2;
+         }
+
+        .our-story-card-content {
+            width: 48.76%;
+            display: flex;
+            align-items: center;
+
+
+            p {
+                margin: 0;
+            }
+
+            .our-story-card-content-main {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .our-story-card-content-top {
+                display: flex;
+                gap: 12px;
+                flex-direction: column;
+                margin-bottom: 24px;
+
+                .our-story-card-content-tag {
+                    display: flex;
+                }
+
+                .our-story-card-content-tag p{
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 120%;
+                    letter-spacing: -0.24px;
+                    text-decoration-line: underline;
+                    background: var(--Linear, linear-gradient(90deg, #ED8E25 0%, #E40078 100%));
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+                .our-story-card-content-title p{
+                    font-family: 'Prompt';
+                    color: #1A1A1A;
+                    font-size: 64px;
+                    font-weight: 600;
+                    line-height: 120%;
+                }
+            }
+
+            .our-story-card-content-text p{
+                color: #333;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%;
+            }
+
+            /* 文本下方 52px 间距 */
+            .our-story-card-content-text {
+                margin-bottom: 52px;
+            }
+        }
+
+        .our-story-card-img {
+            width: 40.28%;
+        }
+        .our-story-card-img .my_picture  {
+            height: 100%;
+        }
+
+        /* 按钮容器样式 - 默认隐藏 */
+        .our-story-navigation-buttons {
+            align-items: center;
+            gap: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s;
+            display: flex;
+        }
+
+        /* 只显示当前激活 slide 内的按钮 */
+        .swiper-slide-active .our-story-navigation-buttons {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Swiper 自定义按钮样式 */
+        .swiper-program-prev,
+        .swiper-program-next {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 65px;
+            border: 1px solid #333;
+            background: #FFF;
+            transition: all 0.3s ease;
+            fill:   #333;
+        }
+
+        .swiper-program-prev:hover,
+        .swiper-program-next:hover {
+            background: #FDD554;
+            border-color: #FDD554;
+        }
+
+        .swiper-program-prev svg,
+        .swiper-program-next svg {
+            width: 24px;
+            height: 24px;
+            fill
+        }
+
+        /* 禁用状态 */
+        .swiper-program-prev.swiper-button-disabled,
+        .swiper-program-next.swiper-button-disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            border: 1px solid rgba(26, 26, 26, 0.40);
+        }
+
+        .swiper-program-prev.swiper-button-disabled:hover,
+        .swiper-program-next.swiper-button-disabled:hover {
+            background: #FFF;
+        }
+
+        /* 禁用状态 */
+    .swiper-program-prev.swiper-button-disabled,
+    .swiper-program-next.swiper-button-disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        border: 1px solid rgba(26, 26, 26, 0.40);
+        background: #FFF;
+    }
+
+    /* 禁用状态下 SVG 颜色 */
+    .swiper-program-prev.swiper-button-disabled svg path,
+    .swiper-program-next.swiper-button-disabled svg path {
+        fill: rgba(26, 26, 26, 0.40);
+    }
+
+    /* 禁用状态下 hover 无效果 */
+    .swiper-program-prev.swiper-button-disabled:hover,
+    .swiper-program-next.swiper-button-disabled:hover {
+        background: #FFF;
+        border-color: rgba(26, 26, 26, 0.40);
+    }
+
+    .swiper-program-prev.swiper-button-disabled:hover svg path,
+    .swiper-program-next.swiper-button-disabled:hover svg path {
+        fill: rgba(26, 26, 26, 0.40);
+    }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .our-story-card {
+                padding: 40px 20px;
+                flex-direction: column;
+            }
+
+            .our-story-card-content {
+                width: 100%;
+            }
+
+            .our-story-card-img {
+                width: 100%;
+                margin-top: 24px;
+            }
+
+            .our-story-card-content-title p {
+                font-size: 32px;
+            }
+
+            .our-story-card-content-tag p {
+                font-size: 18px;
+            }
+        }
+</style>
+
+<div
+    class='our-story-container'
+    style='
+        {% if section.settings.bg_img != blank %}
+            background-image: url({{section.settings.bg_img | image_url: width: 1920 }});
+            background-size: cover;
+            background-position: left bottom;
+            background-repeat: no-repeat;
+        {% endif %}
+    '
+>
+    <div class='container'>
+        <div class='our-story-content'>
+            <div class='swiper-father'>
+                <div class='swiper swiper-all_program'>
+                    <!-- 背景图片单独一层 -->
+
+                    <div class='swiper-wrapper'>
+                        {% for block in section.blocks %}
+                            <div
+                                class='swiper-slide our-story-card'
+                                role='group'
+                            >
+                                <div class='our-story-card-content'>
+                                    <div class='our-story-card-content-main'>
+                                        <div class='our-story-card-content-top'>
+                                            {% if block.settings.block_tag != blank %}
+                                                <a
+                                                    href='{{ block.settings.link }}'
+                                                    class='our-story-card-content-tag'
+                                                >
+                                                    {{ block.settings.block_tag }}
+                                                </a>
+                                            {% endif %}
+                                            {% if block.settings.block_title != blank %}
+                                                <div class='our-story-card-content-title'>{{ block.settings.block_title }}</div>
+                                            {% endif %}
+                                        </div>
+                                        {% if block.settings.block_text != blank %}
+                                            <div class='our-story-card-content-text'>{{ block.settings.block_text }}</div>
+                                        {% endif %}
+                                        <!-- 每个 slide 内部都有按钮 -->
+                                        <div class='our-story-navigation-buttons'>
+                                            <div class='swiper-program-prev'>
+                                                <svg
+                                                    width='11'
+                                                    height='24'
+                                                    viewBox='0 0 11 24'
+                                                    fill='none'
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                >
+                                                    <path d="M8.6423 19.5C8.53925 19.5012 8.43708 19.4818 8.34236 19.4431C8.24764 19.4043 8.16246 19.3471 8.0923 19.275L1.02087 12.525C0.706585 12.225 0.706585 11.76 1.02087 11.46L8.0923 4.725C8.40659 4.425 8.89373 4.425 9.20801 4.725C9.5223 5.025 9.5223 5.49 9.20801 5.79L2.68658 12L9.20801 18.225C9.5223 18.525 9.5223 18.99 9.20801 19.29C9.05087 19.44 8.84659 19.515 8.65801 19.515L8.6423 19.5Z" fill="#333"/>
+                                                </svg>
+                                            </div>
+                                            <div class='swiper-program-next'>
+                                                <svg
+                                                    width='11'
+                                                    height='24'
+                                                    viewBox='0 0 11 24'
+                                                    fill='none'
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                >
+                                                    <path d="M2.35672 4.5C2.45977 4.4988 2.56194 4.5182 2.65666 4.55695C2.75139 4.5957 2.83657 4.65294 2.90672 4.725L9.97815 11.475C10.2924 11.775 10.2924 12.24 9.97815 12.54L2.90672 19.275C2.59244 19.575 2.1053 19.575 1.79101 19.275C1.47672 18.975 1.47672 18.51 1.79101 18.21L8.31244 12L1.79101 5.775C1.47672 5.475 1.47672 5.01 1.79101 4.71C1.94815 4.56 2.15244 4.485 2.34101 4.485L2.35672 4.5Z" fill="#333333"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='our-story-card-img'>
+                                    {% if block.settings.image != blank %}
+                                        {% render 'section-img', img: block.settings.image, width: 1000, loading: 'lazy', class: '' %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sectionId = 'shopify-section-{{section.id}}';
+
+        var swipertext = new Swiper(`#${sectionId} .swiper-all_program`, {
+            observer: true,
+            observeParents: true,
+            speed: 800,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            breakpoints: {
+                300: { slidesPerView: 1 },
+                1280: { slidesPerView: 1 },
+            },
+
+            on: {
+                init: function () {
+                    bindCustomNavigation(this);
+                    updateButtonsDisabledState(this);
+                },
+                slideChange: function () {
+                    bindCustomNavigation(this);
+                    updateButtonsDisabledState(this);
+                },
+            },
+        });
+
+        function bindCustomNavigation(swiper) {
+            const activeSlide = swiper.slides[swiper.activeIndex];
+            const prevBtn = activeSlide.querySelector('.swiper-program-prev');
+            const nextBtn = activeSlide.querySelector('.swiper-program-next');
+
+            if (!prevBtn || !nextBtn) return;
+
+            // 移除旧的事件监听（克隆替换方式）
+            const newPrevBtn = prevBtn.cloneNode(true);
+            const newNextBtn = nextBtn.cloneNode(true);
+
+            prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+            nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+
+            // 绑定新的事件
+            newPrevBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (!swiper.isBeginning) {
+                    swiper.slidePrev();
+                }
+            });
+
+            newNextBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (!swiper.isEnd) {
+                    swiper.slideNext();
+                }
+            });
+        }
+
+        function updateButtonsDisabledState(swiper) {
+            const activeSlide = swiper.slides[swiper.activeIndex];
+            const prevBtn = activeSlide.querySelector('.swiper-program-prev');
+            const nextBtn = activeSlide.querySelector('.swiper-program-next');
+
+            if (!prevBtn || !nextBtn) return;
+
+            // 更新上一个按钮的禁用状态
+            if (swiper.isBeginning) {
+                prevBtn.classList.add('swiper-button-disabled');
+            } else {
+                prevBtn.classList.remove('swiper-button-disabled');
+            }
+
+            // 更新下一个按钮的禁用状态
+            if (swiper.isEnd) {
+                nextBtn.classList.add('swiper-button-disabled');
+            } else {
+                nextBtn.classList.remove('swiper-button-disabled');
+            }
+        }
+    });
+</script>
+
+{% schema %}
+{
+    "name": "our story",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "bg_img",
+            "label": "Background Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "block_bg",
+            "label": "Card Background Image"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "product_item",
+            "name": "product item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_tag",
+                    "label": "Block Tag"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_title",
+                    "label": "Block Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_text",
+                    "label": "Block Text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "our story"
+        }
+    ]
+}
+{% endschema %}

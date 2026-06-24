@@ -1,0 +1,374 @@
+{%- render 'section-spacing', section: section -%}
+
+{{- 'blog.css' | asset_url | stylesheet_tag -}}
+{{- 'page-header.css' | asset_url | stylesheet_tag -}}
+{{ 'template-header.css' | asset_url | stylesheet_tag }}
+{%- liquid
+    assign heading = section.settings.heading
+    assign show_category_list = section.settings.show_category_list
+    assign recommend_title = section.settings.recommend_title
+    assign activity_title = section.settings.activity_title
+
+    assign blog_layout = section.settings.blog_layout
+    assign show_date = section.settings.show_date
+    assign show_excerpt = section.settings.show_excerpt
+    assign image_ratio = section.settings.image_ratio
+    assign show_read_more = section.settings.show_read_more
+
+    case blog_layout
+        when 'style1'
+            assign per_page = 6
+        when 'style2'
+            assign per_page = 9
+        when 'style3'
+            assign per_page = 8
+        when 'style4'
+            assign per_page = 10
+    endcase
+-%}
+
+<div class='main-blog-container container'>
+    {% comment %} left slide {% endcomment %}
+    <div class='blog-slide'>
+        <div class=''>
+            <div class=''>
+                <div class=''>
+                    <form
+                        role='search'
+                        method='get'
+                        class='searchform'
+                        action='{{ routes.search_url }}'
+                    >
+                        <fieldset>
+                            <input
+                                type='hidden'
+                                name='type'
+                                value='article'
+                            >
+                            <input
+                                type='search'
+                                class='search-field'
+                                placeholder='{{ 'general.search' | t }}'
+                                value='{{ search.terms | replace: '*', '' }}'
+                                name='q'
+                                autocomplete='off'
+                            >
+                            <button
+                                type='submit'
+                                class='thb-search-submit'
+                            >
+                                {% render 'svg-icons' with 'search' %}
+                            </button>
+                        </fieldset>
+                    </form>
+
+                    {% if show_category_list %}
+                        {% if heading != blank %}
+                            <div class='main-blog-br'></div>
+                            <h4 class='my_body_text main-blog-title h2 main-blog-slide-titles'>{{ heading }}</h4>
+                        {% endif %}
+                        <div class='page-header--tags'>
+                            <scroll-shadow>
+                                <div class='blog-header__tags--inner'>
+                                    {%- liquid
+                                        assign all = ''
+                                        if template contains 'blog'
+                                            unless current_tags
+                                                assign all = 'active'
+                                            endunless
+                                        endif
+                                    -%}
+                                    <a
+                                        href='{{ blog.url | escape }}'
+                                        title='{{ 'blogs.blog.all' | t | escape }}'
+                                        class='{{ all }} blog_all_tags'
+                                    >
+                                        {{ 'blogs.blog.all' | t }}
+                                    </a>
+                                    {% for single_tag in blog.all_tags %}
+                                        {%- liquid
+                                            if current_tags contains single_tag
+                                                assign selected = 'active'
+                                            else
+                                                assign selected = ''
+                                            endif
+                                        -%}
+                                        <a
+                                            href='{{ blog.url | escape }}/tagged/{{ single_tag | handle }}'
+                                            class='{{ selected }}'
+                                        >
+                                            {{ single_tag }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </scroll-shadow>
+                        </div>
+                    {% endif %}
+                    {% if section.settings.show_recommend != blank %}
+                        <div class='page-header--line'></div>
+
+                        <div class='recommend-container'>
+                            {% if recommend_title != blank %}
+                                <h4 class='my_body_text recommend-title h2 main-blog-slide-titles'>{{ recommend_title }}</h4>
+                            {% endif %}
+                            {% if section.settings.product_list != blank %}
+                                <div
+                                    class='recommend-cards'
+                                >
+                                    {% for product in section.settings.product_list %}
+                                        <div
+                                            class='product-card-wrap'
+                                            data-product-id='{{ product.id }}'
+                                            data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+                                            data-product-price='{{ product.selected_or_first_available_variant.price }}'
+                                            data-product-image='{{ product.featured_image | img_url: "400x400" }}'
+                                            data-product-title='{{ product.title | escape }}'
+                                        >
+                                            {%- render 'product-card-new2', product_card_product: product -%}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if section.settings.show_activity != blank %}
+                        <div class='page-header--line'></div>
+
+                        <div class='activity-container'>
+                            {% if activity_title != blank %}
+                                <h4 class='my_body_text activity-title h2 main-blog-slide-titles'>{{ activity_title }}</h4>
+                            {% endif %}
+                            {% if section.settings.activity_img != blank %}
+                                {% if section.settings.activity_url != blank %}
+                                    <a
+                                        href='{{ section.settings.activity_url }}'
+                                        class='activity-content block overflow-hidden rounded-[15px]'
+                                    >
+                                        {% render 'section-img', img: section.settings.activity_img, width: 750, loading: 'lazy', class: '' %}
+                                    </a>
+                                {%- else -%}
+                                    <div
+                                        class='activity-content block overflow-hidden rounded-[15px]'
+                                    >
+                                        {% render 'section-img', img: section.settings.activity_img, width: 750, loading: 'lazy', class: '' %}
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} right posts {% endcomment %}
+    <div class='main-blog'>
+        {%- paginate blog.articles by per_page -%}
+            <div class='section-spacing-bottom'>
+                <div class='no-padding'>
+                    <div class='small-12'>
+                        <div class='row articles'>
+                            {%- for article in blog.articles -%}
+                                {%- liquid
+                                    case blog_layout
+                                            assign grid_item_width = ''
+                                        when 'style1'
+                                            assign grid_item_width = 'small-12 medium-6'
+                                        when 'style2'
+                                            assign grid_item_width = 'small-12 medium-4'
+                                        when 'style3'
+                                            assign class_1 = 'small-12 medium-4'
+                                            assign class_2 = 'small-12 medium-6'
+                                            capture grid_item_width
+                                                cycle class_1, class_1, class_1, class_2, class_2, class_1, class_1, class_1
+                                            endcapture
+                                        when 'style4'
+                                            assign class_1 = 'small-12 medium-4'
+                                            assign class_3 = 'small-12 medium-8'
+                                            capture grid_item_width
+                                                cycle class_3, class_1, class_1, class_1, class_1, class_1, class_3, class_1, class_1, class_1
+                                            endcapture
+                                    endcase
+
+                                    assign tag_bgc = article.metafields.custom.tag_background
+                                    assign bg_color = tag_bgc | default: 'var(--solid-button-background)'
+                                    assign text_color = 'var(--solid-button-label)'
+                                    if tag_bgc != blank
+                                        assign text_color = '#FFFFFF'
+                                    endif
+                                -%}
+                                <div class='{{ grid_item_width }} main-blog-post-card'>
+                                    {% if article.tags != blank %}
+                                        <div
+                                            class='blog-post-tag'
+                                            style='background: {{ bg_color }}; color: {{ text_color }};'
+                                        >
+                                            {{ article.tags.first }}
+                                        </div>
+                                    {% endif %}
+                                    {% render 'blog-post',
+                                        article: article,
+                                        show_date: show_date,
+                                        show_excerpt: show_excerpt,
+                                        image_ratio: image_ratio,
+                                        show_read_more: show_read_more
+                                    %}
+                                </div>
+                            {%- endfor -%}
+                        </div>
+                        <div class='mt-[52px] text-center'>
+                            {%- render 'pagination', paginate: paginate, pagination_type: 'paginated' -%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {%- endpaginate -%}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Blog",
+    "class": "blog-section css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "heading",
+            "label": "Heading"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_recommend",
+            "label": "Show Recommend",
+            "default": true
+        },
+        {
+            "type": "richtext",
+            "id": "recommend_title",
+            "label": "Recommend Title"
+        },
+        {
+            "type": "product_list",
+            "id": "product_list",
+            "label": "Product List"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_activity",
+            "label": "Show Activity",
+            "default": true
+        },
+        {
+            "type": "richtext",
+            "id": "activity_title",
+            "label": "Activity Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "activity_img",
+            "label": "activity Image"
+        },
+        {
+            "type": "url",
+            "id": "activity_url",
+            "label": "Activity Url"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_category_list",
+            "default": true,
+            "label": "Show category list"
+        },
+        {
+            "type": "select",
+            "id": "blog_layout",
+            "label": "Layout",
+            "default": "style3",
+            "options": [
+                { "value": "style1", "label": "2 columns" },
+                { "value": "style2", "label": "3 columns" },
+                { "value": "style3", "label": "3 - 2 - 3 columns" },
+                { "value": "style4", "label": "2 - 3 - 2 columns" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "image_ratio",
+            "options": [
+                {
+                    "value": "adapt",
+                    "label": "Adapt to image"
+                },
+                {
+                    "value": "portrait",
+                    "label": "Portrait"
+                },
+                {
+                    "value": "square",
+                    "label": "Square"
+                },
+                {
+                    "value": "landscape",
+                    "label": "Landscape"
+                }
+            ],
+            "default": "landscape",
+            "label": "Image ratio"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_date",
+            "default": true,
+            "label": "Show date"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_excerpt",
+            "default": true,
+            "label": "Show excerpt"
+        },
+        {
+            "type": "paragraph",
+            "content": "Change excerpts by editing your blog posts. [Learn more](https://help.shopify.com/en/manual/online-store/blogs/writing-blogs#display-an-excerpt-from-a-blog-post)"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_read_more",
+            "default": true,
+            "label": "Show read more"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ]
+}
+{% endschema %}

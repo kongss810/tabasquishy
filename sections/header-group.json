@@ -1,0 +1,169 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "text_yWDE6F": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "plane",
+            "text": "📦 Due to the Chinese New Year holiday, our warehouse will pause shipping from Feb 15, 2026, 8:00 AM – Feb 22, 2026, 7:59 AM (PT). Orders placed during this period will be fulfilled after we resume.",
+            "link": "",
+            "color_bg": "#3f72e5",
+            "color_text": "#ffffff"
+          }
+        },
+        "955bb93b-7a65-4933-8023-83a64ee46bc2": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "text": "Free shipping for orders over $59 USD",
+            "link": "shopify://pages/shipping-policy",
+            "color_bg": "#ffea6f",
+            "color_text": "#ffea6f"
+          }
+        },
+        "acca6658-bd49-4cc7-be9a-c02394ef4917": {
+          "type": "text",
+          "settings": {
+            "icon": "price_tag",
+            "text": "Use the code TABASQUISHY8 to enjoy 8% off your first order!",
+            "link": "",
+            "color_bg": "#3f72e5",
+            "color_text": "#ffffff"
+          }
+        },
+        "text_6bTxqL": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "Win Cute Squishies – Join the Giveaway!",
+            "link": "https://tabasquishy.com/pages/giveaway-cute-squishies",
+            "color_bg": "#3f72e5",
+            "color_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "text_yWDE6F",
+        "955bb93b-7a65-4933-8023-83a64ee46bc2",
+        "acca6658-bd49-4cc7-be9a-c02394ef4917",
+        "text_6bTxqL"
+      ],
+      "settings": {
+        "announcement_bar": true,
+        "announcement_bar_homepage_only": false,
+        "announcement_bar_layout": "carousel",
+        "direction": "left",
+        "speed": "20s",
+        "use_block_colors": false,
+        "autoplay": false,
+        "autoplay_length": 6
+      }
+    },
+    "header-secondary-menu": {
+      "type": "header-secondary-menu",
+      "disabled": true,
+      "settings": {
+        "secondary_menu": "",
+        "show_language_switcher": false,
+        "show_currency_switcher": true,
+        "show_social_media": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "menu_badge_k4AEV4": {
+          "type": "menu_badge",
+          "settings": {
+            "badge_position": "2",
+            "special_icon": "shopify://shop_images/Frame_2147241630.png",
+            "text": "",
+            "color_bg": "#d3ece2",
+            "color_text": "#272422"
+          }
+        },
+        "megamenu_BTkDFJ": {
+          "type": "megamenu",
+          "settings": {
+            "position": "6",
+            "promo_1_image": "shopify://shop_images/9a83aef2715fdae14c44be5235352b31.jpg",
+            "promo_1_heading": "TABASQUISHY® Blind Box Bundle",
+            "promo_1_content": "Around the table, excitement grows as each TABASQUISHY® BLIND BOX is opened. Surprises are revealed, laughter echoes, and simple moments turn into cherished memories.",
+            "promo_1_button": "EXPLORE",
+            "promo_1_link": "shopify://collections/tabasquishy®-blind-box-bundle-a-perfect-set-of-12-blind-boxes-for-endless-surprises-and-fun",
+            "promo_2_image": "shopify://shop_images/tabasquishy_diy_1_1.jpg",
+            "promo_2_heading": "TABASQUISHY® DIY MOLD SET",
+            "promo_2_content": "The TABASQUISHY® DIY Mold Set Collection lets you design and craft your very own squishies — each one as soft, unique, and expressive as you are.",
+            "promo_2_button": "EXPLORE",
+            "promo_2_link": "shopify://collections/tabasquishy™-diy-mold-set-create-your-own-squishy-magic"
+          }
+        },
+        "megamenu_8NP6Mp": {
+          "type": "megamenu",
+          "settings": {
+            "position": "7",
+            "promo_1_image": "shopify://shop_images/9a83aef2715fdae14c44be5235352b31.jpg",
+            "promo_1_heading": "TABASQUISHY® Blind Box Bundle",
+            "promo_1_content": "Around the table, excitement grows as each TABASQUISHY® BLIND BOX is opened. Surprises are revealed, laughter echoes, and simple moments turn into cherished memories.",
+            "promo_1_button": "EXPLORE",
+            "promo_1_link": "shopify://collections/tabasquishy®-blind-box-bundle-a-perfect-set-of-12-blind-boxes-for-endless-surprises-and-fun",
+            "promo_2_image": "shopify://shop_images/tabasquishy_diy_1_1.jpg",
+            "promo_2_heading": "TABASQUISHY® DIY MOLD SET",
+            "promo_2_content": "The TABASQUISHY® DIY Mold Set Collection lets you design and craft your very own squishies — each one as soft, unique, and expressive as you are.",
+            "promo_2_button": "EXPLORE",
+            "promo_2_link": "shopify://collections/tabasquishy™-diy-mold-set-create-your-own-squishy-magic"
+          }
+        }
+      },
+      "block_order": [
+        "menu_badge_k4AEV4",
+        "megamenu_BTkDFJ",
+        "megamenu_8NP6Mp"
+      ],
+      "settings": {
+        "sticky_header": true,
+        "logo": "shopify://shop_images/image_1_1.png",
+        "logo_height_range": 85,
+        "logo_height_range_mobile": 80,
+        "style": "style6",
+        "header_shadow": "header--shadow-small",
+        "menu": "main-menu-1",
+        "transparent_header": false,
+        "mobile_secondary_menu": "",
+        "show_social_links": true,
+        "show_language_switcher": false,
+        "show_currency_switcher": true
+      }
+    },
+    "header-mobile-navigation": {
+      "type": "header-mobile-navigation",
+      "disabled": true,
+      "settings": {
+        "mobile_nav": "main-menu",
+        "color_links": "#d6d8d9",
+        "color_bg": "#787c80"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header-secondary-menu",
+    "header",
+    "header-mobile-navigation"
+  ]
+}

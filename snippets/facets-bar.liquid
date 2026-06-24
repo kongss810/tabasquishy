@@ -1,0 +1,131 @@
+{%- liquid
+  assign sort_by = results.sort_by | default: results.default_sort_by
+  if results.url
+    assign results_url = results.url
+  else
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  endif
+-%}
+<facet-filters-form class="mb-[52px] facets--bar{% if facets_desktop == 'sidebar' %} facets--bar-inline{% endif %}">
+	<form id="FacetFiltersForm-bar" class="facets__form">
+		{%- if results.terms -%}
+			<input type="hidden" name="q" value="{{ results.terms | escape }}">
+			<input name="options[prefix]" type="hidden" value="last">
+		{%- endif -%}
+		{%- if results.current_vendor or results.current_type -%}
+			<input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
+		{%- endif -%}
+		{%- for filter in results.filters -%}
+			{%- if filter.param_name == 'filter.v.availability' and filter.values[0].active -%}
+				<input type="hidden"
+					name="{{ filter.values[0].param_name }}"
+					value="1"
+				>
+			{%- else -%}
+				{%- case filter.type -%}
+					{% when 'boolean' or 'list' %}
+						{%- for value in filter.values -%}
+							{%- if value.active -%}
+								<input type="hidden"
+									name="{{ value.param_name }}"
+									value="{{ value.value }}"
+								>
+							{%- endif -%}
+						{%- endfor -%}
+					{% when 'price_range' %}
+						{%- liquid
+							assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,UYU,VES,VND' | split: ','
+							assign uses_comma_decimals = false
+							if currencies_using_comma_decimals contains cart.currency.iso_code
+								assign uses_comma_decimals = true
+							endif
+						-%}
+						{%- if filter.min_value.value -%}
+							<input type="hidden"
+								name="{{ filter.min_value.param_name }}"
+								{%- if uses_comma_decimals -%}
+									value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+								{%- else -%}
+									value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+								{%- endif %}
+							/>
+						{%- endif -%}
+						{%- if filter.max_value.value -%}
+							<input type="hidden"
+								name="{{ filter.max_value.param_name }}"
+								{%- if uses_comma_decimals -%}
+									value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+								{%- else -%}
+									value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+								{%- endif %}
+							/>
+						{%- endif -%}
+				{%- endcase -%}
+			{%- endif -%}
+		{% endfor %}
+		<div>
+			{%- if enable_filtering -%}
+			<a href="#SideFilters" class="facets-toggle" id="Facets-Toggle">{% render 'svg-icons' with 'thb-filter' %} {{ 'products.facets.filter_and_sort' | t }}</a>
+			{%- endif -%}
+		</div>
+
+		<div class="thb-filter-sort-count">
+			<div class="thb-filter-count" id="ProductCount">
+				<span class="facets__label text-[16px] leading-[150%] font-[400]">
+					{%- if results.results_count -%}
+						Show {{ 'search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+					{%- elsif results.products_count == results.all_products_count -%}
+						Show {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
+					{%- else -%}
+						Show {{ 'products.facets.product_count' | t: product_count: results.products_count, count: results.all_products_count }}
+					{%- endif -%}
+				</span>
+				<span class="loading-overlay">
+					{% render 'svg-icons' with 'thb-loading' %}
+				</span>
+			</div>
+
+			{%- if enable_sorting -%}
+				<div class="thb-filter-sort">
+					<span class="text-[16px] leading-[150%] font-[400] mr-[16px]">Sort by</span>
+					<custom-select class="custom-select" data-auto-close="true">
+						{%- liquid
+							assign sort_by = results.sort_by | default: results.default_sort_by
+							for option in results.sort_options
+								if option.value == sort_by
+									assign sort_by_name = option.name
+								endif
+							endfor
+						-%}
+						<button class="custom-select--button border border-solid border-[rgba(26,26,26,0.20)] rounded-[999px] px-[24px] py-[11px] min-w-[222px] flex items-center justify-between gap-[40px]">
+							<span class="custom-select--text text-[16px] leading-[150%] font-[500]">{{ sort_by_name }}</span> 
+							<span class="custom-select--arrow">
+								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+									<path d="M5.65375 6.7075L0 1.05375L1.05375 0L5.65375 4.6L10.2537 0L11.3075 1.05375L5.65375 6.7075Z" fill="#333333"/>
+								</svg>
+							</span>
+						</button>
+						<div class="custom-select--list text-[16px] leading-[150%] font-[400] w-[100%]">
+							<scroll-shadow>
+								<ul>
+									{%- for option in results.sort_options -%}
+				            <li class="custom-select--item" tabindex="-1">
+				              <button class="{% if option.value == sort_by %}custom-select--item-active{% endif %}" {% if option.value == sort_by %} aria-current="true"{% endif %} data-value="{{ option.value | escape }}">
+												{{ option.name | escape }}
+				              </button>
+				            </li>
+				          {%- endfor -%}
+								</ul>
+							</scroll-shadow>
+						</div>
+						<input type="hidden" id="SortBy" name="sort_by" value="{{ results.default_sort_by }}">
+					</custom-select>
+				</div>
+			{%- endif -%}
+		</div>
+	</form>
+	{%- if enable_filtering -%}
+	{% render 'facets-active', results: results, results_url: results_url, filter_color_swatches: filter_color_swatches %}
+	{%- endif -%}
+</facet-filters-form>

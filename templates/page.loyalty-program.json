@@ -1,0 +1,707 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_k6836R": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_qdNGyB": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_loyalty_program_page.png",
+            "mobile_image": "shopify://shop_images/tabasquishy_loyalty_program_page.png",
+            "slide_link": "shopify://pages/tabasquishy™-mid-year-sale-buy-3-get-1-free-20-off",
+            "video_background": false,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_qdNGyB"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_prWwwn": {
+      "type": "rich-text",
+      "blocks": {
+        "image_UcEWni": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy-loyalty-banner.png"
+          }
+        },
+        "heading_7PMbYB": {
+          "type": "heading",
+          "settings": {
+            "text": "TABA|SQUISHY®| Loyalty Program",
+            "marker_style": "style1",
+            "size": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_aaazGz": {
+          "type": "text",
+          "settings": {
+            "text": "<h4><strong>SOFT POWER</strong></h4>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "image_UcEWni",
+        "heading_7PMbYB",
+        "text_aaazGz"
+      ],
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "1776850961357b6083": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_d488199_FjMCX7": {
+          "type": "ai_gen_block_d488199",
+          "settings": {
+            "text": "GET TABA COIN NOW",
+            "text_size": 90,
+            "font_weight": "900",
+            "text_alignment": "center",
+            "fill_image": "shopify://shop_images/tabasquishy_IP_Spring_banner.jpg",
+            "fallback_color": "#2c2d2e",
+            "desktop_width_percent": 100,
+            "padding": 40,
+            "background_color": "#fff7ec"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_d488199_FjMCX7"
+      ],
+      "settings": {}
+    },
+    "rich_text_Xj7QBY": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_CPwYAY": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY® VIP CLUB"
+          }
+        },
+        "heading_EGxpCx": {
+          "type": "heading",
+          "settings": {
+            "text": "TABA Rewards, now better than ever",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_XfVjdX": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Our upgraded loyalty program gives you more ways to earn, clearer ways to redeem, and even more exclusive perks to unlock as you grow with us.</p><p>You can now earn rewards through shopping, reviews, referrals, and VIP milestones — all while enjoying a simpler and more valuable rewards experience.</p><p>Because being part of the TABA community should feel rewarding from day one.</p><ul><li><h4><strong>Earn TABA Coins your way</strong></h4></li></ul><p>Collect TABA Coins through shopping, celebrating, sharing, and writing product reviews. Every interaction brings you closer to your next reward.</p><p><strong>Now including: Write a product review +100 TABA Coins</strong></p><ul><li><h4><strong>Redeeming your rewards is now easier than ever</strong></h4></li></ul><p>We’ve simplified our rewards so you can choose the option that works best for you.</p><p><strong>Choose how to redeem</strong></p><ul><li><strong>100 TABA Coins = $1 off</strong></li><li><strong>1000 TABA Coins = 15% off coupon</strong></li></ul><p></p><ul><li><h4><strong>Share the love, get rewarded</strong></h4></li></ul><p>Invite your friends to discover TABASQUISHY and enjoy rewards together.</p><p><strong>Give 15% off, get 15% off</strong><br/>When your friend shops with your referral link, they’ll get <strong>15% off</strong> — and you’ll get <strong>15% off too</strong>.</p><ul><li><h4><strong>Unlock more as you level up</strong></h4></li></ul><p>Our VIP program is designed to reward your loyalty with bonus rewards, early access, exclusive previews, and members-only perks.</p><p>The more you grow with us, the more you unlock.</p><p><strong>Bronze</strong><br/><br/>A rewarding start with bonus Coins, early access, and members-only restock alerts.</p><p><strong>Entry reward</strong></p><ul><li>20 TABA Coins</li></ul><p><strong>Perks</strong></p><ul><li>Early access to selected launches</li><li>Members-only restock alerts</li></ul><p><strong>Silver</strong><br/><br/>Unlock bigger rewards, a gift card, a 15% off coupon, and even earlier access to what’s next.</p><p><strong>Entry rewards</strong></p><ul><li>200 TABA Coins</li><li>$5 gift card</li><li>15% off coupon</li></ul><p><strong>Perks</strong></p><ul><li>24-hour early access to new drops</li><li>Priority customer support</li><li>Exclusive VIP-only previews</li></ul><p><strong>Gold</strong><br/><br/>Bigger rewards, deeper access, and exclusive surprises for our most loyal members.</p><p><strong>Entry rewards</strong></p><ul><li>500 TABA Coins</li><li>18% off coupon</li><li>Two $10 gift cards</li></ul><p><strong>Perks</strong></p><ul><li>Earliest access to limited editions</li><li>VIP-exclusive surprise offers</li><li>Priority restock access</li><li>Birthday month special gift access</li></ul>",
+            "size": "text-size-regular"
+          }
+        },
+        "heading_JFrdV6": {
+          "type": "heading",
+          "settings": {
+            "text": "Earn TABA Coins your way",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_yr8mBt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Collect TABA Coins through shopping, celebrating, sharing, and writing product reviews. Every interaction brings you closer to your next reward.</p><p><strong>Now including: Write a product review +100 TABA Coins</strong></p>",
+            "size": "text-size-regular"
+          }
+        },
+        "heading_nf36Vm": {
+          "type": "heading",
+          "settings": {
+            "text": "Redeeming your rewards is now easier than ever",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_JB7W88": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We’ve simplified our rewards so you can choose the option that works best for you.</p><p><strong>Choose how to redeem</strong></p><ul><li><strong>100 TABA Coins = $1 off</strong></li><li><strong>1000 TABA Coins = 15% off coupon</strong></li></ul>",
+            "size": "text-size-regular"
+          }
+        },
+        "heading_zrmHyw": {
+          "type": "heading",
+          "settings": {
+            "text": "Share the love, get rewarded",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_FNUd4i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Invite your friends to discover TABASQUISHY and enjoy rewards together.</p><p><strong>Give 15% off, get 15% off</strong><br/>When your friend shops with your referral link, they’ll get <strong>15% off</strong> — and you’ll get <strong>15% off too</strong>.</p>",
+            "size": "text-size-regular"
+          }
+        },
+        "heading_QKeiqR": {
+          "type": "heading",
+          "settings": {
+            "text": "Unlock more as you level up",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_hV88Ty": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our VIP program is designed to reward your loyalty with bonus rewards, early access, exclusive previews, and members-only perks.</p><p>The more you grow with us, the more you unlock.</p><p><strong>👑 Bronze</strong><br/><br/>A rewarding start with bonus Coins, early access, and members-only restock alerts.</p><p><strong>Entry reward</strong></p><ul><li>20 TABA Coins</li></ul><p><strong>Perks</strong></p><ul><li>Early access to selected launches</li><li>Members-only restock alerts</li></ul><p><strong>👑 Silver</strong><br/><br/>Unlock bigger rewards, a gift card, a 15% off coupon, and even earlier access to what’s next.</p><p><strong>Entry rewards</strong></p><ul><li>200 TABA Coins</li><li>$5 gift card</li><li>15% off coupon</li></ul><p><strong>Perks</strong></p><ul><li>24-hour early access to new drops</li><li>Priority customer support</li><li>Exclusive VIP-only previews</li></ul><p><strong>👑 Gold</strong><br/><br/>Bigger rewards, deeper access, and exclusive surprises for our most loyal members.</p><p><strong>Entry rewards</strong></p><ul><li>500 TABA Coins</li><li>18% off coupon</li><li>Two $10 gift cards</li></ul><p><strong>Perks</strong></p><ul><li>Earliest access to limited editions</li><li>VIP-exclusive surprise offers</li><li>Priority restock access</li><li>Birthday month special gift access</li></ul>",
+            "size": "text-size-regular"
+          }
+        },
+        "subheading_t3WApP": {
+          "type": "subheading",
+          "settings": {
+            "text": "Can guest customers earn TABA Coins?"
+          }
+        },
+        "subheading_XYntTt": {
+          "type": "subheading",
+          "settings": {
+            "text": "Yes. Even if you check out as a guest, you can still earn TABA Coins and participate in parts of our loyalty program.Here’s how it works:Your loyalty activity is recorded based on the email address used at checkout.If you later create an account using the same email address, your eligible TABA Coins and loyalty activity can be recognized and made available in your account.If you sign up with a different email address, the system may not recognize those past guest orders as belonging to the same customer, so your previous points or loyalty activity may not appear automatically.Please note that you’ll need to create or activate an account in order to access, redeem, and use your rewards."
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CPwYAY",
+        "heading_EGxpCx",
+        "text_XfVjdX",
+        "heading_JFrdV6",
+        "text_yr8mBt",
+        "heading_nf36Vm",
+        "text_JB7W88",
+        "heading_zrmHyw",
+        "text_FNUd4i",
+        "heading_QKeiqR",
+        "text_hV88Ty",
+        "subheading_t3WApP",
+        "subheading_XYntTt"
+      ],
+      "settings": {
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1742888611a5c7c6af": {
+      "type": "apps",
+      "blocks": {
+        "smile_io_smile_landing_page_earning_rule_highlight_dpxPyA": {
+          "type": "shopify://apps/smile-io/blocks/smile-landing-page-earning-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#333333",
+            "secondary_colour": "#f5f5f5",
+            "image": "shopify://shop_images/tabasquishy_SPRING_banner.jpg",
+            "title_text": "Earn TABA Coins for every order placed",
+            "description_text": "The more you spend, the more you save.",
+            "button_text": "Ways to earn"
+          }
+        },
+        "smile_io_smile_landing_page_redeeming_rule_highlight_RBVTpR": {
+          "type": "shopify://apps/smile-io/blocks/smile-landing-page-redeeming-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#333333",
+            "secondary_colour": "#f5f5f5",
+            "image": "shopify://shop_images/tabasquishy_banner_gummy.jpg",
+            "title_text": "Redeem TABA Coins for rewards",
+            "description_text": "Redeem TABA Coins on your next purchase, or save them up for higher value rewards.",
+            "button_text": "Ways to redeem"
+          }
+        },
+        "smile_io_smile_landing_page_how_it_works_jL8gYj": {
+          "type": "shopify://apps/smile-io/blocks/smile-landing-page-how-it-works/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#333333",
+            "secondary_colour": "#f5f5f5",
+            "title_text": "How it works",
+            "step1_heading_text": "Join",
+            "step1_description_text": "Sign up or login to start earning straight away.",
+            "step2_heading_text": "Earn",
+            "step2_description_text": "Earn TABA Coins for every dollar spent.",
+            "step3_heading_text": "Redeem",
+            "step3_description_text": "Redeem TABA Coins for discounts on your next purchase."
+          }
+        }
+      },
+      "block_order": [
+        "smile_io_smile_landing_page_earning_rule_highlight_dpxPyA",
+        "smile_io_smile_landing_page_redeeming_rule_highlight_RBVTpR",
+        "smile_io_smile_landing_page_how_it_works_jL8gYj"
+      ],
+      "settings": {}
+    },
+    "collapsible_content_XQ4hf8": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_XFLQBy": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is the TABA Loyalty Program?",
+            "open": true,
+            "content": "<p>The TABA Loyalty Program is our way of rewarding you for shopping, engaging, and growing with us.</p><p><br/></p><p>You can earn <strong>TABA Coins</strong> through eligible actions like placing orders, signing up, celebrating your birthday, following us, sharing with friends, and writing product reviews. You can then redeem your Coins for rewards and unlock even more perks through our VIP tiers.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_AxhG73": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How do I earn TABA Coins?",
+            "open": true,
+            "content": "<p>You can currently earn TABA Coins through the following actions:</p><ul><li><strong>Place an order</strong> — earn <strong>6 TABA Coins for every $1 spent</strong></li><li><strong>Sign up</strong> — earn <strong>150 TABA Coins</strong></li><li><strong>Celebrate a birthday</strong> — earn <strong>100 TABA Coins</strong></li><li><strong>Share on Facebook</strong> — earn <strong>50 TABA Coins</strong></li><li><strong>Follow on Instagram</strong> — earn <strong>25 TABA Coins</strong></li><li><strong>Write a product review</strong> — earn <strong>100 TABA Coins</strong></li></ul><p>Eligible actions may be updated from time to time as our loyalty program evolves.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_xtmLdn": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How do I redeem my TABA Coins?",
+            "open": true,
+            "content": "<p>You can currently redeem your TABA Coins in two ways:</p><ul><li><strong>100 TABA Coins = $1 off</strong></li><li><strong>1000 TABA Coins = 15% off coupon</strong></li></ul><p>To redeem:</p><ol><li>Log in to your account</li><li>Open the <strong>Rewards panel</strong></li><li>Choose the reward you want</li><li>Redeem your TABA Coins</li><li>Apply the reward code at checkout</li></ol>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_mhn67b": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Are TABA Coins applied automatically at checkout?",
+            "open": false,
+            "content": "<p>No. TABA Coins are <strong>not automatically deducted at checkout</strong>.</p><p>You’ll need to redeem your Coins in the <strong>Rewards panel</strong> first. Once redeemed, you’ll receive a reward or discount code that can be applied during checkout.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_XY94yK": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Can I use my TABA Coins directly like cash?",
+            "open": false,
+            "content": "<p>Not directly at checkout.</p><p>TABA Coins need to be <strong>converted into a reward first</strong> through the Rewards panel. Once you redeem them, you can use the reward code on your order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_eiayfj": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How do I check my TABA Coins balance?",
+            "open": false,
+            "content": "<p>You can check your balance by opening the <strong>TABA Coin</strong> entry at the bottom right corner of the page. Once inside, you’ll be able to see your <strong>TABA Coins balance</strong>, <strong>available rewards</strong>, and <strong>VIP status</strong>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_Mzrzqp": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Do TABA Coins expire?",
+            "open": false,
+            "content": "<p>Yes.</p><p>Customer points begin to expire after <strong>365 days</strong>. We recommend checking your balance regularly and redeeming your TABA Coins before they expire.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_VqxzxV": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Can I use multiple rewards at the same time?",
+            "open": false,
+            "content": "<p>This may depend on how discounts are applied at checkout and whether other promotions are active. In general, some rewards may not be combinable with other discounts or offers.</p><p>If you’re unsure whether a reward can be used with another promotion, please contact us before placing your order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_wbWRLN": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is the referral program?",
+            "open": false,
+            "content": "<p>Our referral program lets you share TABASQUISHY with friends and get rewarded when they shop.</p><h3><strong>Current referral offer:</strong></h3><ul><li><strong>Your friend gets 15% off</strong></li><li><strong>You get 15% off too</strong></li></ul><p>It’s our way of saying thanks for spreading the squishy love.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_UmRxbn": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How does the referral reward work?",
+            "open": false,
+            "content": "<p>When you share your referral link with a friend and they make a qualifying purchase, they’ll receive <strong>15% off</strong>, and you’ll receive your <strong>15% off reward</strong> too.</p><p>Make sure your friend uses your referral link correctly so the referral can be tracked.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_E39Ley": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What are VIP tiers?",
+            "open": false,
+            "content": "<p>Our VIP program rewards you as you continue shopping with us. The more TABA Coins you earn, the more exclusive rewards and perks you unlock.</p><h3><strong>VIP tiers:</strong></h3><ul><li><strong>Bronze</strong> — starts at <strong>0 TABA Coins</strong></li><li><strong>Silver</strong> — unlocks at <strong>1,000 TABA Coins</strong></li><li><strong>Gold</strong> — unlocks at <strong>2,500 TABA Coins</strong></li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_hcdtjr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What do I get when I enter a VIP tier?",
+            "open": false,
+            "content": "<p>Each VIP tier includes <strong>entry rewards</strong> and <strong>tier perks</strong>.</p><h3><strong>Bronze</strong></h3><p><strong>Entry reward</strong></p><ul><li>20 TABA Coins</li></ul><p><strong>Perks</strong></p><ul><li>Early access to selected launches</li><li>Members-only restock alerts</li></ul><h3><strong>Silver</strong></h3><p><strong>Entry rewards</strong></p><ul><li>200 TABA Coins</li><li>$5 gift card</li><li>15% off coupon</li></ul><p><strong>Perks</strong></p><ul><li>24-hour early access to new drops</li><li>Priority customer support</li><li>Exclusive VIP-only previews</li></ul><h3><strong>Gold</strong></h3><p><strong>Entry rewards</strong></p><ul><li>500 TABA Coins</li><li>18% off coupon</li><li>Two $10 gift cards</li></ul><p><strong>Perks</strong></p><ul><li>Earliest access to limited editions</li><li>VIP-exclusive surprise offers</li><li>Priority restock access</li><li>Birthday month special gift access</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_TFUVhb": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is the difference between entry rewards and tier perks?",
+            "open": false,
+            "content": "<p><strong>Entry rewards</strong> are one-time rewards you receive when you enter a new VIP tier.</p><p><strong>Tier perks</strong> are the ongoing benefits that come with being in that tier.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_CtBbpK": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Do I get VIP rewards every time I place an order?",
+            "open": false,
+            "content": "<p>Not exactly.</p><p>Your regular orders can help you earn TABA Coins, and earning more Coins can help you move up VIP tiers.<br/><br/>However, <strong>entry rewards</strong> are only awarded <strong>once when you enter a tier</strong>, not every time you place an order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_y4EMDB": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Can I earn TABA Coins from writing a review?",
+            "open": false,
+            "content": "<p>Yes.<br/><br/>You can earn <strong>100 TABA Coins</strong> for writing a product review.</p><p>This is a great way to earn extra Coins while helping other customers discover products they’ll love.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_3Krpny": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Can I transfer my TABA Coins to someone else?",
+            "open": false,
+            "content": "<p>TABA Coins are tied to your account and are generally not transferable.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_KxKat7": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What happens if I return or cancel an order?",
+            "open": false,
+            "content": "<p>If an order is canceled or refunded, any TABA Coins associated with that order may be adjusted accordingly.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_mFyRPh": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Why didn’t I receive my points or reward?",
+            "open": false,
+            "content": "<p>There could be a few reasons:</p><ul><li>You were not logged into your account</li><li>The qualifying action was not completed correctly</li><li>The reward has not yet been processed</li><li>The action is not eligible under the loyalty program rules</li><li>The referral or review was not tracked properly</li></ul><p>If something doesn’t look right, please contact us and we’ll be happy to help.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_9aY3ER": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Where do I manage my loyalty rewards?",
+            "open": false,
+            "content": "<p>You can manage your TABA Coins, rewards, and VIP progress through the <strong>Rewards panel</strong> in your account.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_AaefVU": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Who can I contact if I need help with my TABA Coins or rewards?",
+            "open": false,
+            "content": "<p>If you have any questions about your TABA Coins, referrals, VIP perks, or redeemed rewards, please contact our customer support team and we’ll be happy to help.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_XFLQBy",
+        "collapsible_tab_AxhG73",
+        "collapsible_tab_xtmLdn",
+        "collapsible_tab_mhn67b",
+        "collapsible_tab_XY94yK",
+        "collapsible_tab_eiayfj",
+        "collapsible_tab_Mzrzqp",
+        "collapsible_tab_VqxzxV",
+        "collapsible_tab_wbWRLN",
+        "collapsible_tab_UmRxbn",
+        "collapsible_tab_E39Ley",
+        "collapsible_tab_hcdtjr",
+        "collapsible_tab_TFUVhb",
+        "collapsible_tab_CtBbpK",
+        "collapsible_tab_y4EMDB",
+        "collapsible_tab_3Krpny",
+        "collapsible_tab_KxKat7",
+        "collapsible_tab_mFyRPh",
+        "collapsible_tab_9aY3ER",
+        "collapsible_tab_AaefVU"
+      ],
+      "name": "Collapsible content",
+      "settings": {
+        "heading": "Loyalty Program FAQ",
+        "marker_style": "style1",
+        "description": "<p>We’ve upgraded our loyalty program to make it easier to earn, easier to redeem, and more rewarding to come back for your next order.</p>",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_Qhzc9y": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_ypWaNp": {
+          "type": "subheading",
+          "settings": {
+            "text": "Loyalty Hub"
+          }
+        },
+        "heading_4c6Lqq": {
+          "type": "heading",
+          "settings": {
+            "text": "Check TABA Coins in Just a Few Steps",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#FD6262"
+          }
+        },
+        "text_4RrDNJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Log in to your account and open the Loyalty Hub or the TABACOIN pop-up to view your balance, rewards, and VIP status.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_ypWaNp",
+        "heading_4c6Lqq",
+        "text_4RrDNJ"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "transparent",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_L89UnB": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify://shop_images/1_bb71f466-bd96-4dc6-a303-305d8c70c158.png",
+        "full_width": false,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_fx6nHR": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify://shop_images/2_205e6556-e0f3-42e7-ae05-cb6684270496.png",
+        "full_width": false,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_y6NYwT": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify://shop_images/3_23566fd0-63ee-49d5-a350-402fb554a4ec.png",
+        "full_width": false,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_NbVDGB": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify://shop_images/4_35c23d74-f451-44ad-89fe-11cb388e4f77.png",
+        "full_width": false,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_collection_CjG8fD": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Hot Sales",
+        "marker_style": "style1",
+        "description": "<h6><strong>Share the happiness of squishy</strong></h6>",
+        "collection": "hot-sales",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_pAxQxg": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_pTDaVa": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_heX4Vi": {
+          "type": "heading",
+          "settings": {
+            "text": "Soft Power",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_LmUmEY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>TABASQUISHY® is here to bring joy and relaxation into your life. Our squishy toys are designed to melt stress away with every satisfying squeeze, helping you release negativity and rediscover happiness.<br/></p>",
+            "size": "text-size-regular"
+          }
+        },
+        "image_q3YmxL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/logo-removebg-preview.png"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_pTDaVa",
+        "heading_heX4Vi",
+        "text_LmUmEY",
+        "image_q3YmxL"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "slideshow_k6836R",
+    "rich_text_prWwwn",
+    "main",
+    "1776850961357b6083",
+    "rich_text_Xj7QBY",
+    "1742888611a5c7c6af",
+    "collapsible_content_XQ4hf8",
+    "rich_text_Qhzc9y",
+    "single_image_L89UnB",
+    "single_image_fx6nHR",
+    "single_image_y6NYwT",
+    "single_image_NbVDGB",
+    "featured_collection_CjG8fD",
+    "rich_text_pAxQxg"
+  ]
+}

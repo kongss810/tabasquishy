@@ -1,0 +1,318 @@
+{%- render 'section-spacing', section: section -%}
+<style>
+     .creatorAuthority_content {
+         background: {{ section.settings.background }};
+     }
+
+     .creatorAuthority_list {
+         background: #FFF;
+         opacity: 0;
+         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+     }
+
+     .creatorAuthority_list1 {
+       transform: translateY(60px) rotate(5.621deg);
+     }
+
+     .creatorAuthority_list2 {
+      transform: translateY(60px) rotate(-5.632deg);
+     }
+
+     .creatorAuthority_list3 {
+         transform: translateY(60px) rotate(5.27deg);
+     }
+
+     .creatorAuthority_list1.animate-in {
+         opacity: 1;
+         transform: translateY(0) rotate(5.621deg);
+         transition-delay: 0s;
+     }
+
+      .creatorAuthority_list2.animate-in {
+         opacity: 1;
+         transform: translateY(0) rotate(-5.632deg);
+         transition-delay: 0.2s;
+     }
+
+      .creatorAuthority_list3.animate-in {
+         opacity: 1;
+         transform: translateY(0) rotate(5.27deg);
+         transition-delay: 0.4s;
+     }
+
+    .creatorAuthority_list1 .creatorAuthority_listIcon {
+         top: 1%;
+         left: 35%;
+         transform: translate(-50%, -50%) rotate(-5.632deg);
+     }
+
+     .creatorAuthority_list2 .creatorAuthority_listIcon {
+         top: 0%;
+         left: 50%;
+         transform: translate(-50%, -50%) rotate(5.632deg);
+     }
+
+     .creatorAuthority_list3 .creatorAuthority_listIcon {
+         top: 0%;
+         right: 3%;
+         transform: translate(-50%, -50%) rotate(-5.632deg);
+     }
+
+     .creatorAuthority_listText,
+     .creatorAuthority_listText ul {
+         display: flex;
+         flex-direction: column;
+         gap: 24px;
+
+     }
+
+     .creatorAuthority_listText ul {
+        padding: 0;
+        margin: 0;
+     }
+
+     .creatorAuthority_listText p {
+         color: rgba(26, 26, 26, 0.40);
+         font-size: 14px;
+         font-weight: 400;
+         line-height: normal; /* 24px */
+     }
+     .creatorAuthority_listText ul li {
+         color: #333;
+         font-size: 14px;
+         font-weight: 400;
+         line-height: 150%;
+     }
+
+     .creatorAuthority_listText ul li strong {
+         color: #333;
+         font-size: 16px;
+         font-weight: 700;
+         line-height: 150%; /* 24px */
+     }
+
+     .creatorAuthority_listText ul li {
+         list-style: none;
+         display: flex;
+         align-items: flex-start;
+         gap: 12px;
+     }
+
+      .creatorAuthority_listText ul li .list-icon {
+         width: 24px;
+         height: 24px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .creatorAuthority_listText ul li .list-icon svg {
+         width: 100%;
+         height: 100%;
+      }
+
+     .creatorAuthority_listText ul li .list-content {
+         width: calc(93% - 6px);
+     }
+</style>
+<section>
+    <div class='creatorAuthority_top_img'>
+        {% render 'section-img', loading: 'lazy', img: section.settings.img, width: 1920 %}
+    </div>
+    <div class='creatorAuthority_content'>
+        <div class='container flex flex-col sm:pt-[80px] sm:pb-[160px]'>
+            {%- if section.settings.title != blank -%}
+                <h2 class='creator_authority_title hide_p m-0 text-center font-[600] text-[#1A1A1A] sm:text-[64px] sm:leading-[120%]'>
+                    {{ section.settings.title }}
+                </h2>
+            {%- endif -%}
+            <div class='creatorAuthority_box flex pt-[52px] sm:mt-[52px]'>
+                {% for block in section.blocks %}
+                    <style>
+                        .creatorAuthority_list{{ forloop.index }} {
+                            border: 4px solid  {{ block.settings.border_color }};
+                        }
+                        .creatorAuthority_list{{ forloop.index }} .creatorAuthority_listText ul li .list-icon svg path {
+                            fill: {{ block.settings.border_color }};
+                        }
+                    </style>
+                    <div class='creatorAuthority_list creatorAuthority_list{{ forloop.index }} relative rounded-[15px] sm:w-[33.333%] sm:px-32 sm:pt-[120px] sm:pb-[80px]'>
+                        {% if block.settings.icon_svg != blank %}
+                            <div class='creatorAuthority_listIcon svg-icon absolute sm:h-[160px] sm:w-[160px]'>
+                                {{ block.settings.icon_svg }}
+                            </div>
+
+                        {% else %}
+                            <div class='creatorAuthority_listIcon image-icon absolute sm:h-[160px] sm:w-[160px]'>
+                                {% render 'section-img', loading: 'lazy', img: block.settings.icon_image, width: 160 %}
+                            </div>
+                        {% endif %}
+                        <div class='creatorAuthority_listBox flex flex-col gap-[20px]'>
+                            {%- if block.settings.title != blank -%}
+                                <div class='creatorAuthority_listTitle w-full border-b-[4px] border-[rgba(0,0,0,0.10)] pb-20 text-center text-[32px] leading-[120%] font-[600] text-black'>
+                                    {{ block.settings.title }}
+                                </div>
+                            {%- endif -%}
+                            {%- if block.settings.list_content != blank -%}
+                                <div class='creatorAuthority_listText'>{{ block.settings.list_content }}</div>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 获取所有卡片
+        const cards = document.querySelectorAll('.creatorAuthority_list');
+
+        // 创建一个 Intersection Observer
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // 当卡片区域进入视口 25% 时触发
+                    if (entry.isIntersecting) {
+                        // 为每个卡片添加依次动画的类
+                        cards.forEach((card, index) => {
+                            // 添加延时动画类
+                            setTimeout(() => {
+                                card.classList.add('animate-in');
+                            }, index * 150); // 每个卡片间隔 150ms
+                        });
+
+                        // 动画只触发一次，触发后停止观察
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.15, // 当目标元素的 25% 进入视口时触发
+                rootMargin: '0px',
+            },
+        );
+
+        // 获取要观察的元素（可以是卡片容器或第一个卡片）
+        const targetElement = document.querySelector('.creatorAuthority_content');
+        if (targetElement) {
+            observer.observe(targetElement);
+        }
+
+        document.querySelectorAll('.creatorAuthority_listText li').forEach((li) => {
+            const content = li.innerHTML;
+
+            li.innerHTML = `
+                <span class="list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                        <path d="M10.7643 9.11951e-06L14.8494 8.39854L23.8841 10.7644L15.4856 14.8494L13.1198 23.8841L9.03471 15.4856L-9.11951e-06 13.1198L8.39852 9.03473L10.7643 9.11951e-06Z" fill="currentColor"/>
+                    </svg>
+                </span>
+
+                <div class="list-content">
+                    ${content}
+                </div>
+            `;
+        });
+    });
+</script>
+{% schema %}
+{
+    "name": "Creator Authority",
+    "tag": "section",
+    "class": "creator-authority css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "image",
+            "info": "1920*160px"
+        },
+
+        {
+            "type": "color_background",
+            "id": "background",
+            "label": "background"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "content_item",
+            "name": "content item",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "icon_image",
+                    "label": "Image Icon",
+                    "info": "160*160px"
+                },
+                {
+                    "type": "textarea",
+                    "id": "icon_svg",
+                    "label": "SVG Icon",
+                    "info": "Paste SVG code here"
+                },
+                {
+                    "type": "color",
+                    "id": "border_color",
+                    "label": "Border Color"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "list_content",
+                    "label": "List Content"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Creator Authority",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}

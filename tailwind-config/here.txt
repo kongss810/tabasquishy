@@ -1,0 +1,7 @@
+在tailwind-config根目录终端下安装依赖
+npm i
+在src/app下修改规则
+开发时执行
+npx @tailwindcss/cli -i ./src/app.css -o ../assets/css-layout.css --watch
+项目推到线上执行，压缩一下
+npx @tailwindcss/cli -i ./src/app.css -o ../assets/css-layout.css --minify

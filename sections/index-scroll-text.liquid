@@ -1,0 +1,173 @@
+{%- render 'section-spacing', section: section -%}
+<style>
+  @media (max-width: 1023px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
+
+  .splide__slide.IndexScrollText_imgListBox {
+    width: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px;
+    line-height: 1;
+  }
+</style>
+
+<div class='IndexScrollText_all bg-[#FCD454] py-[14px]'>
+  {%- assign TextItem = section.blocks | where: 'type', 'text_item' -%}
+
+  {% if TextItem.size > 0 %}
+    <div class='splide IndexScrollText_imgList'>
+      <div class='splide__track'>
+        <div class='splide__list'>
+          {% for item in TextItem %}
+            <div class='splide__slide IndexScrollText_imgListBox'>
+                {% render 'section-img', img: item.settings.img, img_mobile: item.settings.img_mobile, width: 240, mobile_width: 240, class: 'w-[24px] h-[24px]' %}
+                <div class="text-[#000] text-[28px] sm:text-[16px] font-[600] sm:leading-[24px] leading-[113%] tracking-[0] uppercase">
+                  {{ item.settings.text }}
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  const splide1 = new Splide('#shopify-section-{{section.id}} .IndexScrollText_imgList', {
+    perPage: 5,
+    gap: 60,
+    type: 'loop',
+    drag: false,
+    swipe: false,
+    focus: 'center',
+    breakpoints: {
+      1280: {
+        perPage: 4,
+        gap: '60px',
+        autoScroll: {
+          pauseOnHover: false,
+          delay: 2000,
+          speed: {{ section.settings.time_pc }} * 0.1,
+        }
+      },
+      741: {  // 添加中等宽度的适配
+            perPage: 2,
+            gap: '16px',
+            autoScroll: {
+              pauseOnHover: false,
+              delay: 2000,
+              speed: {{ section.settings.time_pc }} * 0.1,
+            }
+      },
+      375: {
+            perPage: 2,
+            gap: '10px',
+              autoScroll: {
+              pauseOnHover: false,
+              delay: 2000,
+              speed: {{ section.settings.time_mobile }} * 0.1,
+            }
+      },
+    },
+    pagination: false, // 隐藏分页点
+    arrows: false, // 隐藏箭头
+    autoScroll: {
+    pauseOnHover: false,
+    delay: 2000,
+      speed: {{ section.settings.time_pc }} * 0.1,
+    }
+
+  });
+
+  // 启用 AutoScroll 插件
+  splide1.mount({ AutoScroll: window.splide.Extensions.AutoScroll });
+</script>
+
+
+{% schema %}
+{
+  "name": "index-scroll-text",
+  "class": "css-layout",
+  "settings": [
+    {
+      "type": "range",
+      "id": "time_pc",
+      "label": "time pc",
+      "unit": "s",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "time_mobile",
+      "label": "time mobile",
+      "unit": "s",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 8
+    },
+    {
+        "type": "header",
+        "content": "Spacing Top:"
+    },
+    {
+        "type": "number",
+        "id": "Desktop_paddingTop",
+        "label": "Desktop Padding Top",
+        "default": 0
+    },
+    {
+        "type": "number",
+        "id": "Mobile_paddingTop",
+        "label": "Mobile Padding Top",
+        "default": 0
+    },
+    {
+        "type": "header",
+        "content": "Spacing Bottom:"
+    },
+    {
+        "type": "number",
+        "id": "Desktop_paddingBottom",
+        "label": "Desktop Padding Bottom",
+        "default": 0
+    },
+    {
+        "type": "number",
+        "id": "Mobile_paddingBottom",
+        "label": "Mobile Padding Bottom",
+        "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "text item",
+      "type": "text_item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "img"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "index-scroll-text"
+    }
+  ]
+}
+{% endschema %}

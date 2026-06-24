@@ -1,0 +1,475 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1732700465b48d4ad4": {
+      "type": "apps",
+      "blocks": {
+        "hextom_timer_bar_ctb_custom_placement_gd7Nh6": {
+          "type": "shopify://apps/hextom-timer-bar/blocks/ctb-custom-placement/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "hextom_timer_bar_ctb_custom_placement_gd7Nh6"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_kLhb4T": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_N3t3KP": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_Fckynh": {
+          "type": "heading",
+          "settings": {
+            "text": "✨ TABASQUISHY® Original Design",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_kCdfmD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every creation at TABASQUISHY® begins with an original spark — a story, a feeling, a moment of softness waiting to take shape.<br/>Our IP collection represents a new wave of designer toys: original, tactile, and full of cozy charm.<br/><br/>Each character is imagined and sculpted by our in-house team, blending the spirit of modern art toys with the handmade warmth that defines TABASQUISHY®. From sketch to finish, every curve and color carries the touch of our designers — proof that true creativity is meant to be felt.<br/><br/>We believe that design should be playful, comforting, and real.<br/>Through every squish, we hope to share the simple joy of creation — a soft, soothing world built from original ideas and heartfelt hands.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_N3t3KP",
+        "heading_Fckynh",
+        "text_kCdfmD"
+      ],
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "#d3e4ed",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_C8wBE8": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_IP_16_9_1.jpg",
+        "image_mobile": "shopify://shop_images/tabasquishy_IP_1_1_1.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_product_aD3xdf": {
+      "type": "featured-product",
+      "blocks": {
+        "title_3KQYFW": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true
+          }
+        },
+        "variant_picker_DJLtwD": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_iAzqCn": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_Pk7Pfw": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "title_3KQYFW",
+        "variant_picker_DJLtwD",
+        "quantity_iAzqCn",
+        "buy_buttons_Pk7Pfw"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "heading": "🐨🦥 LET'S TABASQUISHY®",
+        "marker_style": "style1",
+        "description": "",
+        "product": "sloth-koala-taba-squishy",
+        "show_taxes_included": true,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_collection_VjYaQU": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "collection": "tabasquishy®-ip-series",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#FD6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "layered_images_with_text_NFDj88": {
+      "type": "layered-images-with-text",
+      "blocks": {
+        "subheading_FFVYwy": {
+          "type": "subheading",
+          "settings": {
+            "text": "Designer Liu × TABASQUISHY®"
+          }
+        },
+        "heading_W8MNmD": {
+          "type": "heading",
+          "settings": {
+            "text": "The Inspiration Behind the Sloth & Koala IP Squishies",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_Jj6GQd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Internationally acclaimed designer Liu — with past collaborations including Lamborghini and Fendi — brings his expertise to TABASQUISHY® with a vision rooted in calm, comfort, and slow living.<br/><br/>For this creation, Liu drew directly from the natural charm of sloths and koalas — creatures that embody unhurried grace and effortless ease. The result is an IP design that feels instantly recognizable, deeply comforting, and perfectly aligned with our brand’s mission: to create soft spaces in a hard world.<br/><br/>These aren’t just squishies — they’re a tactile reminder to pause, breathe, and embrace life at your own pace.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FFVYwy",
+        "heading_W8MNmD",
+        "text_Jj6GQd"
+      ],
+      "name": "Layered images with text",
+      "settings": {
+        "image": "shopify://shop_images/WechatIMG2504_00464254-464c-4e68-961f-fc031c3a7f03.jpg",
+        "image_ratio": "adapt",
+        "image_2": "shopify://shop_images/tabasquishy_brand_design_2.jpg",
+        "image_ratio_2": "adapt",
+        "image_3": "shopify://shop_images/tabasquishy_brand_design_1.png",
+        "image_ratio_3": "adapt",
+        "full_width": false,
+        "layout": "image_first",
+        "content_alignment": "text-left",
+        "content_position": "middle",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_xcRRWP": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_gxBWiq": {
+          "type": "subheading",
+          "settings": {
+            "text": "The Story of TABASQUISHY®"
+          }
+        },
+        "heading_babbRX": {
+          "type": "heading",
+          "settings": {
+            "text": "✨ SOFT TO TOUCH, STRONG AT HEART",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_4bBXae": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_brand_VI.jpg"
+          }
+        },
+        "text_REBVn4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At TABASQUISHY®, we believe every feeling deserves a soft landing.</p><p>Whether you’re anxious, overstimulated, or just need a break—we’re here to help you squish it out.</p><p>Our brand was born in 2018 from a heartfelt moment between a mother and her child, and has since grown into a global community. But our core belief never changed: <em><strong>It’s okay not to be perfect. What matters is being real.</strong></em></p><p>We design every squishy as a soft space in a hard world—a small, sensory-friendly ritual of comfort and self-expression.</p><p>Each piece is handcrafted, uniquely imperfect, and made to celebrate individuality—just like you.</p><p>TABASQUISHY® is more than play.</p><p>It’s about pausing, breathing, reconnecting with your emotions, and expressing who you are without judgment. Whether you’re a little chaotic, quietly creative, or just looking for calm—we’re here.</p><p>We also believe in giving back. Every purchase supports ADHD awareness, children’s wellness, and environmental initiatives like tree planting and ocean cleanup.</p><p>Because you don’t need to be fixed.</p><p>You just need a squishy.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_gxBWiq",
+        "heading_babbRX",
+        "image_4bBXae",
+        "text_REBVn4"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_TrGAqT": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_wRGixX": {
+          "type": "icon",
+          "settings": {
+            "icon": "heart",
+            "heading": "ADHD support organizations",
+            "text": "<p>We donate regularly to the Child Mind Institute and similar organizations.</p>"
+          }
+        },
+        "icon_zYBTNK": {
+          "type": "icon",
+          "settings": {
+            "icon": "plant",
+            "heading": "🌱 Environmental Impact",
+            "text": "<p>With every order, we give back to the planet — planting trees and removing plastic waste from our oceans.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_wRGixX",
+        "icon_zYBTNK"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "text_alignment": "left",
+        "icon_position": "left",
+        "icon_size": "large",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_eCTyxC": {
+      "type": "media-grid",
+      "blocks": {
+        "media_Maqzbj": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/1-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_fn9i3z": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/4-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_GB3xaC": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/6-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_khn77b": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/18-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_Maqzbj",
+        "media_fn9i3z",
+        "media_GB3xaC",
+        "media_khn77b"
+      ],
+      "name": "Media grid",
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5"
+      }
+    },
+    "rich_text_FLaXAW": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_PpR8M3": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_KXbLFi": {
+          "type": "heading",
+          "settings": {
+            "text": "Squishy Delights, Day and Night",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_4dqJnn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>TABASQUISHY™ is here to bring joy and relaxation into your life. Our squishy toys are designed to melt stress away with every satisfying squeeze, helping you release negativity and rediscover happiness.</p>",
+            "size": "text-size-regular"
+          }
+        },
+        "button_V8mnpn": {
+          "type": "button",
+          "settings": {
+            "link_label": "TABASQUISHY™ BRAND STORY",
+            "link": "shopify://pages/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_PpR8M3",
+        "heading_KXbLFi",
+        "text_4dqJnn",
+        "button_V8mnpn"
+      ],
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "1732700465b48d4ad4",
+    "main",
+    "rich_text_kLhb4T",
+    "single_image_C8wBE8",
+    "featured_product_aD3xdf",
+    "featured_collection_VjYaQU",
+    "layered_images_with_text_NFDj88",
+    "rich_text_xcRRWP",
+    "text_with_icons_TrGAqT",
+    "media_grid_eCTyxC",
+    "rich_text_FLaXAW"
+  ]
+}

@@ -1,0 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "settings": {
+        "show_collection_image": false,
+        "show_collection_description": true,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#2c2d2e",
+        "display_description": true
+      }
+    },
+    "1742887712e9ec814a": {
+      "type": "apps",
+      "blocks": {
+        "smile_io_smile_points_on_account_page_cRUcW3": {
+          "type": "shopify://apps/smile-io/blocks/smile-points-on-account-page/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#ffffff",
+            "secondary_colour": "#2c2d2e",
+            "preview_scenario": "can_afford_reward",
+            "show_icon": true,
+            "show_points_label": true,
+            "cannot_afford_reward_body_text": "<p>You’ve got [points_balance]. Earn more to redeem rewards.</p>",
+            "can_afford_reward_body_text": "<p>You’ve got [points_balance]! Redeem them for rewards.</p>",
+            "ways_to_earn_button_text": "View ways to earn",
+            "ways_to_redeem_button_text": "View ways to redeem"
+          }
+        }
+      },
+      "block_order": [
+        "smile_io_smile_points_on_account_page_cRUcW3"
+      ],
+      "settings": {}
+    },
+    "spacer_frekHe": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 30,
+        "spacer_desktop": 50,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "main-account": {
+      "type": "main-account",
+      "settings": {}
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "template-header",
+    "1742887712e9ec814a",
+    "spacer_frekHe",
+    "main-account"
+  ]
+}

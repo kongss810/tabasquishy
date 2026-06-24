@@ -1,0 +1,26 @@
+{%- capture class -%}icon icon-{{ icon | handle }}{% if class != blank %} {{ class }}{% endif %}{%- endcapture -%}
+{%- case icon -%}
+    {%- when 'sketch-underline' -%}
+        {% comment %}
+            <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" width="205" height="15" viewBox="0 0 205 15" fill="none">
+              <path d="M3.1345 6.42239C54.6952 23.2298 21.9722 -2.44691 63.9361 6.19705C121.989 18.1551 194.168 9.9583 201.869 3.13915" stroke="#F1E4D3" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+        {% endcomment %}
+
+        <svg
+            class='{{ class }}'
+            width='305'
+            height='24'
+            viewBox='0 0 305 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+        >
+            <path d="M3.0008 20.446C31.0539 9.19754 146.056 0.354765 137.14 6.232C126.975 12.9331 118.236 19.5673 155.493 11.595C175.66 7.27974 279.454 -6.35823 301.343 13.4656" stroke="url(#paint0_linear_680_4194)" stroke-width="6" stroke-linecap="round"/>
+            <defs>
+                <linearGradient id="paint0_linear_680_4194" x1="2.91919" y1="18.7066" x2="300.933" y2="4.72385" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#ED8E25"/>
+                    <stop offset="1" stop-color="#E40078"/>
+                </linearGradient>
+            </defs>
+        </svg>
+{%- endcase -%}

@@ -1,0 +1,753 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_q6RPfA": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_tAUQrd": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify://files/videos/TabaSquishyStar2025.mp4",
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_tAUQrd"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "17398632479f0c18e7": {
+      "type": "apps",
+      "blocks": {
+        "forms_inline_6FDXUG": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "349497",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_6FDXUG"
+      ],
+      "settings": {}
+    },
+    "rich_text_cBVKLy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cm7mdd": {
+          "type": "heading",
+          "settings": {
+            "text": "Crafted to |inspire and delight|",
+            "marker_style": "style1",
+            "size": "h4",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_7GiUUH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>📅 <strong>SUBMIT NOW & BECOME A #TabaSquishyStar2025!</strong> 🌟</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cm7mdd",
+        "text_7GiUUH"
+      ],
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_grid_CiAFia": {
+      "type": "media-grid",
+      "blocks": {
+        "media_tVaeA4": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/christinaagajanovv - 7445409977197399327.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "@christinaagajanovv",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "View on TikTok",
+            "button_link": "https://www.tiktok.com/@christinaagajanovv/video/7445409977197399327",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 10
+          }
+        },
+        "media_jKRHWR": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "This Influencer Collection is a special collaboration with @christinaagajanovv, combining her unique vision with TABASQUISHY™’s playful designs.",
+            "heading": "TABASQUISHY™ x @christinaagajanovv",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(127deg, rgba(254, 217, 81, 1) 11%, rgba(255, 70, 199, 1) 81%)",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_tVaeA4",
+        "media_jKRHWR"
+      ],
+      "settings": {
+        "desktop_height": 350,
+        "mobile_height": 300,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#ffffff",
+        "color_link": "#ffffff"
+      }
+    },
+    "spacer_Mhwzmh": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 20,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "collection_tabs_TtqYYw": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_JLkwGL": {
+          "type": "collection",
+          "settings": {
+            "collection": "tabasquishy-influencer-collection-x-christinaagajanovv",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        }
+      },
+      "block_order": [
+        "collection_JLkwGL"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "product_limit": 16,
+        "columns_desktop": 6,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_gcfD9t": {
+      "type": "media-grid",
+      "blocks": {
+        "media_phyLLy": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "This Influencer Collection is a special collaboration with @emilyskyrose, blending her signature charm with TABASQUISHY™’s playful designs.",
+            "heading": "TABASQUISHY™ x @emilyskyrose",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(180deg, rgba(255, 211, 226, 1), rgba(168, 255, 251, 1) 100%)",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_RBMatM": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/emilyskyrose - 1733300397912.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "@emilyskyrose",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "View on TikTok",
+            "button_link": "https://www.tiktok.com/@emilyskyrose/video/7441817353672903982",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_phyLLy",
+        "media_RBMatM"
+      ],
+      "settings": {
+        "desktop_height": 350,
+        "mobile_height": 300,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5"
+      }
+    },
+    "spacer_xrciVC": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 20,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "collection_tabs_Jkb4ix": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_CBPVta": {
+          "type": "collection",
+          "settings": {
+            "collection": "tabasquishy-influencer-collection-x-emilyskyrose",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        }
+      },
+      "block_order": [
+        "collection_CBPVta"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "product_limit": 16,
+        "columns_desktop": 6,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_wVWDpB": {
+      "type": "media-grid",
+      "blocks": {
+        "media_wjbmfN": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/the.littlebean - 1733300357819.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "@the.littlebean",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "View on TikTok",
+            "button_link": "https://www.tiktok.com/@the.littlebean/video/7442081188417817902",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_LnA68r": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Discover the joy of our collaboration with the.littlebean! This collection blends The Little Bean’s charming creativity with TABASQUISHY™’s playful spirit, offering unique designs that inspire fun and connection.",
+            "heading": "TABASQUISHY™ x @the.littlebean",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(133deg, rgba(250, 220, 54, 1) 11%, rgba(254, 98, 146, 1) 49%, rgba(250, 220, 54, 1) 87%)",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_wjbmfN",
+        "media_LnA68r"
+      ],
+      "settings": {
+        "desktop_height": 350,
+        "mobile_height": 300,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5"
+      }
+    },
+    "spacer_pHpteY": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 20,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "collection_tabs_M9eBYf": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_PYcTN9": {
+          "type": "collection",
+          "settings": {
+            "collection": "tabasquishy-influencer-collection-x-the-littlebean",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        }
+      },
+      "block_order": [
+        "collection_PYcTN9"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "product_limit": 16,
+        "columns_desktop": 6,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_nAMenU": {
+      "type": "media-grid",
+      "blocks": {
+        "media_W3HJ63": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "This exclusive collaboration with @jesstheslimer, a seasoned slime artist and creator, brings her unique artistry to TABASQUISHY™. Infused with her signature creative flair, this collection celebrates the magic of tactile creativity and joyful play.",
+            "heading": "TABASQUISHY™ x @jesstheslimer",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "radial-gradient(rgba(121, 128, 252, 1), rgba(247, 200, 200, 1) 81%, rgba(247, 197, 204, 1) 90%, rgba(215, 204, 250, 1) 100%)",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_F3defC": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/jesstheslimer - 1733300315910.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "@jesstheslimer",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "View on TikTok",
+            "button_link": "https://www.tiktok.com/@jesstheslimer/video/7441693324991401249",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_W3HJ63",
+        "media_F3defC"
+      ],
+      "settings": {
+        "desktop_height": 350,
+        "mobile_height": 300,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5"
+      }
+    },
+    "spacer_iHUk6g": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 20,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "collection_tabs_imEiyp": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_WH9gzK": {
+          "type": "collection",
+          "settings": {
+            "collection": "tabasquishy-influencer-collection-x-jesstheslimer",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        }
+      },
+      "block_order": [
+        "collection_WH9gzK"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "product_limit": 16,
+        "columns_desktop": 6,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_xzqHaX": {
+      "type": "media-grid",
+      "blocks": {
+        "media_CiqBTM": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/slimeshop_ita - 7446783633341386006.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "@slimeshop_ita",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "View on TikTok",
+            "button_link": "https://www.tiktok.com/@slimeshop_ita/video/7446783633341386006",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_EXTKLK": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "This collaboration with @slimeshop_ita, an Italian stress-relief toy shop owner, brings a shared passion for fun and relaxation to life. Known for her passion for calming and tactile toys, brings her unique insights to this special lineup.",
+            "heading": "TABASQUISHY™ x @slimeshop_ita",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(320deg, rgba(56, 78, 197, 1) 16%, rgba(203, 68, 194, 1) 52%, rgba(255, 201, 104, 1) 87%)",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_CiqBTM",
+        "media_EXTKLK"
+      ],
+      "settings": {
+        "desktop_height": 350,
+        "mobile_height": 300,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5"
+      }
+    },
+    "spacer_cyfgg8": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 20,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "collection_tabs_qGDBhT": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_c6wQwH": {
+          "type": "collection",
+          "settings": {
+            "collection": "tabasquishy-influencer-collection-x-slimeshop_ita",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "",
+            "use_text_button": false,
+            "block_link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70
+          }
+        }
+      },
+      "block_order": [
+        "collection_c6wQwH"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "product_limit": 16,
+        "columns_desktop": 6,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "slideshow_r7Fc6Y": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_Ymzt7H": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/TABASQUISHY_VIDEO_CHALLENGE.png",
+            "mobile_image": "shopify://shop_images/TABASQUISHY_VIDEO_CHALLENGE_11.png",
+            "slide_link": "",
+            "video_background": false,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_Ymzt7H"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": true,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "slideshow_q6RPfA",
+    "main",
+    "17398632479f0c18e7",
+    "rich_text_cBVKLy",
+    "media_grid_CiAFia",
+    "spacer_Mhwzmh",
+    "collection_tabs_TtqYYw",
+    "media_grid_gcfD9t",
+    "spacer_xrciVC",
+    "collection_tabs_Jkb4ix",
+    "media_grid_wVWDpB",
+    "spacer_pHpteY",
+    "collection_tabs_M9eBYf",
+    "media_grid_nAMenU",
+    "spacer_iHUk6g",
+    "collection_tabs_imEiyp",
+    "media_grid_xzqHaX",
+    "spacer_cyfgg8",
+    "collection_tabs_qGDBhT",
+    "slideshow_r7Fc6Y"
+  ]
+}

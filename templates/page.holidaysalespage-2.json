@@ -1,0 +1,1175 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "video_dm3jCH": {
+      "type": "video",
+      "name": "Video",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "full_width": false,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy-childrens-day-v.mp4",
+        "video_autoplay": true,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_kLhb4T": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_N3t3KP": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY® Children’s Day"
+          }
+        },
+        "heading_Fckynh": {
+          "type": "heading",
+          "settings": {
+            "text": "🎁 Mid-Year Surprise Drop",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_QVkcxB": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Celebrate Children’s Day with new squishy friends, blind-box surprises, full-case editions, hidden-style chances, and limited-time event offers. Available April 29 – May 20.</strong></p><p><strong>The Full Case Drop is now live — shop seven new full-case blind box editions and collect more surprise chances before the event ends.</strong></p>",
+            "size": "text-size-regular"
+          }
+        },
+        "text_kCdfmD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Children’s Day is all about joy, play, and little moments of surprise. This year, Tabasquishy is turning it into a mid-year drop event filled with soft new characters, collectible blind-box fun, and limited-time rewards for new fans, returning customers, and VIP members.</p><p>Whether you’re discovering Tabasquishy for the first time or coming back for the next hidden style, this is your chance to collect, gift, and celebrate something irresistibly squishy. <strong>🧸✨</strong></p><p>📅 <strong>Available from April 29 to May 20</strong></p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_N3t3KP",
+        "heading_Fckynh",
+        "text_QVkcxB",
+        "text_kCdfmD"
+      ],
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "#f9e198",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "scrolling_text_NwHkdX": {
+      "type": "scrolling-text",
+      "blocks": {
+        "text_zHmiiP": {
+          "type": "text",
+          "settings": {
+            "text": "Children’s Day Mega Sale is here",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_w3jWNX": {
+          "type": "text",
+          "settings": {
+            "text": "Daily Gift Card Draw",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_bbfTfn": {
+          "type": "text",
+          "settings": {
+            "text": "Free shipping over $59",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_zHmiiP",
+        "text_w3jWNX",
+        "text_bbfTfn"
+      ],
+      "name": "Scrolling text",
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "left",
+        "speed": "30s",
+        "rotation": 4,
+        "negative_rotation": false,
+        "font_family": "heading",
+        "text_size": 24,
+        "text_uppercase": false,
+        "image_size": "large",
+        "color_bg": "#e97b74",
+        "color_text": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_collection_Xwj3DD": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Children’s Day Drops Are Here",
+        "marker_style": "style1",
+        "description": "<p>Meet the newest squishy friends joining the Tabasquishy world.</p>",
+        "collection": "childrens-day-squishy-toys",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "177710149217d80f8a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b0a10a8_6WABDN": {
+          "type": "ai_gen_block_b0a10a8",
+          "settings": {
+            "image": "shopify://shop_images/image2_7892b4d2-8a66-44fb-8815-2ecbc8ad10e8.png",
+            "link": "",
+            "image_fit": "cover",
+            "desktop_width_percent": 100,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "mobile_width_percent": 100,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0,
+            "border_radius": 6
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_0e0988d_6MtPVH": {
+          "type": "ai_gen_block_0e0988d",
+          "name": "Carousel with background",
+          "settings": {
+            "background_image": "shopify://shop_images/tabasquishy-_background.png",
+            "overlay_color": "#000000",
+            "overlay_opacity": 5,
+            "heading": "One More Soft Surprise 🎁",
+            "subtitle": "Our final CHILDREN’S DAY drop is live! Discover new axolotl friends, plush-style animals, silly seals, and fruity turtle friends made for big smiles, sweet gifts, and playful collecting before May 20. 🧸🌈",
+            "header_spacing_mobile": 100,
+            "header_spacing_desktop": 110,
+            "collection": "children-s-day-drop-3",
+            "products_count": 20,
+            "show_description": true,
+            "show_quick_add": true,
+            "show_sale_badge": true,
+            "max_content_width": 1400,
+            "section_padding_mobile": 40,
+            "section_padding_desktop": 80,
+            "dots_spacing_mobile": 90,
+            "dots_spacing_desktop": 90,
+            "text_color": "#2c2d2e",
+            "card_background_color": "#ffffff",
+            "card_text_color": "#2c2d2e",
+            "button_color": "#2c2d2e",
+            "button_text_color": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_44fbb40_NrCKA3": {
+          "type": "ai_gen_block_44fbb40",
+          "settings": {
+            "heading": "Limited-Time Event Offers",
+            "subtitle": "Enjoy special offers during the Tabasquishy Mid-Year Surprise Drop. \nOffers are valid for a limited time only.",
+            "desktop_width_percent": 100,
+            "max_width": 1200,
+            "coupon_1_enabled": true,
+            "coupon_1_title": "Order Discount",
+            "coupon_1_code": "TABAKIDS15",
+            "coupon_1_offer": "15% Off Sitewide!",
+            "coupon_1_description": "Enjoy 15% off your order during the event. One use per customer. Cannot be combined with other discounts.",
+            "coupon_2_enabled": true,
+            "coupon_2_title": "Order Discount",
+            "coupon_2_code": "TABAKIDS18",
+            "coupon_2_offer": "Spend $69, Get 18% Off",
+            "coupon_2_description": "Unlock 18% off when you spend $69 or more. \nOne use per customer. \nCannot be combined with other discounts.",
+            "button_text": "Copy Code",
+            "button_copied_text": "Copied!",
+            "background_color": "#f5f5f5",
+            "text_color": "#2c2d2e",
+            "offer_color": "#eb4f45",
+            "card_background_color": "#ffffff",
+            "code_box_background": "#fff9f0",
+            "code_box_border": "#ffd79c",
+            "button_text_color": "#ffffff",
+            "button_gradient_color_1": "#667eea",
+            "button_gradient_color_2": "#764ba2",
+            "button_gradient_color_3": "#f093fb",
+            "button_copied_color_1": "#11998e",
+            "button_copied_color_2": "#38ef7d",
+            "button_copied_color_3": "#11998e",
+            "padding_top": 50,
+            "padding_bottom": 50,
+            "heading_font": "inter_n6",
+            "card_border_radius": 12,
+            "button_border_radius": 6
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b0a10a8_6WABDN",
+        "ai_gen_block_0e0988d_6MtPVH",
+        "ai_gen_block_44fbb40_NrCKA3"
+      ],
+      "settings": {}
+    },
+    "featured_collection_WbKG37": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "TABASQUISHY® Soft Power Picks 👑✨",
+        "marker_style": "style1",
+        "description": "<p>Our curated mix of playful, collectible squishies made for satisfying little moments of relief.</p>",
+        "collection": "hot-sales",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "slideshow_3Dw48w": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_KFqPTD": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify://files/videos/tabasquishy-blind-box-6-pack-v.mp4",
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 10,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        },
+        "slide_qRwBCG": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify://files/videos/tabasquishy-blind-egg-v.mp4",
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 10,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_KFqPTD",
+        "slide_qRwBCG"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "autoplay": true,
+        "autoplay_length": 10,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1777092161d1d3f185": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_8334ac4_8azJMR": {
+          "type": "ai_gen_block_8334ac4",
+          "settings": {
+            "heading": "Unbox the Surprise 🎁",
+            "subtitle": "Add a surprise to your order with our new 6-Pack Blind Box Set — Random Styles and Blind Egg toys ✨",
+            "product_1": "6-pack-srp",
+            "product_1_video": "",
+            "product_1_label": "New Drop",
+            "product_1_description": "",
+            "product_2": "blind-egg",
+            "product_2_video": "",
+            "product_2_label": "New Drop",
+            "product_2_description": "",
+            "max_width": 1200,
+            "card_gap": 30,
+            "padding_top": 50,
+            "padding_bottom": 50,
+            "background_color": "#f5f5f5",
+            "bg_overlay_opacity": 20,
+            "card_bg_color": "#ffffff",
+            "card_border_radius": 16,
+            "shadow_intensity": 4,
+            "heading_font": "inter_n6",
+            "text_color": "#1a1c1d",
+            "button_color": "#2c2d2e",
+            "button_text_color": "#ffffff",
+            "button_hover_color": "#3f72e5",
+            "show_sale_badge": true,
+            "show_description": true,
+            "enable_3d_tilt": true,
+            "show_video_controls": false
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_5f7ada6_etG68B": {
+          "type": "ai_gen_block_5f7ada6",
+          "settings": {
+            "heading": "Event Timeline",
+            "heading_alignment": "center",
+            "heading_size_mobile": 24,
+            "heading_size_desktop": 36,
+            "heading_color": "#1a1c1d",
+            "item_1_enabled": true,
+            "item_1_date": "✅ April 29 – The Surprise Begins 🎈",
+            "item_1_title": "Our Mid-Year Surprise Drop officially starts.",
+            "item_1_description": "Discover the first wave of Children’s Day new arrivals, including Candy Bears, Ocean Animals, blind bags, surprise eggs, tear & reveal boxes, and more soft surprises.",
+            "item_2_enabled": true,
+            "item_2_date": "May 7 – Full Box Drop Arrives 🎁",
+            "item_2_title": "The full-box series launches with more collectible surprise chances.",
+            "item_2_description": "Each full box includes 12 individual boxes, giving collectors more chances to discover their favorite styles — including hidden styles that are not sold separately.",
+            "item_3_enabled": true,
+            "item_3_date": "May 20 – Last Day to Join the Surprise 🌈",
+            "item_3_title": "The Mid-Year Surprise Drop ends on May 20.",
+            "item_3_description": "This is the final day to shop Children’s Day new arrivals, use eligible event offers, join the daily gift card draw, and collect your favorite surprise styles before the event ends.",
+            "item_4_enabled": false,
+            "item_4_date": "May 20",
+            "item_4_title": "Campaign ends",
+            "item_4_description": "",
+            "item_5_enabled": false,
+            "item_5_date": "",
+            "item_5_title": "",
+            "item_5_description": "",
+            "item_6_enabled": false,
+            "item_6_date": "",
+            "item_6_title": "",
+            "item_6_description": "",
+            "max_width": 800,
+            "item_gap_mobile": 24,
+            "item_gap_desktop": 32,
+            "connector_gap": 20,
+            "dot_size": 18,
+            "dot_color": "#7e318d",
+            "dot_border_width": 4,
+            "dot_border_color": "#ffffff",
+            "line_width": 3,
+            "line_color": "#ebebed",
+            "card_background": "#fbe6a6",
+            "card_border_radius": 8,
+            "card_shadow": false,
+            "card_border": false,
+            "card_border_color": "#ebebed",
+            "card_padding_mobile": 18,
+            "card_padding_desktop": 28,
+            "date_size_mobile": 15,
+            "date_size_desktop": 17,
+            "date_color": "#7e318d",
+            "title_size_mobile": 17,
+            "title_size_desktop": 20,
+            "title_color": "#1a1c1d",
+            "description_size_mobile": 14,
+            "description_size_desktop": 15,
+            "description_color": "#2c2d2e",
+            "section_padding_mobile": 40,
+            "section_padding_desktop": 60,
+            "background_color": "#f5f5f5"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_8334ac4_8azJMR",
+        "ai_gen_block_5f7ada6_etG68B"
+      ],
+      "settings": {}
+    },
+    "blocks_DmF8w8": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_14984cb_PxUm3V": {
+          "type": "ai_gen_block_14984cb",
+          "name": "Coupon claim section",
+          "settings": {
+            "heading": "Already part of the Tabasquishy family?",
+            "subtitle": "We saved something special for you.",
+            "button_text": "Copy Code",
+            "coupon_1_enabled": true,
+            "coupon_1_offer": "Spend $69 → Get 20% Off",
+            "coupon_1_title": "Returning Customer Offer",
+            "coupon_1_code": "TABAKIDS20",
+            "coupon_1_description": "All returning customers who have placed at least one order before can enjoy a special event coupon during the Mid-Year Surprise Drop.",
+            "coupon_2_enabled": true,
+            "coupon_2_offer": "Spend $99 → Get 22% Off",
+            "coupon_2_title": "VIP Member Exclusive Perks",
+            "coupon_2_code": "TABAKIDS22",
+            "coupon_2_description": "VIP members who placed more than 2 orders in the past 90 days will receive exclusive event coupons in two waves, designed to match each surprise drop.",
+            "coupon_3_enabled": true,
+            "coupon_3_offer": "Spend $139 → Get 25% Off",
+            "coupon_3_title": "VIP Member Exclusive Perks",
+            "coupon_3_code": "TABAKIDS25",
+            "coupon_3_description": "VIP members who placed more than 2 orders in the past 90 days will receive exclusive event coupons in two waves, designed to match each surprise drop.",
+            "max_width": 1200,
+            "padding_top": 50,
+            "padding_bottom": 50,
+            "desktop_width_percent": 100,
+            "background_color": "#f5f5f5",
+            "text_color": "#2c2d2e",
+            "card_bg_color": "#ffffff",
+            "button_color": "#eb4f45",
+            "button_text_color": "#ffffff",
+            "button_hover_color": "#d43d33",
+            "card_border_radius": 12,
+            "button_border_radius": 6
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_14984cb_PxUm3V"
+      ],
+      "name": "Coupon claim section",
+      "settings": {}
+    },
+    "rich_text_X6rTtP": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Gw8QGW": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY® Full Case Editions with Hidden-Style Chances"
+          }
+        },
+        "heading_iRiVim": {
+          "type": "heading",
+          "settings": {
+            "text": "🎁 Full Case Drop Now Live",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_97yatw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each full case includes <strong>12 individual blind boxes</strong>, giving collectors a fun full-case unboxing experience with more chances to collect their favorite styles from the same series.</p><p>For select series, hidden styles are part of the surprise. <strong>Capybara, Dumpling, and Groundhog</strong> include hidden styles that are <strong>not sold separately</strong> and can only be discovered through the matching full case or single-box draw.</p><p><strong>Capybara</strong> and <strong>Groundhog</strong> Full Case Editions are currently available in limited quantities. First come, first served.</p>",
+            "size": "text-size-regular"
+          }
+        },
+        "subheading_CUqPpJ": {
+          "type": "subheading",
+          "settings": {
+            "text": "Returning Customer Full Case Bonus"
+          }
+        },
+        "heading_hthFB8": {
+          "type": "heading",
+          "settings": {
+            "text": "Buy one eligible Full Case Edition and receive one bonus single box from the same series. 🎁",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_DLB397": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Valid only for the new <strong>Full Case Editions launched on May 7</strong>.<br/><strong>Available May 7–May 20. Limit 1 bonus single box per customer.</strong></p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Gw8QGW",
+        "heading_iRiVim",
+        "text_97yatw",
+        "subheading_CUqPpJ",
+        "heading_hthFB8",
+        "text_DLB397"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_collection_A79TFz": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "collection": "new-blind-box-full-case-edition",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "countdown_banner_pKYfRT": {
+      "type": "countdown-banner",
+      "name": "Countdown banner",
+      "settings": {
+        "full_width": false,
+        "section_layout": "vertical",
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-auto",
+        "bg_image": "shopify://shop_images/tabasquishy-childrens-day-banner-main-2.png",
+        "subheading": "TABASQUISHY®",
+        "heading": "Tabasquishy Mid-Year Surprise Drop 🎁 🍭",
+        "heading_size": "h2",
+        "content": "✨ New squishy friends, hidden surprises, and limited-time savings are landing for Children’s Day ✨",
+        "content_size": "medium",
+        "button_text": "",
+        "button_link": "",
+        "timer_year": 2026,
+        "timer_month": "05",
+        "timer_day": "21",
+        "timer_hour": "00",
+        "timer_minute": "00",
+        "color_bg": "#f5f3ef",
+        "color_text": "#f5f5f5",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collection_list_fzmQRH": {
+      "type": "collection-list",
+      "name": "Collection list",
+      "settings": {
+        "heading": "Choose Your Surprise",
+        "marker_style": "style1",
+        "description": "<p>🎁 Explore Children’s Day favorites by collection and find the perfect squishy toys for gifting, collecting, and squeezing.</p>",
+        "heading_size": "small",
+        "collection_list": [
+          "ocean-treasures-collection",
+          "blind-bag-squeeze-toy-collection-🎁",
+          "purrfect-paws-collection"
+        ],
+        "image_ratio": "portrait",
+        "collection_layout": "grid",
+        "style": "style1",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "show_progress_bar": true,
+        "mobile_swipe": true,
+        "heading_position": "bottom-center",
+        "marker_color": "#fd6262",
+        "text_color": "#2c2d2e",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 15,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_collection_RdEiKU": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Meet the Tabasquishy IP",
+        "marker_style": "style1",
+        "description": "<p>Step into the playful world of Tabasquishy original IP series</p>",
+        "collection": "tabasquishy®-ip-series",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "17777881465adf8cfd": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_97de686_BLam8J": {
+          "type": "ai_gen_block_97de686",
+          "settings": {
+            "desktop_width_percent": 100,
+            "border_radius": 8,
+            "text_alignment": "center",
+            "background_image": "shopify://shop_images/tabasquishy-_background.png",
+            "background_color": "#f5f5f5",
+            "title": "A Daily Surprise for Returning Customers 🎁",
+            "title_size": 32,
+            "title_color": "#1a1c1d",
+            "description": "We’re celebrating our returning Tabasquishy fans with a little Children’s Day surprise. Each day during the event, one returning customer who places an eligible order will be selected to receive a $30 Tabasquishy gift card.",
+            "description_size": 16,
+            "description_color": "#2c2d2e",
+            "row_background_color": "#ffffff",
+            "row_border_color": "#ebebed",
+            "row_border_radius": 6,
+            "row_text_size": 14,
+            "row_text_color": "#2c2d2e",
+            "winner_1": "c***g@gmail.com",
+            "winner_2": "M***3@gmail.com",
+            "winner_3": "d***3@gmail.com",
+            "winner_4": "d***e@gmail.com",
+            "winner_5": "b***4@yahoo.com",
+            "winner_6": "1***3@163.com",
+            "winner_7": "a***a@hotmail.com",
+            "winner_8": "r***6@gmail.com",
+            "winner_9": "s***4@gmail.com",
+            "winner_10": "d***z@msn.com",
+            "winner_11": "w***g@hotmail.com",
+            "winner_12": "t***c@hotmail.com",
+            "winner_13": "c***d@gmail.com",
+            "winner_14": "d***z@msn.com",
+            "winner_15": "C***r@gmail.com",
+            "winner_16": "p***n@gmail.com",
+            "winner_17": "S***e@gmail.com",
+            "winner_18": "j***g@icloud.com",
+            "winner_19": "u***2@me.com",
+            "winner_20": "m***6@gmail.com",
+            "winner_21": "",
+            "winner_22": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_97de686_BLam8J"
+      ],
+      "settings": {}
+    },
+    "email_signup_tBJCQ6": {
+      "type": "email-signup",
+      "blocks": {
+        "subheading_jtWiCf": {
+          "type": "subheading",
+          "settings": {
+            "text": "Get 16% off your first order."
+          }
+        },
+        "heading_EpQF7f": {
+          "type": "heading",
+          "settings": {
+            "text": "New here? Subscribe to get the event special offer",
+            "heading_size": "h3"
+          }
+        },
+        "text_Et8NFq": {
+          "type": "text",
+          "settings": {
+            "text": "No minimum required. Event-only offer. After the event, new subscribers get 10% off.",
+            "description_size": "medium"
+          }
+        },
+        "form_Ue43gc": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subheading_jtWiCf",
+        "heading_EpQF7f",
+        "text_Et8NFq",
+        "form_Ue43gc"
+      ],
+      "name": "Newsletter",
+      "settings": {
+        "full_width": false,
+        "background_image": "shopify://shop_images/image.png",
+        "color_bg": "#f5f5f5",
+        "color_text": "#2c2d2e",
+        "color_heading": "#1a1c1d",
+        "color_border": "#d3d3d3",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_x4xqQ6": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_aqgLmx": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_G49EXL": {
+          "type": "heading",
+          "settings": {
+            "text": "🧸 How to Join the Mid-Year Surprise Drop",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_mWgBJL": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Plan your cart, pick your best offer, and enjoy more surprises during the event.</strong></p><p>The Tabasquishy Mid-Year Surprise Drop runs from <strong>April 29 to May 20</strong>, featuring new squishy friends, blind-box surprises, hidden-style chances, event savings, returning customer rewards, VIP perks, and daily gift card surprises.</p><p>Whether you’re shopping for the first time or coming back for more, there are multiple ways to save during the event.</p>"
+          }
+        },
+        "button_hRaULM": {
+          "type": "button",
+          "settings": {
+            "button_text": "Get the Guide",
+            "button_link": "shopify://blogs/tabasquishy-news/how-to-choose-your-best-offer-in-mid-year-surprise-drop"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_aqgLmx",
+        "heading_G49EXL",
+        "text_mWgBJL",
+        "button_hRaULM"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy-_children-day-blog-how-2.png",
+        "use_video": false,
+        "video": "",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "large",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_TrGAqT": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_wRGixX": {
+          "type": "icon",
+          "settings": {
+            "icon": "heart",
+            "heading": "ADHD support organizations",
+            "text": "<p>We donate regularly to the Child Mind Institute and similar organizations.</p>"
+          }
+        },
+        "icon_zYBTNK": {
+          "type": "icon",
+          "settings": {
+            "icon": "plant",
+            "heading": "🌱 Environmental Impact",
+            "text": "<p>With every order, we give back to the planet — planting trees and removing plastic waste from our oceans.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_wRGixX",
+        "icon_zYBTNK"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "text_alignment": "left",
+        "icon_position": "left",
+        "icon_size": "large",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "blocks_CHPac3": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0e0988d_PRBhYR": {
+          "type": "ai_gen_block_0e0988d",
+          "settings": {
+            "background_image": "shopify://shop_images/tabasquishy-_background.png",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "heading": "✨ THE MOODI CREW ✨",
+            "subtitle": "Little creatures living inside everyone.They appear, they play, they calm down.But they never truly leave.",
+            "header_spacing_mobile": 100,
+            "header_spacing_desktop": 110,
+            "collection": "moodi-feelings-have-shapes",
+            "products_count": 20,
+            "show_description": true,
+            "show_quick_add": true,
+            "show_sale_badge": true,
+            "max_content_width": 1400,
+            "section_padding_mobile": 40,
+            "section_padding_desktop": 80,
+            "dots_spacing_mobile": 60,
+            "dots_spacing_desktop": 80,
+            "text_color": "#2c2d2e",
+            "card_background_color": "#ffffff",
+            "card_text_color": "#2c2d2e",
+            "button_color": "#2c2d2e",
+            "button_text_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0e0988d_PRBhYR"
+      ],
+      "name": "Carousel with background",
+      "settings": {}
+    },
+    "featured_collection_aDLUU4": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "🔥 Most-Loved Squishy Picks",
+        "marker_style": "style1",
+        "description": "<p>Not sure where to start? Explore customer-favorite Tabasquishy toys that are cute, giftable, and ready to bring a little extra joy to your Mid-Year Surprise Drop order.</p>",
+        "collection": "hot-sales",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_collection_JMFrjB": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "✨ Fresh Drops Just Landed",
+        "marker_style": "style1",
+        "description": "<p>Meet the newest Tabasquishy friends from our Children’s Day collection, including playful new styles, surprise-ready picks, and limited-time favorites made for collecting, gifting, and squeezing.</p>",
+        "collection": "new-arrivals",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "blocks_968Gkw": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c2403ef_m9hNy7": {
+          "type": "ai_gen_block_c2403ef",
+          "settings": {
+            "heading": "Offer Rules & FAQs",
+            "subheading": "",
+            "text_alignment": "center",
+            "faq_1_question": "When is the Mid-Year Surprise Drop available?",
+            "faq_1_answer": "The Mid-Year Surprise Drop is available from April 29 to May 20. Event offers, new arrivals, daily gift card surprises, and eligible coupons are valid during this period only.",
+            "faq_2_question": "Can I combine multiple discounts or coupons?",
+            "faq_2_answer": "No. Event offers cannot be combined with other discounts, coupons, automatic discounts, or promotional offers. Only one discount can be used per order, so please choose the offer that gives you the best value.",
+            "faq_3_question": "Can I use the 15% off and the Spend $69 → 18% off together?",
+            "faq_3_answer": "No. These offers cannot be combined. If you qualify for multiple offers, please choose the one that works best for your order.",
+            "faq_4_question": "Who can use the Returning Customer offer?",
+            "faq_4_answer": "The Returning Customer offer is available to customers who have placed at least one previous order with Tabasquishy. During the event, eligible returning customers can use the Spend $69 → 20% Off coupon once.",
+            "faq_5_question": "Who qualifies as a VIP member for this event?",
+            "faq_5_answer": "VIP event perks are available to customers who placed more than 2 orders in the past 90 days. Eligible VIP members will receive exclusive event coupons in two waves.",
+            "max_width": 800,
+            "header_spacing": 40,
+            "subheading_spacing": 15,
+            "accordion_spacing": 15,
+            "card_padding": 20,
+            "card_border_radius": 8,
+            "heading_size": 32,
+            "subheading_size": 16,
+            "question_size": 16,
+            "answer_size": 15,
+            "background_color": "#f5f5f5",
+            "heading_color": "#1a1c1d",
+            "text_color": "#2c2d2e",
+            "card_background": "#ffffff",
+            "card_hover_background": "#f9f9f9",
+            "card_border_color": "#ebebed",
+            "question_color": "#1a1c1d",
+            "answer_color": "#2c2d2e",
+            "icon_color": "#2c2d2e"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_c2403ef_PPTTK4": {
+          "type": "ai_gen_block_c2403ef",
+          "name": "Sale rules FAQ",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "text_alignment": "center",
+            "faq_1_question": "When will VIP coupons be released?",
+            "faq_1_answer": "The VIP Spend $99 → 22% Off coupon will be released on April 29. The VIP Spend $139 → 25% Off coupon will be released on May 7 with the full-box drop.",
+            "faq_2_question": "Can VIP coupons be used more than once?",
+            "faq_2_answer": "No. Each VIP coupon can be used once per customer and cannot be combined with other discounts.",
+            "faq_3_question": "How does the VIP full box bonus work?",
+            "faq_3_answer": "VIP members who purchase one full box during the event will receive one bonus single box from the same series, giving them one extra chance to discover a hidden style. Limit 1 bonus single box per customer.\nValid only for the new full-box series launching on May 7. Purchase one eligible full box during the event and receive one bonus single box from the same series.\nValid from May 7 to May 20. Limit 1 per customer.",
+            "faq_4_question": "Are hidden styles sold separately?",
+            "faq_4_answer": "No. Hidden styles are not sold separately. They can only be discovered through the corresponding full box or single-box draw.",
+            "faq_5_question": "Does buying a full box guarantee a hidden style?",
+            "faq_5_answer": "Unless clearly stated on the product page, purchasing a full box does not guarantee a hidden style. Hidden-style probability will be listed on the product page.",
+            "max_width": 800,
+            "header_spacing": 40,
+            "subheading_spacing": 15,
+            "accordion_spacing": 15,
+            "card_padding": 20,
+            "card_border_radius": 8,
+            "heading_size": 32,
+            "subheading_size": 16,
+            "question_size": 16,
+            "answer_size": 15,
+            "background_color": "#f5f5f5",
+            "heading_color": "#1a1c1d",
+            "text_color": "#2c2d2e",
+            "card_background": "#ffffff",
+            "card_hover_background": "#f9f9f9",
+            "card_border_color": "#ebebed",
+            "question_color": "#1a1c1d",
+            "answer_color": "#2c2d2e",
+            "icon_color": "#2c2d2e"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_c2403ef_94LCMU": {
+          "type": "ai_gen_block_c2403ef",
+          "name": "Sale rules FAQ",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "text_alignment": "center",
+            "faq_1_question": "How does the daily $30 gift card draw work?",
+            "faq_1_answer": "During the event, one lucky member who placed an eligible order will be selected each day to receive a $30 Tabasquishy gift card. Winners will be announced with partially hidden email addresses for privacy.",
+            "faq_2_question": "When does the event end?",
+            "faq_2_answer": "The Mid-Year Surprise Drop ends on May 20. Event offers are valid during the event period only.",
+            "faq_3_question": "",
+            "faq_3_answer": "",
+            "faq_4_question": "",
+            "faq_4_answer": "",
+            "faq_5_question": "",
+            "faq_5_answer": "",
+            "max_width": 800,
+            "header_spacing": 40,
+            "subheading_spacing": 15,
+            "accordion_spacing": 15,
+            "card_padding": 20,
+            "card_border_radius": 8,
+            "heading_size": 32,
+            "subheading_size": 16,
+            "question_size": 16,
+            "answer_size": 15,
+            "background_color": "#f5f5f5",
+            "heading_color": "#1a1c1d",
+            "text_color": "#2c2d2e",
+            "card_background": "#ffffff",
+            "card_hover_background": "#f9f9f9",
+            "card_border_color": "#ebebed",
+            "question_color": "#1a1c1d",
+            "answer_color": "#2c2d2e",
+            "icon_color": "#2c2d2e"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c2403ef_m9hNy7",
+        "ai_gen_block_c2403ef_PPTTK4",
+        "ai_gen_block_c2403ef_94LCMU"
+      ],
+      "name": "Sale rules FAQ",
+      "settings": {}
+    },
+    "1761479605396fa1ed": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_FdecLA": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_FdecLA"
+      ],
+      "settings": {}
+    },
+    "rich_text_FLaXAW": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_PpR8M3": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_KXbLFi": {
+          "type": "heading",
+          "settings": {
+            "text": "|SOFT POWER|",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_4dqJnn": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>TABASQUISHY® is a soft little pause you can hold in your hand.</strong> </p><p>Inspired by the calming rhythm of press, release, and rebound, our squishy toys turn softness into quiet comfort—helping emotions find an outlet, stress gently melt away, and joy return in the simplest way. </p>",
+            "size": "text-size-regular"
+          }
+        },
+        "button_V8mnpn": {
+          "type": "button",
+          "settings": {
+            "link_label": "TABASQUISHY® BRAND STORY",
+            "link": "shopify://pages/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_PpR8M3",
+        "heading_KXbLFi",
+        "text_4dqJnn",
+        "button_V8mnpn"
+      ],
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video_dm3jCH",
+    "rich_text_kLhb4T",
+    "scrolling_text_NwHkdX",
+    "featured_collection_Xwj3DD",
+    "177710149217d80f8a",
+    "featured_collection_WbKG37",
+    "slideshow_3Dw48w",
+    "1777092161d1d3f185",
+    "blocks_DmF8w8",
+    "rich_text_X6rTtP",
+    "featured_collection_A79TFz",
+    "countdown_banner_pKYfRT",
+    "collection_list_fzmQRH",
+    "featured_collection_RdEiKU",
+    "17777881465adf8cfd",
+    "email_signup_tBJCQ6",
+    "image_with_text_x4xqQ6",
+    "text_with_icons_TrGAqT",
+    "blocks_CHPac3",
+    "featured_collection_aDLUU4",
+    "featured_collection_JMFrjB",
+    "blocks_968Gkw",
+    "1761479605396fa1ed",
+    "rich_text_FLaXAW"
+  ]
+}

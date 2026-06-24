@@ -1,0 +1,653 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "slideshow_Xp8yeV": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_EwMTw7": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify://files/videos/tabasquishy_IP_16_9_V.mp4",
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 70,
+            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_EwMTw7"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "e431a79e-9c7b-4a53-a79a-0cb918617ecf": {
+          "type": "text",
+          "settings": {
+            "text": "TABASQUISHY®",
+            "text_style": "style_vendor"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": false
+          }
+        },
+        "judge_me_reviews_preview_badge_ygEWwM": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price_XDCVjw": {
+          "type": "price",
+          "settings": {}
+        },
+        "offer_g6zFTE": {
+          "type": "offer",
+          "settings": {
+            "metaobject_namespace": "custom",
+            "metaobject_key": "product_offer",
+            "offer_style": "coupon",
+            "background_image": "shopify://shop_images/Group_2147241497.png",
+            "background_color": "",
+            "title_color": "#1a1a1a",
+            "text_color": "#1a1a1a",
+            "accent_color": "#f58220",
+            "button_background": "#FCD454",
+            "button_color": "#1a1a1a",
+            "coupon_code": "TABASQUISHY8",
+            "copy_text": "COPY",
+            "copied_text": "COPIED",
+            "save_label": "Save",
+            "save_value": "$200",
+            "coupon_title": "Get $20 Off When You Spend $1,000 Or More!",
+            "coupon_code_label": "Code:",
+            "popup_title": "Discount Details",
+            "popup_text": "",
+            "countdown_title": "Limited Time Offer !",
+            "countdown_time": "",
+            "countdown_code_label": "COUPON CODE",
+            "countdown_offer_text": "Exclusive Offer $10 OFF Your Order",
+            "countdown_button_text": "COPY CODE"
+          }
+        },
+        "offer_GABRd7": {
+          "type": "offer",
+          "settings": {
+            "metaobject_namespace": "custom",
+            "metaobject_key": "product_offer",
+            "offer_style": "countdown",
+            "background_image": "shopify://shop_images/Frame_2147241591.png",
+            "background_color": "",
+            "title_color": "#1a1a1a",
+            "text_color": "#1a1a1a",
+            "accent_color": "#f58220",
+            "button_background": "#FCD454",
+            "button_color": "#1a1a1a",
+            "coupon_code": "TABASQUISHY8",
+            "copy_text": "COPY",
+            "copied_text": "COPIED",
+            "save_label": "Save",
+            "save_value": "$200",
+            "coupon_title": "Get $20 Off When You Spend $1,000 Or More!",
+            "coupon_code_label": "Code:",
+            "popup_title": "Discount Details",
+            "popup_text": "",
+            "countdown_title": "Limited Time Offer !",
+            "countdown_time": "2026-07-25T13:38:59",
+            "countdown_code_label": "COUPON CODE",
+            "countdown_offer_text": "Exclusive Offer $10 OFF Your Order",
+            "countdown_button_text": "COPY CODE"
+          }
+        },
+        "separator_JUFUCP": {
+          "type": "separator",
+          "settings": {}
+        },
+        "spacing_xQc3m6": {
+          "type": "spacing",
+          "settings": {
+            "desktop_top": 0,
+            "desktop_bottom": 20,
+            "mobile_top": 0,
+            "mobile_bottom": 16
+          }
+        },
+        "oc_quantity_breaks_limit_orichi_discount_block_PyPnFe": {
+          "type": "shopify://apps/oc-quantity-breaks-limit/blocks/orichi-discount_block/3f38eaa3-2a3f-4e55-bcc9-df5d3f75e351",
+          "disabled": true,
+          "settings": {}
+        },
+        "siblings_xmDeFa": {
+          "type": "siblings",
+          "settings": {
+            "siblings_collection": "{{ product.metafields.theme.siblings.value }}",
+            "sibling_color": "{{ product.metafields.theme.sibling_color.value }}",
+            "margin_bottom": 0
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": false,
+            "variant_is_disabled": true,
+            "variant_image_option": "Type,Size,Animal Type,Color",
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "spacing_Pt8JmV": {
+          "type": "spacing",
+          "settings": {
+            "desktop_top": 0,
+            "desktop_bottom": 24,
+            "mobile_top": 0,
+            "mobile_bottom": 16
+          }
+        },
+        "smile_io_smile_points_on_product_page_6UMxmE": {
+          "type": "shopify://apps/smile-io/blocks/smile-points-on-product-page/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#1a1a1a",
+            "secondary_colour": "#f5f5f5",
+            "preview_scenario": "log_in_required_to_earn_points",
+            "should_show_icon": true,
+            "custom_image_height": 40,
+            "should_show_points_label": true,
+            "points_text_logged_in": "<p>Earn [points_amount] when you buy this item.</p>",
+            "points_text_logged_out": "<p>Members earn [points_amount] when they buy this item. <a href=\"/account/register/\">Sign up</a> or <a href=\"/account/login/\">log in</a>.</p>"
+          }
+        },
+        "spacing_t3a698": {
+          "type": "spacing",
+          "settings": {
+            "desktop_top": 0,
+            "desktop_bottom": 20,
+            "mobile_top": 0,
+            "mobile_bottom": 16
+          }
+        },
+        "separator_Hktkkc": {
+          "type": "separator",
+          "settings": {}
+        },
+        "essential_upsell_frequently_bought_together_app_block_TGzp9G": {
+          "type": "shopify://apps/essential-upsell/blocks/frequently-bought-together-app-block/50627fd9-24fd-4250-8614-accc12826d80",
+          "settings": {}
+        },
+        "essential_upsell_app_block_nXcJG9": {
+          "type": "shopify://apps/essential-upsell/blocks/app-block/50627fd9-24fd-4250-8614-accc12826d80",
+          "settings": {}
+        },
+        "spacing_RCFwHf": {
+          "type": "spacing",
+          "settings": {
+            "desktop_top": 20,
+            "desktop_bottom": 0,
+            "mobile_top": 0,
+            "mobile_bottom": 16
+          }
+        },
+        "commitment_tree_ocean": {
+          "type": "commitment",
+          "settings": {
+            "modal_title": "Our Commitment",
+            "tree_title": "Tree planting",
+            "tree_card_text": "Your purchase will lead to the planting of mangrove trees in Kenya.",
+            "tree_card_text_color": "#006c31",
+            "tree_card_image": "shopify://shop_images/2_7f80d755-8c2b-435d-b8c3-2fd93e0b8052.png",
+            "tree_content": "<p>Your purchase will lead to the planting of mangrove trees in Kenya.<br/><br/>We contribute a % of each sale towards tree planting because reforestation efforts revive natural habitats, improve coral reef health, support local livelihoods and aid in the fight against climate change by extracting CO2 from the air.<br/><br/>Trees are planted by EarthLungs Reforestation Foundation & Veritree in partnership with GoodAPI.</p>",
+            "tree_modal_image": "shopify://shop_images/image_267.png",
+            "ocean_title": "Remove ocean plastics",
+            "ocean_card_text": "Your purchase will lead to the removal of ocean bound plastic.",
+            "ocean_card_text_color": "#008bca",
+            "ocean_card_image": "shopify://shop_images/2_1.png",
+            "ocean_content": "<p>Your purchase will lead to the removal of ocean bound plastic.</p><p>We contribute a % of each sale towards plastic removal within 50 km of the ocean or ocean bound waterway. This reduces plastic pollution and the plastic collected by the community is exchanged for social and financial benefits helping alleviate poverty.</p><p>Plastic pollution is reduced in collaboration with GoodAPI and Plastic Bank.</p>",
+            "ocean_modal_image": "shopify://shop_images/image_267.png"
+          }
+        },
+        "spacing_nHBwmD": {
+          "type": "spacing",
+          "settings": {
+            "desktop_top": 0,
+            "desktop_bottom": 40,
+            "mobile_top": 0,
+            "mobile_bottom": 16
+          }
+        },
+        "collapsible_tab_Vtb9PE": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "icon_image": "shopify://shop_images/thumb_up.svg",
+            "open": false,
+            "content": "{{ product.description }}",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_6zbBwX": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Before Purchase",
+            "icon_image": "shopify://shop_images/Iconfont_SVG.svg",
+            "open": false,
+            "content": "<p>We recommend that you use the supplied food packaging bags to play with the toys. If you want to play with the squishies with bare hands, you can  put on disosable gloves before taking out to use it.</p><p>For refund requests, please submit an unboxing video.</p><p>All items are meticulously handmade. Kindly allow one to five days for production after placing your order. Thank you for choosing handmade! I'm dedicated to fulfilling your order promptly. Have a wonderful day!</p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_y3TMcC": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Transportation & After-Sales Service",
+            "icon_image": "shopify://shop_images/Iconfont_SVG_01.svg",
+            "open": false,
+            "content": "<p>We recommend that you use the supplied food packaging bags to play with the toys. If you want to play with the squishies with bare hands, you can  put on disosable gloves before taking out to use it.</p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_qzT7Hr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "A Little Heads-Up",
+            "icon_image": "shopify://shop_images/Iconfont_SVG_2.svg",
+            "open": false,
+            "content": "<p><strong>Squish-Safe Materials</strong></p><p>Made from safe, food-grade materials, it’s super soft, durable, and ready for endless fun! Easy to squish, easy to store—enjoy worry-free!<br/></p><p><strong>No Eating, Please!</strong></p><p>We know it looks delicious, but it’s not for snacking! Just squish, squeeze, and have a blast—no bites allowed! </p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "settings": {
+            "share_facebook": true,
+            "share_twitter": true,
+            "share_pinterest": true,
+            "share_tumblr": true,
+            "share_telegram": true,
+            "share_email": true,
+            "share_whatsapp": false
+          }
+        }
+      },
+      "block_order": [
+        "e431a79e-9c7b-4a53-a79a-0cb918617ecf",
+        "title",
+        "judge_me_reviews_preview_badge_ygEWwM",
+        "price_XDCVjw",
+        "offer_g6zFTE",
+        "offer_GABRd7",
+        "separator_JUFUCP",
+        "spacing_xQc3m6",
+        "oc_quantity_breaks_limit_orichi_discount_block_PyPnFe",
+        "siblings_xmDeFa",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "spacing_Pt8JmV",
+        "smile_io_smile_points_on_product_page_6UMxmE",
+        "spacing_t3a698",
+        "separator_Hktkkc",
+        "essential_upsell_frequently_bought_together_app_block_TGzp9G",
+        "essential_upsell_app_block_nXcJG9",
+        "spacing_RCFwHf",
+        "commitment_tree_ocean",
+        "spacing_nHBwmD",
+        "collapsible_tab_Vtb9PE",
+        "collapsible_tab_6zbBwX",
+        "collapsible_tab_y3TMcC",
+        "collapsible_tab_qzT7Hr",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": false,
+        "show_taxes_included": false,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "Desktop_top": 160,
+        "Desktop_bottom": 0,
+        "Mobile_top": 0,
+        "Mobile_bottom": 0,
+        "enable_media_toggle": true,
+        "media_toggle_video_label": "VIDEO",
+        "media_toggle_photo_label": "PHOTO"
+      }
+    },
+    "ip_designed_rRGY6M": {
+      "type": "ip-designed",
+      "blocks": {
+        "ip_KxAt6Y": {
+          "type": "ip",
+          "settings": {
+            "svg": "shopify://shop_images/Vector_3.svg",
+            "title": "<p>Color System</p>",
+            "description": "<p>Derived from CRAZY, symbolizing the madness and unrestrainedness<br/>when experiencing pure joy.</p>"
+          }
+        },
+        "ip_jKC88e": {
+          "type": "ip",
+          "settings": {
+            "svg": "shopify://shop_images/Group.svg",
+            "title": "<p>Emotional Keywords</p>",
+            "description": "<p>ZAZI loves being seen, brave, confident and dazzling.<br/>She is always the center of attention on the stage.</p>"
+          }
+        },
+        "ip_EBCBqN": {
+          "type": "ip",
+          "settings": {
+            "svg": "shopify://shop_images/Vector_2.svg",
+            "title": "<p>Squish-Safe Materials</p>",
+            "description": "<p>Made from safe, food-grade materials, it’s super soft, durable, and ready for endless <br/>fun! Easy to squish, easy to store—enjoy worry-free!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ip_KxAt6Y",
+        "ip_jKC88e",
+        "ip_EBCBqN"
+      ],
+      "name": "ip designed",
+      "settings": {
+        "main_title": "<p>Designed with Purpose</p>",
+        "image": "shopify://shop_images/image_6.png",
+        "show_topBanner": true,
+        "top_video": "shopify://files/videos/Vector 86_2.mp4",
+        "background_img": "shopify://shop_images/Frame_2147241839.png",
+        "background_color": "#fff8e4",
+        "Desktop_top": 100,
+        "Mobile_top": 80,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0
+      }
+    },
+    "media_grid_CVNkC3": {
+      "type": "media-grid",
+      "blocks": {
+        "media_QddrMj": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_hamster_19201080.jpg",
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 4,
+            "row": 1,
+            "subheading": "",
+            "heading": "TABASQUISHY® VIDEO CHALLENGE 🎬",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "shopify://pages/tabasquishy-star2025",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_iCFFnM": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0520.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_jG6L7K": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0610.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-2.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_qx6BNa": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0987.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-5.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_w687Tp": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0762.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-6.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_QddrMj",
+        "media_iCFFnM",
+        "media_jG6L7K",
+        "media_qx6BNa",
+        "media_w687Tp"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 150,
+        "column_spacing": "small",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "Desktop_top": 160,
+        "Mobile_top": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_limit": 6,
+        "title": "<p>You May Also Like</p>",
+        "highlighted_text": "none",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 80,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "index_featured_series_A6kKfG": {
+      "type": "index-featured-series",
+      "blocks": {
+        "collection_item_mUeW7W": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "childrens-day-squishy-toys",
+            "display_image": "shopify://shop_images/Rectangle_19770.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_JVLyEp": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blind-bag-squeeze-toy-collection-🎁",
+            "display_image": "shopify://shop_images/Rectangle_19769.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        },
+        "collection_item_gXkYrb": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "childrens-day-squishy-toys",
+            "display_image": "shopify://shop_images/Rectangle_19753_7c82b175-7869-4696-b523-ef96ccc0d69c.png",
+            "block_title": "<p>Anime Cuties</p>",
+            "block_description": "<p>including hamsters, ducks, capybaras, turtles, seals, cats, and seasonal exclusives.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_mUeW7W",
+        "collection_item_JVLyEp",
+        "collection_item_gXkYrb"
+      ],
+      "name": "Featured Series",
+      "settings": {
+        "title": "<p>Featured Series</p>",
+        "highlighted_text": "none",
+        "description": "The joy of slow, bouncy texture is hidden within the intertwining of the yarn.",
+        "view_text": "VIEW ALL COLEECTIONS",
+        "all_collection_url": "shopify://collections",
+        "button_text": "LEARN MORE",
+        "description_text_color": "#333333",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "slideshow_Xp8yeV",
+    "main-product",
+    "ip_designed_rRGY6M",
+    "media_grid_CVNkC3",
+    "product-recommendations",
+    "index_featured_series_A6kKfG"
+  ]
+}

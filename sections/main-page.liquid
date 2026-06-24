@@ -1,0 +1,63 @@
+{{ 'page.css' | asset_url | stylesheet_tag }}
+{%- render 'section-spacing', section: section -%}
+<div class='page-all'>
+    <div class='container'>
+        <div class='page-detail'>
+            <div class='page-title'>
+                <h1 class='header-title hide_p leading-[113%] font-[600] tracking-[-1.28px] sm:text-[48px] sm:leading-[120%] lg:text-[64px] '>
+                    {{ page.title }}
+                </h1>
+            </div>
+            <div class='page-content'>
+                {{ page.content }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Page",
+    "tag": "section",
+    "class": "section css-layout",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ]
+}
+{% endschema %}

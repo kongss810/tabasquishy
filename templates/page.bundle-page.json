@@ -1,0 +1,365 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_k6836R": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_qdNGyB": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_new_year_page_02.png",
+            "mobile_image": "shopify://shop_images/tabasquishy_new_year_page_02.png",
+            "slide_link": "shopify://pages/tabasquishy™-mid-year-sale-buy-3-get-1-free-20-off",
+            "video_background": false,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_qdNGyB"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": true,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "multicolumn_TYLXb8": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_BaxEiB": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "1️⃣ Select Your Items",
+            "text": "<p>Browse through the bundle collection and pick your favorite products.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Urydpe": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "2️⃣ Add to Bundle",
+            "text": "<p>Click “Add to Bundle” for each item you’d like to include.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_4jK4Ne": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "3️⃣ Add to Cart",
+            "text": "<p>Once your bundle is complete, click “Add to Cart” to proceed.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_MQftw8": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "4️⃣ Checkout and Save",
+            "text": "<p>Discounts will automatically apply at checkout based on your bundle size.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_BaxEiB",
+        "column_Urydpe",
+        "column_4jK4Ne",
+        "column_MQftw8"
+      ],
+      "settings": {
+        "heading": "🐻 How to Join Our Bundles Deal",
+        "marker_style": "style1",
+        "description": "<p>It’s that easy! Build your bundle, save big, and enjoy your new treasures! 🎉✨</p>",
+        "columns_desktop": 4,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "left",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_JPf37U": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_C9Bbxp": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™"
+          }
+        },
+        "heading_LwXBxa": {
+          "type": "heading",
+          "settings": {
+            "text": "Hot-Selling Animal Series Bundle",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_KPgpPB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Don’t miss out on our most-loved animal squishies! Stock up with these purr-fect deals:</p><p><strong>• Buy 2 and get 5% off</strong></p><p><strong>• Buy 3 and get 8% off</strong></p><p><strong>• Buy 5 and save a roaring 18%</strong></p><p>From cuddly bears to playful pandas, each squishy is packed with personality and charm. Grab your favorites and watch your collection come alive. Start bundling the cuteness now! 🐻✨</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_C9Bbxp",
+        "heading_LwXBxa",
+        "text_KPgpPB"
+      ],
+      "settings": {
+        "use_video": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_hot_sale_animals_bundle.mp4",
+        "video_autoplay": true,
+        "height": "large",
+        "desktop_image_width": "large",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1735625416b311c9d3": {
+      "type": "apps",
+      "settings": {}
+    },
+    "image_with_text_6fkLUL": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_xHV7aG": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™"
+          }
+        },
+        "heading_jdrEAL": {
+          "type": "heading",
+          "settings": {
+            "text": "Transparent Series Bundle",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_Nw8mn3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add a touch of see-through magic to your collection with these crystal-clear squishies! Enjoy exclusive savings:</p><p><strong>• Buy 2 and get 5% off</strong></p><p><strong>• Buy 3 and get 8% off</strong></p><p><strong>• Buy 5 and save a dazzling 18%</strong></p><p>Each squishy is a translucent treasure, perfect for stress relief or display. The more you collect, the brighter the fun. Dive into the transparent trend today! 💎</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xHV7aG",
+        "heading_jdrEAL",
+        "text_Nw8mn3"
+      ],
+      "settings": {
+        "use_video": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_transparent_bundle.mp4",
+        "video_autoplay": true,
+        "height": "large",
+        "desktop_image_width": "large",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1735626941802b0d02": {
+      "type": "apps",
+      "settings": {}
+    },
+    "image_with_text_mGT6gV": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_fwqr7f": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™"
+          }
+        },
+        "heading_QynYNP": {
+          "type": "heading",
+          "settings": {
+            "text": "Cookie Sandwich Bundle",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_NzXhPw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sweeten the deal with our Cookie Sandwich Bundles! Collect more and save big:</p><p><strong>\t•\tBuy 2 and get 5% off</strong></p><p><strong>\t•\tBuy 3 and get 8% off</strong></p><p><strong>\t•\tBuy 5 and enjoy a generous 18% off</strong></p><p>Each squishy is a delightful surprise inspired by cookie sandwich goodness. The more you grab, the sweeter the savings. Start building your ultimate collection today! 🍪✨</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_fwqr7f",
+        "heading_QynYNP",
+        "text_NzXhPw"
+      ],
+      "settings": {
+        "use_video": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_oreo_video.mp4",
+        "video_autoplay": true,
+        "height": "large",
+        "desktop_image_width": "large",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1735525401b5db0708": {
+      "type": "apps",
+      "settings": {}
+    },
+    "image_with_text_dKK9rM": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_ExdpqB": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™"
+          }
+        },
+        "heading_wXQahE": {
+          "type": "heading",
+          "settings": {
+            "text": "Kitty Paw Bundle",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_J4XwXL": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Purr-fect Savings with Our Kitty Paw Bundles!</strong> 🐾✨</p><p></p><p>Collect more adorable kitty paw squishies and enjoy these meow-tastic deals:</p><p><strong>• Buy 2 and get 5% off</strong></p><p><strong>• Buy 3 and get 8% off</strong></p><p><strong>• Buy 5 and save a fabulous 18%</strong></p><p>Each squishy is a charming surprise inspired by the cuteness of kitty paws. The more you add to your collection, the bigger the savings—and the more pawsome your collection becomes. Start your bundle today and let the kitty magic begin! 🐱💕</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_ExdpqB",
+        "heading_wXQahE",
+        "text_J4XwXL"
+      ],
+      "settings": {
+        "use_video": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/猫爪组合商品视频.mp4",
+        "video_autoplay": true,
+        "height": "large",
+        "desktop_image_width": "large",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1735625010b5451ce5": {
+      "type": "apps",
+      "settings": {}
+    }
+  },
+  "order": [
+    "slideshow_k6836R",
+    "main",
+    "multicolumn_TYLXb8",
+    "image_with_text_JPf37U",
+    "1735625416b311c9d3",
+    "image_with_text_6fkLUL",
+    "1735626941802b0d02",
+    "image_with_text_mGT6gV",
+    "1735525401b5db0708",
+    "image_with_text_dKK9rM",
+    "1735625010b5451ce5"
+  ]
+}

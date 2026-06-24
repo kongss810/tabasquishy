@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "new-footer",
+      "blocks": {
+        "info_jqXKi4": {
+          "type": "info",
+          "settings": {
+            "info_title": "<p>Subscribe Us To Get Squishy Info!</p>",
+            "info_description": "<p>Sign up for emails and receive 15% off your first purchase!</p>",
+            "info_button_text": "SUBSCRIBE"
+          }
+        },
+        "menu_9zL7Bm": {
+          "type": "menu",
+          "settings": {
+            "column_size": "small",
+            "title": "SHOP",
+            "menu": "shop"
+          }
+        },
+        "menu_fePjLE": {
+          "type": "menu",
+          "settings": {
+            "column_size": "small",
+            "title": "BRAND",
+            "menu": "brand-1"
+          }
+        },
+        "menu_iKHhkd": {
+          "type": "menu",
+          "settings": {
+            "column_size": "small",
+            "title": "HELP",
+            "menu": "help"
+          }
+        },
+        "text_LfWPid": {
+          "type": "text",
+          "settings": {
+            "column_size": "small",
+            "text_alignment": "left",
+            "title": "CONTACT",
+            "text": "<p>Tel +1 234-567-890</p><p>Email 123456@taba.com</p><p>Address:</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "show_social_links": false
+          }
+        }
+      },
+      "block_order": [
+        "info_jqXKi4",
+        "menu_9zL7Bm",
+        "menu_fePjLE",
+        "menu_iKHhkd",
+        "text_LfWPid"
+      ],
+      "name": "Footer",
+      "settings": {
+        "video": "shopify://files/videos/6月9日(4).mp4",
+        "footer_reveal_animation": false,
+        "copyright_text": "All rights reserved.",
+        "show_language_switcher": false,
+        "show_currency_switcher": true,
+        "show_payment_icons": true
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

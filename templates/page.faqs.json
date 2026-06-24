@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "show_collection_description": true,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#2c2d2e",
+        "display_description": true
+      }
+    },
+    "jd_page_banner_TVYY4T": {
+      "type": "jd-page-banner",
+      "name": "page-banner",
+      "settings": {
+        "img": "shopify://shop_images/Frame_2147241589.png",
+        "title": "<p>Need to Make Cents <br/>of Something?</p>",
+        "text": "<p>Your guide to our handmade world. Explore the details behind our process, shipping standards, <br/>and quality guarantees to ensure the best experience possible.</p>",
+        "btn_text": "",
+        "btn_link": "",
+        "title_color": "#1a1a1a",
+        "text_color": "#333333",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "faqs_list_KRCN9Q": {
+      "type": "faqs-list",
+      "blocks": {
+        "tab_Jhxr3e": {
+          "type": "tab",
+          "settings": {
+            "title": "Orders"
+          }
+        },
+        "faq_item_AKBcCE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How can I track my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on <a href=\"#\" title=\"#\">our website</a> or the carrier's website.</p>"
+          }
+        },
+        "faq_item_ycYbq4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do if my package is lost/stolen?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_VRqnEm": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_zUQLct": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return or get a refund for my purchase?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_LtB68B": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long will it take to get my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "tab_Khkixx": {
+          "type": "tab",
+          "settings": {
+            "title": "Product Care"
+          }
+        },
+        "faq_item_PH3Qt4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do if my package is lost/stolen?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_PkQMHf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_A9MLMC": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return or get a refund for my purchase?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_VL7eC7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long will it take to get my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_rwUyTQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do if my package is lost/stolen?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_Jhxr3e",
+        "faq_item_AKBcCE",
+        "faq_item_ycYbq4",
+        "faq_item_VRqnEm",
+        "faq_item_zUQLct",
+        "faq_item_LtB68B",
+        "tab_Khkixx",
+        "faq_item_PH3Qt4",
+        "faq_item_PkQMHf",
+        "faq_item_A9MLMC",
+        "faq_item_VL7eC7",
+        "faq_item_rwUyTQ"
+      ],
+      "name": "faqs-list",
+      "settings": {
+        "faq_active_bg_color": "#fcd454",
+        "faq_active_bg_image": "shopify://shop_images/Vector_5f3931f5-cd6d-4492-95b5-a03cd90f4526.png",
+        "Desktop_paddingTop": 70,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 90,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "template-header",
+    "jd_page_banner_TVYY4T",
+    "faqs_list_KRCN9Q"
+  ]
+}

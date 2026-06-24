@@ -1,0 +1,682 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "e431a79e-9c7b-4a53-a79a-0cb918617ecf": {
+          "type": "text",
+          "settings": {
+            "text": "TABASQUISHY®",
+            "text_style": "style_vendor"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": false
+          }
+        },
+        "2b609eea-6cce-4efe-b447-c5560de1d797": {
+          "type": "label",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_ygEWwM": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "oc_quantity_breaks_limit_orichi_discount_block_PyPnFe": {
+          "type": "shopify://apps/oc-quantity-breaks-limit/blocks/orichi-discount_block/3f38eaa3-2a3f-4e55-bcc9-df5d3f75e351",
+          "disabled": true,
+          "settings": {}
+        },
+        "text_EwciBp": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.weight.value }}",
+            "text_style": "subheading"
+          }
+        },
+        "siblings_xmDeFa": {
+          "type": "siblings",
+          "settings": {
+            "siblings_collection": "{{ product.metafields.theme.siblings.value }}",
+            "sibling_color": "{{ product.metafields.theme.sibling_color.value }}",
+            "margin_bottom": 0
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity": {
+          "type": "quantity",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "settings": {}
+        },
+        "judge_me_reviews_review_snippet_widget_DMDPcQ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "goodapi_sprout_badge_jfk7zj": {
+          "type": "shopify://apps/goodapi-sprout/blocks/badge/7db5ee24-2195-4099-b98e-1547c600e4aa",
+          "settings": {
+            "custom_classes": "",
+            "top_spacing": 0,
+            "bottom_spacing": 0
+          }
+        },
+        "smile_io_smile_points_on_product_page_6UMxmE": {
+          "type": "shopify://apps/smile-io/blocks/smile-points-on-product-page/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "disabled": true,
+          "settings": {
+            "primary_colour": "#121212",
+            "secondary_colour": "#f8f8f8",
+            "preview_scenario": "log_in_required_to_earn_points",
+            "should_show_icon": true,
+            "should_show_points_label": true,
+            "points_text_logged_in": "<p>Earn [points_amount] when you buy this item.</p>",
+            "points_text_logged_out": "<p>Members earn [points_amount] when they buy this item. <a href=\"/account/register/\">Sign up</a> or <a href=\"/account/login/\">log in</a>.</p>"
+          }
+        },
+        "essential_upsell_frequently_bought_together_app_block_TGzp9G": {
+          "type": "shopify://apps/essential-upsell/blocks/frequently-bought-together-app-block/50627fd9-24fd-4250-8614-accc12826d80",
+          "disabled": true,
+          "settings": {}
+        },
+        "essential_upsell_app_block_nXcJG9": {
+          "type": "shopify://apps/essential-upsell/blocks/app-block/50627fd9-24fd-4250-8614-accc12826d80",
+          "disabled": true,
+          "settings": {}
+        },
+        "image_BRBFLX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/taba_certified_2.png",
+            "position": "text-left"
+          }
+        },
+        "collapsible_tab_6zbBwX": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Before Purchase",
+            "open": false,
+            "content": "<p>We recommend that you use the supplied food packaging bags to play with the toys. If you want to play with the squishies with bare hands, you can  put on disosable gloves before taking out to use it.</p><p>For refund requests, please submit an unboxing video.</p><p>All items are meticulously handmade. Kindly allow one to five days for production after placing your order. Thank you for choosing handmade! I'm dedicated to fulfilling your order promptly. Have a wonderful day!</p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_qzT7Hr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "A Little Heads-Up",
+            "open": false,
+            "content": "<p><strong>Squish-Safe Materials</strong></p><p>Made from safe, food-grade materials, it’s super soft, durable, and ready for endless fun! Easy to squish, easy to store—enjoy worry-free!<br/></p><p><strong>No Eating, Please!</strong></p><p>We know it looks delicious, but it’s not for snacking! Just squish, squeeze, and have a blast—no bites allowed! </p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Shipping & Returns",
+            "open": false,
+            "content": "<p>Row content</p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "d56924f2-0137-4e3b-8c33-49b1f28391c6": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Compatibility",
+            "open": false,
+            "content": "<p>Row content</p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "fc6da228-45eb-4a6e-aa68-d6ec477bec34": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "product_list_limit": 8
+          }
+        },
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
+          "type": "share",
+          "settings": {}
+        },
+        "47f50ec7-2a76-44a7-bce6-b7895e0e8ca7": {
+          "type": "info_box",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/logo_2048-removebg-preview_e69a6824-1186-40d7-a559-5a5cfc5f8d14.png",
+            "text": "10% off with Code View all >",
+            "link": "shopify://collections/xidospace-featured-products",
+            "info_box_bg": "#e9e7ed",
+            "info_box_color": "#2b1559"
+          }
+        }
+      },
+      "block_order": [
+        "e431a79e-9c7b-4a53-a79a-0cb918617ecf",
+        "title",
+        "2b609eea-6cce-4efe-b447-c5560de1d797",
+        "judge_me_reviews_preview_badge_ygEWwM",
+        "oc_quantity_breaks_limit_orichi_discount_block_PyPnFe",
+        "text_EwciBp",
+        "siblings_xmDeFa",
+        "variant_picker",
+        "quantity",
+        "buy_buttons",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "judge_me_reviews_review_snippet_widget_DMDPcQ",
+        "goodapi_sprout_badge_jfk7zj",
+        "smile_io_smile_points_on_product_page_6UMxmE",
+        "essential_upsell_frequently_bought_together_app_block_TGzp9G",
+        "essential_upsell_app_block_nXcJG9",
+        "image_BRBFLX",
+        "collapsible_tab_6zbBwX",
+        "collapsible_tab_qzT7Hr",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "d56924f2-0137-4e3b-8c33-49b1f28391c6",
+        "fc6da228-45eb-4a6e-aa68-d6ec477bec34",
+        "4fd23485-293f-46a0-8a4c-34d0e25ea41b",
+        "47f50ec7-2a76-44a7-bce6-b7895e0e8ca7"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": true,
+        "show_taxes_included": true,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false
+      }
+    },
+    "16623877721f33fb14": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 35,
+        "spacer_desktop": 90,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "slideshow_WzW9Lt": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_Te6dXw": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_cat_paw_for_79_product_2.jpg",
+            "mobile_image": "shopify://shop_images/tabasquishy_cat_paw_for_79_product_2.jpg",
+            "slide_link": "shopify://blogs/tabasquishy-news/get-ready-for-the-purr-fect-surprise",
+            "video_background": false,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_Te6dXw"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_limit": 6
+      }
+    },
+    "1727082348faa1ffd9": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_RLbkbh": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_RLbkbh"
+      ],
+      "settings": {}
+    },
+    "1739697856de1a123e": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_6BcPiw": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_6BcPiw"
+      ],
+      "settings": {}
+    },
+    "rich_text_6MwLx6": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_KcJ4K9": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading for this section"
+          }
+        },
+        "heading_ydUwrJ": {
+          "type": "heading",
+          "settings": {
+            "text": "Safe & Certified – CPC, CE & UKCA Approved for Quality Assurance",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_B7zAxe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our products meet global safety standards, delivering premium quality and peace of mind for every purchase.</p>",
+            "size": "text-size-regular"
+          }
+        },
+        "button_kW69Bi": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "link_label": "Learn More",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_KcJ4K9",
+        "heading_ydUwrJ",
+        "text_B7zAxe",
+        "button_kW69Bi"
+      ],
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_3nJ8hN": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_certify.png",
+        "image_mobile": "shopify://shop_images/tabasquishy_certify.png",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_7kccxq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_BXHKjD": {
+          "type": "heading",
+          "settings": {
+            "text": "TABA|SQUISHY®|",
+            "marker_style": "style1",
+            "size": "h4",
+            "marker_color": "#fd6262"
+          }
+        },
+        "subheading_amwwnY": {
+          "type": "subheading",
+          "settings": {
+            "text": "Squishy Delights, Day and Night"
+          }
+        },
+        "text_C6XTpT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>TABASQUISHY® is here to bring joy and relaxation into your life. Our squishy toys are designed to melt stress away with every satisfying squeeze, helping you release negativity and rediscover happiness.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BXHKjD",
+        "subheading_amwwnY",
+        "text_C6XTpT"
+      ],
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1662552569cce2536d": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 60,
+        "spacer_desktop": 80,
+        "border_separator": true,
+        "border_separator_full": false
+      }
+    },
+    "background_video_TmB4Pz": {
+      "type": "background-video",
+      "blocks": {
+        "subheading_Bg3DUx": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™ Guide"
+          }
+        },
+        "heading_fE9WCK": {
+          "type": "heading",
+          "settings": {
+            "text": "🧼✨HOW TO CLEAN YOUR TABASQUISHY™",
+            "heading_size": "h1-xlarge"
+          }
+        },
+        "text_8Dd7zJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Got yours dirty during play? No worries! With just soap and warm water, your TABASQUISHY™ will be as fresh as new—soft, squishy, and ready for more fun. Keep It Clean, Keep It Squishy!</p>",
+            "description_size": "medium"
+          }
+        },
+        "button_fWLxmP": {
+          "type": "button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subheading_Bg3DUx",
+        "heading_fE9WCK",
+        "text_8Dd7zJ",
+        "button_fWLxmP"
+      ],
+      "disabled": true,
+      "name": "Background video",
+      "settings": {
+        "desktop_height": "desktop-height-750",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "video_controls": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_how_to_clean_1_1_2.mp4",
+        "overlay_color": "#000000",
+        "overlay_opacity": 25,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "background_video_Qj9dtb": {
+      "type": "background-video",
+      "blocks": {
+        "subheading_JzdT7H": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™ Guide"
+          }
+        },
+        "heading_Bhn7Rj": {
+          "type": "heading",
+          "settings": {
+            "text": "🌟 TABA SQUISHY TOO STICKY?",
+            "heading_size": "h1-xlarge"
+          }
+        },
+        "text_yBXicw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Feeling like your Taba Squishy is too sticky to handle? Don’t worry – we’ve got you covered! ✨ Here are 3 simple ways to reduce stickiness while keeping your squishy soft and satisfyin.</p>",
+            "description_size": "medium"
+          }
+        },
+        "button_7Y8GCt": {
+          "type": "button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subheading_JzdT7H",
+        "heading_Bhn7Rj",
+        "text_yBXicw",
+        "button_7Y8GCt"
+      ],
+      "disabled": true,
+      "name": "Background video",
+      "settings": {
+        "desktop_height": "desktop-height-750",
+        "mobile_height": "mobile-height-500",
+        "full_width": true,
+        "video_controls": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_how_to_reduce_stickiness_1_1.mp4",
+        "overlay_color": "#000000",
+        "overlay_opacity": 25,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "3a444c86-680e-4deb-b870-63aec684439f": {
+      "type": "media-grid",
+      "blocks": {
+        "media_KXTyWz": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "Discover New Arrivals",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "GO",
+            "button_link": "shopify://collections/new-arrivals",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--17918041391386__3a444c86-680e-4deb-b870-63aec684439f-16768955574efec445-0": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/tabasquishy_food_1280_1280_v.mp4",
+            "video_autoplay": true,
+            "column": 2,
+            "row": 2,
+            "subheading": "",
+            "heading": "@tabasquishy_official",
+            "heading_size": "h2",
+            "button_text": "TABASQUISHY™ on TIKTOK",
+            "button_link": "https://www.tiktok.com/@tabasquishy_official",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "color_bg": "#303c43",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--17918041391386__3a444c86-680e-4deb-b870-63aec684439f-16768955574efec445-2": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/tabasquishy_kids.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#3f72e5",
+            "color_bg_gradient": "",
+            "color_text": "#151515",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "52402f74-ffbf-4ff7-96b3-6c6c30568c45": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_logo_summer_3.gif",
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#392894",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_KXTyWz",
+        "template--17918041391386__3a444c86-680e-4deb-b870-63aec684439f-16768955574efec445-0",
+        "template--17918041391386__3a444c86-680e-4deb-b870-63aec684439f-16768955574efec445-2",
+        "52402f74-ffbf-4ff7-96b3-6c6c30568c45"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": 220,
+        "mobile_height": 150,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "16623877721f33fb14",
+    "slideshow_WzW9Lt",
+    "product-recommendations",
+    "1727082348faa1ffd9",
+    "1739697856de1a123e",
+    "rich_text_6MwLx6",
+    "single_image_3nJ8hN",
+    "rich_text_7kccxq",
+    "1662552569cce2536d",
+    "background_video_TmB4Pz",
+    "background_video_Qj9dtb",
+    "3a444c86-680e-4deb-b870-63aec684439f"
+  ]
+}

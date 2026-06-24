@@ -1,0 +1,422 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .play-card-container p {
+        margin: 0;
+    }
+
+    .play-card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 160px;
+    }
+
+    .play-card-block {
+        display: flex;
+        align-items: center;
+        position: relative;  /* 添加这一行 */
+    }
+    .play-card-block-image ,.play-card-block-card {
+        width: 50%;
+    }
+    .play-card-block img,.play-card-block video {
+        width: 100%;
+    }
+    .play-card-block-card {
+        width: 54.6875%;
+        position: relative;
+        padding: 0 60px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 52px;
+        display: flex;
+        border-radius: 24px;
+    }
+
+    .play-card-container .play-card-block:nth-child(odd) .play-card-block-card {
+        padding: 130px 60px;  /* 奇数 padding */
+    }
+
+    /* 偶数卡片（第2、4、6…）内的卡片容器 */
+    .play-card-container .play-card-block:nth-child(even) .play-card-block-card {
+        padding: 130px 60px; /* 偶数 padding */
+    }
+
+    .play-card-block-image {
+        z-index: 5;
+        border-radius: 24px;
+        overflow: hidden;
+        top: 50%;
+    }
+
+    .play-card-block-header {
+        display: flex;
+        width: 75.7615%;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    #shopify-section-{{section.id}} .play-card-block-title p{
+        color: {{ section.settings.text_color  }};
+
+        font-size: 40px;
+        line-height: 120%; /* 48px */
+    }
+
+    #shopify-section-{{section.id}} .play-card-block-description p{
+        color: {{ section.settings.text_color  }};
+
+        font-size: 16px;
+        line-height: 150%; /* 24px */
+    }
+
+    .play-card-block-items {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 75.7615%;
+    }
+
+    #shopify-section-{{section.id}} .play-card-block-item p{
+        color: {{ section.settings.text_color  }};
+
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 120%; /* 24px */
+    }
+
+    #shopify-section-{{section.id}} .play-card-block-item-sn {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        aspect-ratio: 1/1;
+        border-radius: 99px;
+        border: 1px dashed {{ section.settings.text_color  }};
+        color: {{ section.settings.text_color  }};
+        font-size: 16px;
+        line-height: 150%; /* 24px */
+    }
+
+    .play-card-block-title {
+        margin: 0;
+    }
+
+    .play-card-block-item {
+        display: flex;
+        gap: 12px;
+    }
+
+    .play-card-block-card,
+    .play-card-block-image {
+        transition:
+            transform 1s cubic-bezier(.22,1,.36,1),
+            opacity 1s ease;
+    }
+
+
+    .play-card-block-image {
+        /* position: absolute;
+        top: 50%; */
+        z-index: 5;
+        border-radius: 24px;
+        overflow: hidden;
+
+        transition:
+            transform 1.4s cubic-bezier(.16,1,.3,1),
+            opacity 1.4s ease;
+    }
+    .image-position-left {
+        left: 0;
+    }
+    .image-position-right {
+        right: 0;
+    }
+
+    .image-left:not(.active) .play-card-block-card {
+        opacity: 1;
+        transform: translateX(100%)
+    }
+
+    .image-left:not(.active) .play-card-block-image {
+        opacity: 1;
+        transform: translateX(-100%)
+    }
+    .image-right:not(.active) .play-card-block-card {
+        opacity: 1;
+        transform:translateX(-100%)
+    }
+
+    .image-right:not(.active) .play-card-block-image {
+        opacity: 1;
+        transform: translateX(100%)
+    }
+    .image-left.active .play-card-block-card {
+        opacity: 1;
+        transform: translateX(-10%);
+    }
+
+    .image-right.active .play-card-block-card {
+        opacity: 1;
+        transform: translateX(10%);
+    }
+
+    .image-left.active .play-card-block-image {
+        opacity: 1;
+        transform: translateX(10%);
+    }
+
+    .image-right.active .play-card-block-image {
+        opacity: 1;
+        transform: translateX(-10%);
+    }
+    .play-card-block-card,
+    .play-card-block-image {
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+    }
+</style>
+
+<div class='container'>
+    <div class='play-card-container'>
+        {% assign card_index = -1 %}
+        {% assign collecting = false %}
+
+        {% for block in section.blocks %}
+            {% if block.type == 'card_item' %}
+                {% assign item_index = 0 %}
+
+                {% if collecting %}
+                    </div>
+                    </div>
+                    </div>
+                {% endif %}
+
+                {% assign card_index = card_index | plus: 1 %}
+                {% assign collecting = true %}
+
+                <div
+                    class='play-card-block  {% if block.settings.select == 'row' %}image-left{% else %}image-right{% endif %}'
+                    style=' flex-direction: {{ block.settings.select }}'
+                >
+                    {% if block.settings.image != blank %}
+                        <div
+                            class='
+                                play-card-block-image
+                                {% if block.settings.select == 'row' %}
+                                    image-position-left
+                                {% else %}
+                                    image-position-right
+                                {% endif %}
+                            '
+                        >
+                            {%- if block.settings.use_video -%}
+                                {%- if block.settings.video != blank -%}
+                                    {{ block.settings.video | video_tag: autoplay: true, loop: true, controls: true, muted: true, image_size: '920x' }}
+                                {%- endif -%}
+                            {%- elsif block.settings.image != blank -%}
+                                {% render 'section-img', img: block.settings.image, width: 920, loading: 'lazy' %}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    <div
+                        class='play-card-block-card'
+                        style='
+                            {% if block.settings.background_image != blank %}
+                                background-image: url({{ block.settings.background_image | image_url: width: 1920 }});
+                                background-repeat: no-repeat;
+                                background-position: center center;
+                                background-size: cover;
+                            {% else %}
+                                background-color: {{ block.settings.background_color }};
+                            {% endif %}
+
+                            {% if block.settings.select == 'row' %}
+                                align-items: flex-end;
+                                text-align: end;
+                            {% elsif block.settings.select == 'row-reverse' %}
+                                align-items: flex-start;
+                                text-align: start;
+                            {% endif %}
+                        '
+                    >
+                        <div class='play-card-block-header'>
+                            {% if block.settings.title != blank %}
+                                <h3 class='play-card-block-title'>
+                                    {{ block.settings.title }}
+                                </h3>
+                            {% endif %}
+                            {% if block.settings.description != blank %}
+                                <div class='play-card-block-description'>
+                                    {{ block.settings.description }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class='play-card-block-items'>
+            {% elsif block.type == 'card_item_list_item' and collecting %}
+                {% assign item_index = item_index | plus: 1 %}
+                {% if block.settings.description != blank %}
+                    <div class='play-card-block-item'>
+                        {% if block.settings.if_open != false %}
+                            <span class='play-card-block-item-sn'>{{ item_index }}</span>
+                        {% endif %}
+                        {{ block.settings.description }}
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        {% if collecting %}
+            </div>
+            </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.play-card-block');
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            },
+            {
+                threshold: 0.4,
+                rootMargin: '0px 0px 0px 0px',
+            },
+        );
+
+        cards.forEach((card) => {
+            observer.observe(card);
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "play card",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "card_item",
+            "name": "card item",
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "select",
+                    "label": "Switch Image",
+                    "options": [
+                        { "value": "row", "label": "Image Left" },
+                        { "value": "row-reverse", "label": "Image Right" }
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "id": "use_video",
+                    "default": false,
+                    "label": "Use video instead of image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "video",
+                    "id": "video",
+                    "label": "Video"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "background_image",
+                    "label": "Background Image"
+                },
+                {
+                    "type": "color",
+                    "id": "background_color",
+                    "label": "Background Color"
+                },
+                {
+                    "type": "richtext",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                }
+            ]
+        },
+        {
+            "type": "card_item_list_item",
+            "name": "card item list item",
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "if_open",
+                    "label": "If Open Serial Number"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "play card"
+        }
+    ]
+}
+{% endschema %}

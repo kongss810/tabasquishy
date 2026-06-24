@@ -1,0 +1,540 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+        #shopify-section-{{ section.id }} {
+            background: {{ section.settings.bg_color }};
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .why-choose-us-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .why-choose-us-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .why-choose-us-title, .why-choose-us-title p {
+            font-family: 'Prompt';
+            color: #000;
+            text-align: center;
+            font-size: 64px;
+            font-weight: 600;
+            line-height: 120%; /* 76.8px */
+        }
+
+        .why-choose-us-description {
+            width: 40.125%;
+        }
+
+        .why-choose-us-description,
+        .why-choose-us-description p {
+            color: #333;
+            text-align: center;
+            /* 正文 */
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%; /* 24px */
+        }
+
+        .why-choose-us-card {
+            position: relative;
+
+            width: 20.83vw;
+
+            overflow: visible;
+
+            transition: .3s ease;
+
+            display: flex;
+            justify-content: center;
+            padding-bottom: 52px;
+            /* 新增背景相关 */
+            background-size: 100% 100%;    /* 强制拉伸填满整个卡片，不裁剪 */
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+
+        .why-choose-us-card-drip {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+
+            pointer-events: none;
+        }
+
+        .why-choose-us-card-1 {
+            margin-top: 6.5px;
+        }
+        .why-choose-us-card-3 {
+            margin-top: 21.36px;
+        }
+        .why-choose-us-card-4 {
+            margin-top: 13px;
+        }
+
+        .why-choose-us-content {
+            position: relative;
+            align-content: center;
+            flex-wrap: wrap;
+            display: flex;
+            margin-top: 72px;
+            width: 100%;
+        }
+
+        .why-choose-us-card-content {
+            width: 82.5%;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 16px;
+
+            text-align: center;
+            z-index: 100;
+        }
+
+        .why-choose-us-card-container {
+            width: 25%;
+        }
+
+    /*     .why-choose-us-card-container:nth-child(1) {
+            margin-bottom: 55.11px;
+        }
+
+        .why-choose-us-card-container:nth-child(2) {
+            margin-bottom: 54.93px;
+        }
+
+        .why-choose-us-card-container:nth-child(3) {
+            margin-bottom: 50.72px
+        }
+
+        .why-choose-us-card-container:nth-child(4) {
+            margin-bottom: 50.4px
+        } */
+
+        .why-choose-us-card-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 120%; /* 28.8px */
+            letter-spacing: -0.24px;
+        }
+        .why-choose-us-card-text {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%; /* 24px */
+        }
+
+    /* 卡片初始状态 - 隐藏并下沉 */
+    .why-choose-us-card {
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 100%;
+    }
+
+    /* 各个卡片的初始位置（带旋转，但下沉） */
+    .why-choose-us-card:nth-child(1) {
+        transform: translateY(60px) rotate(-5deg);
+    }
+
+    .why-choose-us-card:nth-child(2) {
+        transform: translateY(60px) rotate(4deg);
+    }
+
+    .why-choose-us-card:nth-child(3) {
+        transform: translateY(60px) rotate(-3deg);
+    }
+
+    .why-choose-us-card:nth-child(4) {
+        transform: translateY(60px) rotate(5deg);
+    }
+
+    /* 动画触发后的状态 - 上浮到最终位置 */
+    .why-choose-us-card-1.animate-in {
+        opacity: 1;
+        transform: translateY(8px) rotate(-5deg);
+        transition-delay: 0s;
+    }
+
+    .why-choose-us-card-2.animate-in {
+        opacity: 1;
+        transform: translateY(0) rotate(4deg);
+        transition-delay: 0.2s;
+    }
+
+    .why-choose-us-card-3.animate-in {
+        opacity: 1;
+        transform: translateY(16px) rotate(-3deg);
+        transition-delay: 0.4s;
+    }
+
+    .why-choose-us-card-4.animate-in {
+        opacity: 1;
+        transform: translateY(10px) rotate(5deg);
+        transition-delay: 0.6s;
+    }
+
+        .why-choose-us-badge {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 110%;
+            letter-spacing: 0%;
+
+        }
+
+        .why-choose-us-badge-1 {
+            top: 18.6%;
+            transform: rotate(-38.46deg);
+            right: -10%;
+        }
+
+        .why-choose-us-badge-2 {
+            right: 10%;
+            bottom: -1.64%;
+            transform: rotate(-11.6deg);
+        }
+
+        .why-choose-us-badge-3 {
+            right: -12%;
+            top: -12%;
+        }
+
+        .why-choose-us-badge-3 .badge_text {
+            transform: rotate(15deg);
+        }
+
+        .badge--pill {
+            width: 115px;
+            height: 53.54px;
+            border-radius: 999px;
+        }
+
+        .badge--circle {
+            width: 84px;
+            height: 84px;
+
+            border-radius: 50%;
+
+            padding: 0;
+
+            text-align: center;
+        }
+
+
+        .badge--star {
+            width: 112px;
+            height: 112px;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath fill='black' d='M0.418,0.052 C0.449,-0.017,0.551,-0.017,0.582,0.052 C0.603,0.099,0.663,0.117,0.709,0.091 C0.776,0.053,0.858,0.11,0.841,0.183 C0.829,0.233,0.866,0.282,0.919,0.287 C0.997,0.294,1,0.386,0.97,0.436 C0.929,0.47,0.929,0.53,0.97,0.564 C1,0.613,0.997,0.706,0.919,0.713 C0.866,0.718,0.829,0.767,0.841,0.817 C0.858,0.89,0.776,0.947,0.709,0.909 C0.663,0.883,0.603,0.901,0.582,0.948 C0.551,1,0.449,1,0.418,0.948 C0.397,0.901,0.337,0.883,0.291,0.909 C0.224,0.947,0.142,0.89,0.159,0.817 C0.171,0.767,0.134,0.718,0.081,0.713 C0.003,0.706,-0.028,0.613,0.03,0.564 C0.071,0.53,0.071,0.47,0.03,0.436 C-0.028,0.386,0.003,0.294,0.081,0.287 C0.134,0.282,0.171,0.233,0.159,0.183 C0.142,0.11,0.224,0.053,0.291,0.091 C0.337,0.117,0.397,0.099,0.418,0.052 Z'/%3E%3C/svg%3E");
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+
+        .why-choose-us-card-container {
+            position: relative;
+        }
+
+        .why-choose-us-badge {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .why-choose-us-card-content-1 {
+            margin-top: 103.39px;
+            width: 88.25%;
+        }
+
+        .why-choose-us-card-content-2 {
+            margin-top: 104.53px;
+        }
+
+        .why-choose-us-card-content-3 {
+            margin-top: 110.79px;
+        }
+
+        .why-choose-us-card-content-4 {
+            margin-top: 108.1px;
+        }
+
+        @media screen and (max-width: 1919px) {
+            .why-choose-us-content {
+                min-height: unset;
+            }
+        }
+
+        @media screen and (max-width: 1600px) {
+            .why-choose-us-card-content-1 {
+                margin-top: 83.39px;
+            }
+        }
+
+        @media screen and (max-width: 1480px) {
+            {% comment %} .why-choose-us-card-content-1 {
+                margin-top: 63.39px;
+            }
+
+            .why-choose-us-card-content-2 {
+                margin-top: 64.53px;
+            }
+
+            .why-choose-us-card-content-3 {
+                margin-top: 75.79px;
+            }
+
+            .why-choose-us-card-content-4 {
+                margin-top: 73.1px;
+            } {% endcomment %}
+
+            .why-choose-us-card-content {
+                gap: 4px;
+            }
+
+            .why-choose-us-card-content {
+                width: 92.25%;
+            }
+
+            .badge--circle {
+                width: 67.2px;
+                height: 67.2px;
+            }
+
+            .badge--pill {
+                width: 92px;
+                height: 42.832px;
+            }
+
+            .badge--star {
+                width: 89.6px;
+                height: 89.6px;
+            }
+
+
+            .badge_text {
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (max-width: 1280px) {
+            .why-choose-us-card-content-1 {
+                margin-top: 53.39px;
+            }
+
+            .why-choose-us-card-content-2 {
+                margin-top: 54.53px;
+            }
+
+            .why-choose-us-card-content-3 {
+                margin-top: 65.79px;
+            }
+
+            .why-choose-us-card-content-4 {
+                margin-top: 63.1px;
+            }
+
+            .why-choose-us-card-title {
+                font-size: 16px;
+            }
+
+            .why-choose-us-card-text {
+                font-size: 12px;
+            }
+        }
+</style>
+
+<div class='why-choose-us-container'>
+    <div class='container'>
+        <div class='why-choose-us-main'>
+            <div class='why-choose-us-top'>
+                {% if section.settings.title != blank %}
+                    <div class='why-choose-us-title'>{{ section.settings.title }}</div>
+                {% endif %}
+                {% if section.settings.description != blank %}
+                    <div class='why-choose-us-description'>{{ section.settings.description }}</div>
+                {% endif %}
+            </div>
+            <div class='why-choose-us-content'>
+                {% for block in section.blocks %}
+                    {% if block.type == 'card' %}
+                        <div class='why-choose-us-card-container'>
+                            <div
+                                class='why-choose-us-card why-choose-us-card-{{ forloop.index }}'
+                                style='{% if block.settings.cover_image != blank %}background-image: url({{ block.settings.cover_image | image_url }});{% endif %}'
+                            >
+                                <div
+                                    class='why-choose-us-card-content why-choose-us-card-content-{{ forloop.index }}'
+                                    style='color: {{ block.settings.card_color }}'
+                                >
+                                    {% if block.settings.block_title != blank %}
+                                        <div class='why-choose-us-card-title'>
+                                            {{ block.settings.block_title }}
+                                        </div>
+                                    {% endif %}
+                                    {% if block.settings.block_text != blank %}
+                                        <div class='why-choose-us-card-text'>
+                                            {{ block.settings.block_text }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 获取所有卡片
+        const cards = document.querySelectorAll('.why-choose-us-card');
+
+        // 创建一个 Intersection Observer
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // 当卡片区域进入视口 25% 时触发
+                    if (entry.isIntersecting) {
+                        // 为每个卡片添加依次动画的类
+                        cards.forEach((card, index) => {
+                            // 添加延时动画类
+                            setTimeout(() => {
+                                card.classList.add('animate-in');
+                            }, index * 150); // 每个卡片间隔 150ms
+                        });
+
+                        // 动画只触发一次，触发后停止观察
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.15, // 当目标元素的 25% 进入视口时触发
+                rootMargin: '0px',
+            },
+        );
+
+        // 获取要观察的元素（可以是卡片容器或第一个卡片）
+        const targetElement = document.querySelector('.why-choose-us-content');
+        if (targetElement) {
+            observer.observe(targetElement);
+        }
+    });
+</script>
+
+{% schema %}
+{
+    "name": "why choose us",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "card",
+            "name": "card",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "cover_image",
+                    "label": "Cover Image"
+                },
+
+                {
+                    "type": "color",
+                    "id": "card_color",
+                    "label": "Card Color"
+                },
+
+                {
+                    "type": "richtext",
+                    "id": "block_title",
+                    "label": "Block Title"
+                },
+
+                {
+                    "type": "richtext",
+                    "id": "block_text",
+                    "label": "Block Text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "why choose us"
+        }
+    ]
+}
+{% endschema %}

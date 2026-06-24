@@ -1,0 +1,444 @@
+{{- 'carousel-banner.css' | asset_url | stylesheet_tag -}}
+{%- if section.settings.img != blank -%}
+    <style>
+        .desktop-layout-center .carousel-assets__subheading{
+            margin: 0 auto;
+        }
+        .desktop-layout-right .carousel-assets__subheading{
+            margin-left: auto;
+        }
+        .bottom_animation_box {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100px;
+          z-index: 1;
+          overflow: hidden;
+          pointer-events: none;
+          background: rgba(0, 0, 0, 0);
+        }
+
+        .bottom_animation {
+          height: 100%;
+          background-image: url('{{ section.settings.img | img_url: "3840x" }}');
+          background-position: bottom left;
+          background-size: auto 100%;
+
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+          will-change: transform;
+        }
+        .carousel-assets__subheading a {
+          color: unset;
+        }
+
+        {%- if section.settings.enable_animation -%}
+          .bottom_animation {
+            background-repeat: repeat-x;
+            animation: bottomWave 70s -3s linear infinite;
+            background-repeat: repeat-x;
+            background-position: center center;
+            width: 1000%;
+            height: 100%;
+            transform: translateZ(0);
+            opacity: 1;
+          }
+
+          @keyframes bottomWave {
+            0% {transform: translateX(0);}
+            33% {transform: translateX(-15%);}
+            66% {transform: translateX(-30%);}
+            100% {transform: translateX(-50%);}
+          }
+        {%- else -%}
+          .bottom_animation {
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: cover;
+            animation: none;
+            will-change: auto;
+          }
+        {%- endif -%}
+    </style>
+{%- endif -%}
+<section
+    id='CarouselAssets-{{ section.id }}'
+    class='carousel-assets-banner'
+>
+    <div class='swiper carousel-assets-swiper'>
+        <div class='swiper-wrapper'>
+            {% for block in section.blocks %}
+                <style>
+                    #block-{{ section.id }}-{{ block.id }} .carousel-assets__link {
+                      background: rgb(0 0 0 / {{ block.settings.overlay_opacity }}%);
+                    }
+                </style>
+                {% assign loading_type = 'lazy' %}
+                {% if forloop.first %}
+                    {% assign loading_type = 'eager' %}
+                {% endif %}
+
+                <div
+                    class='swiper-slide carousel_assets_list  desktop-layout-{{ block.settings.desktop_layout }} mobile-layout-{{ block.settings.mobile_layout }}'
+                    id='block-{{ section.id }}-{{ block.id }}'
+                >
+                    <!-- PC 端：有 PC 图片显示 PC 图片，没有 PC 图片显示 PC 视频 -->
+                    <div class='carousel-assets__media carousel-assets__media--pc'>
+                        {% if block.settings.img != blank %}
+                            {% render 'section-img', loading: loading_type, img: block.settings.img, width: 1920 %}
+                        {% elsif block.settings.video != blank %}
+                            {{
+                                block.settings.video
+                                | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, class: 'carousel-assets__video'
+                            }}
+                        {% endif %}
+                    </div>
+
+                    <!-- 移动端：有移动图片显示移动图片，没有移动图片显示移动视频 -->
+                    <div class='carousel-assets__media carousel-assets__media--mobile'>
+                        {% if block.settings.img_mobile != blank %}
+                            {% render 'section-img', loading: loading_type, img: block.settings.img_mobile, width: 750 %}
+                        {% elsif block.settings.m_video != blank %}
+                            {{
+                                block.settings.m_video
+                                | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, class: 'carousel-assets__video'
+                            }}
+                        {% elsif block.settings.img != blank %}
+                            {% render 'section-img', loading: loading_type, img: block.settings.img, width: 750 %}
+                        {% elsif block.settings.video != blank %}
+                            {{
+                                block.settings.video
+                                | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, class: 'carousel-assets__video'
+                            }}
+                        {% endif %}
+                    </div>
+                    {% if block.settings.title != blank or block.settings.content != blank or block.settings.button != blank %}
+                        {% if block.settings.link != blank %}
+                            <a
+                                href='{{ block.settings.link }}'
+                                class='carousel-assets__link'
+                            >
+                        {% else %}
+                            <div class='carousel-assets__link'>
+                        {% endif %}
+                        <div class='container h-full w-full'>
+                            <div class='carousel-assets__content flex h-full flex-col justify-center sm:gap-[24px]'>
+                                {% if block.settings.title != blank or block.settings.content != blank %}
+                                    <div class='carousel-assets__top flex flex-col sm:gap-[8px]'>
+                                        <div class='carousel-assets__topBox flex flex-col'>
+                                            {% if block.settings.subheading != blank %}
+                                                <div class='carousel-assets__subheading hide_p w-max bg-[linear-gradient(90deg,#ED8E25_0%,#E40078_100%)] bg-clip-text leading-normal font-[600] text-transparent underline sm:text-[24px]'>
+                                                    {{ block.settings.subheading }}
+                                                </div>
+                                            {% endif %}
+                                            {% if forloop.first %}
+                                                {% if block.settings.title != blank %}
+                                                    <h1
+                                                        class='carousel-assets__title m-0 w-max leading-[120%] font-[600] sm:text-[64px]'
+                                                        style='color: {{ block.settings.title_color }};'
+                                                    >
+                                                        {{ block.settings.title }}
+                                                    </h1>
+                                                {% endif %}
+                                            {%- else -%}
+                                                {% if block.settings.title != blank %}
+                                                    <h2
+                                                        class='carousel-assets__title m-0 leading-[120%] font-[600] sm:text-[64px]'
+                                                        style='color: {{ block.settings.title_color }};'
+                                                    >
+                                                        {{ block.settings.title }}
+                                                    </h2>
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
+                                        {% if block.settings.content != blank %}
+                                            <div
+                                                class='carousel-assets__text'
+                                                style='color: {{ block.settings.content_color }};'
+                                            >
+                                                {{ block.settings.content }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                {% if block.settings.button != blank %}
+                                    <div
+                                        class='carousel-assets__button button_hover flex items-center justify-center rounded-[999px] leading-normal font-[500] sm:h-[48px] sm:px-[48px] sm:py-[12px] sm:text-[16px]'
+                                        style='background: {{ block.settings.button_color }}; color: {{ block.settings.button_text_color }};'
+                                    >
+                                        {{ block.settings.button }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        {% if block.settings.link != blank %}
+                            </a>
+                        {% else %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class='swiper-button-prev carousel-button-prev'>
+            <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='11'
+                height='23'
+                viewBox='0 0 11 23'
+                fill='none'
+            >
+                <path d="M9.67364 2.32616L0.999802 11L9.67364 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class='swiper-button-next carousel-button-next'>
+            <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='11'
+                height='23'
+                viewBox='0 0 11 23'
+                fill='none'
+            >
+                <path d="M1.05973 2.32616L9.73358 11L1.05973 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class='swiper-pagination'></div>
+        <div class='relative container'>
+            <div class='carousel-counter'>
+                <span class='current-slide'>1</span>
+                /
+                <span class='total-slides'>1</span>
+            </div>
+        </div>
+    </div>
+    {%- if section.settings.enable_animation -%}
+        <div class='bottom_animation_box'>
+            <div class='bottom_animation'></div>
+        </div>
+    {% endif %}
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const carouselEl = document.querySelector('#CarouselAssets-{{ section.id }} .carousel-assets-swiper');
+
+      if (!carouselEl || typeof Swiper === 'undefined') return;
+
+      const slideCount = carouselEl.querySelectorAll('.swiper-slide').length;
+      const canSlide = slideCount > 1;
+      const enableAutoplay = {{ section.settings.enable_autoplay | json }};
+      const section = carouselEl.closest('section');
+      const currentSlideEl = section.querySelector('.current-slide');
+      const totalSlidesEl = section.querySelector('.total-slides');
+
+      // 设置总页数
+      if (totalSlidesEl) {
+        totalSlidesEl.textContent = slideCount;
+      }
+
+      const swiper = new Swiper(carouselEl, {
+        slidesPerView: 1,
+        speed: 600,
+
+        loop: canSlide,
+
+        autoplay: canSlide && enableAutoplay
+          ? {
+              delay: {{ section.settings.autoplay_delay | default: 4000 }},
+              disableOnInteraction: false
+            }
+          : false,
+
+        pagination: canSlide
+          ? {
+              el: carouselEl.querySelector('.swiper-pagination'),
+              clickable: true
+            }
+          : false,
+
+        navigation: canSlide
+          ? {
+              nextEl: section.querySelector('.carousel-button-next'),
+              prevEl: section.querySelector('.carousel-button-prev')
+            }
+          : false,
+
+        allowTouchMove: canSlide,
+        simulateTouch: canSlide,
+        watchOverflow: true,
+
+        on: {
+            slideChange: function () {
+                if (currentSlideEl) {
+                currentSlideEl.textContent = (this.realIndex % slideCount) + 1;
+                }
+            }
+        }
+      });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Carousel Assets Banner",
+    "class": "carousel-assets css-layout",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "enable_autoplay",
+            "label": "Enable autoplay",
+            "default": true
+        },
+        {
+            "type": "number",
+            "id": "autoplay_delay",
+            "label": "Autoplay Delay (ms)",
+            "default": 4000
+        },
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "image",
+            "info": "1920*200px"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_animation",
+            "label": "Enable bottom animation",
+            "default": true
+        }
+    ],
+    "blocks": [
+        {
+            "type": "content_item",
+            "name": "content item",
+            "settings": [
+                {
+                    "type": "range",
+                    "id": "overlay_opacity",
+                    "label": "Overlay opacity",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "default": 0
+                },
+                {
+                    "type": "color",
+                    "id": "title_color",
+                    "label": "Title color"
+                },
+                {
+                    "type": "color",
+                    "id": "content_color",
+                    "label": "Content color"
+                },
+                {
+                    "type": "color",
+                    "id": "button_color",
+                    "label": "button color"
+                },
+                {
+                    "type": "color",
+                    "id": "button_text_color",
+                    "label": "button text color"
+                },
+                {
+                    "type": "select",
+                    "id": "desktop_layout",
+                    "label": "Desktop Content layout",
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": "Left"
+                        },
+                        {
+                            "value": "center",
+                            "label": "Center"
+                        },
+                        {
+                            "value": "right",
+                            "label": "Right"
+                        }
+                    ],
+                    "default": "center"
+                },
+                {
+                    "type": "select",
+                    "id": "mobile_layout",
+                    "label": "Mobile Content layout",
+                    "options": [
+                        {
+                            "value": "top",
+                            "label": "Top"
+                        },
+                        {
+                            "value": "middle",
+                            "label": "Middle"
+                        },
+                        {
+                            "value": "bottom",
+                            "label": "Bottom"
+                        }
+                    ],
+                    "default": "middle"
+                },
+                {
+                    "type": "video",
+                    "id": "video",
+                    "label": "video"
+                },
+                {
+                    "type": "video",
+                    "id": "m_video",
+                    "label": "mobile video"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "pc image",
+                    "info": "1920*900px"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_mobile",
+                    "label": "mobile image",
+                    "info": "375*600px"
+                },
+                {
+                    "type": "inline_richtext",
+                    "id": "subheading",
+                    "label": "Subheading"
+                },
+                {
+                    "type": "richtext",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                },
+                {
+                    "type": "text",
+                    "id": "button",
+                    "label": "button"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Carousel Assets Banner"
+        }
+    ]
+}
+{% endschema %}

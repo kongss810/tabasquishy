@@ -1,0 +1,190 @@
+{% doc %}
+  @prompt
+    Large bold text filled with an image. Include a setting to control the background color.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-image-text-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding }}px;
+  }
+
+  .ai-image-text-container-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ai-image-text-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    font-weight: {{ block.settings.font_weight }};
+    line-height: 1.1;
+    margin: 0;
+    background-image: url('{{ block.settings.fill_image | image_url: width: 2000 }}');
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-image-text-heading-{{ ai_gen_id }}--no-image {
+    background-image: none;
+    -webkit-text-fill-color: {{ block.settings.fallback_color }};
+    color: {{ block.settings.fallback_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-image-text-heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.text_size }}px * 0.6);
+    }
+  }
+{% endstyle %}
+
+<image-filled-text-{{ ai_gen_id }}
+  class="ai-image-text-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-image-text-container-{{ ai_gen_id }}">
+    {% if block.settings.fill_image %}
+      <h2 class="ai-image-text-heading-{{ ai_gen_id }}">
+        {{ block.settings.text }}
+      </h2>
+    {% else %}
+      <h2 class="ai-image-text-heading-{{ ai_gen_id }} ai-image-text-heading-{{ ai_gen_id }}--no-image">
+        {{ block.settings.text }}
+      </h2>
+    {% endif %}
+  </div>
+</image-filled-text-{{ ai_gen_id }}>
+
+{% schema %}
+{
+  "name": "Image filled text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "BOLD TEXT"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "900",
+          "label": "Extra bold"
+        }
+      ],
+      "default": "900"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Image fill"
+    },
+    {
+      "type": "image_picker",
+      "id": "fill_image",
+      "label": "Fill image"
+    },
+    {
+      "type": "color",
+      "id": "fallback_color",
+      "label": "Fallback color",
+      "default": "#2c2d2e",
+      "info": "Used when no image is selected"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image filled text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,852 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1732700465b48d4ad4": {
+      "type": "apps",
+      "blocks": {
+        "hextom_timer_bar_ctb_custom_placement_gd7Nh6": {
+          "type": "shopify://apps/hextom-timer-bar/blocks/ctb-custom-placement/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "hextom_timer_bar_ctb_custom_placement_gd7Nh6"
+      ],
+      "settings": {}
+    },
+    "background_video_F3bmhr": {
+      "type": "background-video",
+      "blocks": {
+        "subheading_ewhgPM": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™"
+          }
+        },
+        "heading_NB3rMD": {
+          "type": "heading",
+          "settings": {
+            "text": "The Perfect Holiday Gift",
+            "heading_size": "h1-xlarge"
+          }
+        },
+        "text_bgzRKc": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>December 3rd to December 18th (PST)</strong></p><p><strong>Buy 3, Get 1 Free</strong></p>",
+            "description_size": "small"
+          }
+        },
+        "button_6JLaGA": {
+          "type": "button",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subheading_ewhgPM",
+        "heading_NB3rMD",
+        "text_bgzRKc",
+        "button_6JLaGA"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "desktop-height-full",
+        "mobile_height": "mobile-height-full",
+        "full_width": true,
+        "video_controls": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_Christmas_pc.mp4",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "video_Umea84": {
+      "type": "video",
+      "name": "Video",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "full_width": false,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_brand_story_v_16_9.mp4",
+        "video_autoplay": true,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_kLhb4T": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_N3t3KP": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_Fckynh": {
+          "type": "heading",
+          "settings": {
+            "text": "ANNIVERSARY CELEBRATION ✨",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_kCdfmD": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>At TABASQUISHY®, we believe every feeling deserves a soft landing.</strong></p><p>Born from a heartfelt moment between a mother and child, TABASQUISHY™ has grown into a global community — but our mission remains the same: <em>to create soft spaces in a hard world.</em></p><p><strong>To celebrate our anniversary, here’s something truly special:</strong></p><p><strong>🐨 Exclusive limited-time price on iconic IP squishies</strong></p><p><strong>📅 Aug 20 – Sep 20 only</strong></p><p>🔒 <strong>Limit: Up to 2 IP squishies per customer at $5.99 each (original price $15.99). Additional pieces will be charged at full price</strong></p><p>🎁 <strong>Stacks with “Buy 3, Get 1 Free” for even more softness</strong></p><p>It’s our way of saying <em>thank you</em> for every pause, every smile, every soft moment you’ve shared with us.</p><p>We’re here to remind the world:</p><p>You don’t need to be fixed. You just need a squishy. ❤️</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_N3t3KP",
+        "heading_Fckynh",
+        "text_kCdfmD"
+      ],
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "#d3e4ed",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_C8wBE8": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_IP_16_9_1.jpg",
+        "image_mobile": "shopify://shop_images/tabasquishy_IP_1_1_1.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_product_aD3xdf": {
+      "type": "featured-product",
+      "blocks": {
+        "title_3KQYFW": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true
+          }
+        },
+        "variant_picker_DJLtwD": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_iAzqCn": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_Pk7Pfw": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "title_3KQYFW",
+        "variant_picker_DJLtwD",
+        "quantity_iAzqCn",
+        "buy_buttons_Pk7Pfw"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "heading": "🐨🦥 LET'S TABASQUISHY®",
+        "marker_style": "style1",
+        "description": "<ul><li><strong>Up to 2 IP squishies per customer at $5.99 each (original $15.99)</strong></li><li><strong>Additional pieces return to full price</strong></li></ul><p>✅ Your discount will be applied at checkout</p>",
+        "product": "sloth-koala-taba-squishy",
+        "show_taxes_included": true,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "layered_images_with_text_NFDj88": {
+      "type": "layered-images-with-text",
+      "blocks": {
+        "subheading_FFVYwy": {
+          "type": "subheading",
+          "settings": {
+            "text": "Designer Liu × TABASQUISHY®"
+          }
+        },
+        "heading_W8MNmD": {
+          "type": "heading",
+          "settings": {
+            "text": "The Inspiration Behind the Sloth & Koala IP Squishies",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_Jj6GQd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Internationally acclaimed designer Liu — with past collaborations including Lamborghini and Fendi — brings his expertise to TABASQUISHY® with a vision rooted in calm, comfort, and slow living.<br/><br/>For this creation, Liu drew directly from the natural charm of sloths and koalas — creatures that embody unhurried grace and effortless ease. The result is an IP design that feels instantly recognizable, deeply comforting, and perfectly aligned with our brand’s mission: to create soft spaces in a hard world.<br/><br/>These aren’t just squishies — they’re a tactile reminder to pause, breathe, and embrace life at your own pace.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FFVYwy",
+        "heading_W8MNmD",
+        "text_Jj6GQd"
+      ],
+      "name": "Layered images with text",
+      "settings": {
+        "image": "shopify://shop_images/WechatIMG2504_00464254-464c-4e68-961f-fc031c3a7f03.jpg",
+        "image_ratio": "adapt",
+        "image_2": "shopify://shop_images/tabasquishy_brand_design_2.jpg",
+        "image_ratio_2": "adapt",
+        "image_3": "shopify://shop_images/tabasquishy_brand_design_1.png",
+        "image_ratio_3": "adapt",
+        "full_width": false,
+        "layout": "image_first",
+        "content_alignment": "text-left",
+        "content_position": "middle",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_xcRRWP": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_gxBWiq": {
+          "type": "subheading",
+          "settings": {
+            "text": "The Story of TABASQUISHY®"
+          }
+        },
+        "heading_babbRX": {
+          "type": "heading",
+          "settings": {
+            "text": "✨ SOFT TO TOUCH, STRONG AT HEART",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "image_4bBXae": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_brand_VI.jpg"
+          }
+        },
+        "text_REBVn4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At TABASQUISHY®, we believe every feeling deserves a soft landing.</p><p>Whether you’re anxious, overstimulated, or just need a break—we’re here to help you squish it out.</p><p>Our brand was born in 2018 from a heartfelt moment between a mother and her child, and has since grown into a global community. But our core belief never changed: <em><strong>It’s okay not to be perfect. What matters is being real.</strong></em></p><p>We design every squishy as a soft space in a hard world—a small, sensory-friendly ritual of comfort and self-expression.</p><p>Each piece is handcrafted, uniquely imperfect, and made to celebrate individuality—just like you.</p><p>TABASQUISHY® is more than play.</p><p>It’s about pausing, breathing, reconnecting with your emotions, and expressing who you are without judgment. Whether you’re a little chaotic, quietly creative, or just looking for calm—we’re here.</p><p>We also believe in giving back. Every purchase supports ADHD awareness, children’s wellness, and environmental initiatives like tree planting and ocean cleanup.</p><p>Because you don’t need to be fixed.</p><p>You just need a squishy.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_gxBWiq",
+        "heading_babbRX",
+        "image_4bBXae",
+        "text_REBVn4"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_TrGAqT": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_wRGixX": {
+          "type": "icon",
+          "settings": {
+            "icon": "heart",
+            "heading": "ADHD support organizations",
+            "text": "<p>We donate regularly to the Child Mind Institute and similar organizations.</p>"
+          }
+        },
+        "icon_zYBTNK": {
+          "type": "icon",
+          "settings": {
+            "icon": "plant",
+            "heading": "🌱 Environmental Impact",
+            "text": "<p>With every order, we give back to the planet — planting trees and removing plastic waste from our oceans.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_wRGixX",
+        "icon_zYBTNK"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "text_alignment": "left",
+        "icon_position": "left",
+        "icon_size": "large",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_blog_post_yzQ7Uz": {
+      "type": "featured-blog-post",
+      "name": "Featured blog post",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "article": "tabasquishy-news/how-to-make-sure-you-get-your-anniversary-offer-on-sloth-koala-taba-squishy",
+        "layout": "image_first",
+        "image_ratio": "portrait",
+        "show_date": true,
+        "show_excerpt": true,
+        "show_read_more": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_collection_CkXrVm": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "Featured collection",
+      "settings": {
+        "heading": "SQUISH IN A SQUISH 🧊",
+        "marker_style": "style1",
+        "description": "<p>Discover the magic of Squishy Pods — a squishy like no other!<br/>Each Squishy Pod features a soft, outer layer that reveals a surprise mini squishy inside.</p>",
+        "collection": "squishy-pods-squish-in-a-squish",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_DQhm7h": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_qMX9px": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_6DB4rh": {
+          "type": "heading",
+          "settings": {
+            "text": "Stacks with “Buy 3, Get 1 Free” for even more softness",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_DKBzMN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mix and match fan-favorites from our Hot Sale collection to build your perfect bundle.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_qMX9px",
+        "heading_6DB4rh",
+        "text_DKBzMN"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_hotsale_collection_1_1.jpg",
+        "use_video": false,
+        "video": "",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_collection_xwygGk": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "collection": "hot-sales",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_W6EtbF": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_A7y4DQ": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_czHnXE": {
+          "type": "heading",
+          "settings": {
+            "text": "Stacks with “Buy 3, Get 1 Free” for even more softness",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_4mrDNR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mix in the freshest picks from our Hot Sale Blind Bags.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_A7y4DQ",
+        "heading_czHnXE",
+        "text_4mrDNR"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_collection_m9FtNJ": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "collection": "blind-bag-squeeze-toy-collection-🎁",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_TYaJfP": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_RBFPHd": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_4tdyDp": {
+          "type": "heading",
+          "settings": {
+            "text": "DIY MOLD SET",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_PH3EjB": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Exclusive Anniversary Discount</strong> → use <strong>code TABADIY18</strong> for <strong>18% OFF</strong> all DIY mold kits and other products<br/><em>(cannot be combined with limited-time IP special prices — but if you’ve already scored an IP deal, you can still use this code for everything else!)</em><br/></p><p></p>"
+          }
+        },
+        "button_VM4Bqt": {
+          "type": "button",
+          "settings": {
+            "button_text": "CREATE YOUR SQUISHY NOW",
+            "button_link": "shopify://collections/tabasquishy™-diy-mold-set-create-your-own-squishy-magic"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_RBFPHd",
+        "heading_4tdyDp",
+        "text_PH3EjB",
+        "button_VM4Bqt"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_diy_1_1.jpg",
+        "use_video": false,
+        "video": "",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_collection_ixDUaQ": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "<p>Meet the <strong>TABASQUISHY® DIY Mold Kit Collection</strong> — create your own soft & squishy masterpiece from scratch!</p><p></p>",
+        "collection": "tabasquishy™-diy-mold-set-create-your-own-squishy-magic",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_collection_eqkeey": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Recommended for You",
+        "marker_style": "style1",
+        "description": "<p>Mix in the freshest picks from our New Arrivals to build your perfect bundle.</p>",
+        "collection": "new-arrivals",
+        "display_type": "carousel",
+        "product_limit": 12,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "media_grid_eCTyxC": {
+      "type": "media-grid",
+      "blocks": {
+        "media_Maqzbj": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/1-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_fn9i3z": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/4-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_GB3xaC": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/6-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_khn77b": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/18-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_Maqzbj",
+        "media_fn9i3z",
+        "media_GB3xaC",
+        "media_khn77b"
+      ],
+      "name": "Media grid",
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5"
+      }
+    },
+    "slideshow_FjqFBA": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_in49tJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_brand_VI.jpg",
+            "mobile_image": "shopify://shop_images/tabasquishy_brand_VI.jpg",
+            "slide_link": "",
+            "video_background": false,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h1",
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_in49tJ"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "full_width": true,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_FLaXAW": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_PpR8M3": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY®"
+          }
+        },
+        "heading_KXbLFi": {
+          "type": "heading",
+          "settings": {
+            "text": "Squishy Delights, Day and Night",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_4dqJnn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>TABASQUISHY™ is here to bring joy and relaxation into your life. Our squishy toys are designed to melt stress away with every satisfying squeeze, helping you release negativity and rediscover happiness.</p>",
+            "size": "text-size-regular"
+          }
+        },
+        "button_V8mnpn": {
+          "type": "button",
+          "settings": {
+            "link_label": "TABASQUISHY™ BRAND STORY",
+            "link": "shopify://pages/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_PpR8M3",
+        "heading_KXbLFi",
+        "text_4dqJnn",
+        "button_V8mnpn"
+      ],
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "1732700465b48d4ad4",
+    "background_video_F3bmhr",
+    "main",
+    "video_Umea84",
+    "rich_text_kLhb4T",
+    "single_image_C8wBE8",
+    "featured_product_aD3xdf",
+    "layered_images_with_text_NFDj88",
+    "rich_text_xcRRWP",
+    "text_with_icons_TrGAqT",
+    "featured_blog_post_yzQ7Uz",
+    "featured_collection_CkXrVm",
+    "image_with_text_DQhm7h",
+    "featured_collection_xwygGk",
+    "rich_text_W6EtbF",
+    "featured_collection_m9FtNJ",
+    "image_with_text_TYaJfP",
+    "featured_collection_ixDUaQ",
+    "featured_collection_eqkeey",
+    "media_grid_eCTyxC",
+    "slideshow_FjqFBA",
+    "rich_text_FLaXAW"
+  ]
+}

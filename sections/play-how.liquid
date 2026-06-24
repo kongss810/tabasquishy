@@ -1,0 +1,178 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .play-how-container p {
+        margin: 0;
+    }
+
+    .play-how-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 52px;
+    }
+
+    .play-how-header {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 80px;
+    }
+
+    .play-how-title {
+        width: 64.375%;
+        margin: 0;
+    }
+
+    .play-how-title p {
+        color: #1a1a1a;
+        font-size: 64px;
+        line-height: 120%; /* 76.8px */
+    }
+
+    .play-how-description {
+        width: 30.625%;
+    }
+
+    .play-how-description p {
+        color: #1a1a1a;
+        text-align: right;
+        font-size: 16px;
+        line-height: 150%; /* 24px */
+    }
+
+    .play-how-image {
+        width: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .play-how-container video {
+        width: 100%;
+    }
+</style>
+
+<div class='container'>
+    <div class='play-how-container'>
+        {% unless section.settings.title == blank and section.settings.description == blank %}
+            <div class='play-how-header'>
+                {% if section.settings.title != blank %}
+                    <h3 class='play-how-title'>{{ section.settings.title }}</h3>
+                {% endif %}
+                {% if section.settings.description != blank %}
+                    <div class='play-how-description'>{{ section.settings.description }}</div>
+                {% endif %}
+            </div>
+        {% endunless %}
+        <div class='play-how-image js-play-how-media'>
+            {%- if section.settings.use_video -%}
+                {%- if section.settings.video != blank -%}
+                    {{ section.settings.video | video_tag: autoplay: true, loop: true, controls: true, muted: true, image_size: '920x' }}
+                {%- endif -%}
+            {%- elsif section.settings.image != blank -%}
+                {% render 'section-img', img: section.settings.image, width: 920, loading: 'lazy' %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mediaContainer = document.querySelector('.js-play-how-media');
+        const video = mediaContainer?.querySelector('video');
+
+        if (!video) return;
+
+        // 默认不自动播放
+        video.pause();
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.intersectionRatio >= 0.4) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: [0, 0.4, 1],
+            },
+        );
+
+        observer.observe(mediaContainer);
+    });
+</script>
+
+{% schema %}
+{
+    "name": "play how",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "checkbox",
+            "id": "use_video",
+            "default": false,
+            "label": "Use video instead of image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "video",
+            "id": "video",
+            "label": "Video"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "play how"
+        }
+    ]
+}
+{% endschema %}

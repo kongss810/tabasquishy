@@ -1,0 +1,218 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    #shopify-section-{{ section.id }} {
+        {% if section.settings.background_image != blank %}
+            background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        {% endif %}
+    }
+    .affiliate-discover-container p { margin: 0; }
+    .affiliate-discover-description p {
+        color: #333;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%;
+    }
+    .affiliate-discover-content-left .affiliate-discover-program-item-content { width: 76.2376%; }
+    .affiliate-discover-content-right .affiliate-discover-program-item { flex-direction: row-reverse; }
+    .affiliate-discover-content-right .affiliate-discover-program-item-content { text-align: end; }
+    .affiliate-discover-program-item-icon,
+    .affiliate-discover-program-item-icon .my_picture { width: 64px; }
+</style>
+
+{% liquid
+    assign title = section.settings.title
+    assign description = section.settings.description
+%}
+
+<div class='container'>
+    <div class='affiliate-discover-container'>
+        <!-- Header -->
+        <div class='affiliate-discover-header mx-auto mb-[82px] w-full max-w-[677px] text-center'>
+            {% if title != blank %}
+                <h2 class='header-title affiliate-discover-title hide_p text-center text-[64px] leading-[120%] font-[600] tracking-[-1.28px]'>{{ title }}</h2>
+            {% endif %}
+            {% if description != blank %}
+                <div class='affiliate-discover-description mt-[8px]'>{{ description }}</div>
+            {% endif %}
+        </div>
+
+        <div class='affiliate-discover-content flex items-center justify-between'>
+            <!-- 左侧 -->
+            <div class='affiliate-discover-content-left w-[31.5625%]'>
+                {% for block in section.blocks %}
+                    {% if block.type == 'left_program_item' %}
+                        <div
+                            class='affiliate-discover-program-item mb-[52px] inline-flex gap-[32px]'
+                            {{ block.shopify_attributes }}
+                        >
+                            {% if block.settings.svg != blank %}
+                                <div class='affiliate-discover-program-item-icon'>
+                                    {% render 'section-img', img: block.settings.svg, loading: 'eager', width: 64 %}
+                                </div>
+                            {% endif %}
+                            <div class='affiliate-discover-program-item-content'>
+                                {% if block.settings.block_title != blank %}
+                                    <div class='affiliate-discover-program-item-content-title hide_p text-[24px] leading-[120%] font-[600] text-[#1A1A1A]'>
+                                        {{ block.settings.block_title }}
+                                    </div>
+                                {% endif %}
+                                {% if block.settings.block_description != blank %}
+                                    <div class='affiliate-discover-program-item-content-description mt-[16px] text-[16px]'>
+                                        {{ block.settings.block_description }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <!-- 右侧 -->
+            <div class='affiliate-discover-content-right w-[30.0625%]'>
+                {% for block in section.blocks %}
+                    {% if block.type == 'Right_program_item' %}
+                        <div
+                            class='affiliate-discover-program-item mb-[80px] inline-flex items-center gap-[32px]'
+                            {{ block.shopify_attributes }}
+                        >
+                            {% if block.settings.svg != blank %}
+                                <div class='affiliate-discover-program-item-icon'>
+                                    {% render 'section-img', img: block.settings.svg, loading: 'lazy', width: 64 %}
+                                </div>
+                            {% endif %}
+                            <div class='affiliate-discover-program-item-content'>
+                                {% if block.settings.block_title != blank %}
+                                    <div class='affiliate-discover-program-item-content-title hide_p text-[24px] leading-[120%] font-[600] text-[#1A1A1A]'>
+                                        {{ block.settings.block_title }}
+                                    </div>
+                                {% endif %}
+                                {% if block.settings.block_description != blank %}
+                                    <div class='affiliate-discover-program-item-content-description mt-[16px] text-[16px]'>
+                                        {{ block.settings.block_description }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Affiliate Discover",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "left_program_item",
+            "name": "Left Program Item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "svg",
+                    "label": "Icon (SVG)"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_description",
+                    "label": "Description"
+                }
+            ]
+        },
+        {
+            "type": "Right_program_item",
+            "name": "Right Program Item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "svg",
+                    "label": "Icon (SVG)"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Affiliate Discover",
+            "blocks": [
+                {
+                    "type": "left_program_item"
+                },
+                {
+                    "type": "Right_program_item"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

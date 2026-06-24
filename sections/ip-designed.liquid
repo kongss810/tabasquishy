@@ -1,0 +1,303 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    #shopify-section-{{ section.id }} .ip-designed-box{
+      background-color: {{ section.settings.background_color }};
+      {% if section.settings.background_img != blank %}
+          background-image: url("{{ section.settings.background_img | img_url: '1920x' }}");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+      {% endif %}
+    }
+    .ip-designed-box {
+      padding-top: 132px;
+      padding-bottom: 132px;
+    }
+    .ip-designed-container p {
+      margin: 0;
+    }
+
+    .ip-designed-container {
+      display: flex;
+      gap: 85px;
+      justify-content: space-between;
+    }
+
+    .ip-designed-context {
+      display: flex;
+      flex-direction: column;
+      gap: 52px;
+      width: 48.625%;
+      justify-content: center;
+    }
+
+    .ip-designed-context-main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .ip-designed-context-main-block {
+      display: flex;
+      gap: 16px;
+    }
+
+    .ip-designed-context-main-texts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ip-designed-img {
+      width: 46.0625%;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .ip-designed-context-title {
+      margin: 0;
+    }
+
+    .ip-designed-context-title p {
+      color: #1A1A1A;
+      font-size: 64px;
+      font-weight: 600;
+      line-height: 120%; /* 76.8px */
+    }
+
+    .ip-designed-context-main-block-svg img{
+      max-width: unset;
+    }
+
+    .ip-designed-context-main-texts-title p {
+      color:  #1A1A1A;
+      font-weight: 600;
+      line-height: 120%;
+    }
+
+    .ip-designed-context-main-texts-description p {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    @media screen and (max-width: 1024px) {
+      #shopify-section-{{ section.id }} .ip-designed-box{
+        {% if section.settings.bg_mobile != blank %}
+            background-image: url("{{ section.settings.bg_mobile | img_url: '750x' }}");
+            background-size: cover;
+            background-position: top right;
+            background-repeat: no-repeat;
+
+        {% endif %}
+      }
+      .ip-designed-box {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+      .ip-designed-container {
+          flex-direction: column;
+      }
+
+      .ip-designed-context {
+          width: 100%;
+      }
+
+      .ip-designed-context-title {
+          text-align: center;
+      }
+
+      .ip-designed-context {
+          gap: 40px;
+      }
+
+      .ip-designed-context-main-block {
+          gap: 12px;
+      }
+
+      .ip-designed-context-main-block-svg img{
+          width: 24px;
+          height: auto;
+          min-width: 24px;
+      }
+
+      .ip-designed-container {
+          gap: 40px;
+      }
+
+      .ip-designed-img {
+          width: 100%;
+          border-radius: 10px;
+      }
+
+      .ip-designed-context-title p {
+          font-size: 32px;
+      }
+
+      .ip-designed-context-main-texts-title p {
+          font-size: 18px;
+          line-height: 150%;
+      }
+
+      .ip-designed-context-main-texts-description p {
+          font-size: 14px;
+      }
+    }
+</style>
+
+{%- if section.settings.show_topBanner != blank -%}
+    <div class='my_banner_topScroll'>
+        {% if section.settings.top_video != blank %}
+            {{ section.settings.top_video | video_tag: autoplay: true, playsinline: true, loop: true, controls: false, muted: true, image_size: '1920x' }}
+        {%- else -%}
+            {% render 'section-img', loading: 'eager', img: section.settings.background_image, width: 1920 %}
+        {% endif %}
+    </div>
+{%- endif -%}
+<div class='ip-designed-box'>
+    <div class='container'>
+        <div class='ip-designed-container'>
+            <div class='ip-designed-context'>
+                {%- if section.settings.main_title != blank -%}
+                    <h2 class='ip-designed-context-title'>{{ section.settings.main_title }}</h2>
+                {%- endif -%}
+                {%- if section.blocks.size > 0 -%}
+                    <div class='ip-designed-context-main'>
+                        {% for block in section.blocks %}
+                            <div class='ip-designed-context-main-block'>
+                                {%- if block.settings.svg != blank -%}
+                                    <div class='ip-designed-context-main-block-svg'>
+                                        {% render 'section-img', img: block.settings.svg, loading: 'lazy', width: 32 %}
+                                    </div>
+                                {% endif %}
+                                <div class='ip-designed-context-main-texts'>
+                                    {%- if block.settings.title != blank -%}
+                                        <div class='ip-designed-context-main-texts-title'>{{ block.settings.title }}</div>
+                                    {% endif %}
+                                    {%- if block.settings.description != blank -%}
+                                        <div class='ip-designed-context-main-texts-description'>{{ block.settings.description }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {%- endif -%}
+            </div>
+            {%- if section.settings.image != blank -%}
+                <div class='ip-designed-img img_hover'>
+                    {% render 'section-img', loading: 'eager', img: section.settings.image, width: 737, class: 'hover_img' %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "ip designed",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "main_title",
+            "label": "Main Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_topBanner",
+            "label": "show top banner",
+            "default": false
+        },
+        {
+            "type": "video",
+            "id": "top_video",
+            "label": "Top video"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Top Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_img",
+            "label": "Background Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_mobile",
+            "label": "Background Image Mobile"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background Color"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_top",
+            "label": "Desktop Margin Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_top",
+            "label": "Mobile Margin Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_bottom",
+            "label": "Desktop Margin Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_bottom",
+            "label": "Mobile Margin Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "ip",
+            "name": "Ip Item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "svg",
+                    "label": "SVG"
+                },
+                {
+                    "type": "richtext",
+                    "id": "title",
+                    "label": "Item Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Item Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "ip designed"
+        }
+    ]
+}
+{% endschema %}

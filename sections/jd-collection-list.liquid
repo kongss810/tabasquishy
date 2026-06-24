@@ -1,0 +1,222 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .collection-list-all .my_picture {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .collection-list-text-block-title p {
+        line-height: inherit !important;
+    }
+    .collection-list-text-block-description p {
+        line-height: inherit !important;
+    }
+</style>
+
+<div class='collection-list-all'>
+    <div class='container'>
+        <div class='collection-list-container'>
+            <div class='collection-list-header mb-[52px] flex items-end justify-between self-stretch px-1'>
+                <div class='collection-list-header-left-side flex flex-col items-start gap-[20px]'>
+                    {% if section.settings.title != blank %}
+                        {%- if section.settings.highlighted_text == 'none' -%}
+                            <h2 class='header-title text-title hide_p text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
+                                {{ section.settings.title }}
+                            </h2>
+                        {%- else -%}
+                            {%- render 'highlighted-text',
+                                class: 'header-title text-title hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                                content: section.settings.title,
+                                style: section.settings.highlighted_text,
+                                scribble: 'sketch-underline',
+                                gradient: with_gradient
+                            -%}
+                        {%- endif -%}
+                    {% endif %}
+                    {% if section.settings.description != blank %}
+                        <div
+                            class='collection-list-description text-[16px] leading-[150%] font-normal'
+                            style='color: {{section.settings.description_text_color}};'
+                        >
+                            {{ section.settings.description }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class='collection-list-content'>
+                <div class='grid grid-cols-2 gap-x-[24px] gap-y-[52px] sm:grid-cols-4'>
+                    {% for block in section.blocks %}
+                        <div class='collection-list-card flex flex-col items-center gap-[20px]'>
+                            {% if block.settings.display_image %}
+                                <a
+                                    href='{{ block.settings.collection.url }}'
+                                    class='collection-list-media media img_hover block aspect-square w-full overflow-hidden rounded-[15px]'
+                                >
+                                    {% render 'section-img', img: block.settings.display_image, width: 1000, loading: 'lazy', class: 'hover_img' %}
+                                </a>
+                            {% else %}
+                                <a
+                                    href='{{ block.settings.collection.url }}'
+                                    class='collection-list-media media img_hover block aspect-square w-full overflow-hidden rounded-[15px]'
+                                >
+                                    {% render 'section-img', img: block.settings.collection.image, width: 1000, loading: 'lazy', class: 'hover_img' %}
+                                </a>
+                            {% endif %}
+
+                            <div class='collection-list-text-content flex flex-col gap-[20px]'>
+                                <div class='collection-list-text-content-left flex flex-col items-start gap-[16px]'>
+                                    {% if block.settings.block_title != blank %}
+                                        <div class='hide_p collection-list-text-block-title text-[24px] leading-[120%] font-[700]'>
+                                            {{ block.settings.block_title }}
+                                        </div>
+                                    {% endif %}
+                                    {% if block.settings.block_description != blank %}
+                                        <div class='hide_p collection-list-text-block-description text-[16px] leading-[150%] font-[400]'>
+                                            {{ block.settings.block_description }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class='collection-list-text-content-right flex h-full items-center justify-between gap-[16px]'>
+                                    {% assign min_price = block.settings.collection.products | map: 'price_min' | sort | first %}
+                                    <div class='collection-list-text-block-price flex items-start justify-center gap-[10px] px-3 text-[20px] leading-[120%] font-semibold'>
+                                        <span>{{ 'general.from_text' | t }}</span>
+                                        <span>{{ min_price | money }}</span>
+                                    </div>
+                                    {% if section.settings.button_text != blank %}
+                                        <a
+                                            href='{{ block.settings.collection.url }}'
+                                            class='collection-list-text-block-button button text-text flex h-[48px] items-center rounded-[999px] bg-[#FCD454] px-[48px] text-center text-[28px] leading-[113%] font-[500] tracking-[0] sm:text-[16px] sm:leading-[120%]'
+                                        >
+                                            {{ section.settings.button_text }}
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "collection-list",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "title"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "description",
+            "label": "description"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "LEARN MORE"
+        },
+        {
+            "type": "color",
+            "id": "description_text_color",
+            "label": "description text color",
+            "default": "#333333"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "collection_item",
+            "name": "collection item",
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection Series"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "display_image",
+                    "label": "Display Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "collection-list"
+        }
+    ]
+}
+{% endschema %}

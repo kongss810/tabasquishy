@@ -1,0 +1,69 @@
+<div
+    class='pswp no-js-hidden'
+    tabindex='-1'
+    role='dialog'
+    aria-hidden='true'
+>
+    <div class='pswp__bg'></div>
+    <div class='pswp__scroll-wrap'>
+        <div class='pswp__container'>
+            <div class='pswp__item'></div>
+            <div class='pswp__item'></div>
+            <div class='pswp__item'></div>
+        </div>
+        <div class='pswp__ui pswp__ui--hidden'>
+            <div class='pswp__top-bar'>
+                <div class='pswp__button pswp__counter'></div>
+                <button
+                    class='pswp__button pswp__button--close'
+                    title='Close (Esc)'
+                >
+                    {% render 'svg-icons' with 'close' %}
+                </button>
+                <div class='pswp__preloader'></div>
+            </div>
+
+            <button
+                class='pswp__button pswp__button--arrow--left'
+                title='Previous (arrow left)'
+            >
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='11'
+                    height='24'
+                    viewBox='0 0 11 24'
+                    fill='none'
+                >
+                    <path d="M8.64328 19.5C8.54023 19.5012 8.43806 19.4818 8.34334 19.4431C8.24861 19.4043 8.16343 19.3471 8.09328 19.275L1.02185 12.525C0.707561 12.225 0.707561 11.76 1.02185 11.46L8.09328 4.725C8.40756 4.425 8.8947 4.425 9.20899 4.725C9.52328 5.025 9.52328 5.49 9.20899 5.79L2.68756 12L9.20899 18.225C9.52328 18.525 9.52328 18.99 9.20899 19.29C9.05185 19.44 8.84756 19.515 8.65899 19.515L8.64328 19.5Z" fill="black"></path>
+                </svg>
+            </button>
+
+            <button
+                class='pswp__button pswp__button--arrow--right'
+                title='Next (arrow right)'
+            >
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='11'
+                    height='24'
+                    viewBox='0 0 11 24'
+                    fill='none'
+                >
+                    <path d="M2.35672 4.5C2.45977 4.4988 2.56194 4.5182 2.65666 4.55695C2.75139 4.5957 2.83657 4.65294 2.90672 4.725L9.97815 11.475C10.2924 11.775 10.2924 12.24 9.97815 12.54L2.90672 19.275C2.59244 19.575 2.1053 19.575 1.79101 19.275C1.47672 18.975 1.47672 18.51 1.79101 18.21L8.31244 12L1.79101 5.775C1.47672 5.475 1.47672 5.01 1.79101 4.71C1.94815 4.56 2.15244 4.485 2.34101 4.485L2.35672 4.5Z" fill="#333333"></path>
+                </svg>
+            </button>
+
+            <div class='pswp__caption'>
+                <div class='pswp__caption__center'></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script
+    src='{{ 'photoswipe.min.js' | asset_url }}'
+    defer='defer'
+></script>
+<script
+    src='{{ 'photoswipe-ui-default.min.js' | asset_url }}'
+    defer='defer'
+></script>

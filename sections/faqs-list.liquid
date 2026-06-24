@@ -1,0 +1,309 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .faq-nav-item {
+        font-family: 'Prompt';
+    }
+    .faq-nav-item.active {
+        color: rgba(26, 26, 26, 1);
+    }
+
+    .faq-item.active {
+        border-radius: 15px;
+        {% if section.settings.faq_active_bg_image %}
+            background-image: url('{{ section.settings.faq_active_bg_image | image_url: width: 1200 }}');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-color: {{ section.settings.faq_active_bg_color }};
+        {% else %}
+            background-color: {{ section.settings.faq_active_bg_color }};
+        {% endif %}
+        border-color: #333;
+    }
+
+    .faq-item.active .faq-arrow {
+        transform: rotate(180deg);
+    }
+
+    .faq-answer a {
+        color: var(--faq-a);
+        text-decoration: underline;
+    }
+    {%- assign slide_to_hide_page = settings.slide_to_hide_page -%}
+    {%- assign suffixList = slide_to_hide_page | split: ',' -%}
+    {%- assign should_hide = false -%}
+    {%- for suffix in suffixList -%}
+        {%- assign trimmed = suffix | strip -%}
+        {%- if request.page_type == trimmed or template.suffix == trimmed -%}
+            {%- assign should_hide = true -%}
+        {%- endif -%}
+    {%- endfor -%}
+
+    {% if settings.slide_to_hide_header and should_hide == false %}
+        .faq-section-wrap .faq-nav {
+            top: 100px;
+        }
+    {% else %}
+        .faq-section-wrap .faq-nav {
+            top: calc(var(--announcement-height, 0px) + var(--header-height, 0px));
+        }
+    {% endif %}
+</style>
+
+<div
+    class='faq-section-wrap relative container flex gap-[60px]'
+    style='--faq-a: {{ section.settings.faq_a_active }}'
+>
+    <!-- 左侧 sticky 导航：只渲染 tab 类型 -->
+    <div class='faq-nav-wrap w-[440px] shrink-0'>
+        <ul class='faq-nav sticky m-0 flex list-none flex-col gap-[40px] p-0'>
+            {% assign tab_index = -1 %}
+            {% for block in section.blocks %}
+                {% if block.type == 'tab' %}
+                    {% assign tab_index = tab_index | plus: 1 %}
+                    <li
+                        class='faq-nav-item w-max cursor-pointer text-[32px] leading-[120%] font-[600] text-[rgba(26,26,26,0.40)] transition-all duration-300 hover:text-[rgba(26,26,26,1)] {% if tab_index == 0 %}active{% endif %}'
+                        data-index='{{ tab_index }}'
+                    >
+                        {{ block.settings.title }}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- 右侧内容区：tab 开启分组，faq_item 归属上一个 tab -->
+    <div class='faq-content-wrap flex flex-1 flex-col'>
+        {% assign tab_index = -1 %}
+        {% assign group_open = false %}
+
+        {% for block in section.blocks %}
+            {% if block.type == 'tab' %}
+                {% comment %} 关闭上一个分组 {% endcomment %}
+                {% if group_open %}
+                    </div>
+                    <!-- /faq list -->
+                    </div>
+                    <!-- /faq-group -->
+                {% endif %}
+
+                {% assign tab_index = tab_index | plus: 1 %}
+                {% assign group_open = true %}
+
+                <div
+                    class='faq-group {% unless tab_index == 0 %}mt-[80px] pt-[80px] border-0 border-t-[2px] border-dashed border-[rgba(26,26,26,0.20)]{% endunless %}'
+                    data-index='{{ tab_index }}'
+                >
+                    <div class='flex flex-col gap-[20px]'>
+            {% elsif block.type == 'faq_item' and group_open %}
+                <div class='faq-item overflow-hidden rounded-[999px] border border-[rgba(26,26,26,0.20)] transition-all duration-300'>
+                    <div class='faq-question flex cursor-pointer items-center justify-between gap-[16px] px-[32px] py-[24px]'>
+                        <span class='text-title text-[24px] leading-[120%] font-[600]'>{{ block.settings.question }}</span>
+                        <svg
+                            class='faq-arrow shrink-0 transition-transform duration-300'
+                            width='24'
+                            height='24'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'
+                        >
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class='faq-answer hidden px-[32px] pb-[24px]'>
+                        <div class='hide_p text-text text-[18px] leading-[150%]'>{{ block.settings.answer }}</div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% comment %} 关闭最后一个分组 {% endcomment %}
+        {% if group_open %}
+            </div>
+            <!-- /faq list -->
+            </div>
+            <!-- /faq-group -->
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    (function () {
+        const navItems = document.querySelectorAll('.faq-nav-item');
+        const groups = document.querySelectorAll('.faq-group');
+        const header = document.querySelector('.header');
+        let isScrolling = false;
+        let scrollTimer = null;
+
+        function getHeaderHeight() {
+            return (header?.offsetHeight ?? 0) + 20;
+        }
+
+        /* -------- 手风琴 -------- */
+        document.querySelector('.faq-section-wrap').addEventListener('click', function (e) {
+            const question = e.target.closest('.faq-question');
+            if (!question) return;
+
+            const item = question.closest('.faq-item');
+            const isActive = item.classList.contains('active');
+
+            // Slide up all open answers in the same group
+            item.closest('.faq-group')
+                .querySelectorAll('.faq-item')
+                .forEach((el) => {
+                    if (el.classList.contains('active')) {
+                        el.classList.remove('active');
+                        $(el).find('.faq-answer').slideUp(250);
+                    }
+                });
+
+            // If it wasn't active, open it
+            if (!isActive) {
+                item.classList.add('active');
+                $(item).find('.faq-answer').slideDown(250);
+            }
+        });
+
+        /* -------- 左侧 tab 点击滚动 -------- */
+        navItems.forEach((nav) => {
+            nav.addEventListener('click', function () {
+                const idx = this.dataset.index;
+                const group = document.querySelector(`.faq-group[data-index="${idx}"]`);
+                if (!group) return;
+
+                isScrolling = true;
+                clearTimeout(scrollTimer);
+
+                const offset = getHeaderHeight();
+                const top = group.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+
+                setActiveNav(idx);
+                scrollTimer = setTimeout(() => {
+                    isScrolling = false;
+                }, 700);
+            });
+        });
+
+        /* -------- 滚动高亮对应 tab -------- */
+        function setActiveNav(idx) {
+            navItems.forEach((n) => n.classList.toggle('active', n.dataset.index === String(idx)));
+        }
+
+        // 使用 Intersection Observer 监听 faq-group 是否进入视口
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // 当 faq-group 进入视口时，高亮对应的导航项
+                    if (entry.isIntersecting) {
+                        const idx = entry.target.dataset.index;
+                        setActiveNav(idx);
+                    }
+                });
+            },
+            {
+                threshold: 0.1, // 当 10% 的元素进入视口时触发
+                rootMargin: `-${getHeaderHeight() + 50}px 0px -50% 0px`, // 在 header 下方 50px 处开始检测
+            },
+        );
+
+        groups.forEach((g) => observer.observe(g));
+    })();
+</script>
+
+{% schema %}
+{
+    "name": "faqs-list",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "header",
+            "content": "FAQ Item Active State"
+        },
+        {
+            "type": "color",
+            "id": "faq_active_bg_color",
+            "label": "Active Background Color",
+            "default": "#fcd454"
+        },
+        {
+            "type": "image_picker",
+            "id": "faq_active_bg_image",
+            "label": "Active Background Image (optional)"
+        },
+        {
+            "type": "color",
+            "id": "faq_a_active",
+            "label": "faq a active",
+            "default": "#ED8E25"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "tab",
+            "name": "Tab",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Tab title"
+                }
+            ]
+        },
+        {
+            "type": "faq_item",
+            "name": "FAQ Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "question",
+                    "label": "Question"
+                },
+                {
+                    "type": "richtext",
+                    "id": "answer",
+                    "label": "Answer"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "faqs-list"
+        }
+    ]
+}
+{% endschema %}

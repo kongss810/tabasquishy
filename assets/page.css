@@ -1,0 +1,62 @@
+.page-all h2,
+.page-all h2 b {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+    margin-bottom: 40px;
+}
+.page-title {
+    margin-bottom: 80px;
+}
+.page-all strong,
+.page-all b,
+.page-all h1,
+.page-all h2,
+.page-all h3,
+.page-all h4,
+.page-all h5,
+.page-all h6 {
+    font-weight: 700;
+}
+.page-all h3,
+.page-all h3 b {
+    font-size: 28px;
+}
+.page-all h4,
+.page-all h4 b {
+    font-size: 20px;
+}
+.page-all h5,
+.page-all h5 b {
+    font-size: 18px;
+}
+.page-all h6,
+.page-all h6 b {
+    font-size: 16px;
+}
+
+.page-all p {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+.page-all table b,
+.page-all table th {
+    font-size: 16px;
+    font-weight: 500;
+}
+.page-all table {
+    font-size: 16px;
+}
+.page-all table p {
+    margin: 0;
+}
+.page-all table th,
+.page-all table td {
+    padding: 20px;
+}
+
+.page-all li {
+    margin: 20px 0;
+}
+.page-all li::marker {
+  font-size: 14px;
+}

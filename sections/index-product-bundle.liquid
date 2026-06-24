@@ -1,0 +1,745 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .index-bundle-items {
+        display: none;
+    }
+    .index-bundle-items.active {
+        display: block;
+    }
+
+    .bundle-tab-box.active {
+        background: #f3f3f3;
+        font-weight: 600;
+        border-color: #f3f3f3;
+    }
+    .bundle-tab-box:hover {
+        background: #f3f3f3;
+        border-color: #f3f3f3;
+    }
+
+    .free-badge {
+        animation: freeBadgePulse var(--free-badge-duration) ease-in-out infinite;
+        transform-origin: center;
+    }
+
+    @keyframes freeBadgePulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.12);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .index-bundle-all .product_cardNew .product-featured-image {
+            margin-bottom: 20px;
+        }
+
+        .index-bundle-all .product_cardNew .product-card-title {
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+
+        .index-bundle-all .product_cardNew .price {
+            margin-top: 0;
+        }
+
+        /* Add 按钮禁用态 */
+        .product_cardNew .add-button:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+    }
+    @media (min-width: 1024px) and (max-width: 1279px) {
+        .index-bundle-left {
+            padding-right: 40px;
+        }
+        .index-bundle-left .grid-cols-2 {
+            gap: 16px;
+        }
+    }
+    @media (max-width: 1023px) {
+    }
+
+    /* Loading 状态样式 */
+    .bundle-add-cart {
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .bundle-add-cart svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 20;
+        opacity: 0;
+        width: 34px;
+        height: 34px;
+        margin: -17px 0 0 -17px;
+        padding: 10px;
+        animation: spin 1s linear infinite;
+        transition: opacity 0.3s ease;
+    }
+
+    .bundle-add-cart.loading svg {
+        opacity: 1;
+    }
+
+    .bundle-add-cart.loading span {
+        opacity: 0;
+    }
+
+    .bundle-add-cart:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .bundle-add-cart.loading:disabled {
+        opacity: 1;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div
+    class='index-bundle-all'
+    style='--free-badge-duration: {{ section.settings.badge_animation_duration }}s'
+>
+    <div class='container'>
+        <div class='indexBundle_top mb-[52px] flex items-end justify-between gap-[40px] sm:mb-[38px]'>
+            <div class='indexBundle_topLeft'>
+                {% if section.settings.title != blank %}
+                    {%- if section.settings.highlighted_text == 'none' -%}
+                        <h2 class='header-title text-title hide_p text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
+                            {{ section.settings.title }}
+                        </h2>
+                    {% else %}
+                        {%- render 'highlighted-text',
+                            class: 'header-title text-title hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                            content: section.settings.title,
+                            style: section.settings.highlighted_text,
+                            scribble: 'sketch-underline',
+                            gradient: with_gradient
+                        -%}
+                    {% endif %}
+                {% endif %}
+
+                {% if section.settings.text != blank %}
+                    <div class='indexBundle_topText mt-[20px] text-left text-[16px]'>
+                        {{ section.settings.text }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class='index-bundle-box flex'>
+            <div class='index-bundle-left flex w-[50.7%] flex-col justify-between pr-[80px]'>
+                <div class='grid grid-cols-2 gap-[32px]'>
+                    {% assign bundle_size = section.settings.bundle_size | default: 4 %}
+                    {% for i in (1..bundle_size) %}
+                        <div
+                            class='bundle-slot relative flex aspect-square items-center justify-center overflow-visible rounded-[15px] border-1 border-dashed border-[rgba(26,26,26,0.40)]'
+                            data-slot='{{ forloop.index0 }}'
+                            data-is-free='{% if forloop.last %}true{% else %}false{% endif %}'
+                        >
+                            {% if forloop.last %}
+                                <div class='free-badge pointer-events-none absolute top-[-15px] left-[2px] z-10 select-none'>
+                                    {% render 'section-img',
+                                        img: section.settings.img,
+                                        img_mobile: section.settings.img_mobile,
+                                        width: 400,
+                                        mobile_width: 400
+                                    %}
+                                </div>
+                            {% endif %}
+
+                            <!-- 空插槽 -->
+                            <div class='slot-empty flex flex-col items-center justify-center gap-[16px] py-[24px]'>
+                                <svg
+                                    width='40'
+                                    height='40'
+                                    viewBox='0 0 40 40'
+                                    fill='none'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                >
+                                    <rect
+                                      width="40"
+                                      height="40"
+                                      rx="20"
+                                      fill="#1A1A1A"
+                                      fill-opacity="0.2" />
+                                    <path d="M18.5714 21.4286H10V18.5714H18.5714V10H21.4286V18.5714H30V21.4286H21.4286V30H18.5714V21.4286Z" fill="white" />
+                                </svg>
+                                <span class='text-[24px] leading-[120%] text-[rgba(26,26,26,0.40)]'>Empty Slot</span>
+                            </div>
+
+                            <!-- 已填充插槽（默认隐藏） -->
+                            <div class='slot-filled relative flex hidden h-full w-full items-center justify-center'>
+                                <button class='slot-remove absolute top-[-16px] right-[-16px] z-2 flex h-[44px] w-[44px] cursor-pointer items-center justify-center rounded-full'>
+                                    <svg
+                                        width='44'
+                                        height='44'
+                                        viewBox='0 0 44 44'
+                                        fill='none'
+                                        xmlns='http://www.w3.org/2000/svg'
+                                    >
+                                        <rect
+                                          width="44"
+                                          height="44"
+                                          rx="22"
+                                          fill="#ED8E25" />
+                                        <path d="M22 24.0203L15.9391 30.0812L13.9188 28.0609L19.9797 22L13.9188 15.9391L15.9391 13.9188L22 19.9797L28.0609 13.9188L30.0812 15.9391L24.0203 22L30.0812 28.0609L28.0609 30.0812L22 24.0203Z" fill="white" />
+                                    </svg>
+                                </button>
+                                <img
+                                    class='slot-img h-full w-full rounded-[15px] object-cover'
+                                    src=''
+                                    alt=''
+                                >
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- 价格区域 -->
+                <div class='mt-[52px] flex items-center justify-between gap-[30px]'>
+                    <div class='left-price-box'>
+                        <p class='price-total-title text-text mb-[0px] text-[20px] leading-[150%] font-[500]'>{{ 'general.price_total' | t }}</p>
+                        <div class='price-list mt-[12px] flex flex-wrap items-center gap-[10px]'>
+                            <span class='bundle-total-price text-title text-[40px] leading-[100%] font-[700]'>$0.00</span>
+                            <span class='bundle-save text-[32px] leading-[100%] font-[500] tracking-[-1.28px] text-[#ED8E24]'></span>
+                        </div>
+                        <p class='note-text mt-[4px] mb-[0px] text-[14px] leading-[150%] text-[#FF6666]'>{{ section.settings.note_text }}</p>
+                    </div>
+                    <button class='bundle-add-cart flex h-[48px] min-w-[261px] items-center justify-center rounded-[999px] border border-[rgba(26,26,26,0.40)] px-[24px] leading-[113%] font-[500] tracking-[0] text-[rgba(26,26,26,0.40)] sm:text-[16px] sm:leading-[120%]'>
+                        {% render 'svg-icons' with 'thb-loading' %}
+                        <span>{{ 'general.add_bundle' | t }}</span>
+                    </button>
+                </div>
+            </div>
+            <div class='index-bundle-right w-[49.3%]'>
+                {% if section.blocks.size > 1 %}
+                    <div class='swiper bundle-tab-swiper w-full'>
+                        <div class='swiper-wrapper'>
+                            {% for block in section.blocks %}
+                                <div
+                                    class='swiper-slide bundle-tab-box transition-all duration-300 {% if forloop.first %}active{% endif %} flex h-[44px] w-auto cursor-pointer items-center justify-center rounded-[50px] border border-[rgba(26,26,26,0.20)] px-[20px] text-[18px] select-none'
+                                    data-index='{{ forloop.index0 }}'
+                                >
+                                    {{ block.settings.tab }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class='index-bundle-boxList mt-[40px]'>
+                    {% for block in section.blocks %}
+                        <div
+                            class='index-bundle-items block-{{ block.id }} {% if forloop.first %}active{% endif %} hidden'
+                            data-index='{{ forloop.index0 }}'
+                        >
+                            <!-- 外层加 relative，遮罩绝对定位在底部 -->
+                            <div class='relative'>
+                                <div
+                                    class='
+                                        bundle-product-grid grid max-h-[765px] grid-cols-3 gap-x-[24px] gap-y-[40px] overflow-y-auto
+                                        [&::-webkit-scrollbar]:hidden
+                                        [&::-webkit-scrollbar]:w-[4px]
+                                        [&::-webkit-scrollbar-thumb]:rounded-full
+                                        [&::-webkit-scrollbar-thumb]:bg-[rgba(26,26,26,0.20)]
+                                        [&::-webkit-scrollbar-track]:bg-transparent
+                                    '
+                                >
+                                    {% for product in block.settings.collection.products limit: section.settings.product_limit %}
+                                        <div
+                                            class='product-card-wrap'
+                                            data-product-id='{{ product.id }}'
+                                            data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+                                            data-product-price='{{ product.selected_or_first_available_variant.price }}'
+                                            data-product-image='{{ product.featured_image | img_url: "400x400" }}'
+                                            data-product-title='{{ product.title | escape }}'
+                                        >
+                                            {%- render 'product-card-new1', product_card_product: product -%}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                                <!-- 底部遮罩 -->
+                                <div
+                                    class='bundle-grid-mask pointer-events-none absolute bottom-0 left-0 z-[1] h-[120px] w-full transition-opacity duration-300'
+                                    style='background: linear-gradient(180deg, rgba(255,255,255,0.00) 0%, #FFF 100%);'
+                                ></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var $box = $('#shopify-section-{{section.id}} .index-bundle-box');
+        var $slots = $box.find('.bundle-slot');
+        var bundleSize = $slots.length;
+        var freeSlotIndex = bundleSize - 1; // 最后一个是 FREE
+
+        var slots = new Array(bundleSize).fill(null);
+
+        /* -------- 工具函数 -------- */
+
+        function formatMoneyBundle(cents) {
+            // 优先使用全局的formatMoney函数
+            if (typeof formatMoney !== 'undefined') {
+                let format =
+                    window.theme && window.theme.settings && window.theme.settings.money_with_currency_format
+                        ? window.theme.settings.money_with_currency_format
+                        : '${{amount}}';
+                return formatMoney(cents, format);
+            }
+            // fallback方案
+            return '$' + (cents / 100).toFixed(2);
+        }
+
+        function isFreeSlot(index) {
+            return index === freeSlotIndex;
+        }
+
+        function updatePrice() {
+            var total = 0;
+            var freeSaveAmount = 0;
+            slots.forEach(function (s, i) {
+                if (s && !isFreeSlot(i)) {
+                    total += s.price;
+                } else if (s && isFreeSlot(i)) {
+                    // FREE slot 的价格就是省的钱
+                    freeSaveAmount = s.price;
+                }
+            });
+            $box.find('.bundle-total-price').text(formatMoneyBundle(total));
+
+            // 更新保存金额，如果有FREE slot的产品
+            if (freeSaveAmount > 0) {
+                $box.find('.bundle-save')
+                    .text('Save ' + formatMoneyBundle(freeSaveAmount))
+                    .show();
+            } else {
+                $box.find('.bundle-save').empty().hide();
+            }
+        }
+
+        function findEmptySlot() {
+            return slots.indexOf(null);
+        }
+
+        function getFilledSlots() {
+            return slots.filter(function (s) {
+                return s !== null;
+            });
+        }
+
+        /* -------- 加购按钮状态 -------- */
+
+        function updateCartBtn() {
+            var allFilled = getFilledSlots().length === bundleSize;
+            $box.find('.bundle-add-cart')
+                .prop('disabled', !allFilled)
+                .toggleClass('cursor-not-allowed', !allFilled)
+                .toggleClass('cursor-pointer bg-[#fcd454] text-text border-0', allFilled);
+        }
+
+        /* -------- 同步单个插槽 UI -------- */
+
+        function renderSlot(index) {
+            var $slot = $slots.eq(index);
+            var s = slots[index];
+            if (s) {
+                $slot.find('.slot-img').attr('src', s.image).attr('alt', s.title);
+                $slot.find('.slot-empty').hide();
+                $slot.find('.slot-filled').show();
+            } else {
+                $slot.find('.slot-filled').hide();
+                $slot.find('.slot-img').attr('src', '').attr('alt', '');
+                $slot.find('.slot-empty').show();
+            }
+        }
+
+        /* -------- 满4个后，把最便宜的挪到 FREE 位 -------- */
+
+        function moveCheapestToFreeSlot() {
+            // 找价格最低的插槽下标（所有已填充的，包括当前 free 位）
+            var minPrice = Infinity;
+            var minIndex = -1;
+            slots.forEach(function (s, i) {
+                if (s && s.price < minPrice) {
+                    minPrice = s.price;
+                    minIndex = i;
+                }
+            });
+
+            // 已经在 FREE 位，无需换
+            if (minIndex === -1 || minIndex === freeSlotIndex) return;
+
+            // 交换数据
+            var temp = slots[freeSlotIndex];
+            slots[freeSlotIndex] = slots[minIndex];
+            slots[minIndex] = temp;
+
+            // 更新两个插槽 UI
+            renderSlot(minIndex);
+            renderSlot(freeSlotIndex);
+        }
+
+        /* -------- Add 按钮点击 -------- */
+
+        $box.on('click', '.add-button', function () {
+            var emptyIndex = findEmptySlot();
+            if (emptyIndex === -1) return;
+
+            var $wrap = $(this).closest('.product-card-wrap');
+            var variantId = $wrap.data('variant-id');
+            var productId = $wrap.data('product-id');
+            var price = parseInt($wrap.data('product-price'), 10) || 0;
+            var image = $wrap.data('product-image');
+            var title = $wrap.data('product-title');
+
+            slots[emptyIndex] = { variantId: variantId, productId: productId, price: price, image: image, title: title, $wrap: $wrap };
+
+            renderSlot(emptyIndex);
+
+            // 禁用 Add 按钮
+            $(this).prop('disabled', true).css('pointer-events', 'none');
+
+            // 满了就重排
+            if (getFilledSlots().length === bundleSize) {
+                moveCheapestToFreeSlot();
+            }
+
+            updatePrice();
+            updateCartBtn();
+        });
+
+        /* -------- 删除按钮 -------- */
+
+        $box.on('click', '.slot-remove', function () {
+            var $slot = $(this).closest('.bundle-slot');
+            var slotIndex = parseInt($slot.data('slot'), 10);
+            var slotData = slots[slotIndex];
+            if (!slotData) return;
+
+            // 恢复 Add 按钮
+            slotData.$wrap.find('.add-button').prop('disabled', false).css('pointer-events', '');
+
+            slots[slotIndex] = null;
+            renderSlot(slotIndex);
+
+            updatePrice();
+            updateCartBtn();
+        });
+
+        /* -------- ADD BUNDLE TO CART -------- */
+
+        $box.on('click', '.bundle-add-cart', function () {
+            var filled = getFilledSlots();
+            if (filled.length < bundleSize) return;
+
+            var $btn = $(this);
+            $btn.prop('disabled', true).addClass('loading').attr('aria-disabled', 'true');
+
+            var items = filled.map(function (s) {
+                return { id: s.variantId, quantity: 1 };
+            });
+
+            const config = {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    Accept: 'application/javascript',
+                },
+            };
+
+            let formData = new FormData();
+            // 按照Shopify标准格式添加items
+            items.forEach(function (item, index) {
+                formData.append(`items[${index}][id]`, item.id);
+                formData.append(`items[${index}][quantity]`, item.quantity);
+            });
+            formData.append('sections', 'cart-drawer,cart-bubble');
+            formData.append('sections_url', window.location.pathname);
+
+            config.body = formData;
+
+            fetch(`${theme.routes.cart_add_url}`, config)
+                .then((response) => response.json())
+                .then((response) => {
+                    // 检查response是否有sections字段
+                    if (response && response.sections) {
+                        renderBundleCartContents(response);
+                    } else {
+                        // 如果没有sections，刷新整个购物车
+                        console.warn('Response does not contain sections, refreshing cart');
+                        document.body.classList.add('open-cc');
+                        var cartDrawer = document.getElementById('Cart-Drawer');
+                        if (cartDrawer) {
+                            cartDrawer.classList.add('active');
+                            cartDrawer.focus();
+                        }
+                        // 刷新购物车
+                        setTimeout(function () {
+                            dispatchCustomEvent('cart:refresh');
+                            dispatchCustomEvent('cart:item-added', { items: items });
+                        }, 320);
+                    }
+                })
+                .catch((e) => {
+                    console.error('Add to cart error:', e);
+                    var msg = e.message || 'Failed to add to cart';
+                    alert(msg);
+                })
+                .finally(() => {
+                    $btn.prop('disabled', false).removeClass('loading').removeAttr('aria-disabled');
+                    updateCartBtn();
+                });
+        });
+
+        function renderBundleCartContents(response) {
+            var sections = [
+                {
+                    id: 'Cart-Drawer',
+                    section: 'cart-drawer',
+                    selector: '.cart-drawer',
+                },
+                {
+                    id: 'cart-drawer-toggle',
+                    section: 'cart-bubble',
+                    selector: '.thb-item-count',
+                },
+            ];
+
+            sections.forEach(function (section) {
+                if (!document.getElementById(section.id)) {
+                    return;
+                }
+
+                // 检查sections数据是否存在
+                if (!response.sections || !response.sections[section.section]) {
+                    console.warn('Section data missing for:', section.section);
+                    return;
+                }
+
+                var elementToReplace = document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
+                elementToReplace.innerHTML = getBundleSectionInnerHTML(response.sections[section.section], section.selector);
+
+                // 重新初始化 CartDrawer
+                if (typeof CartDrawer !== 'undefined') {
+                    new CartDrawer();
+                }
+                // 重新初始化 Cart
+                if (typeof Cart !== 'undefined') {
+                    new Cart().renderContents(response);
+                }
+            });
+
+            // 打开购物车弹窗
+            if (document.getElementById('Cart-Drawer')) {
+                document.body.classList.add('open-cc');
+                document.getElementById('Cart-Drawer').classList.add('active');
+                dispatchCustomEvent('cart-drawer:open');
+            }
+        }
+
+        function getBundleSectionInnerHTML(html, selector) {
+            return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
+        }
+
+        /* -------- 遮罩 -------- */
+
+        function initGridMask($grid) {
+            var $mask = $grid.siblings('.bundle-grid-mask');
+            if ($grid[0].scrollHeight <= $grid[0].clientHeight) {
+                $mask.css('opacity', 0);
+                return;
+            }
+            $mask.css('opacity', 1);
+            $grid.off('scroll.mask').on('scroll.mask', function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = this.scrollHeight;
+                var clientHeight = this.clientHeight;
+                if (scrollTop + clientHeight >= scrollHeight - 2) {
+                    $mask.css('opacity', 0);
+                } else {
+                    $mask.css('opacity', 1);
+                }
+            });
+        }
+
+        initGridMask($('.index-bundle-items.active .bundle-product-grid'));
+
+        /* -------- Tab 切换 -------- */
+
+        $box.on('click', '.bundle-tab-box', function () {
+            var idx = $(this).data('index');
+            $(this).addClass('active').siblings().removeClass('active');
+            $box.find('.index-bundle-items').removeClass('active');
+            var $activeItems = $box.find('.index-bundle-items[data-index="' + idx + '"]').addClass('active');
+            initGridMask($activeItems.find('.bundle-product-grid'));
+        });
+
+        /* -------- 初始化按钮状态 -------- */
+        updatePrice();
+        updateCartBtn();
+
+        /* -------- 初始化 Swiper -------- */
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('#shopify-section-{{section.id}} .bundle-tab-swiper', {
+                observer: true,
+                observeParents: true,
+                watchOverflow: true,
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+            });
+        }
+    });
+</script>
+
+{% schema %}
+{
+    "name": "index-product-bundle",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "title"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "text",
+            "label": "text"
+        },
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Free img"
+        },
+        {
+            "type": "range",
+            "id": "badge_animation_duration",
+            "min": 0.5,
+            "max": 3,
+            "step": 0.1,
+            "label": "Free Badge Animation Duration (seconds)",
+            "default": 1.8
+        },
+        {
+            "type": "inline_richtext",
+            "id": "note_text",
+            "label": "Note text"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "range",
+            "id": "product_limit",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "label": "Product Limit",
+            "default": 10
+        },
+
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "item",
+            "name": "Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "tab",
+                    "label": "tab"
+                },
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "collection"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "index-product-bundle"
+        }
+    ]
+}
+{% endschema %}

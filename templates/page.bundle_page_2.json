@@ -1,0 +1,438 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_V6QMtD": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_JAdjpT": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading for this section"
+          }
+        },
+        "heading_hL8Kqh": {
+          "type": "heading",
+          "settings": {
+            "text": "Talk about your brand",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#FD6262"
+          }
+        },
+        "text_MckE83": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_JAdjpT",
+        "heading_hL8Kqh",
+        "text_MckE83"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "transparent",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_mVaULD": {
+      "type": "single-image",
+      "name": "Single image",
+      "settings": {
+        "image": "shopify://shop_images/WechatIMG2503.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "video_VefDhX": {
+      "type": "video",
+      "name": "Video",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "full_width": false,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_new_pet_1_1_v.mp4",
+        "video_autoplay": true,
+        "aspect_ratio": "square",
+        "marker_color": "#FD6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_product_zLBTCz": {
+      "type": "featured-product",
+      "blocks": {
+        "title_RkjjMa": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true
+          }
+        },
+        "variant_picker_TxAXKG": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_KWUB9W": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_gXtDkX": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "title_RkjjMa",
+        "variant_picker_TxAXKG",
+        "quantity_KWUB9W",
+        "buy_buttons_gXtDkX"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "heading": "Featured product",
+        "marker_style": "style1",
+        "description": "<p>Add a short description for this featured product</p>",
+        "product": "100g-blingbling-transparent-pink-paw-taba-squishy",
+        "show_taxes_included": true,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "marker_color": "#FD6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "featured_product_CMnabM": {
+      "type": "featured-product",
+      "blocks": {
+        "title_bnfxiT": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": true
+          }
+        },
+        "variant_picker_EwG7tQ": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "color_picker_use_variants": false,
+            "variant_is_disabled": true,
+            "sizing_guide_text": "Sizing guide",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "quantity_PELiVE": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "buy_buttons_gN7P4K": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "title_bnfxiT",
+        "variant_picker_EwG7tQ",
+        "quantity_PELiVE",
+        "buy_buttons_gN7P4K"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "heading": "Featured product",
+        "marker_style": "style1",
+        "description": "<p>Add a short description for this featured product</p>",
+        "product": "100g-black-bling-paw-taba-squishy-1",
+        "show_taxes_included": true,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "adapt",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "marker_color": "#FD6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "multicolumn_TYLXb8": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_BaxEiB": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "1️⃣ Select Your Items",
+            "text": "<p>Browse through the bundle collection and pick your favorite products.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Urydpe": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "2️⃣ Add to Bundle",
+            "text": "<p>Click “Add to Bundle” for each item you’d like to include.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_4jK4Ne": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "3️⃣ Add to Cart",
+            "text": "<p>Once your bundle is complete, click “Add to Cart” to proceed.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_MQftw8": {
+          "type": "column",
+          "settings": {
+            "image_full_width": false,
+            "image_link": "",
+            "title": "4️⃣ Checkout and Save",
+            "text": "<p>Discounts will automatically apply at checkout based on your bundle size.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_BaxEiB",
+        "column_Urydpe",
+        "column_4jK4Ne",
+        "column_MQftw8"
+      ],
+      "settings": {
+        "heading": "🐻 How to Join Our Bundles Deal",
+        "marker_style": "style1",
+        "description": "<p>It’s that easy! Build your bundle, save big, and enjoy your new treasures! 🎉✨</p>",
+        "columns_desktop": 4,
+        "mobile_swipe": false,
+        "image_ratio": "adapt",
+        "text_alignment": "left",
+        "heading_size": "h5",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "scrolling_text_3X3q3r": {
+      "type": "scrolling-text",
+      "blocks": {
+        "text_NFWbnh": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_qd8g9K": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_yBhHPb": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_NFWbnh",
+        "text_qd8g9K",
+        "text_yBhHPb"
+      ],
+      "name": "Scrolling text",
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "left",
+        "speed": "20s",
+        "rotation": 6,
+        "negative_rotation": false,
+        "font_family": "heading",
+        "text_size": 24,
+        "text_uppercase": false,
+        "image_size": "large",
+        "color_bg": "#9FA3A7",
+        "color_text": "#1A1C1D",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "scrolling_text_76tade": {
+      "type": "scrolling-text",
+      "blocks": {
+        "text_WLnBbE": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_pDyDTV": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "text_zreBCn": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_WLnBbE",
+        "text_pDyDTV",
+        "text_zreBCn"
+      ],
+      "name": "Scrolling text",
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "right",
+        "speed": "20s",
+        "rotation": 6,
+        "negative_rotation": true,
+        "font_family": "heading",
+        "text_size": 24,
+        "text_uppercase": false,
+        "image_size": "large",
+        "color_bg": "#E2E2E2",
+        "color_text": "#1A1C1D",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_JPf37U": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_C9Bbxp": {
+          "type": "subheading",
+          "settings": {
+            "text": "TABASQUISHY™"
+          }
+        },
+        "heading_LwXBxa": {
+          "type": "heading",
+          "settings": {
+            "text": "Best of TABASQUISHY Bundle",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_KPgpPB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Can’t decide which squishy to grab? Why not get them all? Our hottest, most-loved squishies are now bundled with irresistible savings:</p><p><strong>• Buy 2 and get 5% off</strong></p><p><strong>• Buy 3 and get 8% off</strong></p><p><strong>• Buy 5 and save a whopping 18%</strong></p><p>From playful animals to charming designs, every squishy is a fan-favorite, perfect for squishing, collecting, and gifting. Stock up on the best of the best and make your collection truly shine. Don’t wait—shop the all-star bundle now! ✨🐾</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_C9Bbxp",
+        "heading_LwXBxa",
+        "text_KPgpPB"
+      ],
+      "settings": {
+        "use_video": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_hot_sale_animals_bundle.mp4",
+        "video_autoplay": true,
+        "height": "large",
+        "desktop_image_width": "large",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "medium",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_V6QMtD",
+    "single_image_mVaULD",
+    "video_VefDhX",
+    "featured_product_zLBTCz",
+    "featured_product_CMnabM",
+    "multicolumn_TYLXb8",
+    "scrolling_text_3X3q3r",
+    "scrolling_text_76tade",
+    "image_with_text_JPf37U"
+  ]
+}

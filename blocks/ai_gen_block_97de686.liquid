@@ -1,0 +1,492 @@
+{% doc %}
+  @prompt
+    帮我生成一个每日礼品卡中奖模块，要有从4月29日到5月20日每日的中奖的一行，我没有输入的时候就不展示。模块可以配置背景图，有标题有文案, 所有的文案不要出现中文，用英文
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-daily-giftcard-{{ ai_gen_id }} {
+    position: relative;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    display: block;
+  }
+
+  .ai-daily-giftcard-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    padding: 40px;
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-daily-giftcard-bg-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .ai-daily-giftcard-bg-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.background_color }};
+    z-index: 0;
+  }
+
+  .ai-daily-giftcard-bg-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+  }
+
+  .ai-daily-giftcard-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ai-daily-giftcard-header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.text_alignment }};
+    margin-bottom: 30px;
+  }
+
+  .ai-daily-giftcard-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    margin: 0 0 10px;
+    font-weight: 600;
+  }
+
+  .ai-daily-giftcard-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    margin: 0;
+  }
+
+  .ai-daily-giftcard-list-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-daily-giftcard-row-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background-color: {{ block.settings.row_background_color }};
+    border-radius: {{ block.settings.row_border_radius }}px;
+    border: 1px solid {{ block.settings.row_border_color }};
+  }
+
+  .ai-daily-giftcard-date-{{ ai_gen_id }} {
+    font-size: {{ block.settings.row_text_size }}px;
+    color: {{ block.settings.row_text_color }};
+    font-weight: 500;
+  }
+
+  .ai-daily-giftcard-winner-{{ ai_gen_id }} {
+    font-size: {{ block.settings.row_text_size }}px;
+    color: {{ block.settings.row_text_color }};
+  }
+
+  .ai-daily-giftcard-empty-{{ ai_gen_id }} {
+    text-align: center;
+    padding: 40px 20px;
+    color: {{ block.settings.description_color }};
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-daily-giftcard-wrapper-{{ ai_gen_id }} {
+      padding: 24px;
+    }
+
+    .ai-daily-giftcard-title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.title_size }}px * 0.8);
+    }
+
+    .ai-daily-giftcard-description-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.description_size }}px * 0.9);
+    }
+
+    .ai-daily-giftcard-row-{{ ai_gen_id }} {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 12px 16px;
+    }
+  }
+{% endstyle %}
+
+<daily-giftcard-{{ ai_gen_id }} class="ai-daily-giftcard-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-daily-giftcard-wrapper-{{ ai_gen_id }}">
+    {% if block.settings.background_image %}
+      <img
+        src="{{ block.settings.background_image | image_url: width: 2000 }}"
+        alt="{{ block.settings.background_image.alt | escape }}"
+        loading="lazy"
+        class="ai-daily-giftcard-bg-{{ ai_gen_id }}"
+        width="{{ block.settings.background_image.width }}"
+        height="{{ block.settings.background_image.height }}"
+      >
+    {% else %}
+      <div class="ai-daily-giftcard-bg-placeholder-{{ ai_gen_id }}">
+        {{ 'image' | placeholder_svg_tag }}
+      </div>
+    {% endif %}
+
+    <div class="ai-daily-giftcard-content-{{ ai_gen_id }}">
+      <div class="ai-daily-giftcard-header-{{ ai_gen_id }}">
+        {% if block.settings.title != blank %}
+          <h2 class="ai-daily-giftcard-title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+        {% endif %}
+        {% if block.settings.description != blank %}
+          <div class="ai-daily-giftcard-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+        {% endif %}
+      </div>
+
+      {% liquid
+        assign has_winners = false
+        for i in (1..22)
+          assign winner_key = 'winner_' | append: i
+          if block.settings[winner_key] != blank
+            assign has_winners = true
+            break
+          endif
+        endfor
+      %}
+
+      {% if has_winners %}
+        <div class="ai-daily-giftcard-list-{{ ai_gen_id }}">
+          {% assign dates = 'April 29,April 30,May 1,May 2,May 3,May 4,May 5,May 6,May 7,May 8,May 9,May 10,May 11,May 12,May 13,May 14,May 15,May 16,May 17,May 18,May 19,May 20' | split: ',' %}
+          {% for i in (1..22) %}
+            {% assign winner_key = 'winner_' | append: i %}
+            {% assign winner = block.settings[winner_key] %}
+            {% if winner != blank %}
+              <div class="ai-daily-giftcard-row-{{ ai_gen_id }}">
+                <div class="ai-daily-giftcard-date-{{ ai_gen_id }}">{{ dates[forloop.index0] }}</div>
+                <div class="ai-daily-giftcard-winner-{{ ai_gen_id }}">{{ winner }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="ai-daily-giftcard-empty-{{ ai_gen_id }}">
+          No winners yet. Add daily winners in the settings.
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</daily-giftcard-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class DailyGiftcard{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.style.display = 'block';
+      }
+    }
+
+    customElements.define('daily-giftcard-{{ ai_gen_id }}', DailyGiftcard{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Daily giftcard winners",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Daily Giftcard Winners"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#1a1c1d"
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Congratulations to our daily giftcard winners"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#2c2d2e"
+    },
+    {
+      "type": "header",
+      "content": "Winner rows"
+    },
+    {
+      "type": "color",
+      "id": "row_background_color",
+      "label": "Row background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "row_border_color",
+      "label": "Row border",
+      "default": "#ebebed"
+    },
+    {
+      "type": "range",
+      "id": "row_border_radius",
+      "label": "Row border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "row_text_size",
+      "label": "Row text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "row_text_color",
+      "label": "Row text color",
+      "default": "#2c2d2e"
+    },
+    {
+      "type": "header",
+      "content": "April 29 - May 5"
+    },
+    {
+      "type": "text",
+      "id": "winner_1",
+      "label": "April 29 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_2",
+      "label": "April 30 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_3",
+      "label": "May 1 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_4",
+      "label": "May 2 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_5",
+      "label": "May 3 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_6",
+      "label": "May 4 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_7",
+      "label": "May 5 winner"
+    },
+    {
+      "type": "header",
+      "content": "May 6 - May 12"
+    },
+    {
+      "type": "text",
+      "id": "winner_8",
+      "label": "May 6 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_9",
+      "label": "May 7 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_10",
+      "label": "May 8 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_11",
+      "label": "May 9 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_12",
+      "label": "May 10 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_13",
+      "label": "May 11 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_14",
+      "label": "May 12 winner"
+    },
+    {
+      "type": "header",
+      "content": "May 13 - May 20"
+    },
+    {
+      "type": "text",
+      "id": "winner_15",
+      "label": "May 13 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_16",
+      "label": "May 14 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_17",
+      "label": "May 15 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_18",
+      "label": "May 16 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_19",
+      "label": "May 17 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_20",
+      "label": "May 18 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_21",
+      "label": "May 19 winner"
+    },
+    {
+      "type": "text",
+      "id": "winner_22",
+      "label": "May 20 winner"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Daily giftcard winners"
+    }
+  ]
+}
+{% endschema %}

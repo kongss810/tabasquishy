@@ -1,0 +1,244 @@
+{%- render 'section-spacing', section: section -%}
+<style>
+    @media (max-width: 1023px) {
+    }
+
+    @media (min-width: 1024px) {
+    }
+
+    .IndexDesignShow_imgListBox {
+        width: auto !important;
+    }
+    .IndexDesignShow_imgListBox video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<div class='IndexDesignShow_all'>
+    {%- assign topImgs = section.blocks | where: 'type', 'top_img' -%}
+
+    <div class='container'>
+        {%- if section.settings.title != blank -%}
+            {%- if section.settings.highlighted_text == 'none' -%}
+                <h2 class='header-title text-title hide_p text-center text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
+                    {{ section.settings.title }}
+                </h2>
+            {% else %}
+                {%- render 'highlighted-text',
+                    class: 'header-title text-title text-center hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                    content: section.settings.title,
+                    style: section.settings.highlighted_text,
+                    scribble: 'sketch-underline',
+                    gradient: with_gradient
+                -%}
+            {% endif %}
+        {%- endif -%}
+        <div class='header-text hide_p text-text mt-[24px] text-center text-[28px] leading-[113%] font-[400] tracking-[0] sm:text-[16px] sm:leading-[150%]'>
+            {{ section.settings.text }}
+        </div>
+    </div>
+
+    {% if topImgs.size > 0 %}
+        <div class='splide IndexDesignShow_imgList mt-[52px]'>
+            <div class='splide__track'>
+                <div class='splide__list'>
+                    {% for item in topImgs %}
+                        <div class='splide__slide IndexDesignShow_imgListBox h-[510px] w-auto overflow-hidden rounded-[15px] sm:rounded-[15px]'>
+                            {% if item.settings.link != blank %}
+                                <a
+                                    class='h-full w-full'
+                                    href='{{ item.settings.link }}'
+                                >
+                                    {% render 'section-img', img: item.settings.img, img_mobile: item.settings.img_mobile, width: 1200, mobile_width: 500 %}
+                                </a>
+                            {%- else -%}
+                                <div
+                                    class='h-full w-full'
+                                >
+                                    {% if item.settings.video != blank %}
+                                        {{ item.settings.video | video_tag: autoplay: true, loop: true, controls: false, muted: true, image_size: 'auto' }}
+                                    {%- else -%}
+                                        {% render 'section-img', img: item.settings.img, img_mobile: item.settings.img_mobile, width: 1200, mobile_width: 500 %}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<script>
+    const splide = new Splide('#shopify-section-{{section.id}} .IndexDesignShow_imgList', {
+      perPage: 5,
+      gap: 24,
+      type: 'loop',
+      drag: false,
+      swipe: false,
+      focus: 'left',
+      breakpoints: {
+        1280: {
+          perPage: 4,
+          gap: '24px',
+          autoScroll: {
+            pauseOnHover: true,
+            delay: 2000,
+            speed: {{ section.settings.time_pc }} * 0.1,
+          }
+        },
+        741: {  // 添加中等宽度的适配
+              perPage: 2,
+              gap: '16px',
+              autoScroll: {
+                pauseOnHover: true,
+                delay: 2000,
+                speed: {{ section.settings.time_pc }} * 0.1,
+              }
+        },
+        375: {
+              perPage: 2,
+              gap: '10px',
+                autoScroll: {
+                pauseOnHover: true,
+                delay: 2000,
+                speed: {{ section.settings.time_mobile }} * 0.1,
+              }
+        },
+      },
+      pagination: false, // 隐藏分页点
+      arrows: false, // 隐藏箭头
+      autoScroll: {
+      pauseOnHover: true,
+      delay: 2000,
+        speed: {{ section.settings.time_pc }} * 0.1,
+      }
+
+    });
+
+    // 启用 AutoScroll 插件
+    splide.mount({ AutoScroll: window.splide.Extensions.AutoScroll });
+</script>
+
+{% schema %}
+{
+    "name": "index-design-show",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "range",
+            "id": "time_pc",
+            "label": "time pc",
+            "unit": "s",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "default": 10
+        },
+        {
+            "type": "range",
+            "id": "time_mobile",
+            "label": "time mobile",
+            "unit": "s",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "default": 8
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "name": "img",
+            "type": "top_img",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "img"
+                },
+                {
+                    "type": "video",
+                    "id": "video",
+                    "label": "video"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "index-design-show"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,522 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "jd_page_banner_fVxJUC": {
+      "type": "jd-page-banner",
+      "name": "page-banner",
+      "settings": {
+        "img": "shopify://shop_images/Frame_2085663007.svg",
+        "title": "<p>Squish, Play, Repeat: Your Ultimate Guide to Squishy Fun</p>",
+        "text": "<p>Hey there, squishy enthusiasts! 🎉 Ready to dive into the wonderful world of squishy toys? Whether you’re here to de-stress, decorate, or simply have a laugh, these squishies are your perfect playmates.</p>",
+        "btn_text": "",
+        "btn_link": "",
+        "title_color": "#1a1a1a",
+        "text_color": "#333333",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "play_card_mNac6G": {
+      "type": "play-card",
+      "blocks": {
+        "card_item_YNiyLx": {
+          "type": "card_item",
+          "settings": {
+            "select": "row-reverse",
+            "use_video": true,
+            "image": "shopify://shop_images/Rectangle_19780_1.png",
+            "video": "shopify://files/videos/tabasquishy_how_to_play_16_9.mp4",
+            "background_image": "shopify://shop_images/Frame_2147241830.png",
+            "background_color": "",
+            "title": "<p>DO YOU REALLY KNOW HOW TO SQUISH?</p>",
+            "description": "<p>Discover the 5 must-know tricks to play and care for your TABASQUISHY™ the right way!</p>"
+          }
+        },
+        "card_item_list_item_NhwX8m": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>Squish through the bag — no mess!</p>",
+            "if_open": true
+          }
+        },
+        "card_item_list_item_Kg8Fd9": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>Always use clean hands</p>",
+            "if_open": true
+          }
+        },
+        "card_item_list_item_a4gCV4": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>Try the desktop smash for max stress relief </p>",
+            "if_open": true
+          }
+        },
+        "card_item_list_item_KETcJK": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>Store it right with a damp hand or wet wipe</p>",
+            "if_open": true
+          }
+        },
+        "card_item_list_item_hqgkHn": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>Avoid heat, sun & sharp objects</p>",
+            "if_open": true
+          }
+        },
+        "card_item_7UeRbb": {
+          "type": "card_item",
+          "settings": {
+            "select": "row",
+            "use_video": true,
+            "image": "shopify://shop_images/Rectangle_19780.png",
+            "video": "shopify://files/videos/tabasquishy_sensation_instruction_169.mp4",
+            "background_image": "shopify://shop_images/Frame_2085663030.png",
+            "background_color": "#000000",
+            "title": "<p>Which TABASQUISHY™ Sensation Suits Your Strength?</p>",
+            "description": "<p>Find the perfect squeeze match.Whether you’re into super soft or satisfyingly dense, TABASQUISHY™ offers four signature sensations tailored to your hand strength:</p>"
+          }
+        },
+        "card_item_list_item_VJcWQb": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>💧Water-like – Ultra-soft and effortless to squeeze. Perfect for light touch or younger users.</p>",
+            "if_open": false
+          }
+        },
+        "card_item_list_item_FjQPYg": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>🧁Cream-like – Buttery-soft and smooth, ideal for medium-light grip and everyday stress relief.</p>",
+            "if_open": false
+          }
+        },
+        "card_item_list_item_tn9Bbe": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>🍮Jelly-like – Bouncy and resistant, great for medium strength and rhythmic fidgeting.</p>",
+            "if_open": false
+          }
+        },
+        "card_item_list_item_aPnjQU": {
+          "type": "card_item_list_item",
+          "settings": {
+            "description": "<p>🍞Playdough-like – Firm and dense, made for strong hands who like a challenge!</p>",
+            "if_open": false
+          }
+        }
+      },
+      "block_order": [
+        "card_item_YNiyLx",
+        "card_item_list_item_NhwX8m",
+        "card_item_list_item_Kg8Fd9",
+        "card_item_list_item_a4gCV4",
+        "card_item_list_item_KETcJK",
+        "card_item_list_item_hqgkHn",
+        "card_item_7UeRbb",
+        "card_item_list_item_VJcWQb",
+        "card_item_list_item_FjQPYg",
+        "card_item_list_item_tn9Bbe",
+        "card_item_list_item_aPnjQU"
+      ],
+      "name": "play card",
+      "settings": {
+        "text_color": "#ffffff",
+        "Desktop_paddingTop": 80,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "play_how_ghPUXF": {
+      "type": "play-how",
+      "name": "play how",
+      "settings": {
+        "title": "<p>How To Clea Your TABASQUISHY™ The Right Way</p>",
+        "description": "<p>Got yours dirty during play? No worries! With just soap and warm water, your TABASQUISHY™ will be as fresh as new—soft, squishy, and ready for more fun. Keep It Clean, Keep It Squishy!</p>",
+        "use_video": true,
+        "image": "shopify://shop_images/Rectangle_19779.png",
+        "video": "shopify://files/videos/tabasquishy_how_to_reduce_stickiness_16_9.mp4",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "play_how_PctHEJ": {
+      "type": "play-how",
+      "name": "play how",
+      "settings": {
+        "title": "<p>IS YOUR TABA SQUISHY TOO STICKY?</p>",
+        "description": "<p>Feeling like your Taba Squishy is too sticky to handle? Don’t worry – it’s totally normal, and we’ve got you covered! ✨ Here are 3 simple ways to reduce stickiness while keeping your squishy soft and satisfyin.</p>",
+        "use_video": true,
+        "image": "shopify://shop_images/Rectangle_19779.png",
+        "video": "shopify://files/videos/tabasquishy_how_to_reduce_stickiness_16_9.mp4",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "media_grid_6UJNmd": {
+      "type": "media-grid",
+      "blocks": {
+        "media_pjdW8z": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tabasquishy_hamster_19201080.jpg",
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 4,
+            "row": 1,
+            "subheading": "",
+            "heading": "TABASQUISHY® VIDEO CHALLENGE 🎬",
+            "heading_size": "h3",
+            "button_text": "Explore",
+            "button_link": "shopify://pages/tabasquishy-star2025",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#f5f5f5",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_ReUXyb": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0520.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-1.mp4",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_Qai63k": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0610.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-2.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_X37LAE": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0987.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-5.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "media_6etacy": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20240917_0762.jpg",
+            "slide_link": "",
+            "use_video": true,
+            "video_hosted": "shopify://files/videos/    tabasquishy-pre-festival-house-2026-beverly-hills-display-v-6.MOV",
+            "video_autoplay": true,
+            "column": 1,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_pjdW8z",
+        "media_ReUXyb",
+        "media_Qai63k",
+        "media_X37LAE",
+        "media_6etacy"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 150,
+        "column_spacing": "small",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "Desktop_top": 160,
+        "Mobile_top": 0,
+        "Desktop_bottom": 0,
+        "Mobile_bottom": 0
+      }
+    },
+    "faqs_cgw3qG": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_fMEzAG": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Frequently Asked Questions",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on <a href=\"#\" title=\"#\">our website</a> or the carrier's website.</p>"
+          }
+        },
+        "faq_item_8qNf7e": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do if my package is lost/stolen?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_NdnJnw": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        },
+        "faq_item_4fBbF3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return or get a refund for my purchase?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_fMEzAG",
+        "faq_item_8qNf7e",
+        "faq_item_NdnJnw",
+        "faq_item_4fBbF3"
+      ],
+      "name": "faqs",
+      "settings": {
+        "show_topBanner": false,
+        "title": "<p>Frequently Asked Questions</p>",
+        "highlighted_text": "none",
+        "faq_active_bg_color": "#fcd454",
+        "faq_active_bg_image": "shopify://shop_images/Vector_5f3931f5-cd6d-4492-95b5-a03cd90f4526.png",
+        "faq_a_active": "#ed8e25",
+        "bg_color": "",
+        "Desktop_top": 0,
+        "Desktop_paddingTop": 160,
+        "Mobile_top": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
+        "Desktop_paddingBottom": 160,
+        "Mobile_bottom": 0,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "video_UfFDbK": {
+      "type": "video",
+      "disabled": true,
+      "name": "Video",
+      "settings": {
+        "heading": "Which TABASQUISHY™ Sensation Suits Your Strength? 💪",
+        "marker_style": "style1",
+        "description": "<p>Find the perfect squeeze match. </p><p>Whether you’re into super soft or satisfyingly dense, TABASQUISHY™ offers four signature sensations tailored to your hand strength:<br/>💧 Water-like – Ultra-soft and effortless to squeeze. Perfect for light touch or younger users.<br/>🧁 Cream-like – Buttery-soft and smooth, ideal for medium-light grip and everyday stress relief.<br/>🍮 Jelly-like – Bouncy and resistant, great for medium strength and rhythmic fidgeting.<br/>🍞 Playdough-like – Firm and dense, made for strong hands who like a challenge!<br/><br/>Discover your favorite feel — or mix them all for a full sensory workout!</p>",
+        "full_width": false,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_sensation_instruction_169.mp4",
+        "video_autoplay": true,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "video_mfePkx": {
+      "type": "video",
+      "disabled": true,
+      "name": "Video",
+      "settings": {
+        "heading": "🧽 HOW TO CLEAN YOUR TABASQUISHY™ THE RIGHT WAY",
+        "marker_style": "style1",
+        "description": "<p>Got yours dirty during play? No worries! With just soap and warm water, your TABASQUISHY™ will be as fresh as new—soft, squishy, and ready for more fun. Keep It Clean, Keep It Squishy! </p>",
+        "full_width": false,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_how_to_clean_16_9_2.mp4",
+        "video_autoplay": true,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "video_DJyTDH": {
+      "type": "video",
+      "disabled": true,
+      "name": "Video",
+      "settings": {
+        "heading": "🌟 IS YOUR TABA SQUISHY TOO STICKY?",
+        "marker_style": "style1",
+        "description": "<p>Feeling like your Taba Squishy is too sticky to handle? Don’t worry – it’s totally normal, and we’ve got you covered! ✨ Here are 3 simple ways to reduce stickiness while keeping your squishy soft and satisfyin.</p>",
+        "full_width": false,
+        "video": "",
+        "video_hosted": "shopify://files/videos/tabasquishy_how_to_reduce_stickiness_16_9.mp4",
+        "video_autoplay": false,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_fynfEP": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_how_to_play_1.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_qaXbHV": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_how_to_play_2.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_dPynDK": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_how_to_play_3.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_qJhgcK": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_how_to_play_4.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_rfG6QE": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_how_to_play_5.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "single_image_4F9zKe": {
+      "type": "single-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/tabasquishy_how_to_play_6.jpg",
+        "full_width": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "jd_page_banner_fVxJUC",
+    "play_card_mNac6G",
+    "play_how_ghPUXF",
+    "play_how_PctHEJ",
+    "media_grid_6UJNmd",
+    "faqs_cgw3qG",
+    "video_UfFDbK",
+    "video_mfePkx",
+    "video_DJyTDH",
+    "single_image_fynfEP",
+    "single_image_qaXbHV",
+    "single_image_dPynDK",
+    "single_image_qJhgcK",
+    "single_image_rfG6QE",
+    "single_image_4F9zKe"
+  ]
+}

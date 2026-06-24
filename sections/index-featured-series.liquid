@@ -1,0 +1,319 @@
+{%- render 'section-spacing', section: section -%}
+<div>
+    <div class='container'>
+        <div class='featured-series-container'>
+            <div class='featured-series-header mb-[52px] flex items-end justify-between self-stretch px-1'>
+                <div class='featured-series-header-left-side flex flex-col items-start gap-[20px]'>
+                    {% if section.settings.title != blank %}
+                        {%- if section.settings.highlighted_text == 'none' -%}
+                            <h2 class='header-title text-title hide_p text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
+                                {{ section.settings.title }}
+                            </h2>
+                        {% else %}
+                            {%- render 'highlighted-text',
+                                class: 'header-title text-title hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                                content: section.settings.title,
+                                style: section.settings.highlighted_text,
+                                scribble: 'sketch-underline',
+                                gradient: with_gradient
+                            -%}
+                        {% endif %}
+                    {% endif %}
+                    {% if section.settings.description != blank %}
+                        <div
+                            class='featured-series-description text-[16px] leading-[150%] font-normal'
+                            style='color: {{section.settings.description_text_color}};'
+                        >
+                            {{ section.settings.description }}
+                        </div>
+                    {% endif %}
+                </div>
+                {% if section.settings.view_text != blank %}
+                    <a
+                        href='{{ section.settings.all_collection_url }}'
+                        class='featured-series-header-right-side my_button_hover flex items-center gap-[12px] text-[16px] leading-[120%] font-medium'
+                    >
+                        {{ section.settings.view_text }}
+                        <svg
+                            width='7'
+                            height='12'
+                            viewBox='0 0 7 12'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'
+                        >
+                            <path d="M0.647913 0.0119886C0.731222 0.0110302 0.813821 0.0265341 0.890399 0.0575027C0.966978 0.0884724 1.03584 0.134221 1.09256 0.191808L6.80944 5.58641C7.06352 5.82617 7.06352 6.1978 6.80944 6.43756L1.09256 11.8202C0.838476 12.0599 0.444646 12.0599 0.190563 11.8202C-0.0635204 11.5804 -0.0635204 11.2088 0.190563 10.969L5.4628 6.00599L0.190563 1.03097C-0.0635204 0.791209 -0.0635204 0.419581 0.190563 0.179821C0.317605 0.0599413 0.482759 0 0.635209 0L0.647913 0.0119886Z" fill="#333333"/>
+                        </svg>
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class='featured-series-content'>
+                <div class='swiper-father'>
+                    <div class='swiper'>
+                        <div
+                            class='swiper-wrapper'
+                            id='swiper-wrapper'
+                            aria-live='polite'
+                        >
+                            {% for block in section.blocks %}
+                                <div
+                                    class='swiper-slide featured-series-card flex flex-col items-center gap-[20px]'
+                                >
+                                    {% if block.settings.display_image %}
+                                        <a
+                                            href='{{ block.settings.collection.url }}'
+                                            class='featured-series-media media img_hover block w-full overflow-hidden rounded-[15px]'
+                                        >
+                                            {% render 'section-img', img: block.settings.display_image, width: 1000, loading: 'lazy', class: 'hover_img' %}
+                                        </a>
+                                    {%- else -%}
+                                        <a
+                                            href='{{ block.settings.collection.url }}'
+                                            class='featured-series-media media img_hover block w-full overflow-hidden rounded-[15px]'
+                                        >
+                                            {% render 'section-img', img: block.settings.collection.image, width: 1000, loading: 'lazy', class: 'hover_img' %}
+                                        </a>
+                                    {% endif %}
+
+                                    <div class='featured-series-text-content flex items-center justify-between self-stretch pr-3 [&_p]:m-0'>
+                                        <div class='featured-series-text-content-left flex w-[62.21%] flex-col items-start gap-[16px]'>
+                                            {% if block.settings.block_title != blank %}
+                                                <a
+                                                    href='{{ block.settings.collection.url }}'
+                                                    class='featured-series-text-block-title text-2xl leading-[120%] font-semibold tracking-[-0.24px]'
+                                                >
+                                                    {{ block.settings.block_title }}
+                                                </a>
+                                            {% endif %}
+                                            {% if block.settings.block_description != blank %}
+                                                <div class='featured-series-text-block-description text-[16px] leading-[150%] font-normal'>
+                                                    {{ block.settings.block_description }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class='featured-series-text-content-right flex h-full flex-col items-center gap-[16px]'>
+                                            {% assign min_price = block.settings.collection.products | map: 'price_min' | sort | first %}
+                                            <div class='featured-series-text-block-price flex items-start justify-center gap-[10px] px-3 text-2xl leading-[120%] font-semibold'>
+                                                <span>{{ 'general.from_text' | t }}</span>
+                                                <span>{{ min_price | money }}</span>
+                                            </div>
+                                            {% if section.settings.button_text != blank %}
+                                                <a
+                                                    href='{{ block.settings.collection.url }}'
+                                                    class='button featured-series-text-block-button flex h-[48px] min-w-[174px] items-center justify-center gap-[10px] rounded-full bg-[#fdd554] px-7 text-[16px] leading-[120%] font-medium'
+                                                >
+                                                    {{ section.settings.button_text }}
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <span
+                            class='swiper-notification'
+                            aria-live='assertive'
+                            aria-atomic='true'
+                        ></span>
+                    </div>
+
+                    {% if section.blocks.size > 0 %}
+                        <div class='swiper-buttons mt-[52px] flex items-center justify-between gap-[20px]'>
+                            <div class='swiper_buttons_left'>
+                                <div class='swiper-pagination'></div>
+                            </div>
+                            <div class='swiper_buttons_right flex'>
+                                <div class='swiper-button-prev'>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='11'
+                                        height='23'
+                                        viewBox='0 0 11 23'
+                                        fill='none'
+                                    >
+                                        <path d="M9.67364 2.32616L0.999802 11L9.67364 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class='swiper-button-next'>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        width='11'
+                                        height='23'
+                                        viewBox='0 0 11 23'
+                                        fill='none'
+                                    >
+                                        <path d="M1.05973 2.32616L9.73358 11L1.05973 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var desktopSlidesPerView = {{ section.blocks.size | plus: 0 }} < 3 ? 2 : 2.3;
+        var swipertext = new Swiper(`#shopify-section-{{section.id}} .swiper`, {
+            spaceBetween: 24,
+            navigation: {
+                nextEl: '#shopify-section-{{section.id}} .swiper-button-next',
+                prevEl: '#shopify-section-{{section.id}} .swiper-button-prev',
+            },
+            pagination: {
+                el: '#shopify-section-{{section.id}} .swiper-pagination',
+                type: 'progressbar',
+            },
+            breakpoints: {
+                300: {
+                    slidesPerView: 1,
+                    spaceBetween: 12,
+                },
+                768: {
+                    slidesPerView: 1.8,
+                    spaceBetween: 12,
+                },
+                1000: {
+                    slidesPerView: desktopSlidesPerView,
+                    spaceBetween: 24,
+                },
+                1280: {
+                    slidesPerView: desktopSlidesPerView,
+                    spaceBetween: 24,
+                },
+            },
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Featured Series",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "title"
+        },
+        {
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "description",
+            "label": "description"
+        },
+
+        {
+            "type": "text",
+            "id": "view_text",
+            "label": "View Text"
+        },
+        {
+            "type": "url",
+            "id": "all_collection_url",
+            "label": "All Collection Url"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+        },
+        {
+            "type": "color",
+            "id": "description_text_color",
+            "label": "description text color",
+            "default": "#333333"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "collection_item",
+            "name": "collection item",
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection Series"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "display_image",
+                    "label": "Display Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured Series"
+        }
+    ]
+}
+{% endschema %}

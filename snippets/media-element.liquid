@@ -1,0 +1,138 @@
+{%- comment -%}
+    /**
+     * 媒体渲染通用组件 (Media Element)
+     * * 功能亮点：
+     * 1. 多媒体支持：统管图片 (image)、Shopify原生视频 (video)、平台托管视频 (video_url - YouTube/Vimeo)、外部直链视频 (other_url - MP4) 的渲染。
+     * 2. 自动降级：移动端 (H5) 素材非必传。如果未传入 H5 素材，将自动降级使用 PC 端素材。
+     * 3. 缺省占位：在后台未配置任何素材时，自动渲染 Shopify 原生的 SVG Placeholder。
+     * 4. 视频扩展控制：支持自定义视频是否静音 (muted) 以及是否显示控制条 (controls)，并处理视口内的播放竞争与静音状态。
+     *
+     * * 接收参数 (Props)：
+     * - class          {String} 外层包裹容器的自定义 CSS 类名
+     * - media_class    {String} 媒体元素自身的自定义 CSS 类名
+     * - media_type     {String} 媒体类型。可选值: 'image' | 'video' | 'video_url' (默认: 'image')
+     * - pc_image       {Object} PC 端图片对象
+     * - h5_image       {Object} H5 端图片对象
+     * - pc_video       {Object} PC 端 Shopify 原生视频对象
+     * - h5_video       {Object} H5 端 Shopify 原生视频对象
+     * - video_url   {Object} 平台托管视频 (独立参数，用于 video_url 类型，仅支持 YouTube / Vimeo 解析)
+     * - other_url      {String} 外部纯直链视频 (独立参数，用于 video_url 类型，通常为普通的 .mp4 文本链接)
+     * - controls       {Boolean} 是否显示视频控制条 (默认: false)
+     * - muted          {Boolean} 视频是否静音 (默认: true)
+     * - img_loading    {String} lazy or enger
+     * - is_modal       {Boolean} 是否作为弹窗使用 (可选，默认: false)
+     */
+{%- endcomment -%}
+
+{%- liquid
+    assign m_type = media_type | default: 'image'
+
+    assign final_h5_image = h5_image | default: pc_image
+    assign final_h5_video = h5_video | default: pc_video
+
+    assign v_controls = false
+    if controls == true
+        assign v_controls = true
+    endif
+
+    assign v_muted = true
+    if muted == false
+        assign v_muted = false
+    endif
+
+    assign v_is_modal = false
+    if is_modal == true
+        assign v_is_modal = true
+    endif
+-%}
+
+<div class='{{ class }}'>
+    {%- case m_type -%}
+        {%- when 'image' -%}
+            {%- if pc_image != blank or final_h5_image != blank -%}
+                <picture class='my_picture'>
+                    {%- if final_h5_image != blank and final_h5_image != pc_image -%}
+                        <source
+                            media='(max-width: 640px)'
+                            srcset='{{ final_h5_image | image_url }}'
+                        >
+                    {%- endif -%}
+
+                    <img
+                        src='{{ pc_image | default: final_h5_image | image_url }}'
+                        alt='{{ pc_image.alt | default: final_h5_image.alt | escape }}'
+                        loading='{{ img_loading | default: "lazy" }}'
+                        width='100%'
+                        height='100%'
+                        class='{{ media_class }}'
+                    >
+                </picture>
+            {%- else -%}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full object-cover bg-[#ccc]' }}
+            {%- endif -%}
+
+        {%- when 'video' -%}
+            {%- if pc_video != blank or final_h5_video != blank -%}
+                {%- if pc_video != blank -%}
+                    {% assign pc_video_element = pc_video | video_tag: autoplay: false, controls: v_controls, loop: true, muted: v_muted, class: media_class %}
+                    <video-intersection-insert
+                        class='relative block h-full w-full {% if final_h5_video != pc_video %}hidden-pocket{% endif %}'
+                        data-src='{{ pc_video_element | escape }}'
+                        data-provider='html5'
+                        data-muted='{{ v_muted }}'
+                        data-controls='{{ v_controls }}'
+                        data-is-modal='{{ v_is_modal }}'
+                    ></video-intersection-insert>
+                {%- else -%}
+                    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full object-cover bg-[#ccc]' }}
+                {%- endif -%}
+                {%- if final_h5_video != pc_video and final_h5_video != blank -%}
+                    {% assign h5_video_element = final_h5_video
+                        | video_tag: autoplay: false, controls: v_controls, loop: true, muted: v_muted, class: media_class
+                    %}
+                    <video-intersection-insert
+                        class='hidden-lap-and-up relative block h-full w-full'
+                        data-src='{{ h5_video_element | escape }}'
+                        data-provider='html5'
+                        data-muted='{{ v_muted }}'
+                        data-controls='{{ v_controls }}'
+                        data-is-modal='{{ v_is_modal }}'
+                    ></video-intersection-insert>
+                {%- endif -%}
+            {%- else -%}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg w-full h-full object-cover bg-[#ccc]' }}
+            {%- endif -%}
+
+        {%- when 'video_url' -%}
+            {%- if video_url != blank or other_url != blank -%}
+                {%- liquid
+                    assign provider = 'html5'
+                    assign video_id = ''
+
+                    if other_url != blank
+                        assign provider = 'html5'
+                        assign video_id = other_url
+                    elsif video_url != blank
+                        if video_url.type == 'youtube'
+                            assign provider = 'youtube'
+                            assign video_id = video_url.id
+                        elsif video_url.type == 'vimeo'
+                            assign provider = 'vimeo'
+                            assign video_id = video_url.id
+                        endif
+                    endif
+                -%}
+                <video-intersection-insert
+                    class='relative block h-full w-full'
+                    data-provider='{{ provider }}'
+                    data-video-id='{{ video_id }}'
+                    data-muted='{{ v_muted }}'
+                    data-controls='{{ v_controls }}'
+                    data-class='{{ media_class }}'
+                    data-is-modal='{{ v_is_modal }}'
+                ></video-intersection-insert>
+            {%- else -%}
+                {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg w-full h-full object-cover bg-[#ccc]' }}
+            {%- endif -%}
+    {%- endcase -%}
+</div>

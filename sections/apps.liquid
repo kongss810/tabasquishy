@@ -1,0 +1,95 @@
+{%- render 'section-spacing', section: section -%}
+<style>
+    #up-cx-ref-image-container {
+        overflow: hidden;
+        border-radius: 15px;
+    }
+    #up-cx-ref-content-container {
+        overflow: hidden;
+        border-radius: 15px;
+    }
+</style>
+<section id="app_all" class='product-app--container {% if section.settings.show_cotnaienr %} container{% endif %}'>
+    {% if section.settings.title == blank and section.settings.text == blank %}
+    {%- else -%}
+        <div class="app_headerTop mx-auto mb-[52px]"> 
+            {% if section.settings.title != blank %}
+                <h2 class='refer-title hide_p text-center text-[64px] leading-[120%] font-[600]'>{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.text != blank %}
+                <div class='refer-description mt-[16px] hide_p text-center text-[16px]'>{{ section.settings.text }}</div>
+            {% endif %}
+        </div>
+    {% endif %}
+    <div>
+        {% for block in section.blocks %}
+            {% render block %}
+        {% endfor %}
+    </div>
+</section>
+{% schema %}
+{
+    "name": "App",
+    "class": "shopify-app-block css-layout",
+    "blocks": [
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_cotnaienr",
+            "label": "show cotnaienr",
+            "default": true
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "text"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "App"
+        }
+    ]
+}
+{% endschema %}

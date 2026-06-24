@@ -1,0 +1,157 @@
+{%- render 'section-spacing', section: section -%}
+
+<style>
+    .refer-container p {
+        margin: 0;
+    }
+    .refer-title p {
+        line-height: 120%;
+    }
+</style>
+
+{% liquid
+    assign title = section.settings.title
+    assign description = section.settings.description
+%}
+
+<div class='container'>
+    <div class='refer-container flex w-full flex-col gap-[120px]'>
+        <div class='refer-header mx-auto w-full max-w-[670px]'>
+            {% if title != blank %}
+                <h2 class='refer-title mb-[20px] text-center text-[64px] leading-[120%] font-[600]'>{{ title }}</h2>
+            {% endif %}
+            {% if description != blank %}
+                <div class='refer-description text-center text-[16px]'>{{ description }}</div>
+            {% endif %}
+        </div>
+
+        <div class='refer-content flex items-start justify-center gap-[40px] px-[80px]'>
+            {% if section.blocks.size > 0 %}
+                {% for block in section.blocks %}
+                    {% liquid
+                        assign image_text = block.settings.image_text
+                        assign main_image = block.settings.main_image
+                        assign block_title = block.settings.block_title
+                        assign block_description = block.settings.block_description
+                    %}
+                    <div class='refer-block relative flex max-w-[374px] flex-1 flex-col items-center gap-[10px]'>
+                        <div class='refer-block-images'>
+                            {% if image_text != blank %}
+                                <div
+                                    class='
+                                        refer-block-image-text-{{forloop.index}} absolute top-[-77px] text-[130px] leading-[120%] font-[700] text-[#7E308D]
+                                        {% if forloop.index == 1 %}left-[110px]
+                                        {% elsif forloop.index == 2 %}left-[84.332px]
+                                        {% elsif forloop.index == 3 %}left-[84.668px]
+                                        {% endif %}
+                                    '
+                                >
+                                    {{ image_text }}
+                                </div>
+                            {% endif %}
+                            {% if main_image != blank %}
+                                <div class='aspect-square h-[120px] w-[120px]'>
+                                    {% render 'section-img', img: main_image, loading: 'lazy', width: 200 %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if block_title != blank %}
+                            <div class='hide_p refer-block-title max-w-full text-center text-[24px] leading-[120%] font-[600] break-words'>
+                                {{ block_title }}
+                            </div>
+                        {% endif %}
+                        {% if block_description != blank %}
+                            <div class='refer-block-description text-center text-[16px] leading-[150%] text-[rgba(0,0,0,0.80)]'>
+                                {{ block_description }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "How it works",
+    "class": "css-layout",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "header",
+            "content": "Spacing Top:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingTop",
+            "label": "Desktop Padding Top",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingTop",
+            "label": "Mobile Padding Top",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Spacing Bottom:"
+        },
+        {
+            "type": "number",
+            "id": "Desktop_paddingBottom",
+            "label": "Desktop Padding Bottom",
+            "default": 0
+        },
+        {
+            "type": "number",
+            "id": "Mobile_paddingBottom",
+            "label": "Mobile Padding Bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "work_item",
+            "name": "Work Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "image_text",
+                    "label": "Number Text"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "main_image",
+                    "label": "Main Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "block_description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Refer How it works"
+        }
+    ]
+}
+{% endschema %}

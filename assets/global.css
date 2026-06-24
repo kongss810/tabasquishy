@@ -1,0 +1,519 @@
+.swiper {
+    overflow: hidden;
+    z-index: 1 !important;
+}
+.swiper-pagination,
+.swiper-button-next,
+.swiper-button-prev {
+    z-index: 1 !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.swiper-button-next:focus-visible,
+.swiper-button-prev:focus-visible {
+    outline: none;
+}
+
+/* 老版本 */
+/* swiper_1 未初始化时隐藏 */
+.swiper_1.swiper:not(.swiper-initialized):not(.swiper-container-initialized) .swiper-wrapper {
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+/* swiper_1 初始化后显示（兼容新旧版本类名）*/
+.swiper_1.swiper-initialized .swiper-wrapper,
+.swiper_1.swiper-container-initialized .swiper-wrapper {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* swiper_2 未初始化时隐藏 */
+.swiper_2.swiper:not(.swiper-initialized):not(.swiper-container-initialized) .swiper-wrapper {
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+/* swiper_2 初始化后显示（兼容新旧版本类名）*/
+.swiper_2.swiper-initialized .swiper-wrapper,
+.swiper_2.swiper-container-initialized .swiper-wrapper {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+video {
+    vertical-align: bottom;
+}
+/* .media-grid--inner {
+    padding: 0 15px;
+    max-width: 1680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media only screen and (min-width: 768px) {
+    .media-grid--inner {
+        padding: 0 40px;
+    }
+} */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1680px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 40px;
+    }
+
+    .pad_pc {
+        display: block !important;
+    }
+    .pad_mobile {
+        display: none !important;
+    }
+    /* 图片悬停样式 */
+    .img_hover {
+        overflow: hidden;
+    }
+    .img_hover:hover .hover_img {
+        transform: scale(1.03);
+    }
+    .img_hover .hover_img {
+        transition: transform 0.5s ease;
+        transform: translateZ(0);
+    }
+    /* 图片悬停样式 */
+    .img_hover2 {
+        overflow: hidden;
+    }
+    .img_hover2:hover .hover_img2 {
+        transform: scale(1.05);
+    }
+    .img_hover2 .hover_img2 {
+        transition: all 0.3s;
+    }
+}
+@media (max-width: 1023px) {
+    .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 16px;
+    }
+    .pad_pc {
+        display: none !important;
+    }
+    .pad_mobile {
+        display: block !important;
+    }
+}
+
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: center;
+}
+
+.my_picture {
+    width: 100%;
+    display: block;
+    visibility: visible;
+}
+.my_picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* button */
+
+@media (min-width: 768px) {
+    .button_hover {
+        background-color: #fcd454;
+        transition: all 0.3s;
+    }
+
+    .my_button_hover,
+    .my_button_hover svg path {
+        transition: all 0.3s;
+    }
+    .my_button_hover:hover {
+        color: #ed8124;
+    }
+    .my_button_hover:hover svg path {
+        fill: #ed8124;
+    }
+    .my_button_hover2:hover {
+        background-color: #fcd454;
+        transition: all 0.3s;
+    }
+}
+@media (max-width: 768px) {
+    .my_button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.35s;
+    }
+    .productItem_button svg {
+        display: none;
+    }
+}
+/* 自定义 Swiper 按钮 */
+.swiper-buttons .swiper-button-prev::after,
+.swiper-buttons .swiper-button-next::after {
+    content: unset;
+}
+.swiper-buttons .swiper-button-prev,
+.swiper-buttons .swiper-button-next {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #333;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.swiper-buttons .swiper-button-prev svg,
+.swiper-buttons .swiper-button-next svg {
+    width: 11px;
+    height: 24px;
+}
+.swiper-buttons .swiper-pagination,
+.swiper-buttons .swiper-button-prev,
+.swiper-buttons .swiper-button-next {
+    position: unset;
+    margin: 0;
+}
+.swiper_buttons_left {
+    width: 50%;
+}
+.swiper-buttons .swiper-pagination {
+    height: 2px;
+    max-width: 300px;
+    border-radius: 10px;
+    background: rgba(26, 26, 26, 0.1);
+}
+.swiper-buttons .swiper-pagination span {
+    background: #000000 !important;
+}
+.swiper_buttons_right {
+    width: 50%;
+    gap: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+.swiper-buttons .swiper-button-disabled {
+    border-color: rgba(26, 26, 26, 0.4);
+    opacity: 0.5;
+}
+.swiper-buttons .swiper-button-lock {
+    display: none !important;
+}
+.swiper-buttons .swiper-button-prev,
+.swiper-buttons .swiper-button-next,
+.swiper-buttons .swiper-button-prev svg path,
+.swiper-buttons .swiper-button-next svg path {
+    transition: all 0.3;
+}
+.swiper-buttons .swiper-button-prev:hover,
+.swiper-buttons .swiper-button-next:hover {
+    background-color: #fcd454;
+    border-color: #fcd454;
+}
+.swiper-buttons .swiper-button-lock {
+    display: none !important;
+}
+/* 禁止滑动 */
+.no-scroll {
+    overflow: hidden;
+}
+.my-swiper-button.swiper-button-prev::after,
+.my-swiper-button.swiper-button-next::after {
+    content: unset;
+}
+.my-swiper-button.swiper-button-prev,
+.my-swiper-button.swiper-button-next {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.my-swiper-button.swiper-button-prev svg,
+.my-swiper-button.swiper-button-next svg {
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 1023px) {
+    .my-swiper-button.swiper-pagination .swiper-pagination-bullet {
+        height: 2px;
+    }
+    .my-swiper-button.swiper-pagination .swiper-pagination-bullet-active {
+        width: 30px;
+    }
+    .swiper_buttons_left {
+        width: 100%;
+    }
+    .swiper-buttons .swiper-pagination {
+        height: 2px !important;
+        max-width: 100%;
+    }
+    .swiper-buttons .swiper-button-prev,
+    .swiper-buttons .swiper-button-next {
+        height: 40px;
+        width: 40px;
+    }
+}
+@media (min-width: 1024px) {
+    .swiper_buttons_right {
+        display: flex !important;
+    }
+    .my-swiper-button.swiper-button-prev svg path,
+    .my-swiper-button.swiper-button-next svg path,
+    .my-swiper-button.swiper-button-prev,
+    .my-swiper-button.swiper-button-next {
+        transition: all 0.3s;
+    }
+
+    .my-swiper-button.swiper-button-prev:hover svg rect,
+    .my-swiper-button.swiper-button-next:hover svg rect {
+        fill: #fcd454;
+        stroke: #fcd454;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+a:focus,
+input:focus,
+a:focus-visible,
+input:focus-visible {
+    outline: none;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    pointer-events: auto;
+}
+
+/* collection */
+.product-item__image-wrapper--multiple .product-item__primary-image,
+.product-item__image-wrapper--multiple .product-item__secondary-image {
+    transition:
+        opacity 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
+}
+
+.product-item__secondary-image {
+    position: absolute;
+    display: none; /* Allows to make sure it does not trigger lazyload */
+    visibility: hidden;
+    opacity: 0;
+    top: 50% !important;
+    left: 50% !important; /* We must use this instead of logical property here */
+    transform: translate(-50%, -50%) !important;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: center;
+    object-position: center;
+}
+@media screen and (pointer: fine) {
+    .product-item__secondary-image {
+        display: block;
+    }
+
+    .product-item__image-wrapper--multiple .media--transparent:hover .product-item__primary-image {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .product-item__image-wrapper--multiple .media--transparent:hover .product-item__secondary-image {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .product-item__image-wrapper:hover .product-item__quick-form {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.header-title {
+    margin: 0;
+    /* text-transform: capitalize; */
+}
+.header-title p {
+    line-height: inherit;
+}
+
+.hide_p p:first-child,
+.hide_p p:last-child {
+    padding: 0;
+    margin-bottom: 0;
+}
+.hide_p p,
+h2 p {
+    line-height: unset;
+}
+
+/*! highlighted-text */
+
+@keyframes strokeAnimation {
+    0% {
+        stroke-dashoffset: 1;
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.highlighted-text {
+    display: inline-block;
+    position: relative;
+    font-style: normal;
+    z-index: 1;
+}
+.highlighted-text .icon {
+    z-index: -1;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    transform: scaleX(1);
+}
+
+.highlighted-text .icon-sketch-underline {
+    width: 100%;
+    height: 60%;
+    inset-block-start: auto;
+    inset-block-end: -14%;
+}
+
+.highlighted-text .icon path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    opacity: 0;
+    transition:
+        opacity 1.3s cubic-bezier(0.65, 0, 0.35, 1),
+        stroke-dashoffset 1.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.highlighted-text.animate .icon path {
+    opacity: 1;
+    /* animation: strokeAnimation 1.3s cubic-bezier(0.65, 0, 0.35, 1) forwards; */
+}
+
+.highlighted-text[data-style='text'] {
+    transition: color var(--animation-smooth);
+}
+
+.highlighted-text.animate[data-style='text'] {
+    color: rgb(var(--color-highlight));
+}
+
+.highlighted-text:is([data-style='full_text'], [data-style='half_text'], [data-style='underline']) {
+    background-repeat: no-repeat;
+    background-image:
+        linear-gradient(to var(--transform-origin-end), rgb(var(--color-highlight)) 0, rgb(var(--color-background)) 100%),
+        linear-gradient(to var(--transform-origin-end), rgb(var(--color-highlight)) 0, rgb(var(--color-background)) 100%);
+    transition: background-size var(--animation-smooth);
+}
+
+.highlighted-text.with-gradient:is([data-style='full_text'], [data-style='half_text'], [data-style='underline']) {
+    background-image: var(--gradient-highlight);
+}
+
+.highlighted-text[data-style='full_text'] {
+    background-position: var(--transform-origin-start) 70%;
+    background-size: 0 80%;
+}
+
+.highlighted-text.animate[data-style='full_text'] {
+    background-size: 100% 80%;
+}
+
+.highlighted-text[data-style='half_text'] {
+    background-position: var(--transform-origin-start) 90%;
+    background-size: 0 28%;
+}
+
+.highlighted-text.animate[data-style='half_text'] {
+    background-size: 100% 28%;
+}
+
+.highlighted-text[data-style='underline'] {
+    background-size:
+        0 3px,
+        0% 80%;
+    background-position:
+        var(--transform-origin-start) 90%,
+        var(--transform-origin-start) 50%;
+}
+
+.highlighted-text.animate[data-style='underline'] {
+    background-size:
+        100% 3px,
+        0% 80%;
+}
+
+.highlighted-text[data-style='stencil'] {
+    -webkit-text-stroke: var(--stencil-stroke-width, 0.02em) currentColor;
+    -webkit-text-fill-color: transparent;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .js .highlighted-text.with-gradient[data-style='text'] {
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-repeat: no-repeat;
+        background-image: var(--gradient-highlight);
+        background-position: var(--transform-origin-start) 100%;
+        background-size: 0 100%;
+        transition: background-size var(--animation-smooth);
+    }
+
+    .js .highlighted-text.with-gradient.animate[data-style='text'] {
+        background-size: 100% 100%;
+    }
+}
+
+.product-card--add-to-cart-button-wrapper .button {
+    text-transform: uppercase;
+}
+
+body {
+    overflow-x: hidden;
+}
+/* top banner */
+.my_banner_topScroll video {
+    height: 160px;
+    width: 100%;
+    object-fit: fill;
+    object-position: top;
+}
+@media (max-width: 768px) {
+    .my_banner_topScroll video {
+        height: 30px;
+        width: 100%;
+        object-fit: fill;
+        object-position: top;
+    }
+}

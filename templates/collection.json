@@ -1,0 +1,155 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": false,
+        "show_collection_description": true,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": true
+      }
+    },
+    "jd_page_banner_jYXXEg": {
+      "type": "jd-page-banner",
+      "name": "page-banner",
+      "settings": {
+        "img": "{{ collection.image }}",
+        "title": "<p>{{ collection.title }}</p>",
+        "text": "{{ collection.description }}",
+        "btn_text": "",
+        "btn_link": "",
+        "title_color": "#1a1a1a",
+        "text_color": "#333333",
+        "Desktop_paddingTop": 0,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 80,
+        "Mobile_paddingBottom": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "promotion_hwiTde": {
+          "type": "promotion",
+          "settings": {
+            "promotion_collection": "",
+            "promotion_position": 4,
+            "promotion_width": "2",
+            "image": "shopify://shop_images/Rectangle_19777.png",
+            "title": "<p>SOFT TOUCH, <br/>SAFE PLAY.</p>",
+            "text": "<p>Save extra on our sale collection <br/>*Runs until 14:00pm PST</p>",
+            "countdown": "2026-07-01T13:38:59",
+            "link_label": "LEARN MORE",
+            "link": "#",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "use_text_button": false,
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "promotion_hwiTde"
+      ],
+      "settings": {
+        "products_per_page": 13,
+        "columns_desktop": 3,
+        "pagination_type": "paginated",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "show_counts": true,
+        "filter_color_swatches": true,
+        "facets_desktop": "sidebar"
+      }
+    },
+    "faqs_XXiFYL": {
+      "type": "faqs",
+      "blocks": {
+        "faq_item_4MQCMr": {
+          "type": "faq_item",
+          "disabled": true,
+          "settings": {
+            "question": "How can I track my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on <a href=\"#\" title=\"#\">our website</a> or the carrier's website.</p>"
+          }
+        },
+        "faq_item_9f3nCt": {
+          "type": "faq_item",
+          "disabled": true,
+          "settings": {
+            "question": "What should I do if my package is lost/stolen?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on <a href=\"#\" title=\"#\">our website</a> or the carrier's website.</p>"
+          }
+        },
+        "faq_item_tFNhNm": {
+          "type": "faq_item",
+          "disabled": true,
+          "settings": {
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on <a href=\"#\" title=\"#\">our website</a> or the carrier's website.</p>"
+          }
+        },
+        "faq_item_nxhRJb": {
+          "type": "faq_item",
+          "disabled": true,
+          "settings": {
+            "question": "Can I return or get a refund for my purchase?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on <a href=\"#\" title=\"#\">our website</a> or the carrier's website.</p>"
+          }
+        },
+        "faq_item_EfhwBT": {
+          "type": "faq_item",
+          "disabled": true,
+          "settings": {
+            "question": "How long will it take to get my order?",
+            "answer": "<p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on <a href=\"#\" title=\"#\">our website</a> or the carrier's website.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_4MQCMr",
+        "faq_item_9f3nCt",
+        "faq_item_tFNhNm",
+        "faq_item_nxhRJb",
+        "faq_item_EfhwBT"
+      ],
+      "name": "faqs",
+      "settings": {
+        "title": "<p>Frequently Asked Questions</p>",
+        "highlighted_text": "none",
+        "faq_active_bg_color": "#fcd454",
+        "faq_active_bg_image": "shopify://shop_images/Vector_5f3931f5-cd6d-4492-95b5-a03cd90f4526.png",
+        "Desktop_paddingTop": 160,
+        "Mobile_paddingTop": 0,
+        "Desktop_paddingBottom": 80,
+        "Mobile_paddingBottom": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "template-header",
+    "jd_page_banner_jYXXEg",
+    "product-grid",
+    "faqs_XXiFYL"
+  ]
+}
