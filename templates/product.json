@@ -622,6 +622,7 @@
         "faq_active_bg_color": "#fcd454",
         "faq_active_bg_image": "shopify://shop_images/Vector_5f3931f5-cd6d-4492-95b5-a03cd90f4526.png",
         "faq_a_active": "#ed8e25",
+        "open_first_item": true,
         "bg_color": "#fff8e3",
         "Desktop_top": 160,
         "Desktop_paddingTop": 80,

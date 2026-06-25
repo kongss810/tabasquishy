@@ -1,0 +1,26 @@
+---
+description: Git 提交与分支工作流约定
+alwaysApply: true
+---
+
+# Git 工作流
+
+## 开发分支
+
+- 日常开发在 `updata-code` 分支进行
+- 合并到 `main` 后，**自动切回 `updata-code`** 继续开发
+
+## 提交后自动切回
+
+完成 **commit + push**（或 **merge 到 main + push**）后，若当前不在 `updata-code`，执行：
+
+```bash
+git checkout updata-code
+```
+
+无需用户再提醒。
+
+## Commit 规范
+
+- Commit message 使用**中文**
+- 格式：`feat:` / `fix:` / `merge:` 等前缀 + 简要说明
