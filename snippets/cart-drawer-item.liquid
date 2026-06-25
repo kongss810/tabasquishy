@@ -1,0 +1,151 @@
+{%- liquid
+  assign final_unit_price = item.final_price
+  assign original_unit_price = item.original_price
+  assign compare_at_price = item.variant.compare_at_price
+  assign is_free_item = false
+  if final_unit_price == 0
+    assign is_free_item = true
+  endif
+  assign is_on_sale = false
+  if compare_at_price != blank and compare_at_price > item.variant.price
+    assign is_on_sale = true
+  endif
+  assign show_sale_price = false
+  assign show_compare_price = false
+  if is_free_item
+    assign show_sale_price = true
+    assign show_compare_price = true
+  elsif is_on_sale or final_unit_price < original_unit_price
+    assign show_sale_price = true
+    assign show_compare_price = true
+  endif
+  assign compare_display = compare_at_price
+  if compare_display == blank or compare_display == 0
+    assign compare_display = original_unit_price
+  endif
+-%}
+<div class="cart-drawer-item product-cart-item" id="CartDrawerItem-{{ item.index | plus: 1 }}">
+  <a href="{{ item.url }}" class="cart-drawer-item__media product-cart-item-image" title="{{ item.product.title | escape }}">
+    {% if item.image %}
+      {%- render 'responsive-image', image: item.image, sizes: '280x0' -%}
+    {% else %}
+      <div class="thb-placeholder">
+        {{ 'product-1' | placeholder_svg_tag }}
+      </div>
+    {% endif %}
+    <div class="loading-overlay">
+      {% render 'svg-icons' with 'thb-loading' %}
+    </div>
+  </a>
+
+  <div class="cart-drawer-item__body product-cart-item-info">
+    <div class="cart-drawer-item__top">
+      <a href="{{ item.url }}" class="cart-drawer-item__title cart-product-link" title="{{ item.product.title | escape }}">
+        {{ item.product.title }}
+      </a>
+
+      {%- if item.discounts.size > 0 -%}
+        <div class="cart-drawer-item__promo">
+          <span class="cart-drawer-item__promo-icon" aria-hidden="true">
+          
+            <svg width="217" height="217" viewBox="0 0 217 217" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g clip-path="url(#clip0_4907_5809)">
+              <path d="M2.95164 24.0628C2.26767 12.1312 12.1318 2.26709 24.0633 2.95107L108.475 7.78964C116.175 8.23109 123.409 11.6216 128.675 17.2562L208.875 103.065C219.919 114.881 219.608 133.325 208.171 144.762L144.762 208.17C133.326 219.607 114.881 219.919 103.065 208.875L17.2561 128.675C11.6214 123.409 8.23163 116.174 7.79022 108.474L2.95164 24.0628ZM23.234 23.2327C17.3832 29.0836 17.3832 38.5702 23.234 44.4211C29.0849 50.2719 38.5715 50.2719 44.4224 44.4211C50.2729 38.5702 50.2724 29.0842 44.4217 23.2334C38.5709 17.3827 29.0849 17.3821 23.234 23.2327Z" fill="#F8C358"/>
+              <path d="M6.36305 11.0803C10.4342 37.8696 22.783 63.6443 43.413 84.2742C88.0545 128.916 156.783 134.786 207.762 101.89L208.624 102.812C219.668 114.628 219.356 133.073 207.919 144.509L144.511 207.918C133.074 219.354 114.63 219.666 102.813 208.622L17.0049 128.422C11.3703 123.156 7.97982 115.922 7.53834 108.222L2.69977 23.8103C2.42751 19.061 3.82757 14.6397 6.36305 11.0803Z" fill="#FAAB48"/>
+              <rect x="64" y="73" width="124" height="103" fill="url(#pattern0_4907_5809)"/>
+              </g>
+              <defs>
+              <pattern id="pattern0_4907_5809" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_4907_5809" transform="scale(0.00806452 0.00970874)"/>
+              </pattern>
+              <clipPath id="clip0_4907_5809">
+              <rect width="217" height="217" fill="white"/>
+              </clipPath>
+              <image id="image0_4907_5809" width="124" height="103" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
+              </defs>
+            </svg>
+
+          </span>
+          <span class="cart-drawer-item__promo-text">{{ item.discounts.first.title }}</span>
+        </div>
+      {%- endif -%}
+
+      <div class="cart-drawer-item__price price">
+        {%- if show_sale_price -%}
+          <ins class="cart-drawer-item__price-sale">
+            <span class="amount">{{ final_unit_price | money }}</span>
+          </ins>
+        {%- else -%}
+          <span class="cart-drawer-item__price-regular">
+            <span class="amount">{{ final_unit_price | money }}</span>
+          </span>
+        {%- endif -%}
+        {%- if show_compare_price -%}
+          <del class="cart-drawer-item__price-compare">
+            <span class="amount">{{ compare_display | money }}</span>
+          </del>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="cart-drawer-item__meta">
+      {%- unless item.variant.title contains 'Default' -%}
+        {%- for option in item.options_with_values -%}
+          <p class="cart-drawer-item__variant">{{ option.name }}: {{ option.value }}</p>
+        {%- endfor -%}
+      {%- endunless -%}
+
+      {%- for property in item.properties -%}
+        {%- assign property_first_char = property.first | slice: 0 -%}
+        {%- if property.last != blank and property_first_char != '_' -%}
+          <p class="cart-drawer-item__variant">
+            {{ property.first }}:
+            {%- if property.last contains '/uploads/' -%}
+              <a href="{{ property.last }}" class="link" target="_blank">{{ property.last | split: '/' | last }}</a>
+            {%- else -%}
+              {{ property.last }}
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% if item.selling_plan_allocation %}
+        <p class="cart-drawer-item__variant">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+      {% endif %}
+
+      <div class="cart-drawer-item__actions">
+        <quantity-selector class="quantity cart-update small-qty cart-drawer-item__qty" data-id="{{ item.key | escape }}">
+          <button class="minus" type="button" aria-label="{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}">
+            {% render 'svg-icons' with 'minus' %}
+          </button>
+          <input
+            type="number"
+            name="updates[]"
+            id="updates_{{ item.key }}"
+            value="{{ item.quantity }}"
+            min="{{ item.variant.quantity_rule.min }}"
+            {% if item.variant.quantity_rule.max != null %}
+              max="{{ item.variant.quantity_rule.max }}"
+            {% elsif item.variant.inventory_management != null and item.variant.inventory_quantity > 0 %}
+              max="{{ item.variant.inventory_quantity }}"
+            {% endif %}
+            step="{{ item.variant.quantity_rule.increment }}"
+            class="qty"
+            data-index="{{ item.index | plus: 1 }}"
+            aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+          >
+          <button class="plus" type="button" aria-label="{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}">
+            {% render 'svg-icons' with 'plus' %}
+          </button>
+        </quantity-selector>
+        <a
+          href="{{ routes.cart_change_url }}?line={{ item.index | plus: 1 }}&amp;quantity=0"
+          class="remove cart-drawer-item__remove"
+          data-index="{{ item.index | plus: 1 }}"
+        >
+          {{ 'general.cart_drawer.remove' | t }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

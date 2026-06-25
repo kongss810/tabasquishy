@@ -77,10 +77,12 @@
     "sibling_style": "image",
     "color_swatches": "Black-Pink: Black-Pink.png\nYellow-Purple: Yellow-Purple.png\nBlack-Fuchsia: Black-Fuchsia.png\nRed-Black: Red-Black.png\nNavy-White: Navy-White.png\nSingle-Yellow: Single-Yellow.png\nBlue-Pink: Blue-Pink.png\nFuchsia-White-Fuchsia: FWF.jpg\nFuchsia-White-Black: FWB.jpg\nBlack-Fuchsia-Black: BFB.jpg\nBlue-White-Blue: BWB.jpg\nPurple-White-Purple: PWP.jpg\nMacaron-White-Pink: MWP.jpg\nGreen-Black: Green-Black.jpg\nYellow-White: Yellow-White.jpg\nYellow-Green: Yellow-Green.jpg\nPink-Yellow: Pink-Yellow.jpg\nWhite-Cow: White-Cow.jpg\nBlack-Red: Black-Red.jpg\nTransparent-Pink: Transparent-Pink.jpg\nTransparent-Green: Transparent-Green.jpg\nBlack-Purple: Black-Purple.jpg\nCow-Pink: Cow-Pink.jpg",
     "cart_terms_conditions_enable": false,
+    "cart_drawer_notes": false,
     "cart_recommendations": true,
+    "cart_policy_text": "<p>Shopping, taxes and discount codes caculated at checkout.</p>",
+    "cart_drawer_cart_button": false,
     "free_shipping_minimum": "59",
     "search_menu": "popular-search",
-    "search_product_heading": "🌟 NEW ARRIVALS",
     "search_product_collection2": [
       "new-arrivals",
       "bling-crystal-squishy"
@@ -89,6 +91,7 @@
     "currency_code_enabled": false,
     "email_terms_conditions_enable": false,
     "favicon": "shopify://shop_images/tabasquishy_favicon_logo.png",
+    "search_product_heading": "🌟 NEW ARRIVALS",
     "search_product_collection": "new-arrivals",
     "article_card_border": false,
     "article_card_shadow": false,

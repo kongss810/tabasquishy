@@ -214,7 +214,7 @@
 						</div>
 					{% endif %}
 					<div class="proceed-to-checkout" data-additional-checkout="{{ additional_checkout_buttons }}">
-						<button type="submit" name="checkout" class="checkout-button button full accent" form="cart-form"><span>{{ 'sections.cart.checkout' | t }}</span></button>
+						<button type="submit" name="checkout" class="checkout-button button full" form="cart-form"><span>{{ 'sections.cart.checkout' | t }}</span></button>
 						{%- if additional_checkout_buttons -%}
 						<div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
 							{{ content_for_additional_checkout_buttons }}

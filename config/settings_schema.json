@@ -930,6 +930,11 @@
                 "default": true
             },
             {
+                "type": "richtext",
+                "id": "cart_policy_text",
+                "label": "Cart policy text"
+            },
+            {
                 "type": "checkbox",
                 "id": "cart_drawer_cart_button",
                 "label": "Show cart button",

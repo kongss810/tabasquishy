@@ -9,30 +9,45 @@ if (!customElements.get('free-shipping')) {
       super();
     }
     connectedCallback() {
-
-      let amount_text = this.querySelector('.free-shipping--text span');
-      let total = parseInt(this.dataset.cartTotal, 10);
-      let minimum = Math.round(parseInt(this.dataset.minimum, 10) * (Shopify.currency.rate || 1));
+      const isCartDrawer = this.classList.contains('cart-drawer-shipping');
+      const amountText = this.querySelector('.free-shipping--text span') || this.querySelector('.cart-drawer-shipping__amount');
+      const total = parseInt(this.dataset.cartTotal, 10);
+      const minimum = Math.round(parseInt(this.dataset.minimum, 10) * (Shopify.currency.rate || 1));
       let percentage = 1;
-      this.remainingText = this.querySelector('.free-shipping--text-remaining');
-      this.fullText = this.querySelector('.free-shipping--text-full');
+
+      this.remainingText = this.querySelector('.free-shipping--text-remaining') || this.querySelector('.cart-drawer-shipping__message--remaining');
+      this.fullText = this.querySelector('.free-shipping--text-full') || this.querySelector('.cart-drawer-shipping__message--full');
+      this.fillEl = this.querySelector('.free-shipping--percentage') || this.querySelector('.cart-drawer-shipping__fill');
+
       if (total < minimum) {
         percentage = total / minimum;
 
-        if (amount_text) {
-          let remaining = minimum - total,
-            format = window.theme.settings.money_with_currency_format || "${{amount}}";
-          amount_text.innerHTML = formatMoney(remaining, format);
+        if (amountText) {
+          const remaining = minimum - total;
+          const format = window.theme.settings.money_with_currency_format || '${{amount}}';
+          amountText.innerHTML = formatMoney(remaining, format);
         }
-        this.remainingText.style.display = 'block';
-        this.fullText.style.display = 'none';
+
+        if (this.remainingText) {
+          this.remainingText.style.display = 'block';
+        }
+        if (this.fullText) {
+          this.fullText.style.display = 'none';
+        }
       } else {
-        this.remainingText.style.display = 'none';
-        this.fullText.style.display = 'block';
+        if (this.remainingText) {
+          this.remainingText.style.display = 'none';
+        }
+        if (this.fullText) {
+          this.fullText.style.display = 'block';
+        }
       }
 
-      this.style.setProperty('--percentage', percentage);
-
+      if (isCartDrawer && this.fillEl) {
+        this.fillEl.style.width = `${Math.min(Math.max(percentage, 0), 1) * 100}%`;
+      } else {
+        this.style.setProperty('--percentage', percentage);
+      }
     }
   }
   customElements.define('free-shipping', FreeShipping);

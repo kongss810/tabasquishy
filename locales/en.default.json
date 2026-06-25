@@ -21,16 +21,20 @@
         "continue_shopping": "Continue shopping",
         "close": "Close",
         "cart_drawer": {
-            "title": "Cart",
+            "title": "Your Cart",
             "view_cart": "View cart",
-            "checkout": "Checkout",
+            "checkout": "Check Out",
+            "remove": "Remove",
+            "discounts": "Discounts",
+            "subtotal_items": "Subtotal ({{ count }} items)",
+            "checkout_note": "Shipping, taxes and discount codes calculated at checkout.",
             "cart_empty": "Your cart is currently empty.",
             "start_shopping": "Start Shopping",
-            "you_may_also_like": "You may also like",
+            "you_may_also_like": "You May Also Like",
             "add_order_note": "Add order note",
             "save": "Save",
             "free_shipping": {
-                "spend_more_for_free_shipping_html": "Spend <span>{{ amount }}</span> more for FREE shipping.",
+                "spend_more_for_free_shipping_html": "You are <span class=\"cart-drawer-shipping__amount\">{{ amount }}</span> away from free shipping.",
                 "free_shipping_applied_at_checkout": "FREE shipping will be applied at checkout"
             }
         },

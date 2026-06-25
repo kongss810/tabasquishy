@@ -46,6 +46,9 @@
 
 	{{ 'app.css' | asset_url | stylesheet_tag }}
 	{{ 'product-grid.css' | asset_url | stylesheet_tag }}
+	{%- if settings.cart_drawer -%}
+		{{ 'cart-drawer.css' | asset_url | stylesheet_tag }}
+	{%- endif -%}
 
 	{% render 'head-variables' %}
 
@@ -112,6 +115,9 @@
 	{{ 'product.js' | asset_url | script_tag }}
 	{{ 'slideshow.js' | asset_url | script_tag }}
 	{{ 'app.js' | asset_url | script_tag }}
+	{%- if settings.cart_drawer -%}
+		{{ 'cart-drawer.js' | asset_url | script_tag }}
+	{%- endif -%}
 	<script type="module" src="{{ 'scroll-shadow.js' | asset_url }}" defer="defer"></script>
 	<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
 	{%- if settings.free_shipping -%}

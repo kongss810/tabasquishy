@@ -1,10 +1,43 @@
-<free-shipping class="free-shipping" data-cart-total="{{ total }}" data-minimum="{{ free_shipping_minimum }}">
-	<div class="free-shipping--text">
-		{%- assign remaining_amount = total | minus: free_shipping_minimum | abs | money_without_trailing_zeros -%}
-		<div class="free-shipping--text-remaining">{{ 'general.cart_drawer.free_shipping.spend_more_for_free_shipping_html' | t: amount: remaining_amount }}</div>
-		<div class="free-shipping--text-full">{{ 'general.cart_drawer.free_shipping.free_shipping_applied_at_checkout' | t }}</div>
-	</div>
-	<div class="free-shipping--bar">
-		<div class="free-shipping--percentage"></div>
-	</div>
+{%- if cart_drawer -%}
+<free-shipping
+  class="cart-drawer-shipping"
+  data-cart-total="{{ total }}"
+  data-minimum="{{ free_shipping_minimum }}"
+>
+  <div class="cart-drawer-shipping__track">
+    <div class="cart-drawer-shipping__fill"></div>
+    <div class="cart-drawer-shipping__marker" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <g clip-path="url(#clip0_4848_6009)">
+          <path d="M4.59542 1.05793C4.71919 0.989194 4.85843 0.953125 5 0.953125C5.14157 0.953125 5.28081 0.989194 5.40458 1.05793L8.53583 2.79709C8.60075 2.83319 8.65484 2.88599 8.69249 2.95002C8.73015 3.01405 8.75 3.08698 8.75 3.16126V6.59251C8.75004 6.74118 8.7103 6.88716 8.63491 7.0153C8.55952 7.14344 8.45123 7.24908 8.32125 7.32126L5.40458 8.94126C5.28081 9.01 5.14157 9.04606 5 9.04606C4.85843 9.04606 4.71919 9.01 4.59542 8.94126L1.67875 7.32084C1.5489 7.24873 1.44068 7.14323 1.3653 7.01524C1.28992 6.88726 1.25011 6.74146 1.25 6.59293V3.16126C1.25 3.08698 1.26985 3.01405 1.30751 2.95002C1.34516 2.88599 1.39925 2.83319 1.46417 2.79709L4.59542 1.05793Z" stroke="#333333" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.125 1.875L6.875 3.95833V5.41667M2.5 5.13667L3.75 5.83333" stroke="#333333" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1.25 2.91797L5 5.0013M5 5.0013L8.75 2.91797M5 5.0013V9.16797" stroke="#333333" stroke-width="0.833333" stroke-linejoin="round"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_4848_6009"> 
+            <rect width="10" height="10" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+  </div>
+  <p class="cart-drawer-shipping__message cart-drawer-shipping__message--remaining">
+    {%- assign remaining_amount = total | minus: free_shipping_minimum | abs | money_without_trailing_zeros -%}
+    {{ 'general.cart_drawer.free_shipping.spend_more_for_free_shipping_html' | t: amount: remaining_amount }}
+  </p>
+  <p class="cart-drawer-shipping__message cart-drawer-shipping__message--full">
+    {{ 'general.cart_drawer.free_shipping.free_shipping_applied_at_checkout' | t }}
+  </p>
 </free-shipping>
+{%- else -%}
+<free-shipping class="free-shipping" data-cart-total="{{ total }}" data-minimum="{{ free_shipping_minimum }}">
+  <div class="free-shipping--text">
+    {%- assign remaining_amount = total | minus: free_shipping_minimum | abs | money_without_trailing_zeros -%}
+    <div class="free-shipping--text-remaining">{{ 'general.cart_drawer.free_shipping.spend_more_for_free_shipping_html' | t: amount: remaining_amount }}</div>
+    <div class="free-shipping--text-full">{{ 'general.cart_drawer.free_shipping.free_shipping_applied_at_checkout' | t }}</div>
+  </div>
+  <div class="free-shipping--bar">
+    <div class="free-shipping--percentage"></div>
+  </div>
+</free-shipping>
+{%- endif -%}

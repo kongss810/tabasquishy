@@ -558,7 +558,8 @@ class CartDrawer {
 
         removes.forEach((remove) => {
             remove.addEventListener('click', (event) => {
-                this.updateQuantity(event.target.dataset.index, '0');
+                const link = event.currentTarget;
+                this.updateQuantity(link.dataset.index, '0');
 
                 event.preventDefault();
             });
@@ -1100,31 +1101,37 @@ class ProductRecommendations extends HTMLElement {
                 if (recommendations && recommendations.innerHTML.trim().length) {
                     this.innerHTML = recommendations.innerHTML;
 
-                    var swipertext = new Swiper(`.recommendationsSwiper`, {
-                        spaceBetween: 24,
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                        pagination: {
-                            el: '.swiper-pagination',
-                            type: 'progressbar',
-                        },
-                        breakpoints: {
-                            300: {
-                                slidesPerView: 2,
-                                spaceBetween: 12,
+                    if (this.classList.contains('cart-drawer__recommendations')) {
+                        if (window.CartDrawerRecommendations) {
+                            window.CartDrawerRecommendations.init(this.closest('#Cart-Drawer'));
+                        }
+                    } else if (this.querySelector('.recommendationsSwiper')) {
+                        new Swiper(this.querySelector('.recommendationsSwiper'), {
+                            spaceBetween: 24,
+                            navigation: {
+                                nextEl: this.querySelector('.swiper-button-next'),
+                                prevEl: this.querySelector('.swiper-button-prev'),
                             },
-                            740: {
-                                slidesPerView: 2,
-                                spaceBetween: 20,
+                            pagination: {
+                                el: this.querySelector('.swiper-pagination'),
+                                type: 'progressbar',
                             },
-                            1200: {
-                                slidesPerView: 4,
-                                spaceBetween: 24,
+                            breakpoints: {
+                                300: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 12,
+                                },
+                                740: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 20,
+                                },
+                                1200: {
+                                    slidesPerView: 4,
+                                    spaceBetween: 24,
+                                },
                             },
-                        },
-                    });
+                        });
+                    }
                 }
 
                 this.classList.add('product-recommendations--loaded');

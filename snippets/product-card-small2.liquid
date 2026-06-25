@@ -1,0 +1,51 @@
+{%- liquid
+	assign is_purchasable = false
+	if product_small.available and product_small.variants.size == 1
+		assign is_purchasable = true
+	endif 
+-%}
+<product-card-small class="product_card_small quick-add-to-card--{{ is_purchasable }}" data-url="{{ product_small.url }}" data-id="{{ product_small.selected_or_first_available_variant.id }}" data-product-handle="{{ product_small.handle }}">
+	<div class="product-card-small--image">
+		<a href="{{ product_small.url }}" title="{{ product_small.title | escape }}" class="product-cart-small--image-link">
+			{% if product_small.featured_image %}
+				{%- render 'responsive-image', image: product_small.featured_image, sizes: '200x0' -%}
+			{% else %}
+				<div class="thb-placeholder" style="width: 70px; height:80px;">
+					{%-
+						liquid
+						capture index
+							cycle '1', '2', '3', '4', '5', '6'
+						endcapture
+					-%}
+					{{ 'product-' | append: index | placeholder_svg_tag }}
+				</div>
+			{% endif %}
+		</a>
+	</div>
+	<div class="product-card-small--info">
+        <div class="product-card-small--info-left">
+            {%-
+                liquid
+                assign product_title = product_small.title
+                if predictive_search
+                    assign product_title = product_title | highlight: predictive_search.terms
+                endif
+            -%}
+            <a href="{{ product_small.url }}" title="{{ product_small.title | escape }}" class="product-card-small--link">{{ product_title }}</a>
+            <div class="product-card-small--add-to-cart">
+                {% render 'product-price', product: product_small %}
+            </div>
+        </div>
+        <div class="product-card-small--add-to-cart">
+			{% if is_purchasable %}
+			<button class="product-card-small--add-to-cart-button"><span class="product-card-small--add-to-cart-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
+                <path d="M1.90289 22C1.37114 22 0.921053 21.8158 0.552632 21.4474C0.184211 21.0789 0 20.6289 0 20.0971V8.11342C0 7.58167 0.184211 7.13158 0.552632 6.76316C0.921053 6.39474 1.37114 6.21053 1.90289 6.21053H6.05263V3.94737C6.05263 2.85702 6.4379 1.92649 7.20842 1.15579C7.97912 0.385263 8.90965 0 10 0C11.0904 0 12.0209 0.385263 12.7916 1.15579C13.5621 1.92649 13.9474 2.85702 13.9474 3.94737V6.21053H18.0971C18.6289 6.21053 19.0789 6.39474 19.4474 6.76316C19.8158 7.13158 20 7.58167 20 8.11342V20.0971C20 20.6289 19.8158 21.0789 19.4474 21.4474C19.0789 21.8158 18.6289 22 18.0971 22H1.90289ZM1.90289 20.4211H18.0971C18.1782 20.4211 18.2524 20.3873 18.3197 20.3197C18.3873 20.2524 18.4211 20.1782 18.4211 20.0971V8.11342C18.4211 8.03237 18.3873 7.95816 18.3197 7.89079C18.2524 7.82325 18.1782 7.78947 18.0971 7.78947H13.9474V10.1579C13.9474 10.3819 13.8718 10.5695 13.7205 10.7205C13.5695 10.8718 13.3819 10.9474 13.1579 10.9474C12.9339 10.9474 12.7463 10.8718 12.5953 10.7205C12.444 10.5695 12.3684 10.3819 12.3684 10.1579V7.78947H7.63158V10.1579C7.63158 10.3819 7.55597 10.5695 7.40474 10.7205C7.25368 10.8718 7.06614 10.9474 6.84211 10.9474C6.61807 10.9474 6.43053 10.8718 6.27947 10.7205C6.12825 10.5695 6.05263 10.3819 6.05263 10.1579V7.78947H1.90289C1.82184 7.78947 1.74763 7.82325 1.68026 7.89079C1.61272 7.95816 1.57895 8.03237 1.57895 8.11342V20.0971C1.57895 20.1782 1.61272 20.2524 1.68026 20.3197C1.74763 20.3873 1.82184 20.4211 1.90289 20.4211ZM7.63158 6.21053H12.3684V3.94737C12.3684 3.28754 12.1387 2.72781 11.6792 2.26816C11.2197 1.80868 10.66 1.57895 10 1.57895C9.34 1.57895 8.78026 1.80868 8.32079 2.26816C7.86132 2.72781 7.63158 3.28754 7.63158 3.94737V6.21053Z" fill="#333333"/>
+              </svg>    
+                <span class="loading-overlay">{% render 'svg-icons' with 'thb-loading' %}</span></span></button>
+			{% else %}
+			<quick-view class="product-card-small--add-to-cart-button" data-product-handle="{{ product_small.handle }}"><span class="product-card-small--add-to-cart-icon">{%- render 'svg-icons' with 'thb-add-to-cart' %}<span class="loading-overlay">{% render 'svg-icons' with 'thb-loading' %}</span></span> <span class="product-card-small--add-to-cart-text">	{{ 'products.product.choose_options' | t }}</span></quick-view>
+			{% endif %}
+		</div> 
+	</div>
+</product-card-small>
