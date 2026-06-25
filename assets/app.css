@@ -1955,6 +1955,11 @@ body {
     background: var(--bg-body);
 }
 
+body.open-cc,
+body.open-cc--product {
+    overflow: hidden;
+}
+
 body.open-cc #wrapper .click-capture {
     opacity: 1;
     visibility: visible;
