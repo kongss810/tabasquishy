@@ -20,12 +20,7 @@
                     {{ 'sections.breadcrumbs.shop' | t }}
                 </a>
                 <div>|</div>
-                <a
-                    href='{{ collection.url }}'
-                    title='{{ collection.title | escape }}'
-                >
-                    {{ collection.title }}
-                </a>
+                {{ collection.title }}
             {% endif %}
             {% if template contains 'list-collections' %}
                 <div>|</div>

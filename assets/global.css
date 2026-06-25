@@ -517,3 +517,7 @@ body {
         object-position: top;
     }
 }
+
+#smile-ui-lite-container {
+    z-index: 10 !important;
+}
