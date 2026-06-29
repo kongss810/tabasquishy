@@ -255,22 +255,7 @@
                 "default": "#ffffff",
                 "info": "Choose a color similar to the primary background."
             },
-            {
-                "type": "header",
-                "content": "Announcement bar"
-            },
-            {
-                "type": "color",
-                "id": "color_announcement_bar_text",
-                "label": "Text",
-                "default": "#ffffff"
-            },
-            {
-                "type": "color",
-                "id": "color_announcement_bar_bg",
-                "label": "Background",
-                "default": "#2C2D2E"
-            },
+           
             {
                 "type": "header",
                 "content": "Secondary menu"
@@ -848,6 +833,18 @@
                 "id": "color_badge_sale",
                 "label": "Sale",
                 "default": "#C62A32"
+            }
+        ]
+    },
+    {
+        "name": "Product page",
+        "settings": [
+            {
+                "type": "textarea",
+                "id": "variant_image_option",
+                "label": "Variant image option names",
+                "default": "Type,Size,Animal Type,Color",
+                "info": "Enter option names that should show variant images, separated by commas. Example: Type, Style, Box. The first matching variant image is used, then the product featured image."
             }
         ]
     },

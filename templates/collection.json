@@ -134,13 +134,21 @@
       ],
       "name": "faqs",
       "settings": {
+        "show_topBanner": false,
         "title": "<p>Frequently Asked Questions</p>",
         "highlighted_text": "none",
         "faq_active_bg_color": "#fcd454",
         "faq_active_bg_image": "shopify://shop_images/Vector_5f3931f5-cd6d-4492-95b5-a03cd90f4526.png",
+        "faq_a_active": "#ed8e25",
+        "open_first_item": false,
+        "bg_color": "",
+        "Desktop_top": 0,
         "Desktop_paddingTop": 160,
+        "Mobile_top": 0,
         "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
         "Desktop_paddingBottom": 80,
+        "Mobile_bottom": 0,
         "Mobile_paddingBottom": 0
       }
     }

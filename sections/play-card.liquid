@@ -173,6 +173,21 @@
         opacity: 1;
         transform: translateX(-10%);
     }
+
+    .play-card-block-card--text-left .play-card-block-header,
+    .play-card-block-card--text-left .play-card-block-items {
+        text-align: left;
+    }
+
+    .play-card-block-card--text-right .play-card-block-header,
+    .play-card-block-card--text-right .play-card-block-items {
+        text-align: right;
+    }
+
+    .play-card-block-card--text-right .play-card-block-item {
+        flex-direction: row-reverse;
+    }
+
     .play-card-block-card,
     .play-card-block-image {
         will-change: transform, opacity;
@@ -223,7 +238,7 @@
                         </div>
                     {% endif %}
                     <div
-                        class='play-card-block-card'
+                        class='play-card-block-card play-card-block-card--text-{{ block.settings.text_align | default: "left" }}'
                         style='
                             {% if block.settings.background_image != blank %}
                                 background-image: url({{ block.settings.background_image | image_url: width: 1920 }});
@@ -236,10 +251,8 @@
 
                             {% if block.settings.select == 'row' %}
                                 align-items: flex-end;
-                                text-align: end;
-                            {% elsif block.settings.select == 'row-reverse' %}
+                            {% else %}
                                 align-items: flex-start;
-                                text-align: start;
                             {% endif %}
                         '
                     >
@@ -357,6 +370,16 @@
                         { "value": "row", "label": "Image Left" },
                         { "value": "row-reverse", "label": "Image Right" }
                     ]
+                },
+                {
+                    "type": "select",
+                    "id": "text_align",
+                    "label": "Text alignment",
+                    "options": [
+                        { "value": "left", "label": "Left" },
+                        { "value": "right", "label": "Right" }
+                    ],
+                    "default": "left"
                 },
                 {
                     "type": "checkbox",

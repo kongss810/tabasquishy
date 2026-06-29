@@ -35,13 +35,20 @@
             </div>
         {%- endif -%}
         <div class='influencer_picks_bottom relative w-full'>
-            {%- if section.settings.img != blank -%}
-                <div class='influencer_picks_img absolute top-0 z-0 w-full'>
-                    {% render 'section-img', loading: 'eager', img: section.settings.img, width: 1920 %}
+            {%- if section.settings.show_topBanner != blank -%}
+                <div class='my_banner_topScroll absolute top-0 z-0 w-full'>
+                    {% if section.settings.top_video != blank %}
+                        {{
+                            section.settings.top_video
+                            | video_tag: autoplay: true, playsinline: true, loop: true, controls: false, muted: true, image_size: '1920x'
+                        }}
+                    {%- else -%}
+                        {% render 'section-img', loading: 'eager', img: section.settings.background_image, width: 1920 %}
+                    {% endif %}
                 </div>
             {%- endif -%}
             <div class='relative container flex flex-col sm:gap-54'>
-                <div class='influencerPicks_info max-w-[1360px] mx-auto sm:px-7.5% flex w-full items-end justify-center sm:gap-80'>
+                <div class='influencerPicks_info sm:px-7.5% mx-auto flex w-full max-w-[1360px] items-end justify-center sm:gap-80'>
                     <div class='influencerPicks_info_left sm:w-[44%]'>
                         {% for block in section.blocks %}
                             <div
@@ -256,6 +263,22 @@
     "class": "influencer-picks css-layout",
     "settings": [
         {
+            "type": "checkbox",
+            "id": "show_topBanner",
+            "label": "show top banner",
+            "default": false
+        },
+        {
+            "type": "video",
+            "id": "top_video",
+            "label": "Top video"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Top Image"
+        },
+        {
             "type": "richtext",
             "id": "title",
             "label": "Title"
@@ -312,14 +335,6 @@
             "label": "Mobile Padding Bottom",
             "default": 0
         },
-
-        {
-            "type": "image_picker",
-            "id": "img",
-            "label": "image",
-            "info": "1920*160px"
-        },
-
         {
             "type": "color_background",
             "id": "background",

@@ -8,16 +8,27 @@
         overflow: hidden;
         border-radius: 15px;
     }
+    @media (max-width: 768px) {
+        #up-cx-ref-image-container {
+            border-radius: 10px;
+        }
+        #up-cx-ref-content-container {
+            border-radius: 10px;
+        }
+    }
 </style>
-<section id="app_all" class='product-app--container {% if section.settings.show_cotnaienr %} container{% endif %}'>
+<section
+    id='app_all'
+    class='product-app--container {% if section.settings.show_cotnaienr %} container{% endif %}'
+>
     {% if section.settings.title == blank and section.settings.text == blank %}
     {%- else -%}
-        <div class="app_headerTop mx-auto mb-[52px]"> 
+        <div class='app_headerTop mx-auto mb-[32px] sm:mb-[52px]'>
             {% if section.settings.title != blank %}
-                <h2 class='refer-title hide_p text-center text-[64px] leading-[120%] font-[600]'>{{ section.settings.title }}</h2>
+                <h2 class='refer-title hide_p text-center text-[32px] leading-[120%] font-[600] sm:text-[64px]'>{{ section.settings.title }}</h2>
             {% endif %}
             {% if section.settings.text != blank %}
-                <div class='refer-description mt-[16px] hide_p text-center text-[16px]'>{{ section.settings.text }}</div>
+                <div class='refer-description hide_p mt-[16px] text-center text-[14px] sm:text-[16px]'>{{ section.settings.text }}</div>
             {% endif %}
         </div>
     {% endif %}

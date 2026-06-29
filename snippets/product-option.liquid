@@ -4,7 +4,7 @@
     endif
 
     assign handle = option.name | strip | handleize
-    assign variant_image_option_names = variant_image_option | default: '' | split: ','
+    assign variant_image_option_names = variant_image_option | default: settings.variant_image_option | default: '' | split: ','
     assign use_variant_option_image = false
     for variant_image_option_name in variant_image_option_names
         assign variant_image_option_handle = variant_image_option_name | strip | handleize

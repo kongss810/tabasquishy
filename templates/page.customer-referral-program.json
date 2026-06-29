@@ -24,6 +24,7 @@
       "name": "page-banner",
       "settings": {
         "img": "shopify://shop_images/Frame_2147241710.png",
+        "img_mobile": "shopify://shop_images/Frame_2147241921.png",
         "title": "<p>Refer A friend & Earn<br/>Rewards</p>",
         "text": "<p>Send your friends a 10% discount on their purchase. Once they make a purchase, you’ll also earn <br/>10% off each order! Your reward can be redeemed for coupons.</p>",
         "btn_text": "APPLY NOW",
@@ -77,7 +78,7 @@
         "title": "How It‘s Works？",
         "description": "<p>Send your friends a 10% discount on their purchase. Once they make a purchase, you’ll also earn 10% off each order! Your reward can be redeemed for coupons.</p>",
         "Desktop_paddingTop": 80,
-        "Mobile_paddingTop": 0,
+        "Mobile_paddingTop": 80,
         "Desktop_paddingBottom": 0,
         "Mobile_paddingBottom": 0
       }
@@ -122,14 +123,22 @@
       ],
       "name": "faqs",
       "settings": {
+        "show_topBanner": false,
         "title": "<p>Frequently Asked Questions</p>",
         "highlighted_text": "none",
         "faq_active_bg_color": "#fcd454",
         "faq_active_bg_image": "shopify://shop_images/Vector_5f3931f5-cd6d-4492-95b5-a03cd90f4526.png",
+        "faq_a_active": "#ed8e25",
+        "open_first_item": false,
+        "bg_color": "",
+        "Desktop_top": 0,
         "Desktop_paddingTop": 160,
-        "Mobile_paddingTop": 0,
+        "Mobile_top": -2,
+        "Mobile_paddingTop": 80,
+        "Desktop_bottom": 0,
         "Desktop_paddingBottom": 160,
-        "Mobile_paddingBottom": 0
+        "Mobile_bottom": 0,
+        "Mobile_paddingBottom": 80
       }
     },
     "1740384000a856ca51": {

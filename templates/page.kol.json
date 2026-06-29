@@ -120,6 +120,8 @@
       ],
       "name": "Influencer Picks",
       "settings": {
+        "show_topBanner": true,
+        "top_video": "shopify://files/videos/Vector 86_2.mp4",
         "title": "<p>Crafted To Inspire And Delight</p>",
         "content": "<p>SUBMIT NOW & BECOME A #TabaSquishyStar2025!</p>",
         "product_limit": 10,
@@ -127,7 +129,6 @@
         "Mobile_paddingTop": 0,
         "Desktop_paddingBottom": 0,
         "Mobile_paddingBottom": 0,
-        "img": "shopify://shop_images/Vector_85_2_1.png",
         "background": "linear-gradient(178deg, rgba(255, 248, 228, 1) 8.5%, rgba(255, 255, 255, 1) 77.37%)"
       }
     },
@@ -256,11 +257,20 @@
       "name": "index-positive-reviews",
       "settings": {
         "title": "<p>Pick Up! The Co-op Studio</p>",
-        "number_reviews": "",
         "highlighted_text": "none",
+        "number_reviews": "",
+        "show_all_product_cards": false,
+        "enable_autoplay": false,
+        "autoplay_delay": 5,
+        "background_color": "transparent",
+        "product_box_background_color": "",
+        "Desktop_top": 0,
         "Desktop_paddingTop": 160,
+        "Mobile_top": 0,
         "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
         "Desktop_paddingBottom": 160,
+        "Mobile_bottom": 0,
         "Mobile_paddingBottom": 0
       }
     },

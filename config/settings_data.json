@@ -74,6 +74,7 @@
     "sale_badge_type": "save_percentage",
     "badge_corner_radius": 6,
     "color_badge_sale": "#c62a32",
+    "variant_image_option": "Type,Size,Animal Type,Color,Number",
     "sibling_style": "image",
     "color_swatches": "Black-Pink: Black-Pink.png\nYellow-Purple: Yellow-Purple.png\nBlack-Fuchsia: Black-Fuchsia.png\nRed-Black: Red-Black.png\nNavy-White: Navy-White.png\nSingle-Yellow: Single-Yellow.png\nBlue-Pink: Blue-Pink.png\nFuchsia-White-Fuchsia: FWF.jpg\nFuchsia-White-Black: FWB.jpg\nBlack-Fuchsia-Black: BFB.jpg\nBlue-White-Blue: BWB.jpg\nPurple-White-Purple: PWP.jpg\nMacaron-White-Pink: MWP.jpg\nGreen-Black: Green-Black.jpg\nYellow-White: Yellow-White.jpg\nYellow-Green: Yellow-Green.jpg\nPink-Yellow: Pink-Yellow.jpg\nWhite-Cow: White-Cow.jpg\nBlack-Red: Black-Red.jpg\nTransparent-Pink: Transparent-Pink.jpg\nTransparent-Green: Transparent-Green.jpg\nBlack-Purple: Black-Purple.jpg\nCow-Pink: Cow-Pink.jpg",
     "cart_terms_conditions_enable": false,

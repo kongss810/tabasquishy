@@ -177,7 +177,6 @@
             "picker_type": "button",
             "color_picker": false,
             "variant_is_disabled": true,
-            "variant_image_option": "Type,Size,Animal Type,Color",
             "sizing_guide_variant": "Size",
             "sizing_guide_text": "",
             "sizing_guide_icon": "ruler",

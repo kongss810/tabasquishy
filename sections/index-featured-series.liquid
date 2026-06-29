@@ -160,6 +160,9 @@
         var desktopSlidesPerView = {{ section.blocks.size | plus: 0 }} < 3 ? 2 : 2.3;
         var swipertext = new Swiper(`#shopify-section-{{section.id}} .swiper`, {
             spaceBetween: 24,
+            mousewheel: {
+                forceToAxis: true,
+            },
             navigation: {
                 nextEl: '#shopify-section-{{section.id}} .swiper-button-next',
                 prevEl: '#shopify-section-{{section.id}} .swiper-button-prev',

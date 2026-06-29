@@ -1,3 +1,7 @@
+.page-all .page-detail {
+    margin: 0 auto;
+    max-width: 1280px !important;
+}
 .page-all h2,
 .page-all h2 b {
     font-size: 40px;
@@ -58,5 +62,5 @@
     margin: 20px 0;
 }
 .page-all li::marker {
-  font-size: 14px;
+    font-size: 14px;
 }

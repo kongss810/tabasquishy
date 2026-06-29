@@ -58,7 +58,7 @@
     <div class='container'>
         <div class=''>
             <div class='product-grid-container'>
-                <div class='product-gallery-sticky'>
+                <div class='product_left product-gallery-sticky'>
                     <div
                         class='product-gallery-container thumbnails-{{ thumbnail_position }}'
                         id='MediaGallery-{{ section.id }}'
@@ -936,12 +936,6 @@
                     "default": true,
                     "label": "Show availability in selectors",
                     "info": "When an option is selected, unavailable variants will be crossed-out."
-                },
-                {
-                    "type": "textarea",
-                    "id": "variant_image_option",
-                    "label": "Variant image option names",
-                    "info": "Enter option names that should show variant images, separated by commas. Example: Type, Style, Box. The first matching variant image is used, then the product featured image."
                 },
                 {
                     "type": "header",

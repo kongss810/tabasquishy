@@ -16,14 +16,16 @@
           "type": "content_item",
           "settings": {
             "overlay_opacity": 30,
+            "subheading_color": "#ffffff",
             "title_color": "#ffffff",
             "content_color": "#ffffff",
             "button_color": "#ffffff",
             "button_text_color": "#333333",
             "desktop_layout": "left",
             "mobile_layout": "middle",
-            "video": "shopify://files/videos/TABASQUISHY TabaSquishy.mp4",
-            "subheading": "<a href=\"/collections/tabasquishy-sports-balls\" title=\"BALL SQUISHY SQUAD – BALL-SHAPED CUTIES\">New Release</a>",
+            "video": "shopify://files/videos/6月26日(1).mp4",
+            "subheading": "New Release",
+            "subheading_underline": true,
             "title": "<p>Bling Bling Dreamland</p>",
             "content": "<p>Shimmering Transparent Squishy Series</p>",
             "button": "SHOP NOW",
@@ -34,6 +36,7 @@
           "type": "content_item",
           "settings": {
             "overlay_opacity": 0,
+            "subheading_color": "",
             "title_color": "",
             "content_color": "",
             "button_color": "",
@@ -42,6 +45,7 @@
             "mobile_layout": "middle",
             "img": "shopify://shop_images/banner_1.png",
             "subheading": "",
+            "subheading_underline": true,
             "title": "",
             "content": "",
             "button": "",
@@ -56,9 +60,10 @@
       "name": "Carousel Assets Banner",
       "settings": {
         "enable_autoplay": false,
-        "autoplay_delay": 4000,
+        "autoplay_delay": 5,
         "img": "shopify://shop_images/Frame_122.svg",
-        "enable_animation": true
+        "enable_animation": true,
+        "animation_speed": 15
       }
     },
     "index_collection_list_nzWxt8": {
@@ -441,12 +446,21 @@
       "name": "index-positive-reviews",
       "settings": {
         "title": "<p>Over <strong>1000+</strong> Positive Reviews</p>",
+        "highlighted_text": "none",
         "star_img": "shopify://shop_images/Container.svg",
         "number_reviews": "5000+",
-        "highlighted_text": "none",
+        "show_all_product_cards": false,
+        "enable_autoplay": false,
+        "autoplay_delay": 5,
+        "background_color": "transparent",
+        "product_box_background_color": "",
+        "Desktop_top": 0,
         "Desktop_paddingTop": 160,
+        "Mobile_top": 0,
         "Mobile_paddingTop": 0,
+        "Desktop_bottom": 0,
         "Desktop_paddingBottom": 160,
+        "Mobile_bottom": 0,
         "Mobile_paddingBottom": 0
       }
     },
@@ -640,6 +654,8 @@
       "type": "index-gameplay",
       "name": "Index Gameplay",
       "settings": {
+        "title": "",
+        "highlighted_text": "none",
         "first_pc_image": "shopify://shop_images/Frame_1249187327.png",
         "first_pc_video": "shopify://files/videos/tabasquishy-pink- beauty-16-9-v.mp4",
         "first_title": "How to Squish Properly.",

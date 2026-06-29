@@ -1,7 +1,7 @@
 {%- if section.settings.announcement_bar -%}
 	{%- liquid
-		assign color_announcement_bar_text = settings.color_announcement_bar_text
-		assign color_announcement_bar_bg = settings.color_announcement_bar_bg
+		assign color_announcement_bar_text = section.settings.color_announcement_bar_text
+		assign color_announcement_bar_bg = section.settings.color_announcement_bar_bg
 
 		assign announcement_bar_layout = section.settings.announcement_bar_layout
 		assign speed = section.settings.speed
@@ -190,6 +190,18 @@
 			"unit": "s",
 			"label": "Change slides every",
 			"default": 5
+		},
+		{
+			"type": "color",
+			"id": "color_announcement_bar_text",
+			"label": "Text",
+			"default": "#ffffff"
+		},
+		{
+			"type": "color",
+			"id": "color_announcement_bar_bg",
+			"label": "Background",
+			"default": "#2C2D2E"
 		}
 	],
 	"blocks": [

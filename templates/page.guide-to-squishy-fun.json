@@ -43,6 +43,7 @@
           "type": "card_item",
           "settings": {
             "select": "row-reverse",
+            "text_align": "left",
             "use_video": true,
             "image": "shopify://shop_images/Rectangle_19780_1.png",
             "video": "shopify://files/videos/tabasquishy_how_to_play_16_9.mp4",
@@ -91,7 +92,8 @@
           "type": "card_item",
           "settings": {
             "select": "row",
-            "use_video": true,
+            "text_align": "left",
+            "use_video": false,
             "image": "shopify://shop_images/Rectangle_19780.png",
             "video": "shopify://files/videos/tabasquishy_sensation_instruction_169.mp4",
             "background_image": "shopify://shop_images/Frame_2085663030.png",
@@ -157,6 +159,7 @@
       "settings": {
         "title": "<p>How To Clea Your TABASQUISHY™ The Right Way</p>",
         "description": "<p>Got yours dirty during play? No worries! With just soap and warm water, your TABASQUISHY™ will be as fresh as new—soft, squishy, and ready for more fun. Keep It Clean, Keep It Squishy!</p>",
+        "description_align": "left",
         "use_video": true,
         "image": "shopify://shop_images/Rectangle_19779.png",
         "video": "shopify://files/videos/tabasquishy_how_to_play_16_9.mp4",
@@ -172,6 +175,7 @@
       "settings": {
         "title": "<p>IS YOUR TABA SQUISHY TOO STICKY?</p>",
         "description": "<p>Feeling like your Taba Squishy is too sticky to handle? Don’t worry – it’s totally normal, and we’ve got you covered! ✨ Here are 3 simple ways to reduce stickiness while keeping your squishy soft and satisfyin.</p>",
+        "description_align": "left",
         "use_video": true,
         "image": "shopify://shop_images/Rectangle_19779.png",
         "video": "shopify://files/videos/tabasquishy_how_to_reduce_stickiness_16_9.mp4",
@@ -375,6 +379,7 @@
         "faq_active_bg_color": "#fcd454",
         "faq_active_bg_image": "shopify://shop_images/Vector_5f3931f5-cd6d-4492-95b5-a03cd90f4526.png",
         "faq_a_active": "#ed8e25",
+        "open_first_item": false,
         "bg_color": "",
         "Desktop_top": 0,
         "Desktop_paddingTop": 160,

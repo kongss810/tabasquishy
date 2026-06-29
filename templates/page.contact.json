@@ -43,7 +43,7 @@
         "text_HxmJnq"
       ],
       "settings": {
-        "title": "<p>Hi, My Lovely Friends! </p>",
+        "title": "<p>Hi, My Lovely Friends!</p>",
         "description": "<p>Contact me any time using the contact form below, or email me at: service@tabasquishy.com</p>",
         "form_title": "Send Us A Message",
         "social_title": "Follow Us",
@@ -51,9 +51,9 @@
         "show_phone_number": true,
         "highlighted_text": "none",
         "Desktop_paddingTop": 80,
-        "Mobile_paddingTop": 0,
+        "Mobile_paddingTop": 40,
         "Desktop_paddingBottom": 80,
-        "Mobile_paddingBottom": 0
+        "Mobile_paddingBottom": 80
       }
     }
   },

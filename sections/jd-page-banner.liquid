@@ -5,6 +5,9 @@
     }
 
     @media (min-width: 1024px) {
+        .page-banner-all img {
+            min-height: 300px;
+        }
     }
 </style>
 
@@ -16,33 +19,35 @@
     {%- else -%}
         {% render 'section-img', img: section.settings.img, img_mobile: section.settings.img_mobile, width: 1920, mobile_width: 750 %}
     {% endif %}
-    <div class='{% if section.settings.img == blank %} collection_empty py-[112px] {% else %} absolute top-[0px] right-0 left-[0px] {% endif %} page-banner-info mx-auto flex h-full w-full max-w-[952px] flex-col items-center justify-center text-center'>
-        {% if section.settings.title != blank %}
-            <h2
-                style='color: {{ section.settings.title_color }}'
-                class='header-title hide_p text-center leading-[113%] font-[600] tracking-[-1.28px] sm:text-[48px] sm:leading-[120%] lg:text-[64px]'
-            >
-                {{ section.settings.title }}
-            </h2>
-        {% endif %}
+    <div class='container {% if section.settings.img == blank %} collection_empty py-[112px] {% else %} absolute top-[0px] right-0 left-[0px] bottom-0 {% endif %}'>
+        <div class='page-banner-info mx-auto flex h-full w-full max-w-[952px] flex-col items-center justify-center text-center'>
+            {% if section.settings.title != blank %}
+                <h2
+                    style='color: {{ section.settings.title_color }}'
+                    class='header-title hide_p text-center text-[32px] leading-[120%] font-[600] sm:text-[48px] sm:tracking-[-1.28px] lg:text-[64px]'
+                >
+                    {{ section.settings.title }}
+                </h2>
+            {% endif %}
 
-        {% if section.settings.text != blank %}
-            <div
-                style='color: {{ section.settings.text_color }}'
-                class='header-text hide_p mt-[24px] text-center text-[16px] leading-[113%] font-[400] sm:text-[16px] sm:leading-[150%] '
-            >
-                {{ section.settings.text }}
-            </div>
-        {% endif %}
+            {% if section.settings.text != blank %}
+                <div
+                    style='color: {{ section.settings.text_color }}'
+                    class='header-text hide_p mt-[24px] text-center text-[14px] font-[400] sm:text-[16px] sm:text-[16px] leading-[150%] '
+                >
+                    {{ section.settings.text }}
+                </div>
+            {% endif %}
 
-        {% if section.settings.btn_text != blank %}
-            <a
-                href='{{ section.settings.btn_link }}'
-                class='button page-banner-btn text-text mt-[24px] flex h-[48px] min-h-[48px] items-center rounded-[999px] bg-[#FCD454] px-[48px] text-center text-[28px] leading-[113%] font-[500] tracking-[0] sm:text-[16px] sm:leading-[120%]'
-            >
-                {{ section.settings.btn_text }}
-            </a>
-        {% endif %}
+            {% if section.settings.btn_text != blank %}
+                <a
+                    href='{{ section.settings.btn_link }}'
+                    class='button page-banner-btn text-text mt-[24px] flex h-[40px] min-h-[40px] items-center rounded-[999px] bg-[#FCD454] px-[48px] text-center text-[14px] leading-[120%] font-[500] tracking-[0] sm:h-[48px] sm:min-h-[48px] sm:text-[16px]'
+                >
+                    {{ section.settings.btn_text }}
+                </a>
+            {% endif %}
+        </div>
     </div>
 </div>
 
@@ -55,6 +60,11 @@
             "type": "image_picker",
             "id": "img",
             "label": "img"
+        },
+        {
+            "type": "image_picker",
+            "id": "img_mobile",
+            "label": "img mobile"
         },
         {
             "type": "richtext",

@@ -17,11 +17,10 @@
         gap: 32px 24px;
     }
 
-    /* 占两列 */
     .contact-form .grid-columns {
         grid-column: span 2;
     }
-    /* 占一列（默认） */
+
     .contact-form .grid-columns-half {
         grid-column: span 1 !important;
     }
@@ -42,19 +41,26 @@
     .contact-form .field-box input {
         border-radius: 999px;
         margin-bottom: 0;
+        height: 48px;
         background: #fff;
     }
+
     .contact-form .field-box textarea {
         border-radius: 15px;
         margin-bottom: 0;
         background: #fff;
     }
+
     .contact-form .field-box textarea::placeholder {
         font-size: 14px;
         font-weight: 400;
         line-height: 110%;
         color: rgba(26, 26, 26, 0.4);
         opacity: 1;
+    }
+
+    .contact-form .footer-social .social-links {
+        flex-wrap: wrap;
     }
 
     .contact-form .footer-social .social-links li {
@@ -70,9 +76,85 @@
         border-radius: 999px;
         background: #fcd454;
     }
+    .contact-form .footer-social .social-links li a {
+        display: flex;
+    }
     .contact-form .footer-social .social-links svg {
         width: auto;
         height: auto;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .contact-form .form-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .contact-form .footer-social .social-links {
+            gap: 12px;
+        }
+        .contact-form .grid-columns,
+        .contact-form .grid-columns-half {
+            grid-column: span 1;
+        }
+
+        .contact-form .field-box label {
+            font-size: 16px;
+            line-height: 150%;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .contact-form .field-box input {
+            height: 40px;
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+
+        .contact-form .field-box textarea {
+            min-height: 142px;
+            border-radius: 10px;
+            padding: 6px 12px;
+        }
+
+        .contact-form .field-box textarea::placeholder,
+        .contact-form .field-box input::placeholder {
+            font-size: 12px;
+            line-height: 150%;
+            color: rgba(26, 26, 26, 0.4);
+        }
+
+        .contact-form .field.select select {
+            height: 40px;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+
+        .contact-form .contact-form-item .img-box {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .contact-form .footer-social .social-links li {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+        }
+
+        .contact-form button[type='submit'] {
+            height: 40px;
+            margin-top: 0;
+            margin-top: 8px;
+        }
+
+        .contact-form button[type='submit'] .single-add-to-cart-button--text,
+        .contact-form button[type='submit'] span {
+            font-size: 14px;
+            line-height: 120%;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
     }
 </style>
 
@@ -94,15 +176,15 @@
 -%}
 {{- 'contact-form.css' | asset_url | stylesheet_tag -}}
 <div class='contact-form container'>
-    <div class='contact-form-header mb-[80px] flex flex-col items-center gap-[20px] text-center'>
+    <div class='contact-form-header mb-0 flex flex-col items-start gap-[16px] text-left sm:mb-[80px] sm:items-center sm:gap-[20px] sm:text-center'>
         {% if section.settings.title != blank %}
             {%- if section.settings.highlighted_text == 'none' -%}
-                <h2 class='header-title text-title hide_p text-[28px] leading-[113%] font-[600] tracking-[-1.28] sm:text-[64px] sm:leading-[120%]'>
+                <h2 class='header-title text-title hide_p w-full text-[32px] leading-[120%] font-[600] tracking-[-1.28] sm:text-[64px] sm:leading-[120%]'>
                     {{ section.settings.title }}
                 </h2>
             {%- else -%}
                 {%- render 'highlighted-text',
-                    class: 'header-title text-title hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[-1.28]',
+                    class: 'header-title text-title hide_p w-full text-[32px] font-[600] leading-[120%] tracking-[-1.28] sm:text-[64px] sm:leading-[120%]',
                     content: section.settings.title,
                     style: section.settings.highlighted_text,
                     scribble: 'sketch-underline',
@@ -112,29 +194,33 @@
         {% endif %}
 
         {% if section.settings.description != blank %}
-            <div class='contact-form-description hide_p text-text text-[24px] leading-[100%] font-[400]'>{{ section.settings.description }}</div>
+            <div class='contact-form-description hide_p text-text w-full text-[14px] leading-[150%] font-[400] sm:text-[24px] sm:leading-[100%]'>
+                {{ section.settings.description }}
+            </div>
         {% endif %}
     </div>
 
-    <div class='contact-form-box flex'>
-        <div class='contact-form-left flex w-[50%] max-w-[712px] flex-col justify-between px-[30px] py-[60px]'>
+    <div class='contact-form-box mt-[52px] flex flex-col gap-[52px] sm:mt-0 sm:flex-row'>
+        <div class='contact-form-left order-2 flex w-full flex-col gap-[52px] sm:order-1 sm:w-[50%] sm:max-w-[712px] sm:justify-between sm:gap-0 sm:px-[30px] sm:py-[60px]'>
             {%- if text_blocks.size > 0 -%}
-                <div class='grid gap-[32px]'>
+                <div class='grid gap-[24px] sm:gap-[32px]'>
                     {% for block in section.blocks %}
                         {%- if block.type == 'text' -%}
-                            <div class='contact-form-item flex items-center gap-[20px] py-[12px]'>
+                            <div class='contact-form-item flex items-center gap-[12px] sm:gap-[20px] sm:py-[12px]'>
                                 {% if block.settings.image %}
-                                    <div class='img-box h-[60px] w-[60px]'>
+                                    <div class='img-box h-[60px] w-[60px] shrink-0'>
                                         {% render 'section-img', img: block.settings.image, width: 200, loading: 'lazy' %}
                                     </div>
                                 {% endif %}
 
                                 <div
-                                    class='contact-form-block'
+                                    class='contact-form-block min-w-0 flex-1'
                                     {{ block.shopify_attributes }}
                                 >
-                                    <div class='text-title text-[28px] leading-[120%] font-[600] tracking-[-0.28px]'>{{ block.settings.heading }}</div>
-                                    <div class='rte hide_p text-text mt-[12px] text-[18px] leading-[150%] font-[500]'>
+                                    <div class='text-title text-[20px] leading-[120%] font-[600] tracking-[-0.28px] sm:text-[28px]'>
+                                        {{ block.settings.heading }}
+                                    </div>
+                                    <div class='rte hide_p text-text mt-[8px] text-[14px] leading-[150%] font-[400] sm:mt-[12px] sm:text-[18px] sm:font-[500]'>
                                         {{ block.settings.text }}
                                     </div>
                                 </div>
@@ -146,9 +232,10 @@
 
             {% if section.settings.show_social %}
                 <div class='footer-social'>
-                    <div class='widget widget--social'>
+                    <div class='widget widget--social flex items-center gap-[12px] sm:block'>
+                        <div class='contact-form-share-label shrink-0 text-[18px] leading-[150%] font-[600] text-[#1a1a1a] sm:hidden'>Share:</div>
                         {% if section.settings.social_title != blank %}
-                            <div class='thb-widget-title mb-[20px] text-[28px] leading-[-0.28px] leading-[120%] font-[600]'>
+                            <div class='thb-widget-title mb-[20px] hidden text-[28px] leading-[120%] font-[600] tracking-[-0.28px] sm:block'>
                                 {{ section.settings.social_title }}
                             </div>
                         {% endif %}
@@ -157,8 +244,8 @@
                 </div>
             {% endif %}
         </div>
-        <div class='contact-form--form-column w-[50%] max-w-[750px] rounded-[15px] bg-[#FCD454] p-[48px]'>
-            <div class='fomr-title text-title mb-[48px] text-[32px] leading-[100%] font-[600]'>{{ section.settings.form_title }}</div>
+        <div class='contact-form--form-column order-1 w-full rounded-[10px] bg-[#FCD454] px-[12px] py-[32px] sm:order-2 sm:w-[50%] sm:max-w-[750px] sm:rounded-[15px] sm:p-[48px]'>
+            <div class='fomr-title text-title mb-[48px] hidden text-[32px] leading-[100%] font-[600] sm:block'>{{ section.settings.form_title }}</div>
             {% form 'contact', class: form_class %}
                 {% if form.posted_successfully? %}
                     <div class='form-notification success'>
@@ -308,9 +395,11 @@
                     <div class='grid-columns'>
                         <button
                             type='submit'
-                            class='button full mt-[16px] h-[56px] rounded-[999px] bg-[#000] text-[#fff]'
+                            class='button full h-[40px] rounded-[999px] bg-[#000] text-[#fff] sm:mt-[16px] sm:h-[56px]'
                         >
-                            <span class='text-[16px] leading-[150%] font-[400]'>{{ 'sections.contact.form.send' | t }}</span>
+                            <span class='text-[14px] leading-[120%] font-[500] uppercase sm:text-[16px] sm:leading-[150%] sm:font-[400] sm:normal-case'>
+                                {{ 'sections.contact.form.send' | t }}
+                            </span>
                         </button>
                     </div>
                 </div>

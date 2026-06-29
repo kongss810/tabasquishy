@@ -15,7 +15,7 @@
     id='header'
     class='header {{ style }} {{ header_shadow }} transparent--{{ transparent_header }} {% if sticky_header %}header-sticky--active{%- endif -%}'
 >
-    <div class='header--inner container py-[20px]'>
+    <div class='header--inner container py-[20px] pb-[26px]'>
         {%- case style -%}
             {%- when 'style1' -%}
                 {% render 'header-style1', blocks: section.blocks, header_settings: section.settings %}
@@ -352,6 +352,20 @@
 
         // 初始化：展示第一个 mega_columns_subTitle 的数据
         resetToFirst();
+    });
+
+    /* Mega menu：点击 promotion 链接后 focus 会导致 :focus-within 锁住菜单，鼠标移入其他项时清除 */
+    document.querySelectorAll('.thb-full-menu > .menu-item-has-children').forEach((menuItem) => {
+        menuItem.addEventListener('mouseenter', () => {
+            document.querySelectorAll('.thb-full-menu > .menu-item-has-children').forEach((otherItem) => {
+                if (otherItem === menuItem) return;
+                otherItem.querySelectorAll('a:focus, button:focus').forEach((el) => el.blur());
+            });
+        });
+
+        menuItem.addEventListener('mouseleave', () => {
+            menuItem.querySelectorAll('a:focus, button:focus').forEach((el) => el.blur());
+        });
     });
 
     // 搜索框点击切换

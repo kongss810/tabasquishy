@@ -7,7 +7,7 @@
 }
 .menu_itemLink_a:after {
     top: unset !important;
-    bottom: -20px;
+    bottom: -27px;
 }
 .menu_itemLink_a {
     display: flex;
@@ -75,7 +75,7 @@
 }
 
 .sub-menu li a {
-    font-size: 16px !important;
+    font-size: 14px !important;
 }
 
 @media (min-width: 1000px) and (max-width: 1400px) {

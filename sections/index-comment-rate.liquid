@@ -287,23 +287,23 @@
 <div class='IndexCommentRate_all'>
     <div class='container'>
         {% if section.settings.title != blank %}
-        <div class='comment-rate-header mb-[52px] flex items-center justify-center text-center gap-[20px]'>
-            {% if section.settings.title != blank %}
-                {%- if section.settings.highlighted_text == 'none' -%}
-                    <h2 class='header-title text-title hide_p text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
-                    {{ section.settings.title }}
-                    </h2>
-                {%- else -%}
-                    {%- render 'highlighted-text',
-                    class: 'header-title text-title hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
-                    content: section.settings.title,
-                    style: section.settings.highlighted_text,
-                    scribble: 'sketch-underline',
-                    gradient: with_gradient
-                    -%}
-                {%- endif -%}
-            {% endif %}
-        </div>
+            <div class='comment-rate-header mb-[52px] flex items-center justify-center gap-[20px] text-center'>
+                {% if section.settings.title != blank %}
+                    {%- if section.settings.highlighted_text == 'none' -%}
+                        <h2 class='header-title text-title hide_p text-[28px] leading-[113%] font-[600] tracking-[0] sm:text-[64px] sm:leading-[120%]'>
+                            {{ section.settings.title }}
+                        </h2>
+                    {%- else -%}
+                        {%- render 'highlighted-text',
+                            class: 'header-title text-title hide_p text-[28px] sm:text-[64px] font-[600] sm:leading-[120%] leading-[113%] tracking-[0]',
+                            content: section.settings.title,
+                            style: section.settings.highlighted_text,
+                            scribble: 'sketch-underline',
+                            gradient: with_gradient
+                        -%}
+                    {%- endif -%}
+                {% endif %}
+            </div>
         {% endif %}
 
         <div class='comment-rate-container'>
@@ -498,6 +498,9 @@
                 nextEl: '#shopify-section-{{section.id}} .swiper-button-next',
                 prevEl: '#shopify-section-{{section.id}} .swiper-button-prev',
             },
+            mousewheel: {
+                forceToAxis: true,
+            },
             pagination: {
                 el: '#shopify-section-{{section.id}} .swiper-pagination',
                 type: 'progressbar',
@@ -548,31 +551,31 @@
     "class": "css-layout",
     "settings": [
         {
-			"type": "richtext",
-			"id": "title",
-			"label": "title"
-		},
+            "type": "richtext",
+            "id": "title",
+            "label": "title"
+        },
         {
-			"type": "header",
-			"content": "Highlighted text",
-			"info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
-		},
-		{
-			"type": "select",
-			"id": "highlighted_text",
-			"options": [
-				{
-					"value": "none",
-					"label": "None"
-				},
-				{
-					"value": "scribble",
-					"label": "Hand-drawn scribble"
-				}
-			],
-			"default": "none",
-			"label": "Highlighted text"
-		},
+            "type": "header",
+            "content": "Highlighted text",
+            "info": "To add an animated highlight to text, simply wrap it in italics. Click the I button in the editor to toggle italics when highlighting text."
+        },
+        {
+            "type": "select",
+            "id": "highlighted_text",
+            "options": [
+                {
+                    "value": "none",
+                    "label": "None"
+                },
+                {
+                    "value": "scribble",
+                    "label": "Hand-drawn scribble"
+                }
+            ],
+            "default": "none",
+            "label": "Highlighted text"
+        },
         {
             "type": "header",
             "content": "Spacing Top:"

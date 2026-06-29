@@ -33,10 +33,14 @@
           color: unset;
         }
 
+        {%- liquid
+            assign animation_speed = section.settings.animation_speed | default: 7
+            assign animation_duration = animation_speed | times: 10
+        -%}
         {%- if section.settings.enable_animation -%}
           .bottom_animation {
             background-repeat: repeat-x;
-            animation: bottomWave 70s -3s linear infinite;
+            animation: bottomWave {{ animation_duration }}s -3s linear infinite;
             background-repeat: repeat-x;
             background-position: center center;
             width: 1000%;
@@ -65,7 +69,7 @@
 {%- endif -%}
 <section
     id='CarouselAssets-{{ section.id }}'
-    class='carousel-assets-banner'
+    class='carousel-assets-banner{% if section.blocks.size <= 1 %} carousel-assets-banner--single{% endif %}'
 >
     <div class='swiper carousel-assets-swiper'>
         <div class='swiper-wrapper'>
@@ -129,7 +133,10 @@
                                     <div class='carousel-assets__top flex flex-col sm:gap-[8px]'>
                                         <div class='carousel-assets__topBox flex flex-col'>
                                             {% if block.settings.subheading != blank %}
-                                                <div class='carousel-assets__subheading hide_p w-max bg-[linear-gradient(90deg,#ED8E25_0%,#E40078_100%)] bg-clip-text leading-normal font-[600] text-transparent underline sm:text-[24px]'>
+                                                <div
+                                                    class='carousel-assets__subheading hide_p w-max leading-normal font-[600] sm:text-[24px]{% if block.settings.subheading_underline %} underline{% endif %}'
+                                                    style='color: {{ block.settings.subheading_color }};'
+                                                >
                                                     {{ block.settings.subheading }}
                                                 </div>
                                             {% endif %}
@@ -183,36 +190,38 @@
                 </div>
             {% endfor %}
         </div>
-        <div class='swiper-button-prev carousel-button-prev'>
-            <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='11'
-                height='23'
-                viewBox='0 0 11 23'
-                fill='none'
-            >
-                <path d="M9.67364 2.32616L0.999802 11L9.67364 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-        <div class='swiper-button-next carousel-button-next'>
-            <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='11'
-                height='23'
-                viewBox='0 0 11 23'
-                fill='none'
-            >
-                <path d="M1.05973 2.32616L9.73358 11L1.05973 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-        <div class='swiper-pagination'></div>
-        <div class='relative container'>
-            <div class='carousel-counter'>
-                <span class='current-slide'>1</span>
-                /
-                <span class='total-slides'>1</span>
+        {%- if section.blocks.size > 1 -%}
+            <div class='swiper-button-prev carousel-button-prev'>
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='11'
+                    height='23'
+                    viewBox='0 0 11 23'
+                    fill='none'
+                >
+                    <path d="M9.67364 2.32616L0.999802 11L9.67364 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </div>
-        </div>
+            <div class='swiper-button-next carousel-button-next'>
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='11'
+                    height='23'
+                    viewBox='0 0 11 23'
+                    fill='none'
+                >
+                    <path d="M1.05973 2.32616L9.73358 11L1.05973 19.6738" stroke="#161A1F" stroke-opacity="0.6" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class='swiper-pagination'></div>
+            <div class='relative container'>
+                <div class='carousel-counter'>
+                    <span class='current-slide'>1</span>
+                    /
+                    <span class='total-slides'>{{ section.blocks.size }}</span>
+                </div>
+            </div>
+        {%- endif -%}
     </div>
     {%- if section.settings.enable_animation -%}
         <div class='bottom_animation_box'>
@@ -232,6 +241,14 @@
       const section = carouselEl.closest('section');
       const currentSlideEl = section.querySelector('.current-slide');
       const totalSlidesEl = section.querySelector('.total-slides');
+      {%- liquid
+        assign autoplay_delay_setting = section.settings.autoplay_delay | default: 4
+        if autoplay_delay_setting > 100
+          assign autoplay_delay_ms = autoplay_delay_setting
+        else
+          assign autoplay_delay_ms = autoplay_delay_setting | times: 1000
+        endif
+      -%}
 
       // 设置总页数
       if (totalSlidesEl) {
@@ -246,7 +263,7 @@
 
         autoplay: canSlide && enableAutoplay
           ? {
-              delay: {{ section.settings.autoplay_delay | default: 4000 }},
+              delay: {{ autoplay_delay_ms }},
               disableOnInteraction: false
             }
           : false,
@@ -292,10 +309,14 @@
             "default": true
         },
         {
-            "type": "number",
+            "type": "range",
             "id": "autoplay_delay",
-            "label": "Autoplay Delay (ms)",
-            "default": 4000
+            "label": "Autoplay delay (×1s)",
+            "min": 1,
+            "max": 9,
+            "step": 1,
+            "default": 4,
+            "info": "Autoplay interval = 1 × this value (seconds). Example: 4 = 4000ms."
         },
         {
             "type": "image_picker",
@@ -308,6 +329,16 @@
             "id": "enable_animation",
             "label": "Enable bottom animation",
             "default": true
+        },
+        {
+            "type": "range",
+            "id": "animation_speed",
+            "label": "Bottom animation speed (×10s)",
+            "min": 1,
+            "max": 30,
+            "step": 1,
+            "default": 7,
+            "info": "Animation duration = 10 × this value (seconds). Example: 7 = 70s per cycle."
         }
     ],
     "blocks": [
@@ -324,6 +355,11 @@
                     "step": 1,
                     "unit": "%",
                     "default": 0
+                },
+                {
+                    "type": "color",
+                    "id": "subheading_color",
+                    "label": "Subheading color"
                 },
                 {
                     "type": "color",
@@ -411,6 +447,12 @@
                     "type": "inline_richtext",
                     "id": "subheading",
                     "label": "Subheading"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "subheading_underline",
+                    "label": "Show subheading underline",
+                    "default": true
                 },
                 {
                     "type": "richtext",

@@ -260,7 +260,7 @@
   padding: 0; }
   .social-links li {
     margin-bottom: 5px; }
-    .social-links li a {
+    .footer .social-links li a {
       display: inline-flex;
       align-items: center;
       width: 44px;

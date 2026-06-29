@@ -36,9 +36,20 @@
 
     .play-how-description p {
         color: #1a1a1a;
-        text-align: right;
         font-size: 16px;
         line-height: 150%; /* 24px */
+    }
+
+    .play-how-description--align-left p {
+        text-align: left;
+    }
+
+    .play-how-description--align-center p {
+        text-align: center;
+    }
+
+    .play-how-description--align-right p {
+        text-align: right;
     }
 
     .play-how-image {
@@ -60,7 +71,9 @@
                     <h3 class='play-how-title'>{{ section.settings.title }}</h3>
                 {% endif %}
                 {% if section.settings.description != blank %}
-                    <div class='play-how-description'>{{ section.settings.description }}</div>
+                    <div class='play-how-description play-how-description--align-{{ section.settings.description_align | default: "right" }}'>
+                        {{ section.settings.description }}
+                    </div>
                 {% endif %}
             </div>
         {% endunless %}
@@ -119,6 +132,16 @@
             "type": "richtext",
             "id": "description",
             "label": "Description"
+        },
+        {
+            "type": "select",
+            "id": "description_align",
+            "label": "Description alignment",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+            ],
+            "default": "right"
         },
         {
             "type": "checkbox",

@@ -14,7 +14,7 @@
 <picture class='my_picture {{ custom_class }}'>
     {%- if mobile_image != blank -%}
         <source
-            media='(max-width: 768px)'
+            media='(max-width: 1024px)'
             srcset='{{ mobile_image | image_url: width: m_width }}'
         >
     {%- endif -%}
